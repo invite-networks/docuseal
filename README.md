@@ -1,107 +1,85 @@
-<h1 align="center" style="border-bottom: none">
-  <div>
-    <a href="https://www.docuseal.com">
-      <img  alt="DocuSeal" src="https://github.com/user-attachments/assets/38b45682-ffa4-4919-abde-d2d422325c44" width="80" />
-      <br>
-    </a>
-    DocuSeal
-  </div>
-</h1>
+<h1 align="center">DocuSeal</h1>
+
 <h3 align="center">
-  Open source document filling and signing
+  Expanded self-hosted document signing with Microsoft 365 integration
 </h3>
-<p align="center">
-  <a href="https://hub.docker.com/r/docuseal/docuseal">
-    <img alt="Docker releases" src="https://img.shields.io/docker/v/docuseal/docuseal">
-  </a>
-  <a href="https://discord.gg/qygYCDGck9">
-    <img src="https://img.shields.io/discord/1125112641170448454?logo=discord"/>
-  </a>
-  <a href="https://twitter.com/intent/follow?screen_name=docusealco">
-    <img src="https://img.shields.io/twitter/follow/docusealco?style=social" alt="Follow @docusealco" />
-  </a>
-</p>
-<p>
-DocuSeal is an open source platform that provides secure and efficient digital document signing and processing. Create PDF forms to have them filled and signed online on any device with an easy-to-use, mobile-optimized web tool.
-</p>
-<h2 align="center">
-  <a href="https://demo.docuseal.tech">✨ Live Demo</a>
-  <span>|</span>
-  <a href="https://docuseal.com/sign_up">☁️ Try in Cloud</a>
-</h2>
 
-[![Demo](https://github.com/docusealco/docuseal/assets/5418788/d8703ea3-361a-423f-8bfe-eff1bd9dbe14)](https://demo.docuseal.tech)
+DocuSeal is an open source platform for creating, sending, filling, and signing digital documents. This repository is an independently maintained fork created to extend the self-hosted edition with selected advanced workflow features and a Microsoft 365-first integration model.
 
-## Features
-- PDF form fields builder (WYSIWYG)
-- 12 field types available (Signature, Date, File, Checkbox etc.)
-- Multiple submitters per document
-- Automated emails via SMTP
-- Files storage on disk or AWS S3, Google Storage, Azure Cloud
-- Automatic PDF eSignature
-- PDF signature verification
-- Users management
-- Mobile-optimized
-- 7 UI languages with signing available in 14 languages
-- API and Webhooks for integrations
-- Easy to deploy in minutes
+> [!IMPORTANT]
+> This fork is under active development. Fork-specific features will be documented as they become available and should be evaluated carefully before production use. This project is not affiliated with or endorsed by DocuSeal LLC.
 
-## Pro Features
-- Company logo and white-label
-- User roles
-- Automated reminders
-- Invitation and identity verification via SMS
+## Why This Fork Exists
+
+The upstream project provides a strong foundation for self-hosted electronic signatures. This fork exists to build a broader open source feature set for organizations that need more control over deployment, identity, communications, and document workflows.
+
+The project is also moving away from direct SMTP as its primary notification path. Microsoft Graph and Microsoft Entra ID will provide modern authentication and Microsoft 365-based message delivery without requiring stored SMTP credentials.
+
+## Project Direction
+
+Development is focused on two areas.
+
+### Expanded Self-Hosted Features
+
+- Granular user roles and permissions
+- Organization branding and white-label options
+- Automated reminders for pending signatures
 - Conditional fields and formulas
-- Bulk send with CSV, XLSX spreadsheet import
-- SSO / SAML
-- Template creation with HTML API ([Guide](https://www.docuseal.com/guides/create-pdf-document-fillable-form-with-html-api))
-- Template creation with PDF or DOCX and field tags API ([Guide](https://www.docuseal.com/guides/use-embedded-text-field-tags-in-the-pdf-to-create-a-fillable-form))
-- Embedded signing form ([React](https://github.com/docusealco/docuseal-react), [Vue](https://github.com/docusealco/docuseal-vue), [Angular](https://github.com/docusealco/docuseal-angular) or [JavaScript](https://www.docuseal.com/docs/embedded))
-- Embedded document form builder ([React](https://github.com/docusealco/docuseal-react), [Vue](https://github.com/docusealco/docuseal-vue), [Angular](https://github.com/docusealco/docuseal-angular) or [JavaScript](https://www.docuseal.com/docs/embedded))
-- [Learn more](https://www.docuseal.com/pricing)
+- Bulk sending and recipient import
+- Single sign-on
+- Expanded template and embedded workflow capabilities
 
-## Deploy
+### Microsoft 365 Integration
 
-|Heroku|Railway|
-|:--:|:---:|
-| [<img alt="Deploy on Heroku" src="https://www.herokucdn.com/deploy/button.svg" height="40">](https://heroku.com/deploy?template=https://github.com/docusealco/docuseal-heroku) | [<img alt="Deploy on Railway" src="https://railway.app/button.svg" height="40">](https://railway.com/deploy/IGoDnc?referralCode=ruU7JR)|
-|**DigitalOcean**|**Render**|
-| [<img alt="Deploy on DigitalOcean" src="https://www.deploytodo.com/do-btn-blue.svg" height="40">](https://cloud.digitalocean.com/apps/new?repo=https://github.com/docusealco/docuseal-digitalocean/tree/master&refcode=421d50f53990) | [<img alt="Deploy to Render" src="https://render.com/images/deploy-to-render-button.svg" height="40">](https://render.com/deploy?repo=https://github.com/docusealco/docuseal-render)
+- Transactional email and signing notifications through Microsoft Graph
+- OAuth-based application authentication through Microsoft Entra ID
+- Tenant-aware administration and configuration
+- Microsoft 365 aligned identity and access controls
+- Reduced dependence on standalone SMTP infrastructure
 
-#### Docker
+The roadmap may evolve as features are implemented and tested. Items in this section describe the intended direction and should not be treated as completed functionality.
+
+## Current DocuSeal Foundation
+
+This fork retains the core capabilities provided by the upstream open source project:
+
+- Visual PDF form builder
+- Signature, initials, date, text, file, checkbox, and other field types
+- Multiple submitters per document
+- Automatic PDF electronic signatures
+- PDF signature verification
+- Mobile-optimized signing workflows
+- Multilingual administration and signing experiences
+- API and webhook integrations
+- Storage on disk or compatible cloud object storage
+- SQLite, PostgreSQL, and MySQL database support
+
+## Project Status
+
+The repository currently tracks the upstream DocuSeal codebase while fork-specific functionality is being developed. The included Compose configuration builds the application directly from this repository so local changes are included in the deployed container.
+
+Release notes will identify which extended features are complete, their configuration requirements, and any migration considerations.
+
+## Deployment
+
+Docker Compose is the supported deployment approach. The included [`docker-compose.yml`](./docker-compose.yml) provisions the application, PostgreSQL, and Caddy with bind-mounted storage.
 
 ```sh
-docker run --name docuseal -p 3000:3000 -v.:/data docuseal/docuseal
+HOST=sign.example.com docker compose up -d --build
 ```
 
-By default DocuSeal docker container uses an SQLite database to store data and configurations. Alternatively, it is possible to use PostgreSQL or MySQL databases by specifying the `DATABASE_URL` env variable.
+The default configuration expects TLS to be terminated by Caddy. Deployments behind an existing reverse proxy should update the Compose environment and proxy configuration for their infrastructure.
 
-#### Docker Compose
+## Contributing
 
-Download docker-compose.yml into your private server:
-```sh
-curl https://raw.githubusercontent.com/docusealco/docuseal/master/docker-compose.yml > docker-compose.yml
-```
+Bug reports, feature proposals, documentation improvements, and code contributions are welcome. Please [open an issue](../../issues) before beginning a substantial change so the proposed work can be aligned with the roadmap.
 
-Run the app under a custom domain over https using docker compose (make sure your DNS points to the server to automatically issue ssl certs with Caddy):
-```sh
-sudo HOST=your-domain-name.com docker compose up
-```
+Contributions should clearly distinguish between upstream fixes and fork-specific behavior. Changes that may also benefit the original project should be considered for submission upstream.
 
-## For Businesses
-### Integrate seamless document signing into your web or mobile apps with DocuSeal
-
-At DocuSeal we have expertise and technologies to make documents creation, filling, signing and processing seamlessly integrated with your product. We specialize in working with various industries, including **Banking, Healthcare, Transport, Real Estate, eCommerce, KYC, CRM, and other software products** that require bulk document signing. By leveraging DocuSeal, we can assist in reducing the overall cost of developing and processing electronic documents while ensuring security and compliance with local electronic document laws.
-
-[Book a Meeting](https://www.docuseal.com/contact)
+DocuSeal is a trademark of its respective owner. This fork preserves the attribution required by the upstream license and additional terms.
 
 ## License
 
-Distributed under the AGPLv3 License with Section 7(b) Additional Terms. See [LICENSE](https://github.com/docusealco/docuseal/blob/master/LICENSE) and [LICENSE_ADDITIONAL_TERMS](https://github.com/docusealco/docuseal/blob/master/LICENSE_ADDITIONAL_TERMS) for more information.
-Unless otherwise noted, all files © 2023-2026 DocuSeal LLC.
+This project is distributed under the GNU Affero General Public License v3.0 with the upstream Section 7(b) additional terms. See [`LICENSE`](./LICENSE) and [`LICENSE_ADDITIONAL_TERMS`](./LICENSE_ADDITIONAL_TERMS) for details.
 
-## Tools
-
-- [Signature Maker](https://www.docuseal.com/online-signature)
-- [Sign Document Online](https://www.docuseal.com/sign-documents-online)
-- [Fill PDF Online](https://www.docuseal.com/fill-pdf)
+Unless otherwise noted, original files are Copyright 2023-2026 DocuSeal LLC. Modifications made in this fork are also distributed under the same license terms.

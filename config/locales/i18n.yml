@@ -23,10 +23,8 @@ en: &en
   add_from_google_drive: Add from Google Drive
   or_add_from: Or add from
   upload_a_new_document: Upload a New Document
-  billing: Billing
   hi_there: Hi there
   templates_that_require_email_or_phone_2fa_cannot_be_used_via_a_shared_link: Templates that require email or phone 2FA cannot be used via a shared link.
-  pro: Pro
   thanks: Thanks
   private: Private
   _variables: Variables
@@ -109,8 +107,6 @@ en: &en
   sent_using_product_name_in_testing_mode_html: 'Sent using <a href="%{product_url}">%{product_name}</a> in testing mode'
   sent_using_product_name_free_document_signing_html: 'Sent using <a href="%{product_url}">%{product_name}</a> free document signing.'
   sent_using_product_name_open_source_software_html: 'Sent using <a href="%{product_url}">%{product_name}</a> open-source software.'
-  sent_with_docuseal_pro_html: 'Sent with <a href="%{product_url}">DocuSeal Pro</a>'
-  show_send_with_docuseal_pro_attribution_in_emails_html: Show "Sent with <span class="link">DocuSeal Pro</span>" attribution in emails
   sign_documents_with_trusted_certificate_provided_by_docu_seal_your_documents_and_data_are_never_shared_with_docu_seal_p_d_f_checksum_is_provided_to_generate_a_trusted_signature: Sign documents with trusted certificate provided by DocuSeal. Your documents and data are never shared with DocuSeal. PDF checksum is provided to generate a trusted signature.
   you_have_been_invited_to_submit_the_name_form: 'You have been invited to submit the "%{name}" form.'
   you_have_been_invited_to_sign_the_name: 'You have been invited to sign the "%{name}".'
@@ -229,7 +225,6 @@ en: &en
   sign_up_with_google: Sign up with Google
   sign_up_with_microsoft: Sign up with Microsoft
   redirecting_to_provider: Redirecting to %{provider}...
-  by_creating_an_account_you_agree_to_our_html: 'By creating an account, you agree to our <a target="_blank" href="https://www.docuseal.com/privacy">Privacy Policy</a> and <a target="_blank" href="https://www.docuseal.com/terms">Terms of Service</a>.'
   enter_email_to_continue: Enter email to continue
   account: Account
   preferences: Preferences
@@ -280,13 +275,11 @@ en: &en
   resetting_password: Resetting password
   sign_in_with_name_account: 'Sign in with %{name} account'
   two_factor_code_from_authenticator_app: Two-Factor Code from Authenticator App
-  sign_up_in_docuseal_console_to_upgrade_on_premises_app_is_completely_standalone_console_is_used_only_to_manage_your_license: Sign up in DocuSeal Console to upgrade. On-premises app is completely standalone, Console is used only to manage your license.
   send_from_email: Send from Email
   optional: optional
   save: Save
   saving: Saving
   changes_have_been_saved: Changes have been saved.
-  unlock_with_docuseal_pro: Unlock with DocuSeal Pro
   use_your_own_certificates_to_sign_and_verify_pdf_files: Use your own certificates to sign and verify PDF files.
   upload_certificate: Upload Certificate
   name: Name
@@ -330,7 +323,6 @@ en: &en
   code_is_invalid: Code is invalid
   2fa_has_been_removed: 2FA has been removed.
   2fa_has_been_set_up_already: 2FA has been set up already.
-  developer_newsletters: Developer Newsletters
   skip: Skip
   email_notifications: Email Notifications
   receive_notification_emails_on_completed_submission: Receive notification emails on completed submission
@@ -388,7 +380,6 @@ en: &en
   password_has_been_changed: Password has been changed.
   email_integration: Email Integration
   send_via_connected_email: Send via connected email
-  activate_with_docuseal_pro: Activate with DocuSeal Pro
   send_signature_request_to_your_recipients_directly_from_your_email: Send signature request to your recipients directly from your email
   connect_gmail: Connect Gmail
   re_connect_gmail: Re-connect Gmail
@@ -402,7 +393,6 @@ en: &en
   initial_setup: Initial Setup
   demo_environment: Demo Environment
   close: Close
-  upgrade: Upgrade
   settings: Settings
   console: Console
   verify_pdf: Verify PDF
@@ -418,7 +408,6 @@ en: &en
   e_signature: E-Signature
   personalization: Personalization
   users: Users
-  plans: Plans
   new: New
   embedding: Embedding
   background_jobs: Background Jobs
@@ -465,10 +454,7 @@ en: &en
   send_sms: Send SMS
   preserve_order: Preserve order
   when_checked_notifications_will_be_sent_to_the_second_party_once_the_form_is_completed_by_the_previous_party_uncheck_this_option_to_send_notifications_to_all_parties_simultaneously_right_away: When checked, notifications will be sent to the second party once the form is completed by the previous party. Uncheck this option to send notifications to all parties simultaneously right away.
-  upgrade_to_send_unlimited_signature_requests: Upgrade to send unlimited signature requests
   add_without_sending: Add without sending
-  upgade_now: Upgrade Now
-  send_signature_request_emails_without_limits_with_docuseal_pro: Send signature request emails without limits with DocuSeal Pro
   count_emails_used: '%{count} emails used'
   has_been_connected: has been connected
   sms_not_configured: SMS not Configured
@@ -529,7 +515,6 @@ en: &en
   share_template_with_test_mode: Share template with Test mode
   share_template_with_all_tenants: Share template with all Tenants
   use_following_placeholders_text_: 'Use following placeholders text:'
-  users_count_total_users_count_pro_users_limit_was_reached_to_invite_additional_users_please_purchase_more_pro_user_seats_via_the_manage_plan_button: '%{users_count}/%{total_users_count} Pro users limit was reached. To invite additional users, please purchase more Pro user seats via the "Manage plan" button.'
   move_into_folder: Move Into Folder
   new_folder_name: New Folder Name
   new_subfolder_name: New Subfolder Name
@@ -570,7 +555,6 @@ en: &en
   new_user: New User
   unarchive: Unarchive
   last_session: Last session
-  unlock_more_user_roles_with_docuseal_pro: Unlock more user roles with DocuSeal Pro.
   view_active: View Active
   team_account: Team account
   team_accounts: Team Accounts
@@ -656,7 +640,6 @@ en: &en
   logo_has_been_uploaded: Logo has been uploaded.
   invalid_file_type: Invalid file type
   upload_file: Upload file
-  upgrade_your_plan_to_invite_more_users_contact_email: 'Upgrade your plan to invite more users (contact %{email}).'
   contact_your_admin_email_to_invite_more_users: 'Contact your admin %{email} to invite more users.'
   contact_your_administrator_to_add_new_users: Contact your administrator to add new users
   one_hour: 1 hour
@@ -677,7 +660,6 @@ en: &en
   ten_field_types: 10 field types
   multiple_signers: Multiple signers
   automatic_esignature: Automatic eSignature
-  ten_signature_request_emails_per_month: 10 signature request emails per month
   unlimited_sign_yourself: Unlimited sign yourself
   free_developer_testing_sandbox: Free developer testing sandbox
   continue_with_free_basic: Continue with Free Basic
@@ -688,10 +670,8 @@ en: &en
   automated_reminders: Automated reminders
   bulk_send_from_spreadsheet: Bulk send from spreadsheet
   identify_verification_via_sms: Identity verification via SMS
-  start_with_pro: Start with Pro
   user_month: user / month
   developer_sandbox: Developer Sandbox.
-  upgrade_to_start_using_in_production_html: '<a href="%{url}" target="_blank" class="link font-semibold">Upgrade</a> to start using in Production.'
   download_combined_pdf: Download combined PDF
   audit_log: Audit Log
   signers: Signers
@@ -805,24 +785,11 @@ en: &en
   seamlessly_automate_your_document_signing_process_with_make_com: Seamlessly automate your document signing process with Make.com.
   find_suitable_zapier_templates_to_automate_your_workflow: Find suitable Zapier templates to automate your workflow.
   get_started: Get started
-  click_here_to_learn_more_about_user_roles_and_permissions_html: '<a href="https://www.docuseal.com/resources/manage-users-and-roles" class="link" rel="noopener noreferrer nofollow" target="_blank">Click here</a> to learn more about user roles and permissions.'
-  count_10_signature_request_emails_sent_this_month_upgrade_to_pro_to_send_unlimited_signature_request_email: '%{count} / 10 signature request emails sent this month. Upgrade to Pro to send unlimited signature request emails.'
   test_mode_emails_limit_will_be_reset_within_24_hours: Test mode emails limit will be reset within 24 hours.
-  on_a_scale_of_1_to_10_how_satisfied_are_you_with_the_docuseal_product_: On a scale of 1 to 10, how satisfied are you with the DocuSeal product?
-  tell_us_more_about_your_experience: Tell us more about your experience
-  extremely_dissatisfied: Extremely Dissatisfied
-  extremely_satisfied: Extremely Satisfied
-  your_pro_plan_payment_is_overdue: Your Pro plan payment is overdue.
-  click_here_to_update_your_payment_details_and_clear_the_invoice_to_ensure_uninterrupted_service_html: <a href="%{url}" class="link">Click here</a> to update your payment details and clear the invoice to ensure uninterrupted service.
-  overdue_payment: Overdue Payment
-  your_pro_plan_has_been_suspended_due_to_unpaid_invoices_you_can_update_your_payment_details_to_settle_the_invoice_and_continue_using_docuseal_or_cancel_your_subscription: Your Pro Plan has been suspended due to unpaid invoices. You can update your payment details to settle the invoice and continue using DocuSeal or cancel your subscription.
-  manage_subscription: Manage Subscription
   submission_created_by_email_html: '<b>Submission created</b> by %{email}'
   submission_created_by_email_via_source_html: '<b>Submission created</b> by %{email} via %{source}'
   submission_created_via_source_html: '<b>Submission created</b> via %{source}'
-  pro_user_seats_used: Pro user seats used
-  manage_plan: Manage plan
-  this_submission_has_multiple_signers_which_prevents_the_use_of_a_sharing_link_html: This submission has multiple signers, which prevents the use of a sharing link as it's unclear which signer is responsible for specific fields. To resolve this, follow this <a href="https://www.docuseal.com/resources/pre-filling-recipients" class="link font-bold" rel="noopener noreferrer nofollow" target="_blank">guide</a> to define the default signer details.
+  this_submission_has_multiple_signers_which_prevents_the_use_of_a_sharing_link_html: This submission has multiple signers, which prevents the use of a sharing link as it's unclear which signer is responsible for specific fields. To resolve this, follow this guide to define the default signer details.
   welcome_to_docuseal: Welcome to DocuSeal
   start_a_quick_tour_to_learn_how_to_create_and_send_your_first_document: Start a quick tour to learn how to create and send your first document
   start_tour: Start Tour
@@ -899,7 +866,7 @@ en: &en
   use_otp_code_to_access_the_api_key_html: Use <b>%{code}</b> code to access the API key.
   please_reply_to_this_email_if_you_dont_recognize_this_request: Please reply to this email if you don't recognize this request.
   your_user_account_has_been_archived_contact_your_administrator_to_restore_access_to_your_account: Your user account has been archived. Contact your administrator to restore access to your account.
-  your_email_could_not_be_reached_this_may_happen_if_there_was_a_typo_in_your_address_or_if_your_mailbox_is_not_available_please_contact_support_email_to_log_in: Your email could not be reached. This may happen if there was a typo in your address or if your mailbox is not available. Please contact support@docuseal.com to log in.
+  your_email_could_not_be_reached_this_may_happen_if_there_was_a_typo_in_your_address_or_if_your_mailbox_is_not_available_please_contact_support_email_to_log_in: Your email could not be reached. This may happen if there was a typo in your address or if your mailbox is not available. Please contact your administrator to log in.
   efficient_search_with_search_index: Efficient search with search index
   reindex: Reindex
   build_search_index: Build Search Index
@@ -1094,7 +1061,6 @@ en: &en
     settings: 'Settings'
     settings_account_description: 'With comprehensive account settings, you can customize the eSigning experience and invite more users.'
     support: 'Support'
-    support_description: 'You can use our self-service AI assistant or email us at support@docuseal.com if you have any questions.'
     settings_template_description: 'Use this button to access your account settings page.'
   doorkeeper:
     scopes:
@@ -1145,7 +1111,6 @@ es: &es
   passed: Aprobado
   templates_that_require_email_or_phone_2fa_cannot_be_used_via_a_shared_link: Las plantillas que requieren autenticación en dos pasos por correo electrónico o teléfono no se pueden usar mediante un enlace compartido.
   make_owner: Hacer propietario
-  billing: Facturación
   add_from_google_drive: Agregar desde Google Drive
   or_add_from: O agregar desde
   upload_a_new_document: Subir nuevo documento
@@ -1159,7 +1124,6 @@ es: &es
   edit_order: Editar orden
   select: Seleccionar
   sender_form_fields: Campos del formulario del remitente
-  pro: Pro
   default_parties: Partes predeterminadas
   authenticate_embedded_form_preview_with_token: Autenticar vista previa del formulario incrustado con token
   require_all_recipients: Requerir a todos los destinatarios
@@ -1231,8 +1195,6 @@ es: &es
   sent_using_product_name_in_testing_mode_html: 'Enviado usando <a href="%{product_url}">%{product_name}</a> en Modo de Prueba'
   sent_using_product_name_free_document_signing_html: 'Enviado usando la firma de documentos gratuita de <a href="%{product_url}">%{product_name}</a>.'
   sent_using_product_name_open_source_software_html: 'Enviado usando el software de código abierto de <a href="%{product_url}">%{product_name}</a>.'
-  sent_with_docuseal_pro_html: 'Enviado con <a href="%{product_url}">DocuSeal Pro</a>'
-  show_send_with_docuseal_pro_attribution_in_emails_html: Mostrar el mensaje "Enviado con <span class="link">DocuSeal Pro</span>" en los correos electrónicos
   sign_documents_with_trusted_certificate_provided_by_docu_seal_your_documents_and_data_are_never_shared_with_docu_seal_p_d_f_checksum_is_provided_to_generate_a_trusted_signature: Firme documentos con un certificado de confianza proporcionado por DocuSeal. Sus documentos y datos nunca se comparten con DocuSeal. Se proporciona un checksum de PDF para generar una firma de confianza.
   hi_there: Hola
   thanks: Gracias
@@ -1351,7 +1313,6 @@ es: &es
   sign_up_with_google: Registrarse con Google
   sign_up_with_microsoft: Registrarse con Microsoft
   redirecting_to_provider: Redirigiendo a %{provider}...
-  by_creating_an_account_you_agree_to_our_html: 'Al crear una cuenta, aceptas nuestra <a target="_blank" href="https://www.docuseal.com/privacy">Política de Privacidad</a> y <a target="_blank" href="https://www.docuseal.com/terms">Términos de Servicio</a>.'
   enter_email_to_continue: Ingresa tu correo electrónico para continuar
   account: Cuenta
   preferences: Preferencias
@@ -1402,13 +1363,11 @@ es: &es
   resetting_password: Restableciendo contraseña
   sign_in_with_name_account: 'Iniciar sesión con la cuenta de %{name}'
   two_factor_code_from_authenticator_app: Código de dos factores de la aplicación Authenticator
-  sign_up_in_docuseal_console_to_upgrade_on_premises_app_is_completely_standalone_console_is_used_only_to_manage_your_license: Regístrate en la consola de DocuSeal para actualizar. La aplicación local es completamente independiente, la consola solo se utiliza para gestionar tu licencia.
   send_from_email: Enviar desde correo electrónico
   optional: opcional
   save: Guardar
   saving: Guardando
   changes_have_been_saved: Los cambios han sido guardados.
-  unlock_with_docuseal_pro: Desbloquear con DocuSeal Pro
   use_your_own_certificates_to_sign_and_verify_pdf_files: Usa tus propios certificados para firmar y verificar archivos PDF.
   upload_certificate: Subir certificado
   name: Nombre
@@ -1452,7 +1411,6 @@ es: &es
   code_is_invalid: El código no es válido
   2fa_has_been_removed: 2FA ha sido eliminado.
   2fa_has_been_set_up_already: 2FA ya ha sido configurado.
-  developer_newsletters: Boletines para desarrolladores
   skip: Omitir
   email_notifications: Notificaciones por correo electrónico
   receive_notification_emails_on_completed_submission: Recibir notificaciones por correo electrónico sobre formularios completados
@@ -1517,7 +1475,6 @@ es: &es
   password_has_been_changed: La contraseña ha sido cambiada.
   email_integration: Integración de correo electrónico
   send_via_connected_email: Enviar vía correo electrónico conectado
-  activate_with_docuseal_pro: Activar con DocuSeal Pro
   send_signature_request_to_your_recipients_directly_from_your_email: Envía la solicitud de firma a tus destinatarios directamente desde tu correo electrónico
   connect_gmail: Conectar Gmail
   re_connect_gmail: Volver a conectar Gmail
@@ -1531,7 +1488,6 @@ es: &es
   initial_setup: Configuración inicial
   demo_environment: Entorno de demostración
   close: Cerrar
-  upgrade: Actualizar
   settings: Configuración
   console: Consola
   verify_pdf: Verificar PDF
@@ -1547,7 +1503,6 @@ es: &es
   e_signature: Firma electrónica
   personalization: Personalización
   users: Usuarios
-  plans: Planes
   new: Nuevo
   embedding: Integración
   background_jobs: Trabajos asíncronos
@@ -1594,10 +1549,7 @@ es: &es
   send_sms: Enviar SMS
   preserve_order: Conservar orden
   when_checked_notifications_will_be_sent_to_the_second_party_once_the_form_is_completed_by_the_previous_party_uncheck_this_option_to_send_notifications_to_all_parties_simultaneously_right_away: Cuando está marcado, las notificaciones se enviarán a la segunda parte una vez que la primera parte haya completado el formulario. Desmarca esta opción para enviar notificaciones a todas las partes simultáneamente de inmediato.
-  upgrade_to_send_unlimited_signature_requests: Actualiza para enviar solicitudes de firma ilimitadas
   add_without_sending: Agregar sin enviar
-  upgade_now: Actualizar ahora
-  send_signature_request_emails_without_limits_with_docuseal_pro: Envía solicitudes de firma sin límites con DocuSeal Pro
   count_emails_used: '%{count} correos electrónicos utilizados'
   has_been_connected: ha sido conectado
   sms_not_configured: SMS no configurado
@@ -1658,7 +1610,6 @@ es: &es
   share_template_with_test_mode: Compartir plantilla con el modo de prueba
   share_template_with_all_tenants: Compartir plantilla con todos los inquilinos
   use_following_placeholders_text_: 'Usa los siguientes marcadores de posición:'
-  users_count_total_users_count_pro_users_limit_was_reached_to_invite_additional_users_please_purchase_more_pro_user_seats_via_the_manage_plan_button: 'Se alcanzó el límite de %{users_count}/%{total_users_count} usuarios Pro. Para invitar a más usuarios, compra más plazas Pro usando el botón "Gestionar plan".'
   move_into_folder: Mover a la carpeta
   new_folder_name: Nuevo nombre de la carpeta
   new_subfolder_name: Nuevo nombre de subcarpeta
@@ -1699,7 +1650,6 @@ es: &es
   new_user: Nuevo usuario
   unarchive: Desarchivar
   last_session: Última sesión
-  unlock_more_user_roles_with_docuseal_pro: Desbloquea más roles de usuario con DocuSeal Pro.
   view_active: Ver activos
   team_account: Cuenta de equipo
   team_accounts: Cuentas de equipo
@@ -1785,7 +1735,6 @@ es: &es
   logo_has_been_uploaded: El logotipo ha sido subido.
   invalid_file_type: Tipo de archivo no válido
   upload_file: Subir archivo
-  upgrade_your_plan_to_invite_more_users_contact_email: 'Actualiza tu plan para invitar a más usuarios (contacta a %{email}).'
   contact_your_admin_email_to_invite_more_users: 'Contacta a tu administrador %{email} para invitar a más usuarios.'
   contact_your_administrator_to_add_new_users: Contacta a tu administrador para agregar nuevos usuarios.
   one_hour: 1 hora
@@ -1806,7 +1755,6 @@ es: &es
   ten_field_types: 10 tipos de campos
   multiple_signers: Múltiples firmantes
   automatic_esignature: Firma electrónica automática
-  ten_signature_request_emails_per_month: 10 solicitudes de firma/mes
   unlimited_sign_yourself: Firma ilimitada por ti mismo
   free_developer_testing_sandbox: Sandbox gratuito para desarrolladores
   continue_with_free_basic: Continuar con Free Basic
@@ -1817,10 +1765,8 @@ es: &es
   automated_reminders: Recordatorios automáticos
   bulk_send_from_spreadsheet: Envío masivo desde hoja de cálculo
   identify_verification_via_sms: Verificación por SMS
-  start_with_pro: Comenzar con Pro
   user_month: usuario / mes
   developer_sandbox: Sandbox para desarrolladores.
-  upgrade_to_start_using_in_production_html: '<a href="%{url}" target="_blank" class="link font-semibold">Actualiza</a> para empezar a usar en Producción.'
   download_combined_pdf: Descargar PDF combinado
   audit_log: Registro de Auditoría
   signers: Firmantes
@@ -1931,24 +1877,11 @@ es: &es
   seamlessly_automate_your_document_signing_process_with_make_com: Automatiza sin problemas tu proceso de firma de documentos con Make.com.
   find_suitable_zapier_templates_to_automate_your_workflow: Encuentra plantillas de Zapier adecuadas para automatizar tu flujo de trabajo.
   get_started: Comenzar
-  click_here_to_learn_more_about_user_roles_and_permissions_html: '<a href="https://www.docuseal.com/resources/manage-users-and-roles" class="link" rel="noopener noreferrer nofollow" target="_blank">Haz clic aquí</a> para obtener más información sobre los roles y permisos de usuario.'
-  count_10_signature_request_emails_sent_this_month_upgrade_to_pro_to_send_unlimited_signature_request_email: '%{count} / 10 correos electrónicos de solicitud de firma enviados este mes. Mejora a Pro para enviar solicitudes de firma ilimitadas.'
   test_mode_emails_limit_will_be_reset_within_24_hours: El límite de correos electrónicos en modo de prueba se restablecerá en 24 horas.
-  on_a_scale_of_1_to_10_how_satisfied_are_you_with_the_docuseal_product_: 'En una escala del 1 al 10, ¿qué tan satisfecho estás con el producto DocuSeal?'
-  tell_us_more_about_your_experience: Cuéntanos más sobre tu experiencia
-  extremely_dissatisfied: Extremadamente insatisfecho
-  extremely_satisfied: Extremadamente satisfecho
-  your_pro_plan_payment_is_overdue: El pago de tu plan Pro está atrasado.
-  click_here_to_update_your_payment_details_and_clear_the_invoice_to_ensure_uninterrupted_service_html: '<a href="%{url}" class="link">Haz clic aquí</a> para actualizar tus datos de pago y liquidar la factura para garantizar un servicio ininterrumpido.'
-  overdue_payment: Pago Atrasado
-  your_pro_plan_has_been_suspended_due_to_unpaid_invoices_you_can_update_your_payment_details_to_settle_the_invoice_and_continue_using_docuseal_or_cancel_your_subscription: Tu plan Pro ha sido suspendido debido a facturas impagas. Puedes actualizar tus datos de pago para liquidar la factura y seguir usando DocuSeal o cancelar tu suscripción.
-  manage_subscription: Gestionar Suscripción
   submission_created_by_email_html: '<b>Envío creado</b> por %{email}'
   submission_created_by_email_via_source_html: '<b>Envío creado</b> por %{email} a través de %{source}'
   submission_created_via_source_html: '<b>Envío creado</b> a través de %{source}'
-  pro_user_seats_used: Plazas de usuario Pro en uso
-  manage_plan: Gestionar plan
-  this_submission_has_multiple_signers_which_prevents_the_use_of_a_sharing_link_html: 'Este envío tiene múltiples firmantes, lo que impide el uso de un enlace para compartir, ya que no está claro qué firmante es responsable de los campos específicos. Para resolver esto, sigue esta <a href="https://www.docuseal.com/resources/pre-filling-recipients" class="link font-bold" rel="noopener noreferrer nofollow" target="_blank">guía</a> para definir los detalles predeterminados del firmante.'
+  this_submission_has_multiple_signers_which_prevents_the_use_of_a_sharing_link_html: 'Este envío tiene múltiples firmantes, lo que impide el uso de un enlace para compartir, ya que no está claro qué firmante es responsable de los campos específicos. Para resolver esto, sigue esta guía para definir los detalles predeterminados del firmante.'
   welcome_to_docuseal: Bienvenido a DocuSeal
   start_a_quick_tour_to_learn_how_to_create_and_send_your_first_document: Inicia una guía rápida para aprender a crear y enviar tu primer documento.
   start_tour: Iniciar guía
@@ -2025,7 +1958,7 @@ es: &es
   use_otp_code_to_access_the_api_key_html: Usa el código <b>%{code}</b> para acceder a la clave API.
   please_reply_to_this_email_if_you_dont_recognize_this_request: Responde a este correo si no reconoces esta solicitud.
   your_user_account_has_been_archived_contact_your_administrator_to_restore_access_to_your_account: Tu cuenta de usuario ha sido archivada. Contacta a tu administrador para restaurar el acceso a tu cuenta.
-  your_email_could_not_be_reached_this_may_happen_if_there_was_a_typo_in_your_address_or_if_your_mailbox_is_not_available_please_contact_support_email_to_log_in: No se pudo acceder a tu correo electrónico. Esto puede ocurrir si hubo un error tipográfico en tu dirección o si tu buzón no está disponible. Por favor, contacta a support@docuseal.com para iniciar sesión.
+  your_email_could_not_be_reached_this_may_happen_if_there_was_a_typo_in_your_address_or_if_your_mailbox_is_not_available_please_contact_support_email_to_log_in: No se pudo acceder a tu correo electrónico. Esto puede ocurrir si hubo un error tipográfico en tu dirección o si tu buzón no está disponible. Por favor, contacta a tu administrador para iniciar sesión.
   efficient_search_with_search_index: Búsqueda eficiente con índice de búsqueda
   reindex: Reindexar
   build_search_index: Construir índice de búsqueda
@@ -2213,7 +2146,6 @@ es: &es
     settings: 'Configuración'
     settings_account_description: 'Con una configuración completa de la cuenta, puedes personalizar la experiencia de firma y añadir más usuarios.'
     support: 'Soporte'
-    support_description: 'Puedes usar nuestro asistente de IA o escribirnos a support@docuseal.com si tienes preguntas.'
     settings_template_description: 'Usa este botón para acceder a la configuración de tu cuenta.'
   doorkeeper:
     scopes:
@@ -2278,7 +2210,6 @@ it: &it
   passed: Superato
   templates_that_require_email_or_phone_2fa_cannot_be_used_via_a_shared_link: I modelli che richiedono 2FA via email o telefono non possono essere utilizzati tramite un link condiviso.
   make_owner: Rendi proprietario
-  billing: Fatturazione
   add_from_google_drive: Aggiungi da Google Drive
   or_add_from: Oppure aggiungi da
   upload_a_new_document: Carica nuovo documento
@@ -2292,7 +2223,6 @@ it: &it
   edit_order: Modifica Ordine
   select: Seleziona
   sender_form_fields: Campi del modulo del mittente
-  pro: Pro
   default_parties: Parti predefinite
   authenticate_embedded_form_preview_with_token: "Autentica l'anteprima del modulo incorporato con il token"
   require_all_recipients: Richiedi tutti i destinatari
@@ -2364,8 +2294,6 @@ it: &it
   sent_using_product_name_in_testing_mode_html: 'Inviato utilizzando <a href="%{product_url}">%{product_name}</a> in Modalità di Test'
   sent_using_product_name_free_document_signing_html: 'Inviato utilizzando la firma di documenti gratuita di <a href="%{product_url}">%{product_name}</a>.'
   sent_using_product_name_open_source_software_html: 'Inviato utilizzando il software open source di <a href="%{product_url}">%{product_name}</a>.'
-  sent_with_docuseal_pro_html: 'Inviato con <a href="%{product_url}">DocuSeal Pro</a>'
-  show_send_with_docuseal_pro_attribution_in_emails_html: Mostra la dicitura "Inviato con <span class="link">DocuSeal Pro</span>" nelle email
   sign_documents_with_trusted_certificate_provided_by_docu_seal_your_documents_and_data_are_never_shared_with_docu_seal_p_d_f_checksum_is_provided_to_generate_a_trusted_signature: "Firma documenti con un certificato di fiducia fornito da DocuSeal. I tuoi documenti e i tuoi dati non vengono mai condivisi con DocuSeal. Il checksum PDF è fornito per generare una firma di fiducia."
   hi_there: Ciao
   thanks: Grazie
@@ -2484,7 +2412,6 @@ it: &it
   sign_up_with_google: Registrati con Google
   sign_up_with_microsoft: Registrati con Microsoft
   redirecting_to_provider: Reindirizzamento a %{provider}...
-  by_creating_an_account_you_agree_to_our_html: 'Creando un account, accetti la nostra <a target="_blank" href="https://www.docuseal.com/privacy">Privacy Policy</a> e i nostri <a target="_blank" href="https://www.docuseal.com/terms">Termini di servizio</a>.'
   enter_email_to_continue: "Inserisci l'email per continuare"
   account: Account
   preferences: Preferenze
@@ -2535,13 +2462,11 @@ it: &it
   resetting_password: Reimpostazione password in corso
   sign_in_with_name_account: "Accedi con l'account %{name}"
   two_factor_code_from_authenticator_app: "Codice a due fattori dall'app Authenticator"
-  sign_up_in_docuseal_console_to_upgrade_on_premises_app_is_completely_standalone_console_is_used_only_to_manage_your_license: "Registrati nella console di DocuSeal per aggiornare. L'applicazione on-premise è completamente autonoma, la console viene utilizzata solo per gestire la tua licenza."
   send_from_email: Invia da Email
   optional: opzionale
   save: Salva
   saving: Salvataggio in corso
   changes_have_been_saved: Le modifiche sono state salvate.
-  unlock_with_docuseal_pro: Sblocca con DocuSeal Pro
   use_your_own_certificates_to_sign_and_verify_pdf_files: Usa i tuoi certificati per firmare e verificare i file PDF.
   upload_certificate: Carica certificato
   name: Nome
@@ -2585,7 +2510,6 @@ it: &it
   code_is_invalid: Il codice non è valido
   2fa_has_been_removed: 2FA è stata rimossa.
   2fa_has_been_set_up_already: 2FA è già stata configurata.
-  developer_newsletters: Newsletter per sviluppatori
   skip: Salta
   email_notifications: Notifiche email
   receive_notification_emails_on_completed_submission: Ricevi notifiche email su moduli completati
@@ -2650,7 +2574,6 @@ it: &it
   password_has_been_changed: La password è stata cambiata.
   email_integration: Integrazione email
   send_via_connected_email: Invia tramite email connessa
-  activate_with_docuseal_pro: Attiva con DocuSeal Pro
   send_signature_request_to_your_recipients_directly_from_your_email: Invia la richiesta di firma ai tuoi destinatari direttamente dalla tua email
   connect_gmail: Connetti Gmail
   re_connect_gmail: Riconnetti Gmail
@@ -2664,7 +2587,6 @@ it: &it
   initial_setup: Configurazione iniziale
   demo_environment: Ambiente demo
   close: Chiudi
-  upgrade: Aggiorna
   settings: Impostazioni
   console: Console
   verify_pdf: Verifica PDF
@@ -2680,7 +2602,6 @@ it: &it
   e_signature: Firma elettronica
   personalization: Personalizzazione
   users: Utenti
-  plans: Piani
   new: Nuovo
   embedding: Incorporazione
   background_jobs: Attività in background
@@ -2727,10 +2648,7 @@ it: &it
   send_sms: Invia SMS
   preserve_order: Mantieni ordine
   when_checked_notifications_will_be_sent_to_the_second_party_once_the_form_is_completed_by_the_previous_party_uncheck_this_option_to_send_notifications_to_all_parties_simultaneously_right_away: Quando selezionato, le notifiche saranno inviate alla seconda parte una volta che la parte precedente ha completato il modulo. Deseleziona questa opzione per inviare notifiche a tutte le parti simultaneamente.
-  upgrade_to_send_unlimited_signature_requests: Aggiorna per inviare richieste di firma illimitate
   add_without_sending: Aggiungi senza inviare
-  upgade_now: Aggiorna ora
-  send_signature_request_emails_without_limits_with_docuseal_pro: Invia email di richiesta di firma senza limiti con DocuSeal Pro
   count_emails_used: '%{count} email utilizzate'
   has_been_connected: è stato connesso
   sms_not_configured: SMS non configurato
@@ -2791,7 +2709,6 @@ it: &it
   share_template_with_test_mode: Condividi modello con la modalità di test
   share_template_with_all_tenants: Condividi il modello con tutti i tenant
   use_following_placeholders_text_: 'Usa i seguenti segnaposto:'
-  users_count_total_users_count_pro_users_limit_was_reached_to_invite_additional_users_please_purchase_more_pro_user_seats_via_the_manage_plan_button: 'È stato raggiunto il limite di %{users_count}/%{total_users_count} utenti Pro. Per invitare altri utenti, acquista più posti Pro tramite il pulsante "Gestisci piano".'
   move_into_folder: Sposta nella cartella
   new_folder_name: Nuovo nome della cartella
   new_subfolder_name: Nuovo nome della sottocartella
@@ -2832,7 +2749,6 @@ it: &it
   new_user: Nuovo utente
   unarchive: Disarchivia
   last_session: Ultima sessione
-  unlock_more_user_roles_with_docuseal_pro: Sblocca più ruoli utente con DocuSeal Pro.
   view_active: Visualizza attivi
   team_account: Account di squadra
   team_accounts: Account di squadra
@@ -2918,7 +2834,6 @@ it: &it
   logo_has_been_uploaded: Il logo è stato caricato.
   invalid_file_type: Tipo di file non valido
   upload_file: Carica file
-  upgrade_your_plan_to_invite_more_users_contact_email: 'Aggiorna il tuo piano per invitare più utenti (contatta %{email}).'
   contact_your_admin_email_to_invite_more_users: 'Contatta il tuo amministratore %{email} per invitare più utenti.'
   contact_your_administrator_to_add_new_users: Contatta il tuo amministratore per aggiungere nuovi utenti.
   one_hour: 1 ora
@@ -2939,7 +2854,6 @@ it: &it
   ten_field_types: 10 tipi di campi
   multiple_signers: Firmatari multipli
   automatic_esignature: Firma elettronica automatica
-  ten_signature_request_emails_per_month: 10 email di richiesta di firma al mese
   unlimited_sign_yourself: Firma illimitata da te stesso
   free_developer_testing_sandbox: Sandbox di test gratuita
   continue_with_free_basic: Continua con il piano Free Basic
@@ -2950,10 +2864,8 @@ it: &it
   automated_reminders: Promemoria automatici
   bulk_send_from_spreadsheet: Invio massivo da foglio di calcolo
   identify_verification_via_sms: Verifica via SMS
-  start_with_pro: Inizia con Pro
   user_month: utente / mese
   developer_sandbox: Sandbox per sviluppatori
-  upgrade_to_start_using_in_production_html: '<a href="%{url}" target="_blank" class="link font-semibold">Aggiorna</a> per iniziare a usare in produzione.'
   download_combined_pdf: Scarica PDF combinato
   audit_log: Registro di audit
   signers: Firmatari
@@ -3064,24 +2976,11 @@ it: &it
   seamlessly_automate_your_document_signing_process_with_make_com: Automatizza senza problemi il tuo processo di firma dei documenti con Make.com.
   find_suitable_zapier_templates_to_automate_your_workflow: Trova modelli Zapier adatti per automatizzare il tuo flusso di lavoro.
   get_started: Inizia
-  click_here_to_learn_more_about_user_roles_and_permissions_html: '<a href="https://www.docuseal.com/resources/manage-users-and-roles" class="link" rel="noopener noreferrer nofollow" target="_blank">Fai clic qui</a> per saperne di più sui ruoli e le autorizzazioni degli utenti.'
-  count_10_signature_request_emails_sent_this_month_upgrade_to_pro_to_send_unlimited_signature_request_email: '%{count} / 10 e-mail di richiesta di firma inviate questo mese. Passa a Pro per inviare richieste di firma illimitate.'
   test_mode_emails_limit_will_be_reset_within_24_hours: Il limite di e-mail in modalità di test verrà ripristinato entro 24 ore.
-  on_a_scale_of_1_to_10_how_satisfied_are_you_with_the_docuseal_product_: 'Su una scala da 1 a 10, quanto sei soddisfatto del prodotto DocuSeal?'
-  tell_us_more_about_your_experience: Raccontaci di più sulla tua esperienza
-  extremely_dissatisfied: Estremamente insoddisfatto
-  extremely_satisfied: Estremamente soddisfatto
-  your_pro_plan_payment_is_overdue: Il pagamento del tuo piano Pro è in ritardo.
-  click_here_to_update_your_payment_details_and_clear_the_invoice_to_ensure_uninterrupted_service_html: '<a href="%{url}" class="link">Fai clic qui</a> per aggiornare i tuoi dati di pagamento e saldare la fattura per garantire un servizio ininterrotto.'
-  overdue_payment: Pagamento Scaduto
-  your_pro_plan_has_been_suspended_due_to_unpaid_invoices_you_can_update_your_payment_details_to_settle_the_invoice_and_continue_using_docuseal_or_cancel_your_subscription: Il tuo piano Pro è stato sospeso a causa di fatture non pagate. Puoi aggiornare i tuoi dati di pagamento per saldare la fattura e continuare a utilizzare DocuSeal o annullare l'abbonamento.
-  manage_subscription: Gestisci Abbonamento
   submission_created_by_email_html: '<b>Invio creato</b> da %{email}'
   submission_created_by_email_via_source_html: '<b>Invio creato</b> da %{email} tramite %{source}'
   submission_created_via_source_html: '<b>Invio creato</b> tramite %{source}'
-  pro_user_seats_used: Posti utente Pro in uso
-  manage_plan: Gestisci piano
-  this_submission_has_multiple_signers_which_prevents_the_use_of_a_sharing_link_html: "Questa sottomissione ha più firmatari, il che impedisce l'uso di un link di condivisione poiché non è chiaro quale firmatario sia responsabile di specifici campi. Per risolvere questo problema, segui questa <a href=\"https://www.docuseal.com/resources/pre-filling-recipients\" class=\"link font-bold\" rel=\"noopener noreferrer nofollow\" target=\"_blank\">guida</a> per definire i dettagli predefiniti del firmatario."
+  this_submission_has_multiple_signers_which_prevents_the_use_of_a_sharing_link_html: "Questa sottomissione ha più firmatari, il che impedisce l'uso di un link di condivisione poiché non è chiaro quale firmatario sia responsabile di specifici campi. Per risolvere questo problema, segui questa guida per definire i dettagli predefiniti del firmatario."
   welcome_to_docuseal: Benvenuto in DocuSeal
   start_a_quick_tour_to_learn_how_to_create_and_send_your_first_document: Inizia un tour rapido per imparare a creare e inviare il tuo primo documento.
   start_tour: Inizia il tour
@@ -3158,7 +3057,7 @@ it: &it
   use_otp_code_to_access_the_api_key_html: Usa il codice <b>%{code}</b> per accedere alla chiave API.
   please_reply_to_this_email_if_you_dont_recognize_this_request: Rispondi a questa email se non riconosci questa richiesta.
   your_user_account_has_been_archived_contact_your_administrator_to_restore_access_to_your_account: Il tuo account utente è stato archiviato. Contatta il tuo amministratore per ripristinare l'accesso al tuo account.
-  your_email_could_not_be_reached_this_may_happen_if_there_was_a_typo_in_your_address_or_if_your_mailbox_is_not_available_please_contact_support_email_to_log_in: Non è stato possibile raggiungere la tua email. Questo può accadere se c'è stato un errore di digitazione nell'indirizzo o se la tua casella di posta non è disponibile. Contatta support@docuseal.com per accedere.
+  your_email_could_not_be_reached_this_may_happen_if_there_was_a_typo_in_your_address_or_if_your_mailbox_is_not_available_please_contact_support_email_to_log_in: Non è stato possibile raggiungere la tua email. Questo può accadere se c'è stato un errore di digitazione nell'indirizzo o se la tua casella di posta non è disponibile. Contatta il tuo amministratore per accedere.
   efficient_search_with_search_index: Ricerca efficiente con indice di ricerca
   reindex: Reindicizza
   build_search_index: Crea indice di ricerca
@@ -3346,7 +3245,6 @@ it: &it
     settings: 'Impostazioni'
     settings_account_description: "Con impostazioni complete dell'account, puoi personalizzare l'esperienza di firma elettronica e invitare altri utenti."
     support: 'Supporto'
-    support_description: 'Puoi usare il nostro assistente AI oppure scriverci a support@docuseal.com se hai domande.'
     settings_template_description: "Usa questo pulsante per accedere alla pagina delle impostazioni dell'account."
   doorkeeper:
     scopes:
@@ -3397,7 +3295,6 @@ fr: &fr
   passed: Réussi
   templates_that_require_email_or_phone_2fa_cannot_be_used_via_a_shared_link: Les modèles nécessitant une authentification à deux facteurs par e-mail ou téléphone ne peuvent pas être utilisés via un lien partagé.
   make_owner: Rendre propriétaire
-  billing: Facturation
   add_from_google_drive: Ajouter depuis Google Drive
   or_add_from: Ou ajouter depuis
   upload_a_new_document: Téléverser un nouveau document
@@ -3411,7 +3308,6 @@ fr: &fr
   edit_order: Modifier l’ordre
   select: Sélectionner
   sender_form_fields: Champs du formulaire de l’expéditeur
-  pro: Pro
   default_parties: Parties par défaut
   authenticate_embedded_form_preview_with_token: Authentifier l’aperçu du formulaire intégré avec un jeton
   require_all_recipients: Exiger tous les destinataires
@@ -3483,8 +3379,6 @@ fr: &fr
   sent_using_product_name_in_testing_mode_html: Envoyé avec <a href="%{product_url}">%{product_name}</a> en mode test
   sent_using_product_name_free_document_signing_html: Envoyé avec <a href="%{product_url}">%{product_name}</a> signature de documents gratuite.
   sent_using_product_name_open_source_software_html: Envoyé avec le logiciel open source <a href="%{product_url}">%{product_name}</a>.
-  sent_with_docuseal_pro_html: Envoyé avec <a href="%{product_url}">DocuSeal Pro</a>
-  show_send_with_docuseal_pro_attribution_in_emails_html: Afficher l’attribution "Envoyé avec <span class="link">DocuSeal Pro</span>" dans les e‑mails
   sign_documents_with_trusted_certificate_provided_by_docu_seal_your_documents_and_data_are_never_shared_with_docu_seal_p_d_f_checksum_is_provided_to_generate_a_trusted_signature: Signez des documents avec un certificat de confiance fourni par DocuSeal. Vos documents et données ne sont jamais partagés avec DocuSeal. Une empreinte (checksum) PDF est fournie pour générer une signature de confiance.
   hi_there: Bonjour
   thanks: Merci
@@ -3603,7 +3497,6 @@ fr: &fr
   sign_up_with_google: S’inscrire avec Google
   sign_up_with_microsoft: S’inscrire avec Microsoft
   redirecting_to_provider: Redirection vers %{provider}...
-  by_creating_an_account_you_agree_to_our_html: En créant un compte, vous acceptez notre <a target="_blank" href="https://www.docuseal.com/privacy">Politique de confidentialité</a> et nos <a target="_blank" href="https://www.docuseal.com/terms">Conditions d’utilisation</a>.
   enter_email_to_continue: Entrez votre e‑mail pour continuer
   account: Compte
   preferences: Préférences
@@ -3654,13 +3547,11 @@ fr: &fr
   resetting_password: Réinitialisation du mot de passe
   sign_in_with_name_account: Se connecter avec le compte %{name}
   two_factor_code_from_authenticator_app: Code 2FA de l’application d’authentification
-  sign_up_in_docuseal_console_to_upgrade_on_premises_app_is_completely_standalone_console_is_used_only_to_manage_your_license: Inscrivez-vous sur la Console DocuSeal pour mettre à niveau. L’application on‑premises est entièrement autonome ; la Console sert uniquement à gérer votre licence.
   send_from_email: Envoyer depuis l’e‑mail
   optional: facultatif
   save: Enregistrer
   saving: Enregistrement
   changes_have_been_saved: Les modifications ont été enregistrées.
-  unlock_with_docuseal_pro: Débloquer avec DocuSeal Pro
   use_your_own_certificates_to_sign_and_verify_pdf_files: Utilisez vos propres certificats pour signer et vérifier des fichiers PDF.
   upload_certificate: Téléverser un certificat
   name: Nom
@@ -3704,7 +3595,6 @@ fr: &fr
   code_is_invalid: Le code est invalide
   2fa_has_been_removed: La 2FA a été supprimée.
   2fa_has_been_set_up_already: La 2FA est déjà configurée.
-  developer_newsletters: Newsletters développeur
   skip: Ignorer
   email_notifications: Notifications par e‑mail
   receive_notification_emails_on_completed_submission: Recevoir des e‑mails de notification lors de la finalisation d’une soumission
@@ -3769,7 +3659,6 @@ fr: &fr
   password_has_been_changed: Le mot de passe a été modifié.
   email_integration: Intégration e‑mail
   send_via_connected_email: Envoyer via l’e‑mail connecté
-  activate_with_docuseal_pro: Activer avec DocuSeal Pro
   send_signature_request_to_your_recipients_directly_from_your_email: Envoyez des demandes de signature directement depuis votre e‑mail
   connect_gmail: Connecter Gmail
   re_connect_gmail: Reconnecter Gmail
@@ -3783,7 +3672,6 @@ fr: &fr
   initial_setup: Configuration initiale
   demo_environment: Environnement de démonstration
   close: Fermer
-  upgrade: Mettre à niveau
   settings: Paramètres
   console: Console
   verify_pdf: Vérifier le PDF
@@ -3799,7 +3687,6 @@ fr: &fr
   e_signature: E-Signature
   personalization: Personnalisation
   users: Utilisateurs
-  plans: Formules
   new: Nouveau
   embedding: Embedding
   background_jobs: Tâches en arrière‑plan
@@ -3846,10 +3733,7 @@ fr: &fr
   send_sms: Envoyer le SMS
   preserve_order: Préserver l’ordre
   when_checked_notifications_will_be_sent_to_the_second_party_once_the_form_is_completed_by_the_previous_party_uncheck_this_option_to_send_notifications_to_all_parties_simultaneously_right_away: Coché, les notifications seront envoyées à la seconde partie une fois le formulaire complété par la partie précédente. Décochez pour envoyer les notifications à toutes les parties simultanément.
-  upgrade_to_send_unlimited_signature_requests: Passez à la version Pro pour envoyer un nombre illimité de demandes de signature
   add_without_sending: Ajouter sans envoyer
-  upgade_now: Mettre à niveau maintenant
-  send_signature_request_emails_without_limits_with_docuseal_pro: Envoyez des e‑mails de demande de signature sans limites avec DocuSeal Pro
   count_emails_used: "%{count} e‑mails utilisés"
   has_been_connected: a été connecté
   sms_not_configured: SMS non configuré
@@ -3910,7 +3794,6 @@ fr: &fr
   share_template_with_test_mode: Partager le modèle avec le mode test
   share_template_with_all_tenants: Partager le modèle avec tous les locataires
   use_following_placeholders_text_: 'Utilisez les espaces réservés suivants :'
-  users_count_total_users_count_pro_users_limit_was_reached_to_invite_additional_users_please_purchase_more_pro_user_seats_via_the_manage_plan_button: "%{users_count}/%{total_users_count} limite d’utilisateurs Pro atteinte.\nPour inviter d’autres utilisateurs, achetez des places supplémentaires via le bouton « Gérer la formule »."
   move_into_folder: Déplacer dans le dossier
   new_folder_name: Nouveau nom de dossier
   new_subfolder_name: Nouveau nom de sous‑dossier
@@ -3951,7 +3834,6 @@ fr: &fr
   new_user: Nouvel utilisateur
   unarchive: Désarchiver
   last_session: Dernière session
-  unlock_more_user_roles_with_docuseal_pro: Débloquez davantage de rôles utilisateurs avec DocuSeal Pro.
   view_active: Voir actifs
   team_account: Compte d’équipe
   team_accounts: Comptes d’équipe
@@ -4037,7 +3919,6 @@ fr: &fr
   logo_has_been_uploaded: Le logo a été téléversé.
   invalid_file_type: Type de fichier invalide
   upload_file: Téléverser un fichier
-  upgrade_your_plan_to_invite_more_users_contact_email: Mettez à niveau votre formule pour inviter davantage d’utilisateurs (contact %{email}).
   contact_your_admin_email_to_invite_more_users: Contactez votre administrateur %{email} pour inviter plus d’utilisateurs.
   contact_your_administrator_to_add_new_users: Contactez votre administrateur pour ajouter un nouvel utilisateur
   one_hour: 1 heure
@@ -4058,7 +3939,6 @@ fr: &fr
   ten_field_types: 10 types de champs
   multiple_signers: Plusieurs signataires
   automatic_esignature: Signature électronique automatique
-  ten_signature_request_emails_per_month: 10 e‑mails de demande de signature/mois
   unlimited_sign_yourself: Signature personnelle illimitée
   free_developer_testing_sandbox: Bac à sable de test développeur gratuit
   continue_with_free_basic: Continuer avec l’offre Free Basic
@@ -4069,10 +3949,8 @@ fr: &fr
   automated_reminders: Rappels automatisés
   bulk_send_from_spreadsheet: Envoi en masse depuis tableur
   identify_verification_via_sms: Vérification par SMS
-  start_with_pro: Commencer avec Pro
   user_month: utilisateur / mois
   developer_sandbox: Bac à sable développeur.
-  upgrade_to_start_using_in_production_html: <a href="%{url}" target="_blank" class="link font-semibold">Mettez à niveau</a> pour commencer à utiliser en production.
   download_combined_pdf: Télécharger le PDF combiné
   audit_log: Journal d’audit
   signers: Signataires
@@ -4183,24 +4061,11 @@ fr: &fr
   seamlessly_automate_your_document_signing_process_with_make_com: Automatisez en toute fluidité votre processus de signature de documents avec Make.com.
   find_suitable_zapier_templates_to_automate_your_workflow: Trouvez des modèles Zapier adaptés pour automatiser votre flux de travail.
   get_started: Commencer
-  click_here_to_learn_more_about_user_roles_and_permissions_html: <a href="https://www.docuseal.com/resources/manage-users-and-roles" class="link" rel="noopener noreferrer nofollow" target="_blank">Cliquez ici</a> pour en savoir plus sur les rôles et permissions des utilisateurs.
-  count_10_signature_request_emails_sent_this_month_upgrade_to_pro_to_send_unlimited_signature_request_email: "%{count} / 10 e‑mails de demande de signature envoyés ce mois‑ci. Passez à Pro pour envoyer des e‑mails de demande de signature illimités."
   test_mode_emails_limit_will_be_reset_within_24_hours: La limite d’e‑mails en mode test sera réinitialisée sous 24 heures.
-  on_a_scale_of_1_to_10_how_satisfied_are_you_with_the_docuseal_product_: Sur une échelle de 1 à 10, quel est votre niveau de satisfaction du produit DocuSeal ?
-  tell_us_more_about_your_experience: Dites‑nous en plus sur votre expérience
-  extremely_dissatisfied: Extrêmement insatisfait
-  extremely_satisfied: Extrêmement satisfait
-  your_pro_plan_payment_is_overdue: Le paiement de votre offre Pro est en retard.
-  click_here_to_update_your_payment_details_and_clear_the_invoice_to_ensure_uninterrupted_service_html: <a href="%{url}" class="link">Cliquez ici</a> pour mettre à jour vos informations de paiement et régler la facture afin de garantir la continuité du service.
-  overdue_payment: Paiement en retard
-  your_pro_plan_has_been_suspended_due_to_unpaid_invoices_you_can_update_your_payment_details_to_settle_the_invoice_and_continue_using_docuseal_or_cancel_your_subscription: "Votre offre Pro a été suspendue en raison de factures impayées.\nVous pouvez mettre à jour vos informations de paiement pour régler la facture et continuer à utiliser DocuSeal, ou annuler votre abonnement."
-  manage_subscription: Gérer l’abonnement
   submission_created_by_email_html: "<b>Soumission créée</b> par %{email}"
   submission_created_by_email_via_source_html: "<b>Soumission créée</b> par %{email} via %{source}"
   submission_created_via_source_html: "<b>Soumission créée</b> via %{source}"
-  pro_user_seats_used: Places d’utilisateurs Pro utilisées
-  manage_plan: Gérer la formule
-  this_submission_has_multiple_signers_which_prevents_the_use_of_a_sharing_link_html: Cette soumission comporte plusieurs signataires, ce qui empêche l’utilisation d’un lien de partage car il n’est pas clair quel signataire est responsable de quels champs. Pour résoudre cela, suivez ce <a href="https://www.docuseal.com/resources/pre-filling-recipients" class="link font-bold" rel="noopener noreferrer nofollow" target="_blank">guide</a> pour définir les détails du signataire par défaut.
+  this_submission_has_multiple_signers_which_prevents_the_use_of_a_sharing_link_html: Cette soumission comporte plusieurs signataires, ce qui empêche l’utilisation d’un lien de partage car il n’est pas clair quel signataire est responsable de quels champs. Pour résoudre cela, suivez ce guide pour définir les détails du signataire par défaut.
   welcome_to_docuseal: Bienvenue sur DocuSeal
   start_a_quick_tour_to_learn_how_to_create_and_send_your_first_document: Lancez une visite rapide pour apprendre à créer et envoyer votre premier document
   start_tour: Démarrer la visite
@@ -4273,7 +4138,7 @@ fr: &fr
   use_otp_code_to_access_the_api_key_html: Utilisez le code <b>%{code}</b> pour accéder à la clé API.
   please_reply_to_this_email_if_you_dont_recognize_this_request: Veuillez répondre à cet e‑mail si vous ne reconnaissez pas cette demande.
   your_user_account_has_been_archived_contact_your_administrator_to_restore_access_to_your_account: Votre compte utilisateur a été archivé. Contactez votre administrateur pour rétablir l’accès à votre compte.
-  your_email_could_not_be_reached_this_may_happen_if_there_was_a_typo_in_your_address_or_if_your_mailbox_is_not_available_please_contact_support_email_to_log_in: Votre e‑mail n’a pas pu être joint. Cela peut se produire en cas de faute de frappe dans votre adresse ou si votre boîte aux lettres n’est pas disponible. Veuillez contacter support@docuseal.com pour vous connecter.
+  your_email_could_not_be_reached_this_may_happen_if_there_was_a_typo_in_your_address_or_if_your_mailbox_is_not_available_please_contact_support_email_to_log_in: Votre e‑mail n’a pas pu être joint. Cela peut se produire en cas de faute de frappe dans votre adresse ou si votre boîte aux lettres n’est pas disponible. Veuillez contacter votre administrateur pour vous connecter.
   efficient_search_with_search_index: Recherche efficace avec index de recherche
   reindex: Réindexer
   build_search_index: Construire l’index de recherche
@@ -4462,7 +4327,6 @@ fr: &fr
     settings: Paramètres
     settings_account_description: Des paramètres de compte complets pour personnaliser l’expérience de signature et inviter d’autres utilisateurs.
     support: Support
-    support_description: Utilisez notre assistant IA en libre‑service ou contactez‑nous à support@docuseal.com pour toute question.
     settings_template_description: Utilisez ce bouton pour accéder à la page des paramètres de votre compte.
   doorkeeper:
     scopes:
@@ -4526,7 +4390,6 @@ pt: &pt
   passed: Aprovado
   templates_that_require_email_or_phone_2fa_cannot_be_used_via_a_shared_link: Modelos que exigem 2FA por e-mail ou telefone não podem ser usados por meio de um link compartilhado.
   make_owner: Tornar proprietário
-  billing: Faturamento
   add_from_google_drive: Adicionar do Google Drive
   or_add_from: Ou adicionar de
   upload_a_new_document: Enviar novo documento
@@ -4540,7 +4403,6 @@ pt: &pt
   edit_order: Editar Ordem
   select: Selecionar
   sender_form_fields: Campos do formulário do remetente
-  pro: Pro
   default_parties: Partes padrão
   authenticate_embedded_form_preview_with_token: Autenticar visualização incorporada do formulário com token
   require_all_recipients: Exigir todos os destinatários
@@ -4612,8 +4474,6 @@ pt: &pt
   sent_using_product_name_in_testing_mode_html: 'Enviado usando <a href="%{product_url}">%{product_name}</a> no Modo de Teste'
   sent_using_product_name_free_document_signing_html: 'Enviado usando a assinatura gratuita de documentos de <a href="%{product_url}">%{product_name}</a>.'
   sent_using_product_name_open_source_software_html: 'Enviado usando o software de código aberto <a href="%{product_url}">%{product_name}</a>.'
-  sent_with_docuseal_pro_html: 'Enviado com <a href="%{product_url}">DocuSeal Pro</a>'
-  show_send_with_docuseal_pro_attribution_in_emails_html: Mostrar "Enviado com <span class="link">DocuSeal Pro</span>" nos e-mails
   sign_documents_with_trusted_certificate_provided_by_docu_seal_your_documents_and_data_are_never_shared_with_docu_seal_p_d_f_checksum_is_provided_to_generate_a_trusted_signature: Assine documentos com certificado confiável fornecido pela DocuSeal. Seus documentos e dados nunca são compartilhados com a DocuSeal. O checksum do PDF é fornecido para gerar uma assinatura confiável.
   hi_there: Olá
   thanks: Obrigado
@@ -4732,7 +4592,6 @@ pt: &pt
   sign_up_with_google: Inscrever-se com Google
   sign_up_with_microsoft: Inscrever-se com Microsoft
   redirecting_to_provider: Redirecionando para %{provider}...
-  by_creating_an_account_you_agree_to_our_html: 'Ao criar uma conta, você concorda com nossa <a target="_blank" href="https://www.docuseal.com/privacy">Política de Privacidade</a> e <a target="_blank" href="https://www.docuseal.com/terms">Termos de Serviço</a>.'
   enter_email_to_continue: Insira o e-mail para continuar
   account: Conta
   preferences: Preferências
@@ -4783,13 +4642,11 @@ pt: &pt
   resetting_password: Redefinindo senha
   sign_in_with_name_account: 'Entrar com conta %{name}'
   two_factor_code_from_authenticator_app: Código de autenticação de dois fatores do aplicativo Authenticator
-  sign_up_in_docuseal_console_to_upgrade_on_premises_app_is_completely_standalone_console_is_used_only_to_manage_your_license: Inscreva-se no console do DocuSeal para fazer o upgrade. O aplicativo local é totalmente independente, o console é usado apenas para gerenciar sua licença.
   send_from_email: Enviar do e-mail
   optional: opcional
   save: Salvar
   saving: Salvando
   changes_have_been_saved: As alterações foram salvas.
-  unlock_with_docuseal_pro: Desbloquear com o DocuSeal Pro
   use_your_own_certificates_to_sign_and_verify_pdf_files: Use seus próprios certificados para assinar e verificar arquivos PDF.
   upload_certificate: Enviar certificado
   name: Nome
@@ -4833,7 +4690,6 @@ pt: &pt
   code_is_invalid: O código é inválido
   2fa_has_been_removed: 2FA foi removido.
   2fa_has_been_set_up_already: 2FA já foi configurado.
-  developer_newsletters: Newsletters para desenvolvedores
   skip: Pular
   email_notifications: Notificações por e-mail
   receive_notification_emails_on_completed_submission: Receber notificações por e-mail ao concluir uma submissão
@@ -4898,7 +4754,6 @@ pt: &pt
   password_has_been_changed: A senha foi alterada.
   email_integration: Integração de e-mail
   send_via_connected_email: Enviar via e-mail conectado
-  activate_with_docuseal_pro: Ativar com DocuSeal Pro
   send_signature_request_to_your_recipients_directly_from_your_email: Envie solicitações de assinatura diretamente do seu e-mail
   connect_gmail: Conectar Gmail
   re_connect_gmail: Reconectar Gmail
@@ -4912,7 +4767,6 @@ pt: &pt
   initial_setup: Configuração inicial
   demo_environment: Ambiente de demonstração
   close: Fechar
-  upgrade: Upgrade
   settings: Configurações
   console: Console
   verify_pdf: Verificar PDF
@@ -4928,7 +4782,6 @@ pt: &pt
   e_signature: E-Assinatura
   personalization: Personalização
   users: Usuários
-  plans: Planos
   new: Novo
   embedding: Incorporação
   background_jobs: Trabalhos assíncronos
@@ -4975,10 +4828,7 @@ pt: &pt
   send_sms: Enviar SMS
   preserve_order: Manter ordem
   when_checked_notifications_will_be_sent_to_the_second_party_once_the_form_is_completed_by_the_previous_party_uncheck_this_option_to_send_notifications_to_all_parties_simultaneously_right_away: Quando marcado, as notificações serão enviadas para a segunda parte após a conclusão do formulário pela parte anterior. Desmarque esta opção para enviar notificações para todas as partes simultaneamente.
-  upgrade_to_send_unlimited_signature_requests: Faça upgrade para enviar solicitações de assinatura ilimitadas
   add_without_sending: Adicionar sem enviar
-  upgade_now: Fazer upgrade agora
-  send_signature_request_emails_without_limits_with_docuseal_pro: Enviar e-mails de solicitação de assinatura sem limites com o DocuSeal Pro
   count_emails_used: '%{count} e-mails usados'
   has_been_connected: foi conectado
   sms_not_configured: SMS não configurado
@@ -5039,7 +4889,6 @@ pt: &pt
   share_template_with_test_mode: Compartilhar modelo com o modo de teste
   share_template_with_all_tenants: Compartilhar modelo com todos os locatários
   use_following_placeholders_text_: 'Use os seguintes textos de substituição:'
-  users_count_total_users_count_pro_users_limit_was_reached_to_invite_additional_users_please_purchase_more_pro_user_seats_via_the_manage_plan_button: 'O limite de %{users_count}/%{total_users_count} usuários Pro foi atingido. Para convidar mais usuários, adquira mais licenças Pro através do botão "Gerenciar plano".'
   move_into_folder: Mover para pasta
   new_folder_name: Novo nome da pasta
   new_subfolder_name: Novo nome da subpasta
@@ -5080,7 +4929,6 @@ pt: &pt
   new_user: Novo usuário
   unarchive: Desarquivar
   last_session: Última sessão
-  unlock_more_user_roles_with_docuseal_pro: Desbloqueie mais funções de usuário com DocuSeal Pro.
   view_active: Ver ativos
   team_account: Conta de equipe
   team_accounts: Contas de equipe
@@ -5166,7 +5014,6 @@ pt: &pt
   logo_has_been_uploaded: O logotipo foi enviado.
   invalid_file_type: Tipo de arquivo inválido
   upload_file: Enviar arquivo
-  upgrade_your_plan_to_invite_more_users_contact_email: 'Faça upgrade do seu plano para convidar mais usuários (contato %{email}).'
   contact_your_admin_email_to_invite_more_users: 'Entre em contato com seu administrador %{email} para convidar mais usuários.'
   contact_your_administrator_to_add_new_users: Entre em contato com seu administrador para adicionar novos usuários.
   one_hour: 1 hora
@@ -5187,7 +5034,6 @@ pt: &pt
   ten_field_types: 10 tipos de campo
   multiple_signers: Múltiplos signatários
   automatic_esignature: Assinatura eletrônica automática
-  ten_signature_request_emails_per_month: 10 e-mails/mês
   unlimited_sign_yourself: Assinatura ilimitada por você mesmo
   free_developer_testing_sandbox: Sandbox gratuito para testes
   continue_with_free_basic: Continuar com Free Basic
@@ -5198,10 +5044,8 @@ pt: &pt
   automated_reminders: Lembretes automáticos
   bulk_send_from_spreadsheet: Envio em massa de uma planilha
   identify_verification_via_sms: Verificação por SMS
-  start_with_pro: Começar com Pro
   user_month: usuário / mês
   developer_sandbox: Sandbox para desenvolvedores
-  upgrade_to_start_using_in_production_html: '<a href="%{url}" target="_blank" class="link font-semibold">Atualizar</a> para começar a usar em produção.'
   download_combined_pdf: Baixar PDF combinado
   audit_log: Log de auditoria
   signers: Signatários
@@ -5312,24 +5156,11 @@ pt: &pt
   seamlessly_automate_your_document_signing_process_with_make_com: Automatize perfeitamente seu processo de assinatura de documentos com o Make.com.
   find_suitable_zapier_templates_to_automate_your_workflow: Encontre modelos Zapier adequados para automatizar seu fluxo de trabalho.
   get_started: Começar
-  click_here_to_learn_more_about_user_roles_and_permissions_html: '<a href="https://www.docuseal.com/resources/manage-users-and-roles" class="link" rel="noopener noreferrer nofollow" target="_blank">Clique aqui</a> para saber mais sobre os papéis e permissões dos usuários.'
-  count_10_signature_request_emails_sent_this_month_upgrade_to_pro_to_send_unlimited_signature_request_email: '%{count} / 10 e-mails de solicitação de assinatura enviados este mês. Faça upgrade para Pro para enviar solicitações de assinatura ilimitadas.'
   test_mode_emails_limit_will_be_reset_within_24_hours: O limite de e-mails no modo de teste será redefinido em 24 horas.
-  on_a_scale_of_1_to_10_how_satisfied_are_you_with_the_docuseal_product_: 'Em uma escala de 1 a 10, quão satisfeito você está com o produto DocuSeal?'
-  tell_us_more_about_your_experience: Conte-nos mais sobre sua experiência
-  extremely_dissatisfied: Extremamente insatisfeito
-  extremely_satisfied: Extremamente satisfeito
-  your_pro_plan_payment_is_overdue: O pagamento do seu plano Pro está atrasado.
-  click_here_to_update_your_payment_details_and_clear_the_invoice_to_ensure_uninterrupted_service_html: '<a href="%{url}" class="link">Clique aqui</a> para atualizar seus dados de pagamento e quitar a fatura para garantir um serviço ininterrupto.'
-  overdue_payment: Pagamento Atrasado
-  your_pro_plan_has_been_suspended_due_to_unpaid_invoices_you_can_update_your_payment_details_to_settle_the_invoice_and_continue_using_docuseal_or_cancel_your_subscription: Seu plano Pro foi suspenso devido a faturas não pagas. Você pode atualizar seus dados de pagamento para quitar a fatura e continuar usando o DocuSeal ou cancelar sua assinatura.
-  manage_subscription: Gerenciar Assinatura
   submission_created_by_email_html: '<b>Envio criado</b> por %{email}'
   submission_created_by_email_via_source_html: '<b>Envio criado</b> por %{email} via %{source}'
   submission_created_via_source_html: '<b>Envio criado</b> via %{source}'
-  pro_user_seats_used: Lugares de usuário Pro em uso
-  manage_plan: Gerenciar plano
-  this_submission_has_multiple_signers_which_prevents_the_use_of_a_sharing_link_html: 'Este envio tem vários signatários, o que impede o uso de um link de compartilhamento, pois não está claro qual signatário é responsável por quais campos. Para resolver isso, siga este <a href="https://www.docuseal.com/resources/pre-filling-recipients" class="link font-bold" rel="noopener noreferrer nofollow" target="_blank">guia</a> para definir os detalhes padrão do signatário.'
+  this_submission_has_multiple_signers_which_prevents_the_use_of_a_sharing_link_html: 'Este envio tem vários signatários, o que impede o uso de um link de compartilhamento, pois não está claro qual signatário é responsável por quais campos. Para resolver isso, siga este guia para definir os detalhes padrão do signatário.'
   welcome_to_docuseal: Bem-vindo ao DocuSeal
   start_a_quick_tour_to_learn_how_to_create_and_send_your_first_document: Comece um tour rápido para aprender a criar e enviar seu primeiro documento.
   start_tour: Iniciar tour
@@ -5406,7 +5237,7 @@ pt: &pt
   use_otp_code_to_access_the_api_key_html: Use o código <b>%{code}</b> para acessar a chave API.
   please_reply_to_this_email_if_you_dont_recognize_this_request: Responda a este e-mail se você não reconhecer esta solicitação.
   your_user_account_has_been_archived_contact_your_administrator_to_restore_access_to_your_account: Sua conta de usuário foi arquivada. Entre em contato com o administrador para restaurar o acesso à sua conta.
-  your_email_could_not_be_reached_this_may_happen_if_there_was_a_typo_in_your_address_or_if_your_mailbox_is_not_available_please_contact_support_email_to_log_in: Seu e-mail não pôde ser acessado. Isso pode acontecer se houve um erro de digitação no endereço ou se sua caixa de correio não estiver disponível. Entre em contato com support@docuseal.com para fazer login.
+  your_email_could_not_be_reached_this_may_happen_if_there_was_a_typo_in_your_address_or_if_your_mailbox_is_not_available_please_contact_support_email_to_log_in: Seu e-mail não pôde ser acessado. Isso pode acontecer se houve um erro de digitação no endereço ou se sua caixa de correio não estiver disponível. Entre em contato com seu administrador para fazer login.
   efficient_search_with_search_index: Pesquisa eficiente com índice de busca
   reindex: Reindexar
   build_search_index: Construir índice de busca
@@ -5594,7 +5425,6 @@ pt: &pt
     settings: 'Configurações'
     settings_account_description: 'Com configurações completas de conta, você pode personalizar a experiência de assinatura eletrônica e convidar mais usuários.'
     support: 'Suporte'
-    support_description: 'Você pode usar nosso assistente de IA ou nos escrever para support@docuseal.com se tiver dúvidas.'
     settings_template_description: 'Use este botão para acessar a página de configurações da sua conta.'
   doorkeeper:
     scopes:
@@ -5658,12 +5488,10 @@ de: &de
   passed: Bestanden
   templates_that_require_email_or_phone_2fa_cannot_be_used_via_a_shared_link: Vorlagen, die eine Zwei-Faktor-Authentifizierung per E-Mail oder Telefon erfordern, können nicht über einen geteilten Link verwendet werden.
   make_owner: Eigentümer machen
-  billing: Abrechnung
   add_from_google_drive: Aus Google Drive hinzufügen
   or_add_from: Oder hinzufügen aus
   upload_a_new_document: Neues Dokument hochladen
   hi_there: Hallo
-  pro: Pro
   thanks: Danke
   private: Privat
   _variables: Variablen
@@ -5744,8 +5572,6 @@ de: &de
   sent_using_product_name_in_testing_mode_html: 'Gesendet über <a href="%{product_url}">%{product_name}</a> im Testmodus'
   sent_using_product_name_free_document_signing_html: 'Gesendet mit der kostenlosen Dokumentensignierung von <a href="%{product_url}">%{product_name}</a>.'
   sent_using_product_name_open_source_software_html: 'Gesendet mit der Open-Source-Software von <a href="%{product_url}">%{product_name}</a>.'
-  sent_with_docuseal_pro_html: Gesendet mit <a href="%{product_url}">DocuSeal Pro</a>
-  show_send_with_docuseal_pro_attribution_in_emails_html: '"Gesendet mit <span class="link">DocuSeal Pro</span>" in E-Mails anzeigen'
   sign_documents_with_trusted_certificate_provided_by_docu_seal_your_documents_and_data_are_never_shared_with_docu_seal_p_d_f_checksum_is_provided_to_generate_a_trusted_signature: Unterzeichnen Sie Dokumente mit einem vertrauenswürdigen Zertifikat von DocuSeal. Ihre Dokumente und Daten werden niemals mit DocuSeal geteilt. Eine PDF-Prüfsumme wird bereitgestellt, um eine vertrauenswürdige Signatur zu generieren.
   you_have_been_invited_to_submit_the_name_form: 'Sie wurden eingeladen, das Formular "%{name}" einzureichen.'
   you_have_been_invited_to_sign_the_name: 'Sie wurden eingeladen, "%{name}" zu unterschreiben.'
@@ -5864,7 +5690,6 @@ de: &de
   sign_up_with_google: Mit Google registrieren
   sign_up_with_microsoft: Mit Microsoft registrieren
   redirecting_to_provider: Weiterleitung zu %{provider}...
-  by_creating_an_account_you_agree_to_our_html: 'Durch die Erstellung eines Kontos stimmen Sie unseren <a target="_blank" href="https://www.docuseal.com/privacy">Datenschutzrichtlinien</a> und <a target="_blank" href="https://www.docuseal.com/terms">Nutzungsbedingungen</a> zu.'
   enter_email_to_continue: E-Mail eingeben, um fortzufahren
   account: Konto
   preferences: Einstellungen
@@ -5915,13 +5740,11 @@ de: &de
   resetting_password: Passwort wird zurückgesetzt
   sign_in_with_name_account: 'Mit %{name}-Konto anmelden'
   two_factor_code_from_authenticator_app: Zwei-Faktor-Code aus der Authenticator-App
-  sign_up_in_docuseal_console_to_upgrade_on_premises_app_is_completely_standalone_console_is_used_only_to_manage_your_license: Melden Sie sich in der DocuSeal-Konsole an, um ein Upgrade durchzuführen. Die lokale App ist vollständig eigenständig; die Konsole wird nur zur Verwaltung Ihrer Lizenz verwendet.
   send_from_email: Von E-Mail senden
   optional: optional
   save: Speichern
   saving: Wird gespeichert
   changes_have_been_saved: Änderungen wurden gespeichert.
-  unlock_with_docuseal_pro: Mit DocuSeal Pro freischalten
   use_your_own_certificates_to_sign_and_verify_pdf_files: Verwenden Sie Ihre eigenen Zertifikate, um PDF-Dateien zu signieren und zu verifizieren.
   upload_certificate: Zertifikat hochladen
   name: Name
@@ -5965,7 +5788,6 @@ de: &de
   code_is_invalid: Der Code ist ungültig
   2fa_has_been_removed: 2FA wurde entfernt.
   2fa_has_been_set_up_already: 2FA wurde bereits eingerichtet.
-  developer_newsletters: Entwickler-Newsletter
   skip: Überspringen
   email_notifications: E-Mail-Benachrichtigungen
   receive_notification_emails_on_completed_submission: Benachrichtigungs-E-Mails bei abgeschlossener Einreichung erhalten
@@ -6030,7 +5852,6 @@ de: &de
   password_has_been_changed: Das Passwort wurde geändert.
   email_integration: E-Mail-Integration
   send_via_connected_email: Über verbundenes E-Mail-Konto senden
-  activate_with_docuseal_pro: Mit DocuSeal Pro aktivieren
   send_signature_request_to_your_recipients_directly_from_your_email: Senden Sie Signaturanfragen direkt aus Ihrem E-Mail-Konto
   connect_gmail: Gmail verbinden
   re_connect_gmail: Gmail erneut verbinden
@@ -6044,7 +5865,6 @@ de: &de
   initial_setup: Ersteinrichtung
   demo_environment: Demo-Umgebung
   close: Schließen
-  upgrade: Upgrade
   settings: Einstellungen
   console: Konsole
   verify_pdf: PDF verifizieren
@@ -6060,7 +5880,6 @@ de: &de
   e_signature: E-Signatur
   personalization: Personalisierung
   users: Benutzer
-  plans: Pläne
   new: Neu
   embedding: Einbettung
   background_jobs: Hintergrundaufgaben
@@ -6107,10 +5926,7 @@ de: &de
   send_sms: SMS senden
   preserve_order: Reihenfolge beibehalten
   when_checked_notifications_will_be_sent_to_the_second_party_once_the_form_is_completed_by_the_previous_party_uncheck_this_option_to_send_notifications_to_all_parties_simultaneously_right_away: Wenn aktiviert, werden Benachrichtigungen an die zweite Partei gesendet, sobald die vorherige Partei das Formular ausgefüllt hat. Deaktivieren Sie diese Option, um Benachrichtigungen an alle Parteien gleichzeitig zu senden.
-  upgrade_to_send_unlimited_signature_requests: Upgrade durchführen, um unbegrenzte Signaturanfragen zu senden
   add_without_sending: Hinzufügen ohne zu senden
-  upgade_now: Jetzt upgraden
-  send_signature_request_emails_without_limits_with_docuseal_pro: Signaturanfragen per E-Mail ohne Limits mit DocuSeal Pro senden
   count_emails_used: '%{count} E-Mails verwendet'
   has_been_connected: wurde verbunden
   sms_not_configured: SMS nicht konfiguriert
@@ -6171,7 +5987,6 @@ de: &de
   share_template_with_test_mode: Vorlage im Testmodus teilen
   share_template_with_all_tenants: Vorlage mit allen Mandanten teilen
   use_following_placeholders_text_: 'Verwenden Sie die folgenden Platzhaltertexte:'
-  users_count_total_users_count_pro_users_limit_was_reached_to_invite_additional_users_please_purchase_more_pro_user_seats_via_the_manage_plan_button: '%{users_count}/%{total_users_count} Pro-Benutzerlimit erreicht. Um weitere Benutzer einzuladen, kaufen Sie bitte zusätzliche Pro-Benutzerplätze über die Schaltfläche „Plan verwalten“.'
   move_into_folder: In Ordner verschieben
   new_folder_name: Neuer Ordnername
   new_subfolder_name: Neuer Unterordnername
@@ -6212,7 +6027,6 @@ de: &de
   new_user: Neuer Benutzer
   unarchive: Entarchivieren
   last_session: Letzte Sitzung
-  unlock_more_user_roles_with_docuseal_pro: Weitere Benutzerrollen mit DocuSeal Pro freischalten.
   view_active: Aktive anzeigen
   team_account: Teamkonto
   team_accounts: Teamkonten
@@ -6298,7 +6112,6 @@ de: &de
   logo_has_been_uploaded: Das Logo wurde hochgeladen.
   invalid_file_type: Ungültiger Dateityp
   upload_file: Datei hochladen
-  upgrade_your_plan_to_invite_more_users_contact_email: 'Führen Sie ein Upgrade durch, um mehr Benutzer einzuladen (Kontakt %{email}).'
   contact_your_admin_email_to_invite_more_users: 'Kontaktieren Sie Ihren Administrator %{email}, um mehr Benutzer einzuladen.'
   contact_your_administrator_to_add_new_users: Kontaktieren Sie Ihren Administrator, um neue Benutzer hinzuzufügen.
   one_hour: 1 Stunde
@@ -6319,7 +6132,6 @@ de: &de
   ten_field_types: 10 Feldtypen
   multiple_signers: Mehrere Unterzeichner
   automatic_esignature: Automatische E‑Signatur
-  ten_signature_request_emails_per_month: 10 E-Mails für Signaturanfragen pro Monat
   unlimited_sign_yourself: Unbegrenzt selbst unterschreiben
   free_developer_testing_sandbox: Kostenlose Entwickler-Testumgebung
   continue_with_free_basic: Mit Free Basic fortfahren
@@ -6330,10 +6142,8 @@ de: &de
   automated_reminders: Automatische Erinnerungen
   bulk_send_from_spreadsheet: Massenversand aus Tabelle
   identify_verification_via_sms: Identitätsüberprüfung per SMS
-  start_with_pro: Mit Pro starten
   user_month: Benutzer / Monat
   developer_sandbox: Entwickler-Sandbox.
-  upgrade_to_start_using_in_production_html: '<a href="%{url}" target="_blank" class="link font-semibold">Upgrade</a> durchführen, um die Produktionsnutzung zu starten.'
   download_combined_pdf: Kombiniertes PDF herunterladen
   audit_log: Prüfprotokoll
   signers: Unterzeichner
@@ -6444,24 +6254,11 @@ de: &de
   seamlessly_automate_your_document_signing_process_with_make_com: Automatisieren Sie Ihren Dokumentenunterzeichnungsprozess nahtlos mit Make.com.
   find_suitable_zapier_templates_to_automate_your_workflow: Finden Sie passende Zapier-Vorlagen, um Ihren Workflow zu automatisieren.
   get_started: Loslegen
-  click_here_to_learn_more_about_user_roles_and_permissions_html: '<a href="https://www.docuseal.com/resources/manage-users-and-roles" class="link" rel="noopener noreferrer nofollow" target="_blank">Klicken Sie hier</a>, um mehr über Benutzerrollen und -berechtigungen zu erfahren.'
-  count_10_signature_request_emails_sent_this_month_upgrade_to_pro_to_send_unlimited_signature_request_email: '%{count} / 10 E-Mails für Signaturanfragen wurden diesen Monat gesendet. Upgraden Sie zu Pro, um unbegrenzte Signaturanfragen zu senden.'
   test_mode_emails_limit_will_be_reset_within_24_hours: Das Limit für E-Mails im Testmodus wird innerhalb von 24 Stunden zurückgesetzt.
-  on_a_scale_of_1_to_10_how_satisfied_are_you_with_the_docuseal_product_: 'Auf einer Skala von 1 bis 10: Wie zufrieden sind Sie mit dem DocuSeal-Produkt?'
-  tell_us_more_about_your_experience: Erzählen Sie uns mehr über Ihre Erfahrung
-  extremely_dissatisfied: Extrem unzufrieden
-  extremely_satisfied: Extrem zufrieden
-  your_pro_plan_payment_is_overdue: Ihre Zahlung für den Pro-Plan ist überfällig.
-  click_here_to_update_your_payment_details_and_clear_the_invoice_to_ensure_uninterrupted_service_html: '<a href="%{url}" class="link">Klicken Sie hier</a>, um Ihre Zahlungsdaten zu aktualisieren und die Rechnung zu begleichen, um einen unterbrechungsfreien Service sicherzustellen.'
-  overdue_payment: Überfällige Zahlung
-  your_pro_plan_has_been_suspended_due_to_unpaid_invoices_you_can_update_your_payment_details_to_settle_the_invoice_and_continue_using_docuseal_or_cancel_your_subscription: Ihr Pro-Plan wurde aufgrund unbezahlter Rechnungen ausgesetzt. Sie können Ihre Zahlungsdaten aktualisieren, um die Rechnung zu begleichen und DocuSeal weiterhin zu nutzen, oder Ihr Abonnement kündigen.
-  manage_subscription: Abonnement verwalten
   submission_created_by_email_html: '<b>Einreichung erstellt</b> von %{email}'
   submission_created_by_email_via_source_html: '<b>Einreichung erstellt</b> von %{email} über %{source}'
   submission_created_via_source_html: '<b>Einreichung erstellt</b> über %{source}'
-  pro_user_seats_used: Verwendete Pro-Benutzerplätze
-  manage_plan: Plan verwalten
-  this_submission_has_multiple_signers_which_prevents_the_use_of_a_sharing_link_html: 'Diese Einreichung hat mehrere Unterzeichner, was die Nutzung eines Freigabelinks verhindert, da unklar ist, welcher Unterzeichner für welche Felder verantwortlich ist. Um dies zu lösen, folgen Sie dieser <a href="https://www.docuseal.com/resources/pre-filling-recipients" class="link font-bold" rel="noopener noreferrer nofollow" target="_blank">Anleitung</a>, um die Standarddetails des Unterzeichners festzulegen.'
+  this_submission_has_multiple_signers_which_prevents_the_use_of_a_sharing_link_html: 'Diese Einreichung hat mehrere Unterzeichner, was die Nutzung eines Freigabelinks verhindert, da unklar ist, welcher Unterzeichner für welche Felder verantwortlich ist. Um dies zu lösen, folgen Sie dieser Anleitung, um die Standarddetails des Unterzeichners festzulegen.'
   welcome_to_docuseal: Willkommen bei DocuSeal
   start_a_quick_tour_to_learn_how_to_create_and_send_your_first_document: Starten Sie eine kurze Tour, um zu lernen, wie Sie Ihr erstes Dokument erstellen und versenden.
   start_tour: Starten
@@ -6538,7 +6335,7 @@ de: &de
   use_otp_code_to_access_the_api_key_html: Verwenden Sie den Code <b>%{code}</b>, um auf den API-Schlüssel zuzugreifen.
   please_reply_to_this_email_if_you_dont_recognize_this_request: Bitte antworten Sie auf diese E-Mail, wenn Sie diese Anfrage nicht erkennen.
   your_user_account_has_been_archived_contact_your_administrator_to_restore_access_to_your_account: Ihr Benutzerkonto wurde archiviert. Wenden Sie sich an Ihren Administrator, um den Zugriff wiederherzustellen.
-  your_email_could_not_be_reached_this_may_happen_if_there_was_a_typo_in_your_address_or_if_your_mailbox_is_not_available_please_contact_support_email_to_log_in: Ihre E-Mail konnte nicht erreicht werden. Dies kann passieren, wenn sich ein Tippfehler in Ihrer Adresse befindet oder Ihr Postfach nicht verfügbar ist. Bitte kontaktieren Sie support@docuseal.com, um sich anzumelden.
+  your_email_could_not_be_reached_this_may_happen_if_there_was_a_typo_in_your_address_or_if_your_mailbox_is_not_available_please_contact_support_email_to_log_in: Ihre E-Mail konnte nicht erreicht werden. Dies kann passieren, wenn sich ein Tippfehler in Ihrer Adresse befindet oder Ihr Postfach nicht verfügbar ist. Bitte kontaktieren Sie Ihren Administrator, um sich anzumelden.
   efficient_search_with_search_index: Effiziente Suche mit Suchindex
   reindex: Neu indexieren
   build_search_index: Suchindex erstellen
@@ -6726,7 +6523,6 @@ de: &de
     settings: 'Einstellungen'
     settings_account_description: 'Mit umfangreichen Kontoeinstellungen können Sie das Signiererlebnis anpassen und weitere Benutzer einladen.'
     support: 'Support'
-    support_description: 'Sie können unseren KI-Assistenten nutzen oder uns bei Fragen an support@docuseal.com schreiben.'
     settings_template_description: 'Über diese Schaltfläche gelangen Sie zu den Kontoeinstellungen.'
   doorkeeper:
     scopes:
@@ -6863,7 +6659,6 @@ pl:
   sign_up_with_google: Zarejestruj się przez Google
   sign_up_with_microsoft: Zarejestruj się przez Microsoft
   redirecting_to_provider: Przekierowywanie do %{provider}...
-  by_creating_an_account_you_agree_to_our_html: 'Tworząc konto, akceptujesz naszą <a target="_blank" href="https://www.docuseal.com/privacy">Politykę Prywatności</a> i <a target="_blank" href="https://www.docuseal.com/terms">Regulamin</a>.'
   enter_email_to_continue: Wprowadź e-mail, aby kontynuować
   the_code_has_been_sent_to_your_email: Kod został wysłany na Twój e-mail.
   enter_the_verification_code_from_your_email: Wprowadź kod weryfikacyjny z Twojego e-maila.
@@ -6890,7 +6685,7 @@ pl:
   your_verification_code_to_access_the_name: 'Twój kod weryfikacyjny do uzyskania dostępu do "%{name}":'
   please_reply_to_this_email_if_you_didnt_request_this: Odpowiedz na ten e-mail, jeśli nie prosiłeś o to.
   your_user_account_has_been_archived_contact_your_administrator_to_restore_access_to_your_account: Twoje konto użytkownika zostało zarchiwizowane. Skontaktuj się z administratorem, aby przywrócić dostęp do konta.
-  your_email_could_not_be_reached_this_may_happen_if_there_was_a_typo_in_your_address_or_if_your_mailbox_is_not_available_please_contact_support_email_to_log_in: Nie udało się uzyskać dostępu do Twojego adresu e-mail. Może to być spowodowane literówką w adresie lub niedostępnością skrzynki. Skontaktuj się z support@docuseal.com, aby się zalogować.
+  your_email_could_not_be_reached_this_may_happen_if_there_was_a_typo_in_your_address_or_if_your_mailbox_is_not_available_please_contact_support_email_to_log_in: Nie udało się uzyskać dostępu do Twojego adresu e-mail. Może to być spowodowane literówką w adresie lub niedostępnością skrzynki. Skontaktuj się z administratorem, aby się zalogować.
   verification_required_refresh_the_page_and_pass_2fa: Weryfikacja wymagana, odśwież stronę i przejdź uwierzytelnienie dwuskładnikowe.
   the_sender_has_requested_a_two_factor_authentication_via_one_time_password_sent_to_your_email_html: Nadawca zażądał uwierzytelniania dwuskładnikowego za pośrednictwem hasła jednorazowego wysłanego na Twój adres e-mail <b>%{email}</b>.
   please_contact_the_requester_to_specify_your_email_for_two_factor_authentication: Skontaktuj się z nadawcą, aby podać swój adres e-mail do uwierzytelniania dwuskładnikowego.
@@ -7003,7 +6798,6 @@ uk:
   sign_up_with_google: Зареєструватися через Google
   sign_up_with_microsoft: Зареєструватися через Microsoft
   redirecting_to_provider: Перенаправлення до %{provider}...
-  by_creating_an_account_you_agree_to_our_html: 'Створюючи акаунт, ви погоджуєтесь з нашою <a target="_blank" href="https://www.docuseal.com/privacy">Політикою конфіденційності</a> і <a target="_blank" href="https://www.docuseal.com/terms">Умовами надання послуг</a>.'
   enter_email_to_continue: Введіть електронну пошту, щоб продовжити
   the_code_has_been_sent_to_your_email: Код було надіслано на вашу електронну пошту.
   enter_the_verification_code_from_your_email: Введіть код перевірки з вашої електронної пошти.
@@ -7030,7 +6824,7 @@ uk:
   your_verification_code_to_access_the_name: 'Ваш код доступу до "%{name}":'
   please_reply_to_this_email_if_you_didnt_request_this: Відповідайте на цей лист, якщо ви цього не запитували.
   your_user_account_has_been_archived_contact_your_administrator_to_restore_access_to_your_account: Ваш обліковий запис було архівовано. Зверніться до адміністратора, щоб відновити доступ.
-  your_email_could_not_be_reached_this_may_happen_if_there_was_a_typo_in_your_address_or_if_your_mailbox_is_not_available_please_contact_support_email_to_log_in: Не вдалося отримати доступ до вашої електронної пошти. Це може статися, якщо була допущена помилка в адресі або ваша скринька недоступна. Зверніться до support@docuseal.com, щоб увійти.
+  your_email_could_not_be_reached_this_may_happen_if_there_was_a_typo_in_your_address_or_if_your_mailbox_is_not_available_please_contact_support_email_to_log_in: Не вдалося отримати доступ до вашої електронної пошти. Це може статися, якщо була допущена помилка в адресі або ваша скринька недоступна. Зверніться до адміністратора, щоб увійти.
   verification_required_refresh_the_page_and_pass_2fa: Необхідна верифікація, оновіть сторінку та пройдіть двофакторну автентифікацію.
   the_sender_has_requested_a_two_factor_authentication_via_one_time_password_sent_to_your_email_html: Відправник запитав двофакторну автентифікацію за допомогою одноразового пароля, надісланого на вашу електронну пошту <b>%{email}</b>.
   please_contact_the_requester_to_specify_your_email_for_two_factor_authentication: Будь ласка, зв'яжіться з відправником, щоб вказати вашу електронну пошту для двофакторної автентифікації.
@@ -7143,7 +6937,6 @@ cs:
   sign_up_with_google: Zaregistrovat se pomocí Googlu
   sign_up_with_microsoft: Zaregistrovat se pomocí Microsoftu
   redirecting_to_provider: Přesměrování na %{provider}...
-  by_creating_an_account_you_agree_to_our_html: 'Vytvořením účtu souhlasíte s našimi <a target="_blank" href="https://www.docuseal.com/privacy">Zásadami ochrany osobních údajů</a> a <a target="_blank" href="https://www.docuseal.com/terms">Podmínkami služby</a>.'
   enter_email_to_continue: Zadejte e-mail pro pokračování
   the_code_has_been_sent_to_your_email: Kód byl odeslán na váš e-mail.
   enter_the_verification_code_from_your_email: Zadejte ověřovací kód z vašeho e-mailu.
@@ -7170,7 +6963,7 @@ cs:
   your_verification_code_to_access_the_name: 'Váš ověřovací kód pro přístup k "%{name}":'
   please_reply_to_this_email_if_you_didnt_request_this: Odpovězte na tento e-mail, pokud jste o to nežádali.
   your_user_account_has_been_archived_contact_your_administrator_to_restore_access_to_your_account: Váš uživatelský účet byl archivován. Kontaktujte svého administrátora pro obnovení přístupu.
-  your_email_could_not_be_reached_this_may_happen_if_there_was_a_typo_in_your_address_or_if_your_mailbox_is_not_available_please_contact_support_email_to_log_in: Na váš e-mail se nepodařilo doručit zprávu. To se může stát, pokud je v adrese překlep nebo vaše schránka není dostupná. Pro přihlášení kontaktujte support@docuseal.com.
+  your_email_could_not_be_reached_this_may_happen_if_there_was_a_typo_in_your_address_or_if_your_mailbox_is_not_available_please_contact_support_email_to_log_in: Na váš e-mail se nepodařilo doručit zprávu. To se může stát, pokud je v adrese překlep nebo vaše schránka není dostupná. Pro přihlášení kontaktujte správce.
   verification_required_refresh_the_page_and_pass_2fa: Ověření vyžadováno. Aktualizujte stránku a dokončete dvoufaktorové ověření.
   the_sender_has_requested_a_two_factor_authentication_via_one_time_password_sent_to_your_email_html: Odesílatel požádal o dvoufaktorové ověření pomocí jednorázového hesla odeslaného na vaši e-mailovou adresu <b>%{email}</b>.
   please_contact_the_requester_to_specify_your_email_for_two_factor_authentication: Prosím kontaktujte odesílatele a uveďte svůj e-mail pro dvoufaktorové ověření.
@@ -7269,7 +7062,6 @@ he:
   sign_up_with_google: הירשם עם גוגל
   sign_up_with_microsoft: הירשם עם מיקרוסופט
   redirecting_to_provider: מפנה אל %{provider}...
-  by_creating_an_account_you_agree_to_our_html: 'על ידי יצירת חשבון, אתה מסכים ל<a target="_blank" href="https://www.docuseal.com/privacy">מדיניות הפרטיות</a> ול<a target="_blank" href="https://www.docuseal.com/terms">תנאי השירות</a> שלנו.'
   enter_email_to_continue: הכנס דוא"ל כדי להמשיך
   the_code_has_been_sent_to_your_email: הקוד נשלח לדוא"ל שלך.
   enter_the_verification_code_from_your_email: הזן את קוד האימות מדוא"ל שלך.
@@ -7296,7 +7088,7 @@ he:
   your_verification_code_to_access_the_name: 'קוד האימות שלך לגישה ל-%{name}:'
   please_reply_to_this_email_if_you_didnt_request_this: 'השב למייל זה אם לא ביקשת זאת.'
   your_user_account_has_been_archived_contact_your_administrator_to_restore_access_to_your_account: החשבון שלך הועבר לארכיון. פנה למנהל המערכת כדי לשחזר את הגישה.
-  your_email_could_not_be_reached_this_may_happen_if_there_was_a_typo_in_your_address_or_if_your_mailbox_is_not_available_please_contact_support_email_to_log_in: לא ניתן היה לגשת לדוא"ל שלך. ייתכן שזה קרה עקב שגיאת כתיב בכתובת או אם תיבת הדואר אינה זמינה. אנא פנה ל־support@docuseal.com כדי להתחבר.
+  your_email_could_not_be_reached_this_may_happen_if_there_was_a_typo_in_your_address_or_if_your_mailbox_is_not_available_please_contact_support_email_to_log_in: לא ניתן היה לגשת לדוא"ל שלך. ייתכן שזה קרה עקב שגיאת כתיב בכתובת או אם תיבת הדואר אינה זמינה. אנא פנה למנהל המערכת כדי להתחבר.
   verification_required_refresh_the_page_and_pass_2fa: נדרש אימות. רענן את הדף והשלם אימות דו-שלבי.
   the_sender_has_requested_a_two_factor_authentication_via_one_time_password_sent_to_your_email_html: השולח ביקש אימות דו-שלבי באמצעות סיסמה חד-פעמית שנשלחה לכתובת הדוא"ל שלך <b>%{email}</b>.
   please_contact_the_requester_to_specify_your_email_for_two_factor_authentication: אנא פנה לשולח וציין את כתובת הדוא"ל שלך לאימות דו-שלבי.
@@ -7309,12 +7101,10 @@ nl: &nl
   passed: Geslaagd
   templates_that_require_email_or_phone_2fa_cannot_be_used_via_a_shared_link: Sjablonen waarvoor e-mail- of telefoon-2FA vereist is, kunnen niet via een gedeelde link worden gebruikt.
   make_owner: Eigenaar maken
-  billing: Facturatie
   add_from_google_drive: Toevoegen vanuit Google Drive
   or_add_from: Of toevoegen vanuit
   upload_a_new_document: Nieuw document uploaden
   hi_there: Hallo
-  pro: Pro
   thanks: Bedankt
   private: Privé
   _variables: Variabelen
@@ -7395,8 +7185,6 @@ nl: &nl
   sent_using_product_name_in_testing_mode_html: Verzonden met <a href="%{product_url}">%{product_name}</a> in testmodus
   sent_using_product_name_free_document_signing_html: Verzonden met <a href="%{product_url}">%{product_name}</a> gratis documentondertekening.
   sent_using_product_name_open_source_software_html: Verzonden met de open-source software <a href="%{product_url}">%{product_name}</a>.
-  sent_with_docuseal_pro_html: Verzonden met <a href="%{product_url}">DocuSeal Pro</a>
-  show_send_with_docuseal_pro_attribution_in_emails_html: Toon de vermelding 'Verzonden met <span class="link">DocuSeal Pro</span>' in e-mails
   ? sign_documents_with_trusted_certificate_provided_by_docu_seal_your_documents_and_data_are_never_shared_with_docu_seal_p_d_f_checksum_is_provided_to_generate_a_trusted_signature
   : Onderteken documenten met een vertrouwd certificaat geleverd door DocuSeal. Uw documenten en gegevens worden nooit gedeeld met DocuSeal. PDF-checksum wordt verstrekt om een vertrouwde handtekening te genereren.
   you_have_been_invited_to_submit_the_name_form: U bent uitgenodigd om het formulier "%{name}" in te dienen.
@@ -7516,7 +7304,6 @@ nl: &nl
   sign_up_with_google: Registreren met Google
   sign_up_with_microsoft: Registreren met Microsoft
   redirecting_to_provider: Doorverwijzen naar %{provider}...
-  by_creating_an_account_you_agree_to_our_html: Door een account aan te maken gaat u akkoord met ons <a target="_blank" href="https://www.docuseal.com/privacy">Privacybeleid</a> en onze <a target="_blank" href="https://www.docuseal.com/terms">Servicevoorwaarden</a>.
   enter_email_to_continue: Voer e-mailadres in om door te gaan
   account: Account
   preferences: Voorkeuren
@@ -7567,13 +7354,11 @@ nl: &nl
   resetting_password: Wachtwoord resetten
   sign_in_with_name_account: Inloggen met %{name}-account
   two_factor_code_from_authenticator_app: Twee-factorcode van authenticator-app
-  sign_up_in_docuseal_console_to_upgrade_on_premises_app_is_completely_standalone_console_is_used_only_to_manage_your_license: Meld u aan in de DocuSeal Console om te upgraden. De on-premises app is volledig zelfstandig; de Console wordt alleen gebruikt om uw licentie te beheren.
   send_from_email: Verzenden vanaf e-mailadres
   optional: optioneel
   save: Opslaan
   saving: Opslaan
   changes_have_been_saved: Wijzigingen zijn opgeslagen.
-  unlock_with_docuseal_pro: Ontgrendel met DocuSeal Pro
   use_your_own_certificates_to_sign_and_verify_pdf_files: Gebruik uw eigen certificaten om PDF-bestanden te ondertekenen en te verifiëren.
   upload_certificate: Certificaat uploaden
   name: Naam
@@ -7617,7 +7402,6 @@ nl: &nl
   code_is_invalid: Code is ongeldig
   2fa_has_been_removed: 2FA is verwijderd.
   2fa_has_been_set_up_already: 2FA is al ingesteld.
-  developer_newsletters: Nieuwsbrieven voor ontwikkelaars
   skip: Overslaan
   email_notifications: E-mailmeldingen
   receive_notification_emails_on_completed_submission: Ontvang e-mailmeldingen bij voltooide inzendingen
@@ -7682,7 +7466,6 @@ nl: &nl
   password_has_been_changed: Wachtwoord is gewijzigd.
   email_integration: E-mailintegratie
   send_via_connected_email: Verzenden via gekoppeld e-mailaccount
-  activate_with_docuseal_pro: Activeren met DocuSeal Pro
   send_signature_request_to_your_recipients_directly_from_your_email: Stuur een ondertekenverzoek rechtstreeks vanuit uw eigen e-mail naar uw ontvangers
   connect_gmail: Gmail verbinden
   re_connect_gmail: Gmail opnieuw verbinden
@@ -7696,7 +7479,6 @@ nl: &nl
   initial_setup: Initiële configuratie
   demo_environment: Demo-omgeving
   close: Sluiten
-  upgrade: Upgraden
   settings: Instellingen
   console: Console
   verify_pdf: PDF verifiëren
@@ -7712,7 +7494,6 @@ nl: &nl
   e_signature: E-handtekening
   personalization: Personalisatie
   users: Gebruikers
-  plans: Abonnementen
   new: Nieuw
   embedding: Insluiten
   background_jobs: Achtergrondtaken
@@ -7759,10 +7540,7 @@ nl: &nl
   send_sms: SMS verzenden
   preserve_order: Volgorde behouden
   when_checked_notifications_will_be_sent_to_the_second_party_once_the_form_is_completed_by_the_previous_party_uncheck_this_option_to_send_notifications_to_all_parties_simultaneously_right_away: Indien aangevinkt worden meldingen naar de tweede partij verzonden zodra de voorgaande partij het formulier heeft voltooid. Schakel deze optie uit om meldingen direct tegelijk naar alle partijen te sturen.
-  upgrade_to_send_unlimited_signature_requests: Upgrade om onbeperkte ondertekenverzoeken te verzenden
   add_without_sending: Toevoegen zonder te verzenden
-  upgade_now: Nu upgraden
-  send_signature_request_emails_without_limits_with_docuseal_pro: Verzend onbeperkt e-mails voor ondertekenverzoeken met DocuSeal Pro
   count_emails_used: "%{count} e-mails gebruikt"
   has_been_connected: is verbonden
   sms_not_configured: SMS niet geconfigureerd
@@ -7823,7 +7601,6 @@ nl: &nl
   share_template_with_test_mode: Sjabloon delen met testmodus
   share_template_with_all_tenants: Sjabloon delen met alle tenants
   use_following_placeholders_text_: 'Gebruik de volgende placeholder-teksten:'
-  users_count_total_users_count_pro_users_limit_was_reached_to_invite_additional_users_please_purchase_more_pro_user_seats_via_the_manage_plan_button: "%{users_count}/%{total_users_count} Pro-gebruikerslimiet is bereikt. Koop meer Pro-gebruikersplaatsen via de knop ''Abonnement beheren'' om extra gebruikers uit te nodigen."
   move_into_folder: Verplaatsen naar map
   new_folder_name: Nieuwe mapnaam
   new_subfolder_name: Nieuwe submapnaam
@@ -7864,7 +7641,6 @@ nl: &nl
   new_user: Nieuwe gebruiker
   unarchive: Dearchiveren
   last_session: Laatste sessie
-  unlock_more_user_roles_with_docuseal_pro: Ontgrendel meer gebruikersrollen met DocuSeal Pro.
   view_active: Actieve items bekijken
   team_account: Teamaccount
   team_accounts: Teamaccounts
@@ -7950,7 +7726,6 @@ nl: &nl
   logo_has_been_uploaded: Logo is geüpload.
   invalid_file_type: Ongeldig bestandstype
   upload_file: Bestand uploaden
-  upgrade_your_plan_to_invite_more_users_contact_email: Upgrade uw abonnement om meer gebruikers uit te nodigen (contact %{email}).
   contact_your_admin_email_to_invite_more_users: Neem contact op met uw beheerder %{email} om meer gebruikers uit te nodigen.
   contact_your_administrator_to_add_new_users: Neem contact op met uw beheerder om een nieuwe gebruiker toe te voegen
   one_hour: 1 uur
@@ -7971,7 +7746,6 @@ nl: &nl
   ten_field_types: 10 veldtypen
   multiple_signers: Meerdere ondertekenaars
   automatic_esignature: Automatische e-handtekening
-  ten_signature_request_emails_per_month: 10 e-mails met verzoeken/maand
   unlimited_sign_yourself: Onbeperkt zelf ondertekenen
   free_developer_testing_sandbox: Gratis test-sandbox voor devs
   continue_with_free_basic: Doorgaan met Free Basic
@@ -7982,10 +7756,8 @@ nl: &nl
   automated_reminders: Geautomatiseerde herinneringen
   bulk_send_from_spreadsheet: Bulkverzenden vanuit spreadsheet
   identify_verification_via_sms: Identiteitsverificatie via SMS
-  start_with_pro: Starten met Pro
   user_month: gebruiker / maand
   developer_sandbox: Ontwikkelaars-sandbox.
-  upgrade_to_start_using_in_production_html: <a href="%{url}" target="_blank" class="link font-semibold">Upgrade</a> om in productie te gaan gebruiken.
   download_combined_pdf: Gecombineerde PDF downloaden
   audit_log: Auditlogboek
   signers: Ondertekenaars
@@ -8096,24 +7868,11 @@ nl: &nl
   seamlessly_automate_your_document_signing_process_with_make_com: Automatiseer uw documentondertekeningsproces naadloos met Make.com.
   find_suitable_zapier_templates_to_automate_your_workflow: Vind geschikte Zapier-sjablonen om uw workflow te automatiseren.
   get_started: Aan de slag
-  click_here_to_learn_more_about_user_roles_and_permissions_html: <a href="https://www.docuseal.com/resources/manage-users-and-roles" class="link" rel="noopener noreferrer nofollow" target="_blank">Klik hier</a> voor meer informatie over gebruikersrollen en machtigingen.
-  count_10_signature_request_emails_sent_this_month_upgrade_to_pro_to_send_unlimited_signature_request_email: "%{count} / 10 e-mails voor ondertekenverzoeken deze maand verzonden. Upgrade naar Pro om onbeperkt e-mails voor ondertekenverzoeken te verzenden."
   test_mode_emails_limit_will_be_reset_within_24_hours: Limiet voor testmodus-e-mails wordt binnen 24 uur opnieuw ingesteld.
-  on_a_scale_of_1_to_10_how_satisfied_are_you_with_the_docuseal_product_: Op een schaal van 1 tot 10, hoe tevreden bent u over het DocuSeal-product?
-  tell_us_more_about_your_experience: Vertel ons meer over uw ervaring
-  extremely_dissatisfied: Zeer ontevreden
-  extremely_satisfied: Zeer tevreden
-  your_pro_plan_payment_is_overdue: Uw betaling voor het Pro-abonnement is achterstallig.
-  click_here_to_update_your_payment_details_and_clear_the_invoice_to_ensure_uninterrupted_service_html: <a href="%{url}" class="link">Klik hier</a> om uw betaalgegevens bij te werken en de factuur te voldoen om ononderbroken service te garanderen.
-  overdue_payment: Achterstallige betaling
-  your_pro_plan_has_been_suspended_due_to_unpaid_invoices_you_can_update_your_payment_details_to_settle_the_invoice_and_continue_using_docuseal_or_cancel_your_subscription: Uw Pro-abonnement is opgeschort vanwege onbetaalde facturen. U kunt uw betaalgegevens bijwerken om de factuur te voldoen en DocuSeal te blijven gebruiken of uw abonnement opzeggen.
-  manage_subscription: Abonnement beheren
   submission_created_by_email_html: "<b>Inzending aangemaakt</b> door %{email}"
   submission_created_by_email_via_source_html: "<b>Inzending aangemaakt</b> door %{email} via %{source}"
   submission_created_via_source_html: "<b>Inzending aangemaakt</b> via %{source}"
-  pro_user_seats_used: Gebruikersplaatsen Pro gebruikt
-  manage_plan: Abonnement beheren
-  this_submission_has_multiple_signers_which_prevents_the_use_of_a_sharing_link_html: Deze inzending heeft meerdere ondertekenaars, waardoor het gebruik van een deellink niet mogelijk is omdat onduidelijk is welke ondertekenaar verantwoordelijk is voor specifieke velden. Volg deze <a href="https://www.docuseal.com/resources/pre-filling-recipients" class="link font-bold" rel="noopener noreferrer nofollow" target="_blank">handleiding</a> om de standaardgegevens van de ondertekenaar te definiëren.
+  this_submission_has_multiple_signers_which_prevents_the_use_of_a_sharing_link_html: Deze inzending heeft meerdere ondertekenaars, waardoor het gebruik van een deellink niet mogelijk is omdat onduidelijk is welke ondertekenaar verantwoordelijk is voor specifieke velden. Volg deze handleiding om de standaardgegevens van de ondertekenaar te definiëren.
   welcome_to_docuseal: Welkom bij DocuSeal
   start_a_quick_tour_to_learn_how_to_create_and_send_your_first_document: Start een korte rondleiding om te leren hoe u uw eerste document maakt en verzendt
   start_tour: Rondleiding starten
@@ -8186,7 +7945,7 @@ nl: &nl
   use_otp_code_to_access_the_api_key_html: Gebruik de code <b>%{code}</b> om toegang te krijgen tot de API-sleutel.
   please_reply_to_this_email_if_you_dont_recognize_this_request: Reageer op deze e-mail als u dit verzoek niet herkent.
   your_user_account_has_been_archived_contact_your_administrator_to_restore_access_to_your_account: Uw gebruikersaccount is gearchiveerd. Neem contact op met uw beheerder om de toegang tot uw account te herstellen.
-  your_email_could_not_be_reached_this_may_happen_if_there_was_a_typo_in_your_address_or_if_your_mailbox_is_not_available_please_contact_support_email_to_log_in: Uw e-mailadres kon niet worden bereikt. Dit kan gebeuren als er een typefout in uw adres zit of als uw mailbox niet beschikbaar is. Neem contact op met support@docuseal.com om in te loggen.
+  your_email_could_not_be_reached_this_may_happen_if_there_was_a_typo_in_your_address_or_if_your_mailbox_is_not_available_please_contact_support_email_to_log_in: Uw e-mailadres kon niet worden bereikt. Dit kan gebeuren als er een typefout in uw adres zit of als uw mailbox niet beschikbaar is. Neem contact op met uw beheerder om in te loggen.
   efficient_search_with_search_index: Efficiënt zoeken met zoekindex
   reindex: Opnieuw indexeren
   build_search_index: Zoekindex opbouwen
@@ -8374,7 +8133,6 @@ nl: &nl
     settings: Instellingen
     settings_account_description: Met uitgebreide accountinstellingen kunt u de eSigning-ervaring aanpassen en meer gebruikers uitnodigen.
     support: Ondersteuning
-    support_description: U kunt onze selfservice AI-assistent gebruiken of ons e-mailen op support@docuseal.com als u vragen heeft.
     settings_template_description: Gebruik deze knop om naar uw accountinstellingenpagina te gaan.
   doorkeeper:
     scopes:
@@ -8498,7 +8256,6 @@ ar:
   sign_up_with_google: الاشتراك باستخدام جوجل
   sign_up_with_microsoft: الاشتراك باستخدام مايكروسوفت
   redirecting_to_provider: جارٍ إعادة التوجيه إلى %{provider}...
-  by_creating_an_account_you_agree_to_our_html: 'من خلال إنشاء حساب، فإنك توافق على <a target="_blank" href="https://www.docuseal.com/privacy">سياسة الخصوصية</a> و<a target="_blank" href="https://www.docuseal.com/terms">شروط الخدمة</a> الخاصة بنا.'
   enter_email_to_continue: أدخل البريد الإلكتروني للمتابعة
   the_code_has_been_sent_to_your_email: تم إرسال الرمز إلى بريدك الإلكتروني.
   enter_the_verification_code_from_your_email: أدخل رمز التحقق من بريدك الإلكتروني.
@@ -8525,7 +8282,7 @@ ar:
   your_verification_code_to_access_the_name: 'رمز التحقق الخاص بك للوصول إلى "%{name}":'
   please_reply_to_this_email_if_you_didnt_request_this: 'يرجى الرد على هذا البريد إذا لم تطلب ذلك.'
   your_user_account_has_been_archived_contact_your_administrator_to_restore_access_to_your_account: تمت أرشفة حسابك. يرجى التواصل مع المسؤول لاستعادة الوصول إلى حسابك.
-  your_email_could_not_be_reached_this_may_happen_if_there_was_a_typo_in_your_address_or_if_your_mailbox_is_not_available_please_contact_support_email_to_log_in: تعذّر الوصول إلى بريدك الإلكتروني. قد يحدث هذا في حال وجود خطأ في العنوان أو إذا كان صندوق البريد غير متاح. يرجى التواصل مع support@docuseal.com لتسجيل الدخول.
+  your_email_could_not_be_reached_this_may_happen_if_there_was_a_typo_in_your_address_or_if_your_mailbox_is_not_available_please_contact_support_email_to_log_in: تعذّر الوصول إلى بريدك الإلكتروني. قد يحدث هذا في حال وجود خطأ في العنوان أو إذا كان صندوق البريد غير متاح. يرجى التواصل مع مسؤول النظام لتسجيل الدخول.
   verification_required_refresh_the_page_and_pass_2fa: مطلوب التحقق. قم بتحديث الصفحة وأكمل المصادقة الثنائية.
   the_sender_has_requested_a_two_factor_authentication_via_one_time_password_sent_to_your_email_html: طلب المرسل المصادقة الثنائية عبر كلمة مرور لمرة واحدة مرسلة إلى عنوان بريدك الإلكتروني <b>%{email}</b>.
   please_contact_the_requester_to_specify_your_email_for_two_factor_authentication: يرجى الاتصال بالمرسل لتحديد عنوان بريدك الإلكتروني للمصادقة الثنائية.
@@ -8610,7 +8367,6 @@ ko:
   sign_up_with_google: Google로 가입
   sign_up_with_microsoft: Microsoft로 가입
   redirecting_to_provider: "%{provider}(으)로 이동 중..."
-  by_creating_an_account_you_agree_to_our_html: '계정을 생성함으로써, <a target="_blank" href="https://www.docuseal.com/privacy">개인정보 처리방침</a> 및 <a target="_blank" href="https://www.docuseal.com/terms">서비스 약관</a>에 동의하게 됩니다.'
   enter_email_to_continue: 계속하려면 이메일을 입력하세요
   the_code_has_been_sent_to_your_email: 코드가 이메일로 전송되었습니다.
   enter_the_verification_code_from_your_email: 이메일로 받은 인증 코드를 입력하세요.
@@ -8637,7 +8393,7 @@ ko:
   your_verification_code_to_access_the_name: '"%{name}"에 액세스하기 위한 인증 코드:'
   please_reply_to_this_email_if_you_didnt_request_this: 요청하지 않았다면 이 이메일에 회신하세요.
   your_user_account_has_been_archived_contact_your_administrator_to_restore_access_to_your_account: 사용자 계정이 보관되었습니다. 계정 접근을 복원하려면 관리자에게 문의하세요.
-  your_email_could_not_be_reached_this_may_happen_if_there_was_a_typo_in_your_address_or_if_your_mailbox_is_not_available_please_contact_support_email_to_log_in: 이메일에 접근할 수 없습니다. 주소에 오타가 있거나 메일박스가 사용 불가능한 경우 발생할 수 있습니다. 로그인하려면 support@docuseal.com에 문의하세요.
+  your_email_could_not_be_reached_this_may_happen_if_there_was_a_typo_in_your_address_or_if_your_mailbox_is_not_available_please_contact_support_email_to_log_in: 이메일에 접근할 수 없습니다. 주소에 오타가 있거나 메일박스가 사용 불가능한 경우 발생할 수 있습니다. 로그인하려면 관리자에게 문의하세요.
   verification_required_refresh_the_page_and_pass_2fa: 인증이 필요합니다. 페이지를 새로 고치고 2단계 인증을 완료하세요.
   the_sender_has_requested_a_two_factor_authentication_via_one_time_password_sent_to_your_email_html: 발신자가 <b>%{email}</b> 이메일 주소로 전송된 일회용 비밀번호를 통해 2단계 인증을 요청했습니다.
   please_contact_the_requester_to_specify_your_email_for_two_factor_authentication: 2단계 인증을 위해 이메일 주소를 지정하려면 요청자에게 문의하세요.
@@ -8722,7 +8478,6 @@ ja:
   sign_up_with_google: Googleで登録
   sign_up_with_microsoft: Microsoftで登録
   redirecting_to_provider: "%{provider} にリダイレクトしています..."
-  by_creating_an_account_you_agree_to_our_html: '<a target="_blank" href="https://www.docuseal.com/privacy">プライバシーポリシー</a>および<a target="_blank" href="https://www.docuseal.com/terms">利用規約</a>に同意の上、アカウントを作成します。'
   enter_email_to_continue: 続行するにはメールを入力してください
   the_code_has_been_sent_to_your_email: コードがあなたのメールに送信されました
   enter_the_verification_code_from_your_email: メールに記載された認証コードを入力してください
@@ -8749,7 +8504,7 @@ ja:
   your_verification_code_to_access_the_name: '"%{name}" へアクセスするための認証コード：'
   please_reply_to_this_email_if_you_didnt_request_this: このリクエストを行っていない場合は、このメールに返信してください。
   your_user_account_has_been_archived_contact_your_administrator_to_restore_access_to_your_account: あなたのユーザーアカウントはアーカイブされました。アクセスを復元するには管理者に連絡してください。
-  your_email_could_not_be_reached_this_may_happen_if_there_was_a_typo_in_your_address_or_if_your_mailbox_is_not_available_please_contact_support_email_to_log_in: メールにアクセスできませんでした。アドレスの入力ミスやメールボックスが利用できない場合に発生することがあります。ログインするには support@docuseal.com に連絡してください。
+  your_email_could_not_be_reached_this_may_happen_if_there_was_a_typo_in_your_address_or_if_your_mailbox_is_not_available_please_contact_support_email_to_log_in: メールにアクセスできませんでした。アドレスの入力ミスやメールボックスが利用できない場合に発生することがあります。ログインするには管理者に連絡してください。
   verification_required_refresh_the_page_and_pass_2fa: 認証が必要です。ページを更新して2段階認証を完了してください。
   the_sender_has_requested_a_two_factor_authentication_via_one_time_password_sent_to_your_email_html: 送信者は、<b>%{email}</b> メールアドレスに送信されたワンタイムパスワードによる2段階認証を要求しました。
   please_contact_the_requester_to_specify_your_email_for_two_factor_authentication: 2段階認証用にメールアドレスを指定するために、送信者にお問い合わせください。

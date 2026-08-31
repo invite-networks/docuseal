@@ -46,7 +46,7 @@ export default class extends HTMLElement {
         this.textarea.parentNode.append(bulkMessage)
       }
 
-      bulkMessage.innerHTML = '<a class="link" data-turbo="false" href="/upgrade">Upgrade</a> to bulk send multiple recipients'
+      bulkMessage.textContent = 'Bulk sending to multiple recipients is not available.'
     }
   }
 

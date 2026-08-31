@@ -156,15 +156,6 @@ export default class extends HTMLElement {
           side: 'right',
           align: 'start'
         }
-      },
-      {
-        element: '#support_channels',
-        popover: {
-          title: this.I18n.support,
-          description: this.I18n.support_description,
-          side: 'left',
-          align: 'start'
-        }
       }
     ].filter((step) => document.querySelector(step.element)))
 

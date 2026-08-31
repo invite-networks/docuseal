@@ -27,7 +27,7 @@ class NotificationsSettingsController < ApplicationController
     return if @account_config.key != AccountConfig::SUBMITTER_REMINDERS
     return if can?(:manage, :email_reminders)
 
-    redirect_back fallback_location: settings_notifications_path, alert: I18n.t('unlock_with_docuseal_pro')
+    redirect_back fallback_location: settings_notifications_path, alert: I18n.t('unable_to_save')
   end
 
   def build_account_config

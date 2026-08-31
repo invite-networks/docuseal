@@ -15,7 +15,7 @@ module Submissions
 
       io = StringIO.new
 
-      pdf.trailer.info[:Creator] = "#{Docuseal.product_name} (#{Docuseal::PRODUCT_URL})"
+      pdf.trailer.info[:Creator] = Docuseal.product_name
 
       if Docuseal.pdf_format == 'pdf/a-3b'
         pdf.task(:pdfa, level: '3b')

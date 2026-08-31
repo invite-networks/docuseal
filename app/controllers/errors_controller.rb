@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
 class ErrorsController < ActionController::Base
-  ENTERPRISE_FEATURE_MESSAGE =
-    'This feature is available in Pro Edition: https://www.docuseal.com/pricing'
+  UNSUPPORTED_FEATURE_MESSAGE = 'This feature is not available in this build.'
 
-  ENTERPRISE_PATHS = [
+  UNSUPPORTED_PATHS = [
     '/submissions/html',
     '/api/submissions/html',
     '/templates/html',
@@ -25,8 +24,8 @@ class ErrorsController < ActionController::Base
   ].freeze
 
   def show
-    if request.original_fullpath.in?(ENTERPRISE_PATHS) && error_status_code == 404
-      return render json: { status: 404, message: ENTERPRISE_FEATURE_MESSAGE }, status: :not_found
+    if request.original_fullpath.in?(UNSUPPORTED_PATHS) && error_status_code == 404
+      return render json: { status: 404, message: UNSUPPORTED_FEATURE_MESSAGE }, status: :not_found
     end
 
     respond_to do |f|
