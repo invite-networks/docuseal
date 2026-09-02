@@ -48,7 +48,7 @@
     "qr-creator": "^1.0.0",
     "rollbar": "^2.26.4",
     "sass": "^1.62.1",
-    "sass-loader": "^16.0.6",
+    "sass-loader": "^17.0.1",
     "shakapacker": "10.3.2",
     "signature_pad": "^4.1.5",
     "snarkdown": "^2.0.0",
