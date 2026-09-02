@@ -1,38 +1,25 @@
 # frozen_string_literal: true
 
 class SessionsController < Devise::SessionsController
-  before_action :configure_permitted_parameters
-
   around_action :with_browser_locale
 
   def create
-    email = sign_in_params[:email].to_s.downcase
+    redirect_to microsoft_auth_path(redir: params[:redir])
+  end
 
-    if Docuseal.multitenant? && !User.exists?(email:)
-      Rollbar.warning('Sign in new user') if defined?(Rollbar)
+  def destroy
+    sign_out(resource_name)
 
-      return redirect_to new_registration_path(sign_up: true, user: sign_in_params.slice(:email)),
-                         notice: I18n.t('create_a_new_account')
-    end
+    return redirect_to microsoft_signed_out_path unless Microsoft365::Config.configured?
 
-    if User.exists?(email:, otp_required_for_login: true) && sign_in_params[:otp_attempt].blank?
-      return render :otp, locals: { resource: User.new(sign_in_params) }, status: :unprocessable_content
-    end
-
-    super
+    query = {
+      client_id: Microsoft365::Config.client_id,
+      post_logout_redirect_uri: microsoft_signed_out_url
+    }.to_query
+    redirect_to "#{Microsoft365::Config.logout_endpoint}?#{query}", allow_other_host: true
   end
 
   private
-
-  def after_sign_in_path_for(...)
-    return params[:redir] if params[:redir].present?
-
-    super
-  end
-
-  def configure_permitted_parameters
-    devise_parameter_sanitizer.permit(:sign_in, keys: [:otp_attempt])
-  end
 
   def set_flash_message(key, kind, options = {})
     return if key == :alert && kind == 'already_authenticated'

@@ -51,7 +51,7 @@
 </template>
 
 <script>
-import { IconTextSize, IconWritingSign, IconCalendarEvent, IconPhoto, IconCheckbox, IconPaperclip, IconSelect, IconCircleDot, IconChecks, IconColumns3, IconPhoneCheck, IconLetterCaseUpper, IconCreditCard, IconRubberStamp, IconSquareNumber1, IconHeading, IconId, IconCalendarCheck, IconStrikethrough, IconUserScan } from '@tabler/icons-vue'
+import { IconTextSize, IconWritingSign, IconCalendarEvent, IconPhoto, IconCheckbox, IconPaperclip, IconSelect, IconCircleDot, IconChecks, IconColumns3, IconPhoneCheck, IconLetterCaseUpper, IconCreditCard, IconRubberStamp, IconSquareNumber1, IconHeading, IconId, IconCalendarCheck, IconStrikethrough, IconUserScan, IconUser, IconMail, IconBriefcase, IconBuilding } from '@tabler/icons-vue'
 
 export default {
   name: 'FiledTypeDropdown',
@@ -99,6 +99,10 @@ export default {
         heading: this.t('heading'),
         strikethrough: this.t('strikeout'),
         text: this.t('text'),
+        name: this.t('name'),
+        email: this.t('email'),
+        title: this.t('title'),
+        company: this.t('company'),
         signature: this.t('signature'),
         initials: this.t('initials'),
         date: this.t('date'),
@@ -121,6 +125,10 @@ export default {
     fieldLabels () {
       return {
         text: this.t('text_field'),
+        name: this.t('name_field'),
+        email: this.t('email_field'),
+        title: this.t('title_field'),
+        company: this.t('company_field'),
         signature: this.t('signature_field'),
         initials: this.t('initials_field'),
         date: this.t('date_field'),
@@ -144,6 +152,10 @@ export default {
         heading: IconHeading,
         strikethrough: IconStrikethrough,
         text: IconTextSize,
+        name: IconUser,
+        email: IconMail,
+        title: IconBriefcase,
+        company: IconBuilding,
         signature: IconWritingSign,
         initials: IconLetterCaseUpper,
         date: IconCalendarEvent,

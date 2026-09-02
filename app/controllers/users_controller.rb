@@ -1,10 +1,9 @@
 # frozen_string_literal: true
 
 class UsersController < ApplicationController
-  load_and_authorize_resource :user, only: %i[index edit update destroy]
+  before_action :authorize_user_administration
 
-  before_action :build_user, only: %i[new create]
-  authorize_resource :user, only: %i[new create]
+  load_and_authorize_resource :user, only: %i[index edit update destroy]
 
   def index
     @users =
@@ -31,37 +30,7 @@ class UsersController < ApplicationController
     end
   end
 
-  def new; end
-
   def edit; end
-
-  def create
-    existing_user = User.accessible_by(current_ability).find_by(email: @user.email)
-
-    if existing_user
-      if existing_user.archived_at? &&
-         current_ability.can?(:manage, existing_user) && current_ability.can?(:manage, @user.account)
-        existing_user.assign_attributes(@user.slice(:first_name, :last_name, :role, :account_id))
-        existing_user.archived_at = nil
-        @user = existing_user
-      else
-        @user.errors.add(:email, I18n.t('already_exists'))
-
-        return render turbo_stream: turbo_stream.replace(:modal, template: 'users/new'), status: :unprocessable_content
-      end
-    end
-
-    @user.password = SecureRandom.hex if @user.password.blank?
-    @user.role = User::ADMIN_ROLE unless role_valid?(@user.role)
-
-    if @user.save
-      UserMailer.invitation_email(@user).deliver_later!
-
-      redirect_back fallback_location: settings_users_path, notice: I18n.t('user_has_been_invited')
-    else
-      render turbo_stream: turbo_stream.replace(:modal, template: 'users/new'), status: :unprocessable_content
-    end
-  end
 
   def update
     return redirect_to settings_users_path, notice: I18n.t('unable_to_update_user') if Docuseal.demo?
@@ -79,7 +48,7 @@ class UsersController < ApplicationController
       authorize!(:create, @user)
     end
 
-    if @user.update(attrs.except(*(current_user == @user ? %i[password otp_required_for_login role] : %i[password])))
+    if @user.update(attrs.except(:email))
       if @user.try(:pending_reconfirmation?) && @user.previous_changes.key?(:unconfirmed_email)
         SendConfirmationInstructionsJob.perform_async('user_id' => @user.id)
 
@@ -105,21 +74,13 @@ class UsersController < ApplicationController
 
   private
 
-  def role_valid?(role)
-    User::ROLES.include?(role)
-  end
-
-  def build_user
-    @user = current_account.users.new(user_params)
+  def authorize_user_administration
+    authorize!(:manage, :users)
   end
 
   def user_params
     if params.key?(:user)
-      permitted_params = %i[email first_name last_name password archived_at otp_required_for_login]
-
-      permitted_params << :role if role_valid?(params.dig(:user, :role))
-
-      params.require(:user).permit(permitted_params)
+      params.require(:user).permit(:first_name, :last_name, :archived_at)
     else
       {}
     end

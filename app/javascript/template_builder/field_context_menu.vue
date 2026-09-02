@@ -601,7 +601,7 @@ export default {
       }
     },
     showFont () {
-      return ['text', 'number', 'date', 'select', 'heading', 'cells'].includes(this.field.type) ||
+      return ['text', 'name', 'email', 'title', 'company', 'number', 'date', 'select', 'heading', 'cells'].includes(this.field.type) ||
         (['radio', 'multiple'].includes(this.field.type) && this.field.areas?.every((a) => !a.option_uuid))
     },
     showDescription () {
@@ -617,7 +617,7 @@ export default {
       return this.withRequired && !['phone', 'stamp', 'verification', 'strikethrough', 'heading'].includes(this.field.type)
     },
     showReadOnly () {
-      return ['text', 'number', 'radio', 'multiple', 'select'].includes(this.field.type)
+      return ['text', 'name', 'email', 'title', 'company', 'number', 'radio', 'multiple', 'select'].includes(this.field.type)
     },
     isRequired () {
       return this.field.required || false
@@ -629,7 +629,7 @@ export default {
       return ['date', 'number', 'signature'].includes(this.field.type)
     },
     showValidationSubmenu () {
-      return ['text', 'cells', 'number'].includes(this.field.type)
+      return ['text', 'name', 'email', 'title', 'company', 'cells', 'number'].includes(this.field.type)
     },
     showPrefillable () {
       return this.withPrefillable && this.prefillableFieldTypes.includes(this.field.type)

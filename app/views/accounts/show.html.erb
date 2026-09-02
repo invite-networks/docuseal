@@ -46,23 +46,6 @@
         <h2 class="text-2xl font-bold mb-2">
           <%= t('preferences') %>
         </h2>
-        <% account_config = AccountConfig.find_or_initialize_by(account: current_account, key: AccountConfig::FORCE_MFA) %>
-        <% if can?(:manage, account_config) %>
-          <%= form_for account_config, url: account_configs_path, method: :post do |f| %>
-            <%= f.hidden_field :key %>
-            <div class="flex items-center justify-between gap-4 py-2.5">
-              <div class="flex items-center space-x-1">
-                <span class="text-left"><%= t('force_2fa_with_authenticator_app') %></span>
-                <span class="tooltip tooltip-top hidden md:flex cursor-pointer" data-tip="<%= t('require_two_factor_authentication_2fa_with_an_authenticator_app_e_g_google_authenticator_authy_all_users_signing_documents_must_pass_the_second_factor_verification_using_a_secure_code_in_addition_to_their_password') %>">
-                  <%= svg_icon('info_circle', class: 'w-4 h-4 shrink-0') %>
-                </span>
-              </div>
-              <submit-form data-on="change" class="flex">
-                <%= f.check_box :value, class: 'toggle', checked: account_config.value %>
-              </submit-form>
-            </div>
-          <% end %>
-        <% end %>
         <% account_config = AccountConfig.find_or_initialize_by(account: current_account, key: AccountConfig::WITH_SIGNATURE_ID) %>
         <% if can?(:manage, account_config) %>
           <%= form_for account_config, url: account_configs_path, method: :post do |f| %>

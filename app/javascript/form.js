@@ -31,7 +31,6 @@ safeRegisterElement('submission-form', class extends HTMLElement {
       previousSignatureValue: this.dataset.previousSignatureValue,
       goToLast: this.dataset.goToLast === 'true',
       isDemo: this.dataset.isDemo === 'true',
-      attribution: this.dataset.attribution !== 'false',
       scrollPadding: this.dataset.scrollPadding || '-80px',
       signatureText: this.dataset.signatureText,
       language: this.dataset.language,

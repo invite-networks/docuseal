@@ -2,8 +2,8 @@
 
 module Api
   class SubmissionsController < ApiBaseController
-    SUBMISSION_COLUMNS = %i[id name slug source submitters_order expire_at completed_at created_at updated_at
-                            archived_at variables template_id template_submitters created_by_user_id].freeze
+    SUBMISSION_COLUMNS = %i[id name description slug source submitters_order expire_at completed_at created_at
+                            updated_at archived_at variables template_id template_submitters created_by_user_id].freeze
     TEMPLATE_COLUMNS = %i[id name external_id created_at updated_at folder_id submitters].freeze
 
     load_and_authorize_resource :template, only: :create
@@ -118,7 +118,9 @@ module Api
                                                                       'expire_at' => @submission.expire_at.to_i)
       end
 
-      SearchEntries.enqueue_reindex(@submission) if @submission.saved_change_to_name?
+      if @submission.saved_change_to_name? || @submission.saved_change_to_description?
+        SearchEntries.enqueue_reindex(@submission)
+      end
 
       render json: Submissions::SerializeForApi.call(@submission, nil, params, with_events: false)
     end
@@ -145,6 +147,7 @@ module Api
       end
 
       submission.name = attrs[:name] if attrs.key?(:name)
+      submission.description = attrs[:description] if attrs.key?(:description)
       submission.expire_at = attrs[:expire_at].presence if attrs.key?(:expire_at)
 
       submission
@@ -153,7 +156,7 @@ module Api
     def submission_params
       submission_params = params.key?(:submission) ? params.require(:submission) : params
 
-      submission_params.permit(:name, :expire_at, :archived, :archived_at)
+      submission_params.permit(:name, :description, :expire_at, :archived, :archived_at)
     end
 
     def maybe_return_template_error
@@ -256,7 +259,7 @@ module Api
     def submissions_params
       permitted_attrs = [
         :send_email, :send_sms, :bcc_completed, :completed_redirect_url, :reply_to, :go_to_last,
-        :require_phone_2fa, :require_email_2fa, :expire_at, :name,
+        :require_phone_2fa, :require_email_2fa, :expire_at, :name, :description,
         {
           variables: {},
           message: %i[subject body],

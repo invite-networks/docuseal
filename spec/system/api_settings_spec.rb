@@ -15,25 +15,12 @@ RSpec.describe 'API Settings' do
     expect(page).to have_field('X-Auth-Token', with: token.sub(token[5..], '*' * token[5..].size))
   end
 
-  it 'reveals API key with correct password' do
+  it 'uses Microsoft verification instead of a local password' do
     find('#api_key').click
 
     within('.modal') do
-      fill_in 'password', with: user.password
-      click_button 'Submit'
+      expect(page).to have_link('Continue with Microsoft')
+      expect(page).to have_no_field('Password')
     end
-
-    expect(page).to have_field('X-Auth-Token', with: user.access_token.token)
-  end
-
-  it 'shows error with incorrect password' do
-    find('#api_key').click
-
-    within('.modal') do
-      fill_in 'password', with: 'wrong_password'
-      click_button 'Submit'
-    end
-
-    expect(page).to have_content('Wrong password')
   end
 end

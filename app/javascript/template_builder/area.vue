@@ -432,7 +432,7 @@ export default {
       if (this.inputMode && this.field.preferences?.formula) return false
 
       return (this.field.type === 'heading' && this.isHeadingSelected) || this.isContenteditable ||
-        (this.inputMode && (['text', 'number'].includes(this.field.type) || (this.field.type === 'date' && this.field.default_value !== '{{date}}')))
+        (this.inputMode && (['text', 'name', 'email', 'title', 'company', 'number'].includes(this.field.type) || (this.field.type === 'date' && this.field.default_value !== '{{date}}')))
     },
     defaultName () {
       return this.buildDefaultName(this.field)
@@ -522,7 +522,7 @@ export default {
   watch: {
     'field.default_value' () {
       this.$nextTick(() => {
-        if (['date', 'text', 'number'].includes(this.field.type) && this.field.default_value && this.$refs.textContainer && (this.textOverflowChars === 0 || (this.textOverflowChars - 4) > `${this.field.default_value}`.length)) {
+        if (['date', 'text', 'name', 'email', 'title', 'company', 'number'].includes(this.field.type) && this.field.default_value && this.$refs.textContainer && (this.textOverflowChars === 0 || (this.textOverflowChars - 4) > `${this.field.default_value}`.length)) {
           this.textOverflowChars = (this.$el.clientHeight + 1) < this.$refs.textContainer.clientHeight ? `${this.field.default_value}`.length : 0
         }
       })
@@ -530,7 +530,7 @@ export default {
   },
   mounted () {
     this.$nextTick(() => {
-      if (['date', 'text', 'number'].includes(this.field.type) && this.field.default_value && this.$refs.textContainer && (this.textOverflowChars === 0 || (this.textOverflowChars - 4) > `${this.field.default_value}`.length)) {
+      if (['date', 'text', 'name', 'email', 'title', 'company', 'number'].includes(this.field.type) && this.field.default_value && this.$refs.textContainer && (this.textOverflowChars === 0 || (this.textOverflowChars - 4) > `${this.field.default_value}`.length)) {
         this.textOverflowChars = (this.$el.clientHeight + 1) < this.$refs.textContainer.clientHeight ? `${this.field.default_value}`.length : 0
       }
     })
@@ -547,7 +547,7 @@ export default {
         return
       }
 
-      if (['text', 'number'].includes(this.field.type)) {
+      if (['text', 'name', 'email', 'title', 'company', 'number'].includes(this.field.type)) {
         this.isContenteditable = true
 
         this.focusValueInput()

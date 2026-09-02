@@ -1,109 +1,66 @@
 # frozen_string_literal: true
 
 RSpec.describe 'Profile Settings' do
-  let(:user) { create(:user, account: create(:account)) }
+  let(:user) { create(:user, account: create(:account), title: 'Engineer', company: 'Example Corporation') }
 
   before do
     sign_in(user)
-
-    allow(Accounts).to receive(:can_send_emails?).and_return(true)
-
     visit settings_profile_index_path
   end
 
-  it 'shows the profile settings page' do
+  it 'shows Entra-managed identity and no local password controls' do
     expect(page).to have_content('Profile')
-    expect(page).to have_field('user[email]', with: user.email)
-    expect(page).to have_field('user[first_name]', with: user.first_name)
-    expect(page).to have_field('user[last_name]', with: user.last_name)
-
-    expect(page).to have_content('Change Password')
-    expect(page).to have_field('user[password]')
+    expect(page).to have_field('user[email]', with: user.email, disabled: true)
+    expect(page).to have_field('user[first_name]', with: user.first_name, disabled: true)
+    expect(page).to have_field('user[last_name]', with: user.last_name, disabled: true)
+    expect(page).to have_no_field('user[title]')
+    expect(page).to have_no_field('user[company]')
+    expect(page).to have_content('Managed by Microsoft Entra ID')
+    expect(page).to have_no_button('Update')
+    expect(page).to have_no_content('Change Password')
+    expect(page).to have_no_field('user[password]')
   end
 
-  context 'when changes contact information' do
-    it 'updates first name, last name and email' do
-      fill_in 'First name', with: 'Devid'
-      fill_in 'Last name', with: 'Beckham'
-      fill_in 'Email', with: 'david.beckham@example.com'
+  it 'shows a reconnect action when Microsoft authorization is invalid' do
+    EncryptedUserConfig.create!(
+      user:,
+      key: Microsoft365::TokenStore::KEY,
+      value: { 'reauthorization_required_at' => Time.current.iso8601 }
+    )
 
-      all(:button, 'Update')[0].click
+    visit settings_profile_index_path
 
-      user.reload
-
-      expect(user.first_name).to eq('Devid')
-      expect(user.last_name).to eq('Beckham')
-      expect(user.email).to eq('david.beckham@example.com')
-    end
-
-    it 'does not update if email is invalid' do
-      fill_in 'Email', with: 'devid+test@example'
-
-      all(:button, 'Update')[0].click
-
-      expect(page).to have_content('Email is invalid')
-    end
+    expect(page).to have_link('Reconnect Microsoft 365',
+                              href: microsoft_auth_path(return_to: settings_profile_index_path))
   end
 
-  context 'when changes password' do
-    it 'updates password' do
-      fill_in 'New password', with: 'newpassword'
-      fill_in 'Confirm new password', with: 'newpassword'
-      fill_in 'Current password', with: 'password'
+  it 'creates a typed signature from the user name' do
+    click_link 'Update Signature'
+    find('label', text: 'Type', exact_text: true).click
 
-      all(:button, 'Update')[1].click
+    expect(page).to have_field('Type your signature', with: user.full_name)
+    expect(page).to have_css('[aria-label="Typed signature preview"]', text: user.full_name)
 
-      expect(page).to have_content('Password has been changed')
-    end
+    fill_in 'Type your signature', with: 'Example User'
+    expect(page).to have_css('[aria-label="Typed signature preview"]', text: 'Example User')
 
-    it 'does not update if password confirmation does not match' do
-      fill_in 'New password', with: 'newpassword'
-      fill_in 'Confirm new password', with: 'newpassword1'
-      fill_in 'Current password', with: 'password'
+    click_button 'Save'
 
-      all(:button, 'Update')[1].click
+    expect(page).to have_content('Signature has been saved')
+    expect(UserConfigs.load_signature(user.reload)).to be_present
+  end
 
-      expect(page).to have_content("Password confirmation doesn't match Password")
-    end
+  it 'creates typed initials derived from the user name' do
+    click_link 'Update Initials'
+    find('label', text: 'Type', exact_text: true).click
 
-    it 'does not update if current password is incorrect' do
-      fill_in 'New password', with: 'newpassword'
-      fill_in 'Confirm new password', with: 'newpassword'
-      fill_in 'Current password', with: 'wrongpassword'
+    expect(page).to have_field('Type your initials', with: user.initials)
+    expect(page).to have_css('[aria-label="Typed initials preview"]', text: user.initials)
 
-      all(:button, 'Update')[1].click
+    fill_in 'Type your initials', with: 'AA'
+    click_button 'Save'
 
-      expect(page).to have_content('Current password is invalid')
-    end
-
-    it 'resets password and signs in with new password', sidekiq: :inline do
-      fill_in 'New password', with: 'newpassword'
-      accept_confirm('Are you sure?') do
-        find('label', text: 'Click here').click
-      end
-
-      expect(page).to have_content('An email with password reset instructions has been sent.')
-
-      email = ActionMailer::Base.deliveries.last
-      reset_password_url = email.body
-                                .encoded[/href="([^"]+)"/, 1]
-                                .sub(%r{https?://(.*?)/}, "#{Capybara.current_session.server.base_url}/")
-
-      visit reset_password_url
-
-      fill_in 'New password', with: 'new_strong_password'
-      fill_in 'Confirm new password', with: 'new_strong_password'
-      click_button 'Change my password'
-
-      expect(page).to have_content('Your password has been changed successfully. You are now signed in.')
-
-      visit new_user_session_path
-
-      fill_in 'Email', with: user.email
-      fill_in 'Password', with: 'new_strong_password'
-      click_button 'Sign In'
-
-      expect(page).to have_content('Signed in successfully')
-    end
+    expect(page).to have_content('Initials have been saved')
+    expect(UserConfigs.load_initials(user.reload)).to be_present
   end
 end

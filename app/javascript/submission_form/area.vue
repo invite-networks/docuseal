@@ -287,7 +287,7 @@
 
 <script>
 import MarkdownContent from './markdown_content'
-import { IconTextSize, IconWritingSign, IconCalendarEvent, IconPhoto, IconCheckbox, IconPaperclip, IconSelect, IconCircleDot, IconChecks, IconCheck, IconColumns3, IconPhoneCheck, IconLetterCaseUpper, IconCreditCard, IconRubberStamp, IconSquareNumber1, IconId, IconUserScan } from '@tabler/icons-vue'
+import { IconTextSize, IconWritingSign, IconCalendarEvent, IconPhoto, IconCheckbox, IconPaperclip, IconSelect, IconCircleDot, IconChecks, IconCheck, IconColumns3, IconPhoneCheck, IconLetterCaseUpper, IconCreditCard, IconRubberStamp, IconSquareNumber1, IconId, IconUserScan, IconUser, IconMail, IconBriefcase, IconBuilding } from '@tabler/icons-vue'
 
 export default {
   name: 'FieldArea',
@@ -392,6 +392,10 @@ export default {
     fieldNames () {
       return {
         text: this.t('text'),
+        name: this.t('name'),
+        email: this.t('email'),
+        title: this.t('title'),
+        company: this.t('company'),
         signature: this.t('signature'),
         initials: this.t('initials'),
         date: this.t('date'),
@@ -466,6 +470,10 @@ export default {
     fieldIcons () {
       return {
         text: IconTextSize,
+        name: IconUser,
+        email: IconMail,
+        title: IconBriefcase,
+        company: IconBuilding,
         signature: IconWritingSign,
         date: IconCalendarEvent,
         number: IconSquareNumber1,
@@ -601,7 +609,7 @@ export default {
   watch: {
     modelValue () {
       this.$nextTick(() => {
-        if (['date', 'text', 'number'].includes(this.field.type) && this.$refs.textContainer && (this.textOverflowChars === 0 || (this.textOverflowChars - 4) > `${this.modelValue}`.length)) {
+        if (['date', 'text', 'name', 'email', 'title', 'company', 'number'].includes(this.field.type) && this.$refs.textContainer && (this.textOverflowChars === 0 || (this.textOverflowChars - 4) > `${this.modelValue}`.length)) {
           this.textOverflowChars = this.$refs.textContainer.scrollHeight > (this.$refs.textContainer.clientHeight + 1) ? `${this.modelValue || (this.withFieldPlaceholder ? this.field.name : '')}`.length : 0
         }
       })
@@ -609,7 +617,7 @@ export default {
   },
   mounted () {
     this.$nextTick(() => {
-      if (['date', 'text', 'number'].includes(this.field.type) && this.$refs.textContainer) {
+      if (['date', 'text', 'name', 'email', 'title', 'company', 'number'].includes(this.field.type) && this.$refs.textContainer) {
         this.textOverflowChars = this.$refs.textContainer.scrollHeight > (this.$refs.textContainer.clientHeight + 1) ? `${this.modelValue || (this.withFieldPlaceholder ? this.field.name : '')}`.length : 0
       }
     })

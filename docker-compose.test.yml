@@ -1,0 +1,25 @@
+services:
+  test:
+    build:
+      context: .
+      dockerfile: Dockerfile
+      args:
+        BUNDLE_WITHOUT: ""
+        INSTALL_TEST_BROWSER: "true"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    working_dir: /app
+    volumes:
+      - ./.rspec:/app/.rspec:ro
+      - ./.rubocop.yml:/app/.rubocop.yml:ro
+      - ./app:/app/app
+      - ./config:/app/config
+      - ./db:/app/db
+      - ./lib:/app/lib
+      - ./spec:/app/spec
+    environment:
+      RAILS_ENV: test
+      PGHOST: postgres
+      PGUSER: postgres
+      PGPASSWORD: postgres

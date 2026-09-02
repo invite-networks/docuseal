@@ -2012,7 +2012,7 @@ export default {
     },
     addField (type, area = null) {
       const field = {
-        name: '',
+        name: ['name', 'email', 'title', 'company'].includes(type) ? this.t(type) : '',
         uuid: v4(),
         required: type !== 'checkbox',
         areas: area ? [area] : [],
@@ -2061,7 +2061,7 @@ export default {
         this.drawField = existingField
       } else {
         const field = {
-          name: name || '',
+          name: name || (['name', 'email', 'title', 'company'].includes(type) ? this.t(type) : ''),
           uuid: v4(),
           required: type !== 'checkbox',
           areas: [],
@@ -2727,6 +2727,10 @@ export default {
 
       if (!field.type) {
         field.type = 'text'
+      }
+
+      if (!field.name && ['name', 'email', 'title', 'company'].includes(field.type)) {
+        field.name = this.t(field.type)
       }
 
       if (!this.fieldsDragFieldRef.value) {

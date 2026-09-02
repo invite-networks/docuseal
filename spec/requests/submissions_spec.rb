@@ -77,6 +77,7 @@ describe 'Submission API' do
       post '/api/submissions', headers: { 'x-auth-token': author.access_token.token }, params: {
         template_id: templates[0].id,
         send_email: true,
+        description: 'NDA for Customer X',
         submitters: [{ role: 'First Party', email: 'john.doe@example.com' }]
       }.to_json
 
@@ -84,6 +85,7 @@ describe 'Submission API' do
 
       submission = Submission.last
 
+      expect(submission.description).to eq('NDA for Customer X')
       expect(response.parsed_body).to eq(JSON.parse(create_submission_body(submission).to_json))
     end
 
@@ -374,6 +376,7 @@ describe 'Submission API' do
     {
       id: submission.id,
       name: submission.name,
+      description: submission.description,
       source: 'link',
       submitters_order: 'random',
       slug: submission.slug,
@@ -434,6 +437,7 @@ describe 'Submission API' do
     {
       id: submission.id,
       name: submission.name,
+      description: submission.description,
       source: 'link',
       status: 'pending',
       submitters_order: 'random',

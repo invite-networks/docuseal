@@ -6,6 +6,7 @@
 #
 #  id                     :bigint           not null, primary key
 #  archived_at            :datetime
+#  company                :string
 #  confirmation_sent_at   :datetime
 #  confirmation_token     :string
 #  confirmed_at           :datetime
@@ -20,6 +21,8 @@
 #  last_sign_in_at        :datetime
 #  last_sign_in_ip        :string
 #  locked_at              :datetime
+#  microsoft_object_id    :string
+#  microsoft_tenant_id    :string
 #  otp_required_for_login :boolean          default(FALSE), not null
 #  otp_secret             :string
 #  remember_created_at    :datetime
@@ -27,6 +30,7 @@
 #  reset_password_token   :string
 #  role                   :string           not null
 #  sign_in_count          :integer          default(0), not null
+#  title                  :string
 #  unconfirmed_email      :string
 #  unlock_token           :string
 #  uuid                   :string           not null
@@ -38,6 +42,7 @@
 #
 #  index_users_on_account_id            (account_id)
 #  index_users_on_email                 (email) UNIQUE
+#  index_users_on_microsoft_identity    (microsoft_tenant_id,microsoft_object_id) UNIQUE WHERE ((microsoft_tenant_id IS NOT NULL) AND (microsoft_object_id IS NOT NULL))
 #  index_users_on_reset_password_token  (reset_password_token) UNIQUE
 #  index_users_on_unlock_token          (unlock_token) UNIQUE
 #  index_users_on_uuid                  (uuid) UNIQUE
@@ -48,7 +53,9 @@
 #
 class User < ApplicationRecord
   ROLES = [
-    ADMIN_ROLE = 'admin'
+    ADMIN_ROLE = 'admin',
+    USER_ROLE = 'user',
+    AUDITOR_ROLE = 'auditor'
   ].freeze
 
   EMAIL_REGEXP = /[^@;,<>\s]+@[^@;,<>\s]+/
@@ -69,9 +76,9 @@ class User < ApplicationRecord
   has_many :encrypted_configs, dependent: :destroy, class_name: 'EncryptedUserConfig'
   has_many :email_messages, dependent: :destroy, foreign_key: :author_id, inverse_of: :author
 
-  devise :two_factor_authenticatable, :recoverable, :rememberable, :validatable, :trackable, :lockable
+  devise :database_authenticatable, :rememberable, :trackable
 
-  attribute :role, :string, default: ADMIN_ROLE
+  attribute :role, :string, default: USER_ROLE
   attribute :uuid, :string, default: -> { SecureRandom.uuid }
 
   scope :active, -> { where(archived_at: nil) }
@@ -79,6 +86,15 @@ class User < ApplicationRecord
   scope :admins, -> { where(role: ADMIN_ROLE) }
 
   validates :email, format: { with: /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}\z/ }
+  validates :microsoft_object_id, uniqueness: { scope: :microsoft_tenant_id }, allow_nil: true
+
+  def microsoft_connected?
+    Microsoft365::TokenStore.connected?(self)
+  end
+
+  def microsoft_reauthorization_required?
+    Microsoft365::TokenStore.reauthorization_required?(self)
+  end
 
   def access_token
     super || build_access_token.tap(&:save!)
@@ -95,15 +111,7 @@ class User < ApplicationRecord
   def sidekiq?
     return true if Rails.env.development?
 
-    role == 'admin'
-  end
-
-  def self.sign_in_after_reset_password
-    if PasswordsController::Current.user.present?
-      !PasswordsController::Current.user.otp_required_for_login
-    else
-      true
-    end
+    role == ADMIN_ROLE
   end
 
   def initials

@@ -4,6 +4,14 @@
 @import "tailwindcss/components";
 @import "tailwindcss/utilities";
 
+.typed-signature-preview {
+  font-style: italic;
+}
+
+.typed-initials-preview {
+  font-style: italic;
+}
+
 a[href],
 input[type='checkbox'],
 input[type='submit'],

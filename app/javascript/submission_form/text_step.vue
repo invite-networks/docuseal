@@ -44,7 +44,8 @@
       :title="validationMessage"
       :aria-describedby="field.description ? field.uuid + '-desc' : undefined"
       :placeholder="`${t('type_here_')}${field.required ? '' : ` (${t('optional')})`}`"
-      type="text"
+      :type="field.type === 'email' ? 'email' : 'text'"
+      :autocomplete="field.type === 'email' ? 'email' : undefined"
       :name="`values[${field.uuid}]`"
       @focus="$emit('focus')"
     >
@@ -63,7 +64,7 @@
       @focus="$emit('focus')"
     />
     <div
-      v-if="!isTextArea && field.type !== 'cells' && !field.validation?.pattern"
+      v-if="!isTextArea && !['cells', 'email'].includes(field.type) && !field.validation?.pattern"
       class="tooltip"
       :data-tip="t('toggle_multiline_text')"
     >

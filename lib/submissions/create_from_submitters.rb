@@ -24,6 +24,7 @@ module Submissions
           account_id: user.account_id,
           preferences: set_submission_preferences,
           name: with_template ? attrs[:name] : (attrs[:name].presence || template.name),
+          description: attrs[:description],
           variables: attrs[:variables] || {},
           expire_at:,
           template_submitters: [], submitters_order:

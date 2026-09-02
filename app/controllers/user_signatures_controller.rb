@@ -7,24 +7,11 @@ class UserSignaturesController < ApplicationController
   def edit; end
 
   def update
-    file = params[:file]
-
-    return redirect_to settings_profile_index_path, notice: I18n.t('unable_to_save_signature') if file.blank?
-
-    extension = File.extname(file.original_filename).delete_prefix('.').downcase
-
-    if Submitters::DANGEROUS_EXTENSIONS.include?(extension)
-      raise Submitters::MaliciousFileExtension, "File type '.#{extension}' is not allowed."
-    end
-
-    blob = ActiveStorage::Blob.create_and_upload!(io: file.open,
-                                                  filename: file.original_filename,
-                                                  content_type: file.content_type)
-
-    attachment = ActiveStorage::Attachment.create!(
-      blob:,
+    attachment = UserConfigs::CreateSignatureAttachment.call(
+      user: current_user,
       name: 'signature',
-      record: current_user
+      file: params[:file],
+      text: params[:text]
     )
 
     if @user_config.update(value: attachment.uuid)
@@ -32,6 +19,8 @@ class UserSignaturesController < ApplicationController
     else
       redirect_to settings_profile_index_path, notice: I18n.t('unable_to_save_signature')
     end
+  rescue UserConfigs::CreateSignatureAttachment::InvalidInput
+    redirect_to settings_profile_index_path, notice: I18n.t('unable_to_save_signature')
   end
 
   def destroy

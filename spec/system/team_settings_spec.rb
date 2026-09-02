@@ -33,98 +33,27 @@ RSpec.describe 'Team Settings' do
       end
     end
 
-    it 'creates a new user' do
-      click_link 'New User'
-
-      within '#modal' do
-        fill_in 'First name', with: 'Joseph'
-        fill_in 'Last name', with: 'Smith'
-        fill_in 'Email', with: 'joseph.smith@example.com'
-        fill_in 'Password', with: 'password'
-
-        expect do
-          click_button 'Submit'
-        end.to change(User, :count).by(1)
-
-        user = User.last
-
-        expect(user.first_name).to eq('Joseph')
-        expect(user.last_name).to eq('Smith')
-        expect(user.email).to eq('joseph.smith@example.com')
-        expect(user.account).to eq(account)
-      end
-    end
-
-    it "doesn't create a new user if a user already exists" do
-      click_link 'New User'
-
-      within '#modal' do
-        fill_in 'First name', with: 'Michael'
-        fill_in 'Last name', with: 'Jordan'
-        fill_in 'Email', with: users.first.email
-        fill_in 'Password', with: 'password'
-
-        expect do
-          click_button 'Submit'
-        end.not_to change(User, :count)
-      end
-
-      expect(page).to have_content('Email already exists')
-    end
-
-    it "doesn't create a new user if a user belongs to another account" do
-      user = create(:user, account: second_account)
-      visit settings_users_path
-
-      click_link 'New User'
-
-      within '#modal' do
-        fill_in 'First name', with: 'Michael'
-        fill_in 'Last name', with: 'Jordan'
-        fill_in 'Email', with: user.email
-        fill_in 'Password', with: 'password'
-
-        expect do
-          click_button 'Submit'
-        end.not_to change(User, :count)
-
-        expect(page).to have_content('Email has already been taken')
-      end
-    end
-
-    it 'does not allow to create a new user with an invalid email' do
-      click_link 'New User'
-
-      within '#modal' do
-        fill_in 'First name', with: 'Joseph'
-        fill_in 'Last name', with: 'Smith'
-        fill_in 'Email', with: 'joseph.smith@gmail'
-        fill_in 'Password', with: 'password'
-
-        expect do
-          click_button 'Submit'
-        end.not_to change(User, :count)
-
-        expect(page).to have_content('Email is invalid')
-      end
+    it 'delegates user provisioning to Microsoft Entra' do
+      expect(page).to have_content('Access and roles are managed through the Microsoft Entra Enterprise Application.')
+      expect(page).to have_no_link('New User')
     end
 
     it 'updates a user' do
-      first(:link, 'Edit').click
+      click_link 'Edit', href: edit_user_path(users.first)
 
-      fill_in 'First name', with: 'Adam'
+      expect(page).to have_content('Managed by Microsoft Entra ID', count: 2)
+      expect(page).to have_no_select('Role')
+
+      fill_in 'First name', with: 'Example'
       fill_in 'Last name', with: 'Meier'
-      fill_in 'Email', with: 'adam.meier@example.com'
-
       expect do
         click_button 'Submit'
       end.not_to change(User, :count)
 
-      user = User.find_by(email: 'adam.meier@example.com')
+      user = users.first.reload
 
-      expect(user.first_name).to eq('Adam')
+      expect(user.first_name).to eq('Example')
       expect(user.last_name).to eq('Meier')
-      expect(user.email).to eq('adam.meier@example.com')
     end
 
     it 'removes a user' do

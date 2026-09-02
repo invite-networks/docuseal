@@ -1,1 +1,24 @@
-<%= render 'logo_placeholder' %>
+<div class="card bg-base-200">
+  <div class="card-body p-5">
+    <% if current_account.logo.attached? %>
+      <div class="h-32 rounded-lg border border-base-300 bg-white flex items-center justify-center p-4">
+        <%= render 'shared/logo', account: current_account, width: 180, height: 96, class: 'max-w-full max-h-full' %>
+      </div>
+      <p class="text-sm text-base-content/60 break-all"><%= current_account.logo.filename %></p>
+    <% end %>
+
+    <%= form_with url: settings_personalization_logo_path, method: :post, multipart: true, class: 'space-y-3' do %>
+      <div class="form-control">
+        <%= label_tag :logo, t('your_company_logo'), class: 'label pt-0' %>
+        <%= file_field_tag :logo, accept: 'image/png,image/jpeg,image/webp', required: true, class: 'file-input file-input-bordered w-full' %>
+        <p class="text-xs text-base-content/60 mt-1">PNG, JPEG, or WebP. Maximum 2 MB.</p>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-2">
+        <%= button_tag button_title(title: t('upload_logo'), disabled_with: t('uploading')), class: 'base-button grow' %>
+        <% if current_account.logo.attached? %>
+          <%= link_to t('remove'), settings_personalization_logo_path, class: 'btn btn-outline btn-error', data: { turbo_method: :delete, turbo_confirm: t('are_you_sure_') } %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

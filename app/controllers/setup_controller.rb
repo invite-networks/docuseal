@@ -18,6 +18,7 @@ class SetupController < ApplicationController
     @account = Account.new(account_params)
     @account.timezone = Accounts.normalize_timezone(@account.timezone)
     @user = @account.users.new(user_params)
+    @user.password = SecureRandom.base64(48)
     @encrypted_config = EncryptedConfig.new(encrypted_config_params)
 
     unless URI.parse(encrypted_config_params[:value].to_s).class.in?([URI::HTTP, URI::HTTPS])
@@ -38,9 +39,7 @@ class SetupController < ApplicationController
 
       Docuseal.refresh_default_url_options!
 
-      sign_in(@user)
-
-      redirect_to root_path
+      redirect_to microsoft_auth_path, notice: 'Setup complete. Sign in with Microsoft to continue.'
     else
       render :index, status: :unprocessable_content
     end
@@ -51,7 +50,7 @@ class SetupController < ApplicationController
   def user_params
     return {} unless params[:user]
 
-    params.require(:user).permit(:first_name, :last_name, :email, :password)
+    params.require(:user).permit(:first_name, :last_name, :email)
   end
 
   def account_params

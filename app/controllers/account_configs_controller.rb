@@ -8,7 +8,6 @@ class AccountConfigsController < ApplicationController
 
   ALLOWED_KEYS = [
     AccountConfig::ALLOW_TYPED_SIGNATURE,
-    AccountConfig::FORCE_MFA,
     AccountConfig::ALLOW_TO_RESUBMIT,
     AccountConfig::ALLOW_TO_DECLINE_KEY,
     AccountConfig::ALLOW_TO_DELEGATE_KEY,
@@ -17,7 +16,6 @@ class AccountConfigsController < ApplicationController
     AccountConfig::FORM_WITH_CONFETTI_KEY,
     AccountConfig::DOWNLOAD_LINKS_AUTH_KEY,
     AccountConfig::DOWNLOAD_LINKS_EXPIRE_KEY,
-    AccountConfig::FORCE_SSO_AUTH_KEY,
     AccountConfig::FLATTEN_RESULT_PDF_KEY,
     AccountConfig::ENFORCE_SIGNING_ORDER_KEY,
     AccountConfig::WITH_FILE_LINKS_KEY,

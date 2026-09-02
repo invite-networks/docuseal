@@ -32,23 +32,7 @@
   <% end %>
   <%= form_for @template, url: template_preferences_path(@template), method: :post, html: { autocomplete: 'off', class: 'mt-1' }, data: { close_on_submit: false } do |f| %>
     <toggle-on-submit data-element-id="email_saved_alert3"></toggle-on-submit>
-    <%= f.fields_for :preferences, Struct.new(:completed_notification_email_enabled, :completed_notification_email_attach_audit, :completed_notification_email_attach_documents).new(@template.preferences['completed_notification_email_enabled'], configs['attach_audit_log'] != false && @template.preferences['completed_notification_email_attach_audit'] != false, configs['attach_documents'] != false && @template.preferences['completed_notification_email_attach_documents'] != false) do |ff| %>
-      <div class="flex items-center justify-between pt-2.5 px-1 mb-2">
-        <span>
-          <%= t('attach_documents_to_the_email') %>
-        </span>
-        <submit-form data-on="change" class="flex">
-          <%= ff.check_box :completed_notification_email_attach_documents, { checked: ff.object.completed_notification_email_attach_documents != false, class: 'toggle', disabled: configs['attach_documents'] == false }, 'true', 'false' %>
-        </submit-form>
-      </div>
-      <div class="flex items-center justify-between pt-2.5 px-1 mb-2">
-        <span>
-          <%= t('attach_audit_log_pdf_to_the_email') %>
-        </span>
-        <submit-form data-on="change" class="flex">
-          <%= ff.check_box :completed_notification_email_attach_audit, { checked: ff.object.completed_notification_email_attach_audit != false, class: 'toggle', disabled: configs['attach_audit_log'] == false }, 'true', 'false' %>
-        </submit-form>
-      </div>
+    <%= f.fields_for :preferences, Struct.new(:completed_notification_email_enabled).new(@template.preferences['completed_notification_email_enabled']) do |ff| %>
       <div class="flex items-center justify-between py-2.5 px-1 mb-2">
         <span>
           <%= t('send_emails_automatically_on_completion') %>

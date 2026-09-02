@@ -209,9 +209,10 @@ module SearchEntries
   end
 
   def index_submission(submission)
-    return if submission.name.blank?
+    return if submission.name.blank? && submission.description.blank?
 
-    text = TextUtils.transliterate(submission.name.to_s.downcase.squish).delete("\0")
+    text = TextUtils.transliterate([submission.name, submission.description].compact_blank.join(' ').downcase.squish)
+                    .delete("\0")
 
     sql = SearchEntry.sanitize_sql_array(["SELECT to_tsvector(:text), to_tsvector('simple', :text)", { text: }])
 

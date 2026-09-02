@@ -20,6 +20,7 @@
           </submitters-autocomplete>
         </div>
       </submitter-item>
+      <%= render 'description_field', field_name: 'submission[1][description]', value: params.dig(:submission, '1', :description) %>
     </div>
   <% elsif submitters.size == 1 %>
     <submitter-item class="form-control">
@@ -31,6 +32,7 @@
         </submitters-autocomplete>
       </emails-textarea>
     </submitter-item>
+    <%= render 'description_field', field_name: 'description', value: params[:description] %>
   <% else %>
     <dynamic-list class="space-y-4">
       <div class="space-y-4">
@@ -55,6 +57,9 @@
                   </submitters-autocomplete>
                 </submitter-item>
               <% end %>
+            </div>
+            <div class="mt-3">
+              <%= render 'description_field', field_name: 'submission[1][description]', value: params.dig(:submission, '1', :description) %>
             </div>
           </div>
         </div>

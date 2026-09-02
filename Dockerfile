@@ -47,7 +47,8 @@ RUN echo "gem 'shakapacker'" > Gemfile && ./bin/shakapacker
 FROM ruby:4.0.5-alpine AS app
 
 ENV RAILS_ENV=production
-ENV BUNDLE_WITHOUT="development:test"
+ARG BUNDLE_WITHOUT="development:test"
+ENV BUNDLE_WITHOUT=${BUNDLE_WITHOUT}
 ENV OPENSSL_CONF=/etc/openssl_legacy.cnf
 
 WORKDIR /app
@@ -73,6 +74,9 @@ COPY --chown=docuseal:docuseal ./Gemfile ./Gemfile.lock ./
 
 RUN apk add --no-cache build-base git libpq-dev yaml-dev && bundle install && apk del --no-cache build-base git libpq-dev yaml-dev && rm -rf ~/.bundle /usr/local/bundle/cache && ruby -e "puts Dir['/usr/local/bundle/**/{spec,rdoc,resources/shared,resources/collation,resources/locales,resources/unicode_data/properties}'] + Dir['/usr/local/bundle/gems/*/{test,tests,examples,sample,misc,doc,docs}'] + Dir['/usr/local/bundle/gems/*/ext/**/*.{c,h,o,S}']" | xargs rm -rf && ln -sf /usr/lib/libonnxruntime.so.1 $(ruby -e "print Dir[Gem::Specification.find_by_name('onnxruntime').gem_dir + '/vendor/*.so'].first")
 
+ARG INSTALL_TEST_BROWSER=false
+RUN if [ "${INSTALL_TEST_BROWSER}" = "true" ]; then apk add --no-cache chromium; fi
+
 COPY --chown=docuseal:docuseal ./bin ./bin
 COPY --chown=docuseal:docuseal ./app ./app
 COPY --chown=docuseal:docuseal ./config ./config
@@ -90,7 +94,9 @@ COPY --from=download /pdfium-linux/licenses/ /usr/lib/libpdfium-licenses/
 COPY --chown=docuseal:docuseal --from=download /model.onnx /app/tmp/model.onnx
 COPY --chown=docuseal:docuseal --from=webpack /app/public/packs ./public/packs
 
-RUN mkdir -p /app/public/fonts && ln -s /fonts/DancingScript-Regular.otf /app/public/fonts/ && \
+RUN if [ "${INSTALL_TEST_BROWSER}" = "true" ]; then cp -R ./public/packs ./public/packs-test; fi
+
+RUN mkdir -p /app/public/fonts && ln -s /fonts/DancingScript-Regular.otf /fonts/GoNotoKurrent-Regular.ttf /app/public/fonts/ && \
     mkdir -p /usr/share/fonts/noto && ln -s /fonts/GoNotoKurrent-Regular.ttf /usr/share/fonts/noto/ && ln -s /fonts/GoNotoKurrent-Bold.ttf /usr/share/fonts/noto/ && fc-cache -f && \
     bundle exec bootsnap precompile -j 1 --gemfile app/ lib/ && \
     chown -R docuseal:docuseal /app/tmp/cache

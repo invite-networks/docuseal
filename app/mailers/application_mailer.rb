@@ -4,7 +4,6 @@ class ApplicationMailer < ActionMailer::Base
   default from: 'DocuSeal <info@docuseal.com>'
   layout 'mailer'
 
-  register_interceptor ActionMailerConfigsInterceptor
   register_interceptor HtmlToPlainTextInterceptor
   register_preview_interceptor HtmlToPlainTextInterceptor
 

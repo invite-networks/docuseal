@@ -16,6 +16,8 @@ class ApplicationController < ActionController::Base
   before_action :set_csp, if: -> { request.get? && !request.headers['HTTP_X_TURBO'] }
 
   helper_method :button_title,
+                :branding_account,
+                :branding_name,
                 :current_account,
                 :true_ability,
                 :form_link_host,
@@ -97,6 +99,14 @@ class ApplicationController < ActionController::Base
 
   def current_account
     current_user&.account
+  end
+
+  def branding_account
+    @submitter&.account || @submission&.account || @template&.account || current_account
+  end
+
+  def branding_name
+    branding_account&.logo&.attached? ? branding_account.name : Docuseal.product_name
   end
 
   def true_ability

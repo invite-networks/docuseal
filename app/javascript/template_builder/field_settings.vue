@@ -61,7 +61,7 @@
     </label>
   </div>
   <div
-    v-if="['text', 'number'].includes(field.type) && !defaultField"
+    v-if="['text', 'name', 'email', 'title', 'company', 'number'].includes(field.type) && !defaultField"
     class="field-settings-default-value py-1.5 px-1 relative"
     @click.stop
   >
@@ -69,7 +69,7 @@
       v-model="field.default_value"
       :placeholder="t('default_value')"
       dir="auto"
-      :type="field.type"
+      :type="field.type === 'number' ? 'number' : (field.type === 'email' ? 'email' : 'text')"
       class="input input-bordered input-xs w-full max-w-xs h-7 !outline-0 bg-transparent"
       @blur="$emit('save')"
     >
@@ -83,7 +83,7 @@
     </label>
   </div>
   <div
-    v-if="['text', 'cells'].includes(field.type)"
+    v-if="['text', 'name', 'email', 'title', 'company', 'cells'].includes(field.type)"
     class="field-settings-validation py-1.5 px-1 relative"
     @click.stop
   >
@@ -121,7 +121,7 @@
     </label>
   </div>
   <div
-    v-if="['text', 'cells'].includes(field.type) && field.validation && lengthValidation"
+    v-if="['text', 'name', 'email', 'title', 'company', 'cells'].includes(field.type) && field.validation && lengthValidation"
     class="field-settings-length-validation py-1.5 px-1 relative flex space-x-1"
     @click.stop
   >
@@ -236,7 +236,7 @@
     </label>
   </div>
   <div
-    v-if="['text', 'cells'].includes(field.type) && field.validation && !validations[field.validation.pattern] && !lengthValidation"
+    v-if="['text', 'name', 'email', 'title', 'company', 'cells'].includes(field.type) && field.validation && !validations[field.validation.pattern] && !lengthValidation"
     class="field-settings-custom-validation py-1.5 px-1 relative"
     @click.stop
   >
@@ -258,7 +258,7 @@
     </label>
   </div>
   <div
-    v-if="['text', 'cells'].includes(field.type) && field.validation && !validations[field.validation.pattern] && !lengthValidation"
+    v-if="['text', 'name', 'email', 'title', 'company', 'cells'].includes(field.type) && field.validation && !validations[field.validation.pattern] && !lengthValidation"
     class="field-settings-error-message py-1.5 px-1 relative"
     @click.stop
   >
@@ -416,7 +416,7 @@
     </label>
   </li>
   <li
-    v-if="['text', 'number', 'radio', 'multiple', 'select'].includes(field.type)"
+    v-if="['text', 'name', 'email', 'title', 'company', 'number', 'radio', 'multiple', 'select'].includes(field.type)"
     class="field-settings-read-only"
     @click.stop
   >
@@ -452,7 +452,7 @@
     class="pb-0.5 mt-0.5"
   >
   <li
-    v-if="['text', 'number', 'date', 'select', 'heading', 'cells'].includes(field.type) || (['radio', 'multiple'].includes(field.type) && field.areas?.every((a) => !a.option_uuid))"
+    v-if="['text', 'name', 'email', 'title', 'company', 'number', 'date', 'select', 'heading', 'cells'].includes(field.type) || (['radio', 'multiple'].includes(field.type) && field.areas?.every((a) => !a.option_uuid))"
     class="field-settings-font"
   >
     <label
@@ -756,7 +756,7 @@ export default {
       return ['QeS', 'AeS']
     },
     prefillableFieldTypes () {
-      return ['text', 'number', 'cells', 'date', 'checkbox', 'select', 'radio', 'phone']
+      return ['text', 'name', 'email', 'title', 'company', 'number', 'cells', 'date', 'checkbox', 'select', 'radio', 'phone']
     },
     sortedAreas () {
       return (this.field.areas || []).filter((e) => e.page !== null && e.page !== undefined).sort((a, b) => {

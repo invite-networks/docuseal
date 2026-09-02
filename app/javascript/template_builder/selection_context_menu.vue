@@ -232,7 +232,7 @@ export default {
       return this.selectedFields.filter((f) => !['phone', 'stamp', 'verification', 'strikethrough', 'heading'].includes(f.type))
     },
     readOnlyFields () {
-      return this.selectedFields.filter((f) => ['text', 'number', 'radio', 'multiple', 'select'].includes(f.type))
+      return this.selectedFields.filter((f) => ['text', 'name', 'email', 'title', 'company', 'number', 'radio', 'multiple', 'select'].includes(f.type))
     },
     isAllRequired () {
       return this.requiredFields.every((f) => f.required)

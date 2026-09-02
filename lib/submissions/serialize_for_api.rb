@@ -3,7 +3,7 @@
 module Submissions
   module SerializeForApi
     SERIALIZE_PARAMS = {
-      only: %i[id name slug source submitters_order expire_at created_at updated_at archived_at],
+      only: %i[id name description slug source submitters_order expire_at created_at updated_at archived_at],
       include: {
         submitters: { only: %i[id] },
         template: { only: %i[id name external_id created_at updated_at],

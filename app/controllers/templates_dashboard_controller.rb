@@ -21,7 +21,7 @@ class TemplatesDashboardController < ApplicationController
     @template_folders = TemplateFolders.search(@template_folders, params[:q])
     @template_folders = TemplateFolders.sort(@template_folders, current_user, selected_order)
 
-    @shared_templates = Templates.shared(current_user).active
+    @shared_templates = load_shared_templates
 
     @pagy, @template_folders, @show_default_folder, @show_shared_folder, @show_shared_inline =
       load_folders(@template_folders, @templates, @shared_templates)
@@ -46,6 +46,12 @@ class TemplatesDashboardController < ApplicationController
   end
 
   private
+
+  def load_shared_templates
+    templates = Templates.shared(current_user).active
+
+    current_user.role == User::ADMIN_ROLE ? templates : templates.accessible_by(current_ability)
+  end
 
   def load_templates(templates, folders_count, show_shared_inline: false)
     templates = templates.preload(:author, :template_accesses)

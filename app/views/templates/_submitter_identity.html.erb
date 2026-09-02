@@ -1,0 +1,5 @@
+<% contact = submitter.email.presence || submitter.phone.presence %>
+<span class="text-lg break-all"><%= submitter.name.presence || contact %></span>
+<% if submitter.name.present? && contact.present? %>
+  <span class="text-sm text-base-content/60 break-all"><%= contact %></span>
+<% end %>

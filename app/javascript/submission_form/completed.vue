@@ -75,13 +75,6 @@
         </span>
       </button>
     </div>
-    <div
-      v-if="attribution"
-      class="text-center mt-4"
-    >
-      {{ t('powered_by') }}
-      DocuSeal - {{ t('open_source_documents_software') }}
-    </div>
   </div>
 </template>
 
@@ -109,11 +102,6 @@ export default {
       type: Boolean,
       required: false,
       default: false
-    },
-    attribution: {
-      type: Boolean,
-      required: false,
-      default: true
     },
     hasSignatureFields: {
       type: Boolean,

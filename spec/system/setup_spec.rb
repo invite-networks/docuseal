@@ -7,7 +7,6 @@ RSpec.describe 'App Setup' do
       last_name: 'Doe',
       email: 'john.doe@example.com',
       company_name: 'Example Company',
-      password: 'password',
       app_url: 'https://example.com'
     }
   end
@@ -19,7 +18,7 @@ RSpec.describe 'App Setup' do
   it 'shows the setup page' do
     expect(page).to have_content('Initial Setup')
 
-    ['First name', 'Last name', 'Email', 'Company name', 'Password', 'App URL'].each do |field|
+    ['First name', 'Last name', 'Email', 'Company name', 'App URL'].each do |field|
       expect(page).to have_field(field)
     end
   end
@@ -60,16 +59,6 @@ RSpec.describe 'App Setup' do
 
       expect(page).to have_content('Email is invalid')
     end
-
-    it 'does not setup the app if the password is too short' do
-      fill_setup_form(form_data.merge(password: 'pass'))
-
-      expect do
-        click_button 'Submit'
-      end.not_to(change(User, :count))
-
-      expect(page).to have_content('Password is too short (minimum is 6 characters)')
-    end
   end
 
   context 'when the app is already setup' do
@@ -90,7 +79,6 @@ RSpec.describe 'App Setup' do
     fill_in 'Last name', with: form_data[:last_name]
     fill_in 'Email', with: form_data[:email]
     fill_in 'Company name', with: form_data[:company_name]
-    fill_in 'Password', with: form_data[:password]
     fill_in 'App URL', with: form_data[:app_url]
   end
 end

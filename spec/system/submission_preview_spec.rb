@@ -23,7 +23,7 @@ RSpec.describe 'Submission Preview' do
     context 'when user is not signed in' do
       context 'when submission is not completed' do
         before do
-          create(:encrypted_config, account:, key: EncryptedConfig::EMAIL_SMTP_KEY, value: '{}')
+          allow(Microsoft365::Config).to receive(:configured?).and_return(true)
 
           submission.submitters.each { |s| s.update(completed_at: 1.day.ago) }
           Submissions.maybe_update_completed_at(submission)
@@ -46,7 +46,8 @@ RSpec.describe 'Submission Preview' do
         end
       end
 
-      it "doesn't display the email form if SMTP is not configured" do
+      it "doesn't display the email form if Microsoft 365 is not configured" do
+        allow(Microsoft365::Config).to receive(:configured?).and_return(false)
         submission.submitters.each { |s| s.update(completed_at: 1.day.ago) }
         Submissions.maybe_update_completed_at(submission)
 

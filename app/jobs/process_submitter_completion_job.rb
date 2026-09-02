@@ -172,9 +172,9 @@ class ProcessSubmitterCompletionJob
     return if to.blank?
 
     if configs.value['bcc_recipients'] == true
-      to.each { |to| SubmitterMailer.documents_copy_email(submitter, to:).deliver_later! }
+      to.each { |to| SubmitterMailer.documents_copy_email(submitter, to:, sig: true).deliver_later! }
     else
-      SubmitterMailer.documents_copy_email(submitter, to: to.join(', ')).deliver_later!
+      SubmitterMailer.documents_copy_email(submitter, to: to.join(', '), sig: true).deliver_later!
     end
   end
 

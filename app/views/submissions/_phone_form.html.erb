@@ -44,6 +44,9 @@
               </submitter-item>
             <% end %>
           </div>
+          <div class="mt-3">
+            <%= render 'description_field', field_name: 'submission[1][description]', value: params.dig(:submission, '1', :description) %>
+          </div>
         </div>
       </div>
     </div>

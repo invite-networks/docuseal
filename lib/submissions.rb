@@ -54,6 +54,8 @@ module Submissions
     arel = Submitter.where(arel_table[:submission_id].eq(Submission.arel_table[:id]))
                     .where(submitter_arel).select(1).arel.exists
 
+    arel = arel.or(Submission.arel_table[:description].lower.matches(term))
+
     if search_template
       submissions = submissions.left_joins(:template)
 
@@ -112,8 +114,9 @@ module Submissions
     submission
   end
 
-  def create_from_emails(template:, user:, emails:, source:, mark_as_sent: false, params: {})
+  def create_from_emails(template:, user:, emails:, source:, mark_as_sent: false, description: nil, params: {})
     preferences = Submitters.normalize_preferences(user.account, user, params)
+    description ||= params[:description]
 
     expire_at = params[:expire_at].presence || Templates.build_default_expire_at(template)
 
@@ -121,6 +124,7 @@ module Submissions
       submission = template.submissions.new(created_by_user: user,
                                             account_id: user.account_id,
                                             source:,
+                                            description:,
                                             expire_at:,
                                             template_submitters: template.submitters)
 

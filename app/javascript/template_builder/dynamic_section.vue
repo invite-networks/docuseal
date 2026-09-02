@@ -818,7 +818,7 @@ export default {
     buildNewField (sourceField, area) {
       const fieldType = sourceField?.type || 'text'
       const newField = {
-        name: sourceField?.name || '',
+        name: sourceField?.name || (['name', 'email', 'title', 'company'].includes(fieldType) ? this.t(fieldType) : ''),
         uuid: v4(),
         required: fieldType !== 'checkbox',
         submitter_uuid: this.selectedSubmitter.uuid,

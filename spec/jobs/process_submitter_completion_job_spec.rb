@@ -42,6 +42,17 @@ RSpec.describe ProcessSubmitterCompletionJob do
       expect(completed_document.sha256).to eq(submitter.documents.first.metadata['sha256'])
     end
 
+    it 'includes a signed completed-document link in the submitter email' do
+      message = instance_double(ActionMailer::MessageDelivery, deliver_later!: true)
+
+      allow(SubmitterMailer).to receive(:documents_copy_email).and_return(message)
+
+      described_class.new.perform('submitter_id' => submitter.id)
+
+      expect(SubmitterMailer).to have_received(:documents_copy_email)
+        .with(submitter, to: submitter.friendly_name, sig: true)
+    end
+
     it 'raises an error if the submitter is not found' do
       expect do
         described_class.new.perform('submitter_id' => 'invalid_id')

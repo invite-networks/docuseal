@@ -113,7 +113,7 @@ class SubmissionsController < ApplicationController
   end
 
   def submissions_params
-    params.permit(submission: { submitters: [:uuid, :email, :phone, :name, { values: {} }] })
+    params.permit(submission: [:description, { submitters: [:uuid, :email, :phone, :name, { values: {} }] }])
   end
 
   def normalize_message_submitter_uuids!(params)

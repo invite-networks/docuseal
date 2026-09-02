@@ -9,6 +9,18 @@ RSpec.describe 'Signing Form' do
       create(:template, shared_link: true, account:, author:, except_field_types: %w[phone payment stamp])
     end
 
+    it 'displays the account logo on the public form' do
+      account.logo.attach(
+        io: Rails.root.join('spec/fixtures/sample-image.png').open,
+        filename: 'company-logo.png',
+        content_type: 'image/png'
+      )
+
+      visit start_form_path(slug: template.slug)
+
+      expect(page).to have_css("img[alt='#{account.name}']")
+    end
+
     it 'displays only the email step when only email is required' do
       visit start_form_path(slug: template.slug)
 
@@ -18,6 +30,8 @@ RSpec.describe 'Signing Form' do
       expect(page).not_to have_field('Phone', type: 'tel')
       expect(page).not_to have_field('Name', type: 'text')
       expect(page).to have_button('Start')
+      expect(page).to have_no_content('Powered by')
+      expect(page).to have_no_content('open source documents software')
     end
 
     it 'displays name, email, and phone fields together when all are required' do
@@ -137,6 +151,8 @@ RSpec.describe 'Signing Form' do
 
       expect(page).to have_button('Download')
       expect(page).to have_content('Document has been signed!')
+      expect(page).to have_no_content('Powered by')
+      expect(page).to have_no_content('open source documents software')
 
       submitter = template.submissions.last.submitters.last
 
@@ -169,7 +185,7 @@ RSpec.describe 'Signing Form' do
       # Submit's name, email, and phone step
       fill_in 'Email', with: 'john.dou@example.com'
       fill_in 'Name', with: 'John Doe'
-      fill_in 'Phone', with: '+17732298825'
+      fill_in 'Phone', with: '+12025550142'
       click_button 'Start'
 
       # Text step
@@ -229,7 +245,7 @@ RSpec.describe 'Signing Form' do
 
       expect(submitter.email).to eq('john.dou@example.com')
       expect(submitter.name).to eq('John Doe')
-      expect(submitter.phone).to eq('+17732298825')
+      expect(submitter.phone).to eq('+12025550142')
       expect(submitter.ip).to eq('127.0.0.1')
       expect(submitter.ua).to be_present
       expect(submitter.opened_at).to be_present
@@ -859,6 +875,83 @@ RSpec.describe 'Signing Form' do
     end
   end
 
+  context 'when identity fields are assigned to a Microsoft user' do
+    let(:template) { create(:template, account:, author:, only_field_types: []) }
+    let(:submission) { create(:submission, template:) }
+    let(:submitter) do
+      create(
+        :submitter,
+        submission:,
+        uuid: template.submitters.first['uuid'],
+        account:,
+        name: 'Example User',
+        email: 'user@example.com'
+      )
+    end
+
+    before do
+      attachment_uuid = template.schema.first.fetch('attachment_uuid')
+      fields = %w[name title company email].each_with_index.map do |type, index|
+        {
+          'uuid' => "#{type}-field",
+          'submitter_uuid' => template.submitters.first.fetch('uuid'),
+          'name' => type.titleize,
+          'type' => type,
+          'required' => true,
+          'preferences' => {},
+          'areas' => [
+            {
+              'x' => 0.1,
+              'y' => 0.1 + (index * 0.06),
+              'w' => 0.3,
+              'h' => 0.04,
+              'attachment_uuid' => attachment_uuid,
+              'page' => 0
+            }
+          ]
+        }
+      end
+      template.update!(fields:)
+      create(
+        :user,
+        account:,
+        email: submitter.email,
+        first_name: 'Example',
+        last_name: 'User',
+        title: 'Engineer',
+        company: 'Example Corporation'
+      )
+    end
+
+    it 'prefills all identity fields and lets the signer edit them' do
+      visit submit_form_path(slug: submitter.slug)
+
+      expect(page).to have_field('Name', with: 'Example User')
+      fill_in 'Name', with: 'Example J. User'
+      click_button 'next'
+
+      expect(page).to have_field('Title', with: 'Engineer')
+      fill_in 'Title', with: 'Senior Engineer'
+      click_button 'next'
+
+      expect(page).to have_field('Company', with: 'Example Corporation')
+      fill_in 'Company', with: 'Example Corporation, Inc.'
+      click_button 'next'
+
+      expect(page).to have_field('Email', with: 'user@example.com', type: 'email')
+      fill_in 'Email', with: 'updated.user@example.com'
+      find('#submit_form_button').click
+
+      expect(page).to have_content('Form has been completed!')
+      expect(submitter.reload.values).to include(
+        'name-field' => 'Example J. User',
+        'title-field' => 'Senior Engineer',
+        'company-field' => 'Example Corporation, Inc.',
+        'email-field' => 'updated.user@example.com'
+      )
+    end
+  end
+
   context 'when the field with conditions' do
     let(:template) { create(:template, account:, author:, only_field_types: ['text']) }
     let(:submission) { create(:submission, :with_submitters, template:) }
@@ -963,7 +1056,7 @@ RSpec.describe 'Signing Form' do
       fill_in 'Email (optional)', with: 'john.due@example.com'
       click_button 'next'
 
-      fill_in 'Phone (optional)', with: '+1 (773) 229-8825'
+      fill_in 'Phone (optional)', with: '+1 (202) 555-0142'
       click_button 'next'
 
       fill_in 'Comment', with: 'This is a comment'
@@ -976,7 +1069,7 @@ RSpec.describe 'Signing Form' do
       expect(submitter.completed_at).to be_present
       expect(field_value(submitter, 'Full Name')).to eq 'John Doe'
       expect(field_value(submitter, 'Email')).to eq 'john.due@example.com'
-      expect(field_value(submitter, 'Phone')).to eq '+1 (773) 229-8825'
+      expect(field_value(submitter, 'Phone')).to eq '+1 (202) 555-0142'
       expect(field_value(submitter, 'Comment')).to eq 'This is a comment'
     end
 
@@ -1037,7 +1130,7 @@ RSpec.describe 'Signing Form' do
       fill_in 'Email (optional)', with: 'john.due@example.com'
       click_button 'next'
 
-      fill_in 'Phone (optional)', with: '+1 (773) 229-8825'
+      fill_in 'Phone (optional)', with: '+1 (202) 555-0142'
       find('#submit_form_button').click
 
       expect(page).to have_content('Form has been completed!')
@@ -1047,7 +1140,7 @@ RSpec.describe 'Signing Form' do
       expect(submitter.completed_at).to be_present
       expect(field_value(submitter, 'Full Name')).to be_empty
       expect(field_value(submitter, 'Email')).to eq 'john.due@example.com'
-      expect(field_value(submitter, 'Phone')).to eq '+1 (773) 229-8825'
+      expect(field_value(submitter, 'Phone')).to eq '+1 (202) 555-0142'
       expect(field_value(submitter, 'Comment')).to be_nil
     end
   end
@@ -1149,7 +1242,7 @@ RSpec.describe 'Signing Form' do
     end
 
     it 'sends completed email' do
-      fill_in 'First Name', with: 'Adam'
+      fill_in 'First Name', with: 'Example'
       click_on 'next'
       draw_canvas
 

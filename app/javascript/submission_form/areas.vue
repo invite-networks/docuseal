@@ -141,7 +141,7 @@ export default {
       }
     },
     maybeScrollOnClick (field, area) {
-      if (['text', 'number', 'cells'].includes(field.type) && this.isMobileContainer) {
+      if (['text', 'name', 'email', 'title', 'company', 'number', 'cells'].includes(field.type) && this.isMobileContainer) {
         this.scrollIntoArea(area)
       }
     },

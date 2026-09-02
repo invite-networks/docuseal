@@ -1,7 +1,6 @@
 # frozen_string_literal: true
 
 class SubmitterMailer < ApplicationMailer
-  MAX_ATTACHMENTS_SIZE = 10.megabytes
   SIGN_TTL = 1.hour + 20.minutes
 
   NO_REPLY_REGEXP = /no-?reply@/i
@@ -94,14 +93,6 @@ class SubmitterMailer < ApplicationMailer
 
     @email_config = AccountConfigs.find_for_account(@current_account, AccountConfig::SUBMITTER_COMPLETED_EMAIL_KEY)
 
-    add_completed_email_attachments!(
-      submitter,
-      with_documents: @email_config&.value&.dig('attach_documents') != false &&
-                      template_preferences['completed_notification_email_attach_documents'] != false,
-      with_audit_log: @email_config&.value&.dig('attach_audit_log') != false &&
-                      template_preferences['completed_notification_email_attach_audit'] != false
-    )
-
     @subject = template_preferences['completed_notification_email_subject'].presence
     @subject ||= @email_config.value['subject'] if @email_config
 
@@ -148,14 +139,6 @@ class SubmitterMailer < ApplicationMailer
 
     @email_config = AccountConfigs.find_for_account(@current_account, AccountConfig::SUBMITTER_DOCUMENTS_COPY_EMAIL_KEY)
 
-    add_completed_email_attachments!(
-      submitter,
-      with_documents: template_preferences['documents_copy_email_attach_documents'] != false &&
-                      (@email_config.nil? || @email_config.value['attach_documents'] != false),
-      with_audit_log: template_preferences['documents_copy_email_attach_audit'] != false &&
-                      (@email_config.nil? || @email_config.value['attach_audit_log'] != false)
-    )
-
     @subject = template_preferences['documents_copy_email_subject'].presence
     @subject ||= @email_config.value['subject'] if @email_config
 
@@ -184,9 +167,10 @@ class SubmitterMailer < ApplicationMailer
     @otp_code = EmailVerificationCodes.generate([submitter.email.downcase.strip, submitter.slug].join(':'))
 
     assign_message_metadata('otp_verification_email', submitter)
+    from = from_address_for_submitter(submitter)
 
     I18n.with_locale(locale || submitter.account.locale) do
-      mail(to: submitter.email, subject: I18n.t('email_verification'))
+      mail(from:, to: submitter.email, subject: I18n.t('email_verification'))
     end
   end
 
@@ -204,44 +188,6 @@ class SubmitterMailer < ApplicationMailer
     return nil if reply_to.to_s.match?(NO_REPLY_REGEXP)
 
     reply_to
-  end
-
-  def add_completed_email_attachments!(submitter, with_audit_log: true, with_documents: true)
-    documents = with_documents ? select_completed_documents(submitter) : []
-
-    filename_format = AccountConfig.find_or_initialize_by(account_id: submitter.account_id,
-                                                          key: AccountConfig::DOCUMENT_FILENAME_FORMAT_KEY)&.value
-
-    total_size = 0
-    audit_trail_data = nil
-
-    if with_audit_log && submitter.submission.audit_trail.present? && documents.first&.name != 'combined_document'
-      audit_trail_data = submitter.submission.audit_trail.download
-
-      total_size = audit_trail_data.size
-    end
-
-    total_size = add_attachments_with_size_limit(submitter, documents, total_size, filename_format)
-
-    if audit_trail_data
-      audit_trail_filename =
-        Submitters.build_document_filename(submitter, submitter.submission.audit_trail.blob, filename_format)
-
-      attachments[audit_trail_filename.tr('"', "'")] = audit_trail_data
-    end
-
-    if with_documents
-      file_fields = submitter.submission.template_fields.select { |e| e['type'].in?(%w[file payment]) }
-
-      if file_fields.pluck('submitter_uuid').uniq.size == 1
-        storage_attachments =
-          submitter.attachments.where(uuid: submitter.values.values_at(*file_fields.pluck('uuid')).flatten)
-
-        add_attachments_with_size_limit(submitter, storage_attachments, total_size)
-      end
-    end
-
-    documents
   end
 
   def normalize_user_email(user)
@@ -264,44 +210,12 @@ class SubmitterMailer < ApplicationMailer
     submitter.template&.preferences&.dig('submitters').to_a.index_by { |e| e['uuid'] }
   end
 
-  def select_completed_documents(submitter)
-    last_submitter = Submitter.where(submission_id: submitter.submission_id).completed.order(:completed_at).last
-
-    Submissions::EnsureResultGenerated.call(last_submitter)
-
-    Submitters.select_attachments_for_download(last_submitter)
-  end
-
-  def add_attachments_with_size_limit(submitter, storage_attachments, current_size, filename_format = nil)
-    total_size = current_size
-
-    storage_attachments.each do |attachment|
-      total_size += attachment.byte_size
-
-      break if total_size >= MAX_ATTACHMENTS_SIZE
-
-      filename = Submitters.build_document_filename(submitter, attachment.blob, filename_format)
-      attachments[filename.to_s.tr('"', "'")] = attachment.download
-    end
-
-    total_size
-  end
-
   def from_address_for_submitter(submitter)
-    if submitter.submission.source.in?(%w[api embed]) &&
-       (from_email = AccountConfig.find_by(account: submitter.account, key: 'integration_from_email')&.value.presence)
-      user = submitter.account.users.find_by(email: from_email)
+    user = submitter.submission.created_by_user || submitter.submission.template&.author
+    raise Microsoft365::DeliveryError, 'Submission email does not have a Microsoft 365 sender.' unless user
 
-      put_metadata('from_user_id' => user.id)
-
-      from_email
-    else
-      user = submitter.submission.created_by_user || submitter.submission.template.author
-
-      put_metadata('from_user_id' => user.id)
-
-      user.friendly_name
-    end
+    put_metadata('from_user_id' => user.id)
+    user.friendly_name
   end
 
   def fetch_config_email_body(email_config, _submitter = nil)

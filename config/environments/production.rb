@@ -73,27 +73,8 @@ Rails.application.configure do
 
   config.action_mailer.perform_caching = false
 
-  # Ignore bad email addresses and do not raise email delivery errors.
-  # Set this to true and configure the email server for immediate delivery to raise delivery errors.
-  config.action_mailer.raise_delivery_errors = false
-
-  if ENV['SMTP_ADDRESS']
-    config.action_mailer.delivery_method = :smtp
-    config.action_mailer.smtp_settings = {
-      address: ENV.fetch('SMTP_ADDRESS', nil),
-      port: ENV.fetch('SMTP_PORT', 587),
-      domain: ENV.fetch('SMTP_DOMAIN', nil),
-      user_name: ENV.fetch('SMTP_USERNAME', nil),
-      password: ENV.fetch('SMTP_PASSWORD', nil),
-      openssl_verify_mode: ENV['SMTP_SSL_VERIFY'] == 'false' ? OpenSSL::SSL::VERIFY_NONE : OpenSSL::SSL::VERIFY_PEER,
-      authentication: ENV.fetch('SMTP_PASSWORD', nil).present? ? ENV.fetch('SMTP_AUTHENTICATION', 'plain') : nil,
-      enable_starttls: ENV['SMTP_ENABLE_STARTTLS'] != 'false',
-      ssl: ENV['SMTP_ENABLE_SSL'] == 'true',
-      tls: ENV['SMTP_ENABLE_TLS'] == 'true',
-      open_timeout: ENV.fetch('SMTP_OPEN_TIMEOUT', '15').to_i,
-      read_timeout: ENV.fetch('SMTP_READ_TIMEOUT', '25').to_i
-    }.compact
-  end
+  config.action_mailer.raise_delivery_errors = true
+  config.action_mailer.delivery_method = :microsoft_graph
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).

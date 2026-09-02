@@ -18,11 +18,33 @@ RSpec.describe 'Template' do
       expect(page).to have_content('Send an invitation to fill and complete the form')
       expect(page).to have_button('Sign it Yourself')
     end
+
+    it 'saves and displays a description when sending to a recipient' do
+      visit template_path(template)
+
+      click_link 'Send to Recipients'
+
+      within '#modal' do
+        find('textarea[name="emails"]').fill_in with: 'contact@customer.example'
+        find('input[name="description"]').fill_in with: 'NDA for Customer X'
+        click_button 'Add Recipients'
+      end
+
+      expect(page).to have_content('NDA for Customer X')
+      expect(page).to have_content('contact@customer.example')
+      expect(Submission.last.description).to eq('NDA for Customer X')
+    end
   end
 
   context 'when there are submissions' do
-    let!(:submission) { create(:submission, template:, created_by_user: user) }
-    let!(:submitters) { template.submitters.map { |s| create(:submitter, submission:, uuid: s['uuid']) } }
+    let!(:submission) do
+      create(:submission, template:, created_by_user: user, description: 'NDA for Customer X')
+    end
+    let!(:submitters) do
+      template.submitters.map do |s|
+        create(:submitter, submission:, uuid: s['uuid'], name: 'Customer Contact', email: 'contact@customer.example')
+      end
+    end
 
     it 'shows the template page with submissions' do
       visit template_path(template)
@@ -32,6 +54,8 @@ RSpec.describe 'Template' do
       end
 
       expect(page).to have_content(template.name)
+      expect(page).to have_content('NDA for Customer X')
+      expect(page).to have_content('contact@customer.example')
     end
   end
 

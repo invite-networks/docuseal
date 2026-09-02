@@ -346,7 +346,7 @@ export default {
       return this.$el.closest('form')
     },
     fieldTypes () {
-      return ['text', 'cells', 'date', 'number', 'radio', 'select', 'checkbox', 'image']
+      return ['text', 'name', 'email', 'title', 'company', 'cells', 'date', 'number', 'radio', 'select', 'checkbox', 'image']
     },
     defaultFields () {
       return [

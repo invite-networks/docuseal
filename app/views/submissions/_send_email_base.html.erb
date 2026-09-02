@@ -25,13 +25,9 @@
     <div class="alert my-4">
       <%= svg_icon('info_circle', class: 'w-6 h-6') %>
       <div>
-        <p class="font-bold"><%= t('smtp_not_configured') %></p>
+        <p class="font-bold">Microsoft 365 is not configured</p>
         <p class="text-gray-700">
-          <%= t('configure_smtp_settings_in_order_to_send_emails_') %>
-          <br>
-          <a class="link font-medium" data-turbo-frame="_top" href="<%= settings_email_index_path %>">
-            <%= t('go_to_smtp_settings') %>
-          </a>
+          Configure the Microsoft Entra tenant, client ID, and client secret to send email.
         </p>
       </div>
     </div>

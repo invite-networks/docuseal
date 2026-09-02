@@ -398,7 +398,6 @@ en: &en
   verify_pdf: Verify PDF
   sign_out: Sign out
   page_number: 'Page %{number}'
-  powered_by: Powered by
   qr_code: QR Code
   print: Print
   scan_the_qr_code_above_with_your_phone_camera_to_open_and_sign_this_document: Scan the QR code above with your phone camera to open and sign this document.
@@ -699,7 +698,6 @@ en: &en
   detailed: Detailed
   upload_list: Upload List
   creating: Creating
-  open_source_documents_software: open source documents software
   copy_link: Copy Link
   opened: Opened
   sent: Sent
@@ -1493,7 +1491,6 @@ es: &es
   verify_pdf: Verificar PDF
   sign_out: Cerrar sesión
   page_number: 'Página %{number}'
-  powered_by: Desarrollado por
   qr_code: Código QR
   print: Imprimir
   scan_the_qr_code_above_with_your_phone_camera_to_open_and_sign_this_document: Escanea el código QR de arriba con la cámara de tu teléfono para abrir y firmar este documento.
@@ -1794,7 +1791,6 @@ es: &es
   detailed: Detallado
   upload_list: Subir lista
   creating: Crear
-  open_source_documents_software: software de documentos de código abierto
   copy_link: Copiar enlace
   opened: Abierto
   sent: Enviado
@@ -2592,7 +2588,6 @@ it: &it
   verify_pdf: Verifica PDF
   sign_out: Esci
   page_number: 'Pagina %{number}'
-  powered_by: Fornito da
   qr_code: Codice QR
   print: Stampa
   scan_the_qr_code_above_with_your_phone_camera_to_open_and_sign_this_document: Scansiona il codice QR qui sopra con la fotocamera del tuo telefono per aprire e firmare questo documento.
@@ -2893,7 +2888,6 @@ it: &it
   detailed: Dettagliato
   upload_list: Carica elenco
   creating: Crea
-  open_source_documents_software: software di documenti open source
   copy_link: Copia link
   opened: Aperto
   sent: Inviato
@@ -3677,7 +3671,6 @@ fr: &fr
   verify_pdf: Vérifier le PDF
   sign_out: Se déconnecter
   page_number: Page %{number}
-  powered_by: Propulsé par
   qr_code: Code QR
   print: Imprimer
   scan_the_qr_code_above_with_your_phone_camera_to_open_and_sign_this_document: Scannez le code QR ci-dessus avec l'appareil photo de votre téléphone pour ouvrir et signer ce document.
@@ -3978,7 +3971,6 @@ fr: &fr
   detailed: Détaillé
   upload_list: Téléverser une liste
   creating: Créer
-  open_source_documents_software: logiciel de documents open source
   copy_link: Copier le lien
   opened: Ouvert
   sent: Envoyé
@@ -4772,7 +4764,6 @@ pt: &pt
   verify_pdf: Verificar PDF
   sign_out: Sair
   page_number: 'Página %{number}'
-  powered_by: Desenvolvido por
   qr_code: Código QR
   print: Imprimir
   scan_the_qr_code_above_with_your_phone_camera_to_open_and_sign_this_document: Escaneie o código QR acima com a câmera do seu telefone para abrir e assinar este documento.
@@ -5073,7 +5064,6 @@ pt: &pt
   detailed: Detalhado
   upload_list: Carregar lista
   creating: Criar
-  open_source_documents_software: software de documentos de código aberto
   copy_link: Copiar link
   opened: Aberto
   sent: Enviado
@@ -5870,7 +5860,6 @@ de: &de
   verify_pdf: PDF verifizieren
   sign_out: Abmelden
   page_number: 'Seite %{number}'
-  powered_by: Bereitgestellt von
   qr_code: QR-Code
   print: Drucken
   scan_the_qr_code_above_with_your_phone_camera_to_open_and_sign_this_document: Scannen Sie den QR-Code oben mit Ihrer Handykamera, um dieses Dokument zu öffnen und zu unterzeichnen.
@@ -6171,7 +6160,6 @@ de: &de
   detailed: Detailliert
   upload_list: Liste hochladen
   creating: Erstellen
-  open_source_documents_software: Open-Source-Dokumentensoftware
   copy_link: Link kopieren
   opened: Geöffnet
   sent: Gesendet
@@ -6665,9 +6653,7 @@ pl:
   too_many_attempts: Zbyt wiele prób.
   verification_code: Kod Weryfikacyjny
   resend_code: Wyślij Kod Ponownie
-  powered_by: 'Napędzany przez'
   count_documents_signed_with_html: '<b>%{count}</b> dokumentów podpisanych za pomocą'
-  open_source_documents_software: 'oprogramowanie do dokumentów open source'
   eu_data_residency: Dane w UE
   please_enter_your_email_address_associated_with_the_completed_submission: Wprowadź adres e-mail powiązany z ukończonym zgłoszeniem.
   privacy_policy: Polityka Prywatności
@@ -6804,9 +6790,7 @@ uk:
   too_many_attempts: Забагато спроб.
   verification_code: Код перевірки
   resend_code: Надіслати код знову
-  powered_by: 'Працює на базі'
   count_documents_signed_with_html: '<b>%{count}</b> документів підписано за допомогою'
-  open_source_documents_software: 'відкрите програмне забезпечення для документів'
   eu_data_residency: 'Зберігання даних в ЄС'
   please_enter_your_email_address_associated_with_the_completed_submission: "Введіть адресу електронної пошти, пов'язану із завершеним поданням."
   privacy_policy: Політика конфіденційності
@@ -6943,9 +6927,7 @@ cs:
   too_many_attempts: Příliš mnoho pokusů.
   verification_code: Ověřovací kód
   resend_code: Znovu odeslat kód
-  powered_by: 'Poháněno'
   count_documents_signed_with_html: '<b>%{count}</b> dokumentů podepsáno pomocí'
-  open_source_documents_software: 'open source software pro dokumenty'
   eu_data_residency: 'Uložení dat v EU'
   please_enter_your_email_address_associated_with_the_completed_submission: Zadejte e-mailovou adresu spojenou s dokončeným odesláním.
   privacy_policy: Zásady ochrany osobních údajů
@@ -7068,9 +7050,7 @@ he:
   too_many_attempts: יותר מדי ניסיונות.
   verification_code: קוד אימות
   resend_code: שלח קוד מחדש
-  powered_by: 'מופעל על ידי'
   count_documents_signed_with_html: '<b>%{count}</b> מסמכים נחתמו באמצעות'
-  open_source_documents_software: 'תוכנה בקוד פתוח למסמכים'
   eu_data_residency: 'נתונים באיחוד האירופי'
   please_enter_your_email_address_associated_with_the_completed_submission: 'אנא הזן את כתובת הדוא"ל המשויכת להגשה שהושלמה.'
   privacy_policy: 'מדיניות פרטיות'
@@ -7484,7 +7464,6 @@ nl: &nl
   verify_pdf: PDF verifiëren
   sign_out: Afmelden
   page_number: Pagina %{number}
-  powered_by: Aangedreven door
   qr_code: QR-code
   print: Afdrukken
   scan_the_qr_code_above_with_your_phone_camera_to_open_and_sign_this_document: Scan de bovenstaande QR-code met je telefooncamera om dit document te openen en te ondertekenen.
@@ -7785,7 +7764,6 @@ nl: &nl
   detailed: Gedetailleerd
   upload_list: Lijst uploaden
   creating: Aanmaken
-  open_source_documents_software: open-sourcesoftware voor documenten
   copy_link: Link kopiëren
   opened: Geopend
   sent: Verzonden
@@ -8262,9 +8240,7 @@ ar:
   too_many_attempts: عدد المحاولات كبير جدًا.
   verification_code: رمز التحقق
   resend_code: إعادة إرسال الرمز
-  powered_by: 'مشغل بواسطة'
   count_documents_signed_with_html: 'تم توقيع <b>%{count}</b> مستندًا باستخدام'
-  open_source_documents_software: 'برنامج مستندات مفتوح المصدر'
   eu_data_residency: 'بيانات في الاتحاد الأوروبي'
   please_enter_your_email_address_associated_with_the_completed_submission: 'يرجى إدخال عنوان البريد الإلكتروني المرتبط بالإرسال المكتمل.'
   privacy_policy: 'سياسة الخصوصية'
@@ -8373,9 +8349,7 @@ ko:
   too_many_attempts: 시도 횟수가 너무 많습니다.
   verification_code: 인증 코드
   resend_code: 코드 재전송
-  powered_by: '제공:'
   count_documents_signed_with_html: '<b>%{count}</b>개의 문서가 다음을 통해 서명됨'
-  open_source_documents_software: '오픈소스 문서 소프트웨어'
   eu_data_residency: 'EU 데이터 저장 위치'
   please_enter_your_email_address_associated_with_the_completed_submission: '완료된 제출과 연결된 이메일 주소를 입력하세요.'
   privacy_policy: 개인정보 처리방침
@@ -8484,9 +8458,7 @@ ja:
   too_many_attempts: 試行回数が多すぎます
   verification_code: 認証コード
   resend_code: コードを再送信
-  powered_by: '提供元：'
   count_documents_signed_with_html: '<b>%{count}</b> 件のドキュメントが以下で署名されました'
-  open_source_documents_software: 'オープンソースのドキュメントソフトウェア'
   eu_data_residency: 'EU データ保存場所'
   please_enter_your_email_address_associated_with_the_completed_submission: '完了した提出に関連付けられたメールアドレスを入力してください。'
   privacy_policy: プライバシーポリシー

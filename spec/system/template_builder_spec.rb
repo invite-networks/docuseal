@@ -28,5 +28,14 @@ RSpec.describe 'Template Builder' do
 
       expect(page).to have_content('sample-image')
     end
+
+    it 'offers semantic identity fields' do
+      within '#field-types-grid' do
+        expect(page).to have_button('Name')
+        expect(page).to have_button('Email')
+        expect(page).to have_button('Title')
+        expect(page).to have_button('Company')
+      end
+    end
   end
 end

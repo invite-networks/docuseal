@@ -7,6 +7,7 @@
 #  id                  :bigint           not null, primary key
 #  archived_at         :datetime
 #  completed_at        :datetime
+#  description         :text
 #  expire_at           :datetime
 #  name                :text
 #  preferences         :text             not null
@@ -102,9 +103,11 @@ class Submission < ApplicationRecord
   scope :expired, -> { where(expire_at: ..Time.current).where(completed_at: nil) }
 
   scope :select_for_list, lambda {
-    select(:id, :name, :created_by_user_id, :account_id, :completed_at,
+    select(:id, :name, :description, :created_by_user_id, :account_id, :completed_at,
            :created_at, :archived_at, :expire_at, :template_id, :template_submitters)
   }
+
+  validates :description, length: { maximum: 500 }, allow_blank: true
 
   enum :source, {
     invite: 'invite',
