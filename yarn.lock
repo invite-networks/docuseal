@@ -1016,10 +1016,10 @@
   resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.5.7.tgz#1d572bfbbe14b7704e0ba0f39b74815b84870d70"
   integrity sha512-dBVuXR082gk3jsFp7Rd/JI4kytwGHecnCoTtXFb7DB6CNHp4rg5k1bhg0nWdLGLnOV71lmDzGQaLMy8iPLY0pw==
 
-"@discoveryjs/json-ext@^0.6.1":
-  version "0.6.3"
-  resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-0.6.3.tgz#f13c7c205915eb91ae54c557f5e92bddd8be0e83"
-  integrity sha512-4B4OijXeVNOPZlYA2oEwWOTkzyltLao+xbotHQeqN++Rv27Y6s818+n2Qkp8q+Fxhn0t/5lA5X1Mxktud8eayQ==
+"@discoveryjs/json-ext@^1.1.0":
+  version "1.1.0"
+  resolved "https://registry.yarnpkg.com/@discoveryjs/json-ext/-/json-ext-1.1.0.tgz#44b5ce3485e95235aca06e628eeaaa3c816bc4cc"
+  integrity sha512-Xc3VhU02wqZ1HvHRJUwL09HkZSTvidqY5Ya0NXBSYOxAp+Ln9dcJr9fySI+CkONzP3PekQo9WdzCv0PGER/mOA==
 
 "@eslint-community/eslint-utils@^4.2.0", "@eslint-community/eslint-utils@^4.4.0":
   version "4.10.1"
@@ -1181,75 +1181,75 @@
   resolved "https://registry.yarnpkg.com/@jsonjoy.com/codegen/-/codegen-1.0.0.tgz#5c23f796c47675f166d23b948cdb889184b93207"
   integrity sha512-E8Oy+08cmCf0EK/NMxpaJZmOxPqM+6iSe2S4nlSBrPZOORoDJILxtbSUEDKQyTamm/BVAhIGllOBNU79/dwf0g==
 
-"@jsonjoy.com/fs-core@4.68.2":
-  version "4.68.2"
-  resolved "https://registry.yarnpkg.com/@jsonjoy.com/fs-core/-/fs-core-4.68.2.tgz#ea3e3e3e07e0d808844ba7ee908dd47ad121eddf"
-  integrity sha512-PoBeUNEbjyLKKwCap2z8LkkqdhdfttS4rTHCALVuP65BdF+sAoyBqHo1m+uGTRBiQWv3H7MGfr8f7lY4pDwanw==
+"@jsonjoy.com/fs-core@4.69.0":
+  version "4.69.0"
+  resolved "https://registry.yarnpkg.com/@jsonjoy.com/fs-core/-/fs-core-4.69.0.tgz#7c5736a202708e3a4f3cd15693443725bbd819c3"
+  integrity sha512-hzeTT/KQb6z8lracgvU+YGhZbEygJ/z/Bp86U+uU64Vm6jsNv1aEKd1ShkQTv5fcQlm2qzuHs8GCGr2b4l8SjQ==
   dependencies:
-    "@jsonjoy.com/fs-node-builtins" "4.68.2"
-    "@jsonjoy.com/fs-node-utils" "4.68.2"
+    "@jsonjoy.com/fs-node-builtins" "4.69.0"
+    "@jsonjoy.com/fs-node-utils" "4.69.0"
     thingies "^2.5.0"
 
-"@jsonjoy.com/fs-fsa@4.68.2":
-  version "4.68.2"
-  resolved "https://registry.yarnpkg.com/@jsonjoy.com/fs-fsa/-/fs-fsa-4.68.2.tgz#01d59e3bedb3cfe4b32334abbb1004a75b481a76"
-  integrity sha512-h6eGXlLGGMyPfNliDQrbuHKTB9Z29ksCLjreAmdBqrDOBdfrTrHssi+b9WLfrF+J2KzAbIt9OMjJu6AEpTnYkg==
+"@jsonjoy.com/fs-fsa@4.69.0":
+  version "4.69.0"
+  resolved "https://registry.yarnpkg.com/@jsonjoy.com/fs-fsa/-/fs-fsa-4.69.0.tgz#21de1dbd36822bf931fab3f677a21533767b9a73"
+  integrity sha512-JSJlZqMuriUFzyv9zbCHDEeapN/7OVwG2nO3LIyoDSWhn4IL57AI7RPgkz0jNg3HrljfJHTUd+Z4Nyn4XD8XsA==
   dependencies:
-    "@jsonjoy.com/fs-core" "4.68.2"
-    "@jsonjoy.com/fs-node-builtins" "4.68.2"
-    "@jsonjoy.com/fs-node-utils" "4.68.2"
+    "@jsonjoy.com/fs-core" "4.69.0"
+    "@jsonjoy.com/fs-node-builtins" "4.69.0"
+    "@jsonjoy.com/fs-node-utils" "4.69.0"
     thingies "^2.5.0"
 
-"@jsonjoy.com/fs-node-builtins@4.68.2":
-  version "4.68.2"
-  resolved "https://registry.yarnpkg.com/@jsonjoy.com/fs-node-builtins/-/fs-node-builtins-4.68.2.tgz#ef82d558a6894b54537857ba153daa38a5326a05"
-  integrity sha512-V8WzQsW2YIrH3RxBGY6HZisxn+dDUltHgksVRuCdPEOXEkAfXuhL/01eHFrabNu84Dn13XuLqvcQUKOYVKAUOA==
+"@jsonjoy.com/fs-node-builtins@4.69.0":
+  version "4.69.0"
+  resolved "https://registry.yarnpkg.com/@jsonjoy.com/fs-node-builtins/-/fs-node-builtins-4.69.0.tgz#35aafc64af8a1af898d2ef88e00daa05f134863b"
+  integrity sha512-GgL8s9zY7J+lPdyDZguyipHgkdffFU9sxPG/OBjd/oBRUXo/dpPBYiZTY6bKYdv+KAsAFbO0p6yd4OH5hURHWQ==
 
-"@jsonjoy.com/fs-node-to-fsa@4.68.2":
-  version "4.68.2"
-  resolved "https://registry.yarnpkg.com/@jsonjoy.com/fs-node-to-fsa/-/fs-node-to-fsa-4.68.2.tgz#faf01a277752868d90681f6dcb86d3e01f05a296"
-  integrity sha512-4O1K4w5G4oJIpKpoa3WSLG83AsQYVnGv+aUSBGOvIUph9Axm6bB1mPlvldkNg2tBx/4dkiTlZnqNrK5SQ21Wtg==
+"@jsonjoy.com/fs-node-to-fsa@4.69.0":
+  version "4.69.0"
+  resolved "https://registry.yarnpkg.com/@jsonjoy.com/fs-node-to-fsa/-/fs-node-to-fsa-4.69.0.tgz#cab06f78907ada35009da361af5d10ea4420c062"
+  integrity sha512-CkEJriGcBZ+G6tKz4i9zc9NmHlFMIJNS8GLEdBgWH2QwyaL4vpp5dyV9NPeCa3NBljng1MoGZoibONkUat961g==
   dependencies:
-    "@jsonjoy.com/fs-fsa" "4.68.2"
-    "@jsonjoy.com/fs-node-builtins" "4.68.2"
-    "@jsonjoy.com/fs-node-utils" "4.68.2"
+    "@jsonjoy.com/fs-fsa" "4.69.0"
+    "@jsonjoy.com/fs-node-builtins" "4.69.0"
+    "@jsonjoy.com/fs-node-utils" "4.69.0"
 
-"@jsonjoy.com/fs-node-utils@4.68.2":
-  version "4.68.2"
-  resolved "https://registry.yarnpkg.com/@jsonjoy.com/fs-node-utils/-/fs-node-utils-4.68.2.tgz#78311a84df4e4edc51f8e41fc042d3eed21cb0d4"
-  integrity sha512-CxFwyG9fJr7dAKAd1uanNRNrRMtDDqbYJA8do53+M4LY7SxcBEEmMjC1zi9MOsBlVLHTXvA7OP9+n639UqtIcw==
+"@jsonjoy.com/fs-node-utils@4.69.0":
+  version "4.69.0"
+  resolved "https://registry.yarnpkg.com/@jsonjoy.com/fs-node-utils/-/fs-node-utils-4.69.0.tgz#05bcef85ae41260104312ca3eea92a6b0c9a4bbe"
+  integrity sha512-tiNtcPzcox9r35DZO3N6kGER6iP4MwAZU/9kKl21iTlN3hNlBGWd27nT2AbWQps+5oopqTp2khhaNtRkRRiRew==
   dependencies:
-    "@jsonjoy.com/fs-node-builtins" "4.68.2"
+    "@jsonjoy.com/fs-node-builtins" "4.69.0"
     glob-to-regex.js "^1.0.1"
 
-"@jsonjoy.com/fs-node@4.68.2":
-  version "4.68.2"
-  resolved "https://registry.yarnpkg.com/@jsonjoy.com/fs-node/-/fs-node-4.68.2.tgz#166b641f7c810e12cbf92c483e9c7084123ed669"
-  integrity sha512-Kpj519Qk4OXG4+mZ8vTf9BEflliJrPueIDEVcbx8tAOufMJJ8IxR0WwdbcEvJol2KQog3PJjtALXVclorE+xbQ==
+"@jsonjoy.com/fs-node@4.69.0":
+  version "4.69.0"
+  resolved "https://registry.yarnpkg.com/@jsonjoy.com/fs-node/-/fs-node-4.69.0.tgz#c5ff490bb9af62356069ed3ea56dea0495ed060c"
+  integrity sha512-AUnNhMAvkK9iRAA63BEJSVWNhF5fnofWhv75tjlr1awrzhU+sVPcQjU69KkqmRrDx3/RRzseMIQUOAPgCrEGWw==
   dependencies:
-    "@jsonjoy.com/fs-core" "4.68.2"
-    "@jsonjoy.com/fs-node-builtins" "4.68.2"
-    "@jsonjoy.com/fs-node-utils" "4.68.2"
-    "@jsonjoy.com/fs-print" "4.68.2"
-    "@jsonjoy.com/fs-snapshot" "4.68.2"
+    "@jsonjoy.com/fs-core" "4.69.0"
+    "@jsonjoy.com/fs-node-builtins" "4.69.0"
+    "@jsonjoy.com/fs-node-utils" "4.69.0"
+    "@jsonjoy.com/fs-print" "4.69.0"
+    "@jsonjoy.com/fs-snapshot" "4.69.0"
     glob-to-regex.js "^1.0.0"
     thingies "^2.5.0"
 
-"@jsonjoy.com/fs-print@4.68.2":
-  version "4.68.2"
-  resolved "https://registry.yarnpkg.com/@jsonjoy.com/fs-print/-/fs-print-4.68.2.tgz#1562c2481393359644e2840c25a5082274378f39"
-  integrity sha512-cBABQmZJXig6bahwNka3+yPNGUF1GeMWbR76ZM1N2ajgCd+S+twZigCoe9+0ueZmkhM9xd2a7688Gy/ch7T+2w==
+"@jsonjoy.com/fs-print@4.69.0":
+  version "4.69.0"
+  resolved "https://registry.yarnpkg.com/@jsonjoy.com/fs-print/-/fs-print-4.69.0.tgz#cc63448159d47fdcf373f267c64caa6fb5cc3bf2"
+  integrity sha512-0EUCYSJfj+a7OY7x2hr2n9ig/temj1Q1tn5+IyHFHJpbVeKq90fAwI+KO8PhDenKdpzJauqIUIuWFqXqw3bNEg==
   dependencies:
-    "@jsonjoy.com/fs-node-utils" "4.68.2"
+    "@jsonjoy.com/fs-node-utils" "4.69.0"
     tree-dump "^1.1.0"
 
-"@jsonjoy.com/fs-snapshot@4.68.2":
-  version "4.68.2"
-  resolved "https://registry.yarnpkg.com/@jsonjoy.com/fs-snapshot/-/fs-snapshot-4.68.2.tgz#6f1b2e5aa6827a1075f82162055ca8bedee0fe58"
-  integrity sha512-Aix7+NM38LzvewM0T3PICSgFdF5BVCtVgsjNsrlDPGc9hiMgJzReTDDl2/elgl0A9USMl3QP27x5WwxZSOtrfw==
+"@jsonjoy.com/fs-snapshot@4.69.0":
+  version "4.69.0"
+  resolved "https://registry.yarnpkg.com/@jsonjoy.com/fs-snapshot/-/fs-snapshot-4.69.0.tgz#c54865d88751c36ee3c684331ac60e0732bc5938"
+  integrity sha512-Gt+PQ8aSluq4LRQFBvgMxQ1JNq8IuWnR8G/0TDo5JXIYt008+FxJtZnhVoBR9HGfKa13N6RH05TWDye+S1Qdkg==
   dependencies:
     "@jsonjoy.com/buffers" "^17.65.0"
-    "@jsonjoy.com/fs-node-utils" "4.68.2"
+    "@jsonjoy.com/fs-node-utils" "4.69.0"
     "@jsonjoy.com/json-pack" "^17.65.0"
     "@jsonjoy.com/util" "^17.65.0"
 
@@ -2186,21 +2186,6 @@
     "@webassemblyjs/ast" "1.14.1"
     "@xtuc/long" "4.2.2"
 
-"@webpack-cli/configtest@^3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@webpack-cli/configtest/-/configtest-3.0.1.tgz#76ac285b9658fa642ce238c276264589aa2b6b57"
-  integrity sha512-u8d0pJ5YFgneF/GuvEiDA61Tf1VDomHHYMjv/wc9XzYj7nopltpG96nXN5dJRstxZhcNpV1g+nT6CydO7pHbjA==
-
-"@webpack-cli/info@^3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@webpack-cli/info/-/info-3.0.1.tgz#3cff37fabb7d4ecaab6a8a4757d3826cf5888c63"
-  integrity sha512-coEmDzc2u/ffMvuW9aCjoRzNSPDl/XLuhPdlFRpT9tZHmJ/039az33CE7uH+8s0uL1j5ZNtfdv0HkfaKRBGJsQ==
-
-"@webpack-cli/serve@^3.0.1":
-  version "3.0.1"
-  resolved "https://registry.yarnpkg.com/@webpack-cli/serve/-/serve-3.0.1.tgz#bd8b1f824d57e30faa19eb78e4c0951056f72f00"
-  integrity sha512-sbgw03xQaCLiT6gcY/6u3qBDn01CWw/nbaXl3gTdTFuJJ75Gffv3E3DBpgvY2fkkrdS1fpjaXNOmJlnbtKauKg==
-
 "@xtuc/ieee754@^1.2.0":
   version "1.2.0"
   resolved "https://registry.yarnpkg.com/@xtuc/ieee754/-/ieee754-1.2.0.tgz#eef014a3145ae477a1cbc00cd1e552336dceb790"
@@ -2747,7 +2732,7 @@ colord@^2.9:
   resolved "https://registry.yarnpkg.com/colord/-/colord-2.10.0.tgz#56c9050e6b06b4b6c62ddec366a48d65ef57e860"
   integrity sha512-AidJptpBJmjTclAp9BkLwJi0T93fo5epJnbaZslpg6QVzpHjAiveF55mE9AcUJiGMqRHgMDY8soMsQtuNYMHfw==
 
-colorette@^2.0.10, colorette@^2.0.14:
+colorette@^2.0.10:
   version "2.0.20"
   resolved "https://registry.yarnpkg.com/colorette/-/colorette-2.0.20.tgz#9eb793e6833067f7235902fcd3b09917a000a95a"
   integrity sha512-IfEDxwoWIjkeXL1eXcDiow4UbKjhLdq6/EuSVR9GMN7KVH3r9gQ83e73hsz1Nd1T3ijd5xv1wcWRYO+D6kCI2w==
@@ -2757,10 +2742,10 @@ commander@^11.1.0:
   resolved "https://registry.yarnpkg.com/commander/-/commander-11.1.0.tgz#62fdce76006a68e5c1ab3314dc92e800eb83d906"
   integrity sha512-yPVavfyCcRhmorC7rWlkHn15b4wDVgVmBA7kV4QVBsF7kv/9TKJAbAXVTxvTnwP8HHKjRCJDClKbciiYS7p0DQ==
 
-commander@^12.1.0:
-  version "12.1.0"
-  resolved "https://registry.yarnpkg.com/commander/-/commander-12.1.0.tgz#01423b36f501259fdaac4d0e4d60c96c991585d3"
-  integrity sha512-Vw8qHK3bZM9y/P10u3Vib8o/DdkvA2OtPtZvD871QKjy74Wj1WSKFILMPRPSdUSx5RFK1arlJzEtA4PkFgnbuA==
+commander@^14.0.3:
+  version "14.0.3"
+  resolved "https://registry.yarnpkg.com/commander/-/commander-14.0.3.tgz#425d79b48f9af82fcd9e4fc1ea8af6c5ec07bbc2"
+  integrity sha512-H+y0Jo/T1RZ9qPP4Eh1pkcQcLRglraJaSLoyOtHxu6AapkjWVCy2Sit1QQ4x3Dng8qDlSsZEet7g5Pq06MvTgw==
 
 commander@^2.20.0:
   version "2.20.3"
@@ -2890,7 +2875,7 @@ crelt@^1.0.5, crelt@^1.0.6:
   resolved "https://registry.yarnpkg.com/crelt/-/crelt-1.0.7.tgz#3b441b2ddfa73161d6a2770aa4cd677f895eaf28"
   integrity sha512-aK6BbWfhf4U/wCcLHKPJl/xa6VkVstRaPywWtMKGwuOLc/wZTyQYuoxgvZnNsBvv7Kg3YTBQYYBCggcviQczuA==
 
-cross-spawn@^7.0.2, cross-spawn@^7.0.3:
+cross-spawn@^7.0.2, cross-spawn@^7.0.6:
   version "7.0.6"
   resolved "https://registry.yarnpkg.com/cross-spawn/-/cross-spawn-7.0.6.tgz#8a58fe78f00dcd70c370451759dfbfaf03e8ee9f"
   integrity sha512-uV2QOWP2nWzsy2aMp8aRibhi9dlzF5Hgh5SHaB9OiTGEyDTiJJyx0uy51QXdyWbtAHNua4XJzUKca3OzKUd3vA==
@@ -3289,7 +3274,7 @@ entities@^7.0.1:
   resolved "https://registry.yarnpkg.com/entities/-/entities-7.0.1.tgz#26e8a88889db63417dcb9a1e79a3f1bc92b5976b"
   integrity sha512-TWrgLOFUQTH994YUyl1yT4uyavY5nNB5muff+RtWaqNVCAK408b5ZnnbNAUEWLTCpum9w6arT70i1XdQ4UeOPA==
 
-envinfo@^7.14.0:
+envinfo@^7.21.0:
   version "7.21.0"
   resolved "https://registry.yarnpkg.com/envinfo/-/envinfo-7.21.0.tgz#04a251be79f92548541f37d13c8b6f22940c3bae"
   integrity sha512-Lw7I8Zp5YKHFCXL7+Dz95g4CcbMEpgvqZNNq3AmlT5XAV6CgAAk6gyAMqn2zjw08K9BHfcNuKrMiCPLByGafow==
@@ -3746,11 +3731,6 @@ fast-uri@^3.0.1:
   resolved "https://registry.yarnpkg.com/fast-uri/-/fast-uri-3.1.7.tgz#743157d957f3cbb4c65310e033dc2ad4ad7dc60a"
   integrity sha512-dOvZVzjdZdz7phd9v6jCbwxrBW3fK6n8Rc0CtdmM4bumzMnxywBYhuph6J819RRw/ku+rLbelwfMunktuzVVHg==
 
-fastest-levenshtein@^1.0.12:
-  version "1.0.16"
-  resolved "https://registry.yarnpkg.com/fastest-levenshtein/-/fastest-levenshtein-1.0.16.tgz#210e61b6ff181de91ea9b3d1b84fdedd47e034e5"
-  integrity sha512-eRnCtTTtGZFpQCwhJiUOuxPQWRXVKYDn0b2PeHfXL6/Zi53SLAzAHfVhVWK2AryC/WH05kGfxhFIPvTF0SXQzg==
-
 fastparse@^1.1.2:
   version "1.1.2"
   resolved "https://registry.yarnpkg.com/fastparse/-/fastparse-1.1.2.tgz#91728c5a5942eced8531283c79441ee4122c35a9"
@@ -4194,7 +4174,7 @@ import-fresh@^3.2.1, import-fresh@^3.3.0:
     parent-module "^1.0.0"
     resolve-from "^4.0.0"
 
-import-local@^3.0.2:
+import-local@^3.2.0:
   version "3.2.0"
   resolved "https://registry.yarnpkg.com/import-local/-/import-local-3.2.0.tgz#c3d5c745798c02a6f8b897726aba5100186ee260"
   integrity sha512-2SPlun1JUPWoM6t3F0dw0FkCF/jWY8kttcY4f599GLTSjh2OCuuhdTkJQsEcZzBqbXZGKMK2OqW1oZsjtf/gQA==
@@ -4752,18 +4732,18 @@ media-typer@0.3.0:
   integrity sha512-dq+qelQ9akHpcOl/gUVRTxVIOkAJ1wR3QAvb4RsVjS8oVoFjDGTc679wJYmUmknUF5HwMLOgb5O+a3KxfWapPQ==
 
 memfs@^4.43.1:
-  version "4.68.2"
-  resolved "https://registry.yarnpkg.com/memfs/-/memfs-4.68.2.tgz#26aeb07f3774ccf79bf9d79483ea3241e1383254"
-  integrity sha512-Un1ElEBoIdPI9kg0sm3LebVEuEViodfIvlaG8Z1MFXa7ZnR9vWuPKUo3dt/vuWY2ivc05l76B5QOjdgCzAzmGw==
+  version "4.69.0"
+  resolved "https://registry.yarnpkg.com/memfs/-/memfs-4.69.0.tgz#8396ac539345c39a4cd6ae0c6e9a333349c6d098"
+  integrity sha512-L1hQUfKykcA/bu7AkNGcBvaEewwJYN2xCPONlXh/+ERTRXRRhpfGkYKnZ/KnjKiYrqJL0/HKv73i1s1PcwKRvg==
   dependencies:
-    "@jsonjoy.com/fs-core" "4.68.2"
-    "@jsonjoy.com/fs-fsa" "4.68.2"
-    "@jsonjoy.com/fs-node" "4.68.2"
-    "@jsonjoy.com/fs-node-builtins" "4.68.2"
-    "@jsonjoy.com/fs-node-to-fsa" "4.68.2"
-    "@jsonjoy.com/fs-node-utils" "4.68.2"
-    "@jsonjoy.com/fs-print" "4.68.2"
-    "@jsonjoy.com/fs-snapshot" "4.68.2"
+    "@jsonjoy.com/fs-core" "4.69.0"
+    "@jsonjoy.com/fs-fsa" "4.69.0"
+    "@jsonjoy.com/fs-node" "4.69.0"
+    "@jsonjoy.com/fs-node-builtins" "4.69.0"
+    "@jsonjoy.com/fs-node-to-fsa" "4.69.0"
+    "@jsonjoy.com/fs-node-utils" "4.69.0"
+    "@jsonjoy.com/fs-print" "4.69.0"
+    "@jsonjoy.com/fs-snapshot" "4.69.0"
     "@jsonjoy.com/json-pack" "^1.11.0"
     "@jsonjoy.com/util" "^1.9.0"
     glob-to-regex.js "^1.0.1"
@@ -6845,21 +6825,16 @@ webpack-bundle-analyzer@^4.7.0:
     sirv "^2.0.3"
     ws "^7.3.1"
 
-webpack-cli@6.0.1:
-  version "6.0.1"
-  resolved "https://registry.yarnpkg.com/webpack-cli/-/webpack-cli-6.0.1.tgz#a1ce25da5ba077151afd73adfa12e208e5089207"
-  integrity sha512-MfwFQ6SfwinsUVi0rNJm7rHZ31GyTcpVE5pgVA3hwFRb7COD4TzjUUwhGWKfO50+xdc2MQPuEBBJoqIMGt3JDw==
+webpack-cli@7.2.3:
+  version "7.2.3"
+  resolved "https://registry.yarnpkg.com/webpack-cli/-/webpack-cli-7.2.3.tgz#becafbd777df5ff3e1a35ec398ad2ad54ec4d456"
+  integrity sha512-vDFU7jrfCctnN7jJQWPl+V26B51GLp11prVZXg50oeonsgeBzSTJEWmXkjHsOjTgMjlPOQM8GWLh33X9RN/0ow==
   dependencies:
-    "@discoveryjs/json-ext" "^0.6.1"
-    "@webpack-cli/configtest" "^3.0.1"
-    "@webpack-cli/info" "^3.0.1"
-    "@webpack-cli/serve" "^3.0.1"
-    colorette "^2.0.14"
-    commander "^12.1.0"
-    cross-spawn "^7.0.3"
-    envinfo "^7.14.0"
-    fastest-levenshtein "^1.0.12"
-    import-local "^3.0.2"
+    "@discoveryjs/json-ext" "^1.1.0"
+    commander "^14.0.3"
+    cross-spawn "^7.0.6"
+    envinfo "^7.21.0"
+    import-local "^3.2.0"
     interpret "^3.1.1"
     rechoir "^0.8.0"
     webpack-merge "^6.0.1"
