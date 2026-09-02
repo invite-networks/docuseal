@@ -30,7 +30,7 @@
     "@tiptap/pm": "^3.19.0",
     "autocompleter": "^9.1.0",
     "autoprefixer": "^10.4.14",
-    "babel-loader": "9.1.2",
+    "babel-loader": "10.1.1",
     "babel-plugin-dynamic-import-node": "^2.3.3",
     "babel-plugin-macros": "^3.1.0",
     "canvas-confetti": "^1.6.0",
