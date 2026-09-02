@@ -1,6 +1,6 @@
 <template>
   <div
-    class="modal modal-open items-start !animate-none overflow-y-auto"
+    class="modal modal-open items-start animate-none! overflow-y-auto"
   >
     <div
       class="absolute top-0 bottom-0 right-0 left-0"
@@ -28,7 +28,7 @@
           <button
             v-for="f in fields"
             :key="f.uuid"
-            class="mr-1 flex btn btn-neutral btn-outline border-base-content/20 btn-sm normal-case font-normal bg-white !rounded-xl"
+            class="mr-1 flex btn btn-neutral btn-outline border-base-content/20 btn-sm normal-case font-normal bg-white rounded-xl!"
             @click.prevent="insertTextUnderCursor(`{{${f.name || buildDefaultName(f)}}}`)"
           >
             <IconMathFunction
@@ -51,7 +51,7 @@
             <textarea
               ref="textarea"
               v-model="formula"
-              class="base-textarea !rounded-xl !text-base font-mono w-full !outline-0 !ring-0 !px-3"
+              class="base-textarea rounded-xl! text-base! font-mono w-full outline-0! ring-0! px-3!"
               :readonly="!editable"
               required="true"
               @input="resizeTextarea"

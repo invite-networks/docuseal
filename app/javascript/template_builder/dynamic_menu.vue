@@ -1,12 +1,12 @@
 <template>
   <div
     v-if="visible"
-    class="absolute z-10 flex items-center gap-0.5 px-1.5 py-1 bg-white border border-base-300 rounded-lg shadow select-none"
+    class="absolute z-10 flex items-center gap-0.5 px-1.5 py-1 bg-white border border-base-300 rounded-lg shadow-sm select-none"
     :style="{ top: (coords.top - 42) + 'px', left: coords.left + 'px', transform: 'translateX(-50%)' }"
     @mousedown.prevent
   >
     <button
-      class="inline-flex items-center justify-center w-7 h-7 border-none rounded cursor-pointer text-gray-700"
+      class="inline-flex items-center justify-center w-7 h-7 border-none rounded-sm cursor-pointer text-gray-700"
       :class="isBold ? 'bg-base-200' : 'bg-transparent'"
       title="Bold"
       @click="toggleBold"
@@ -17,7 +17,7 @@
       />
     </button>
     <button
-      class="inline-flex items-center justify-center w-7 h-7 border-none rounded cursor-pointer text-gray-700"
+      class="inline-flex items-center justify-center w-7 h-7 border-none rounded-sm cursor-pointer text-gray-700"
       :class="isItalic ? 'bg-base-200' : 'bg-transparent'"
       title="Italic"
       @click="toggleItalic"
@@ -28,7 +28,7 @@
       />
     </button>
     <button
-      class="inline-flex items-center justify-center w-7 h-7 border-none rounded cursor-pointer text-gray-700"
+      class="inline-flex items-center justify-center w-7 h-7 border-none rounded-sm cursor-pointer text-gray-700"
       :class="isUnderline ? 'bg-base-200' : 'bg-transparent'"
       title="Underline"
       @click="toggleUnderline"
@@ -39,7 +39,7 @@
       />
     </button>
     <button
-      class="inline-flex items-center justify-center w-7 h-7 border-none rounded cursor-pointer text-gray-700"
+      class="inline-flex items-center justify-center w-7 h-7 border-none rounded-sm cursor-pointer text-gray-700"
       :class="isStrike ? 'bg-base-200' : 'bg-transparent'"
       title="Strikethrough"
       @click="toggleStrike"
@@ -51,7 +51,7 @@
     </button>
     <div class="w-px h-5 bg-base-300 mx-1" />
     <button
-      class="inline-flex items-center justify-center text-xs h-7 border-none rounded cursor-pointer text-gray-700 bg-transparent"
+      class="inline-flex items-center justify-center text-xs h-7 border-none rounded-sm cursor-pointer text-gray-700 bg-transparent"
       title="Wrap in variable"
       @click="wrapVariable"
     >
@@ -66,7 +66,7 @@
     </button>
     <div class="w-px h-5 bg-base-300 mx-1" />
     <button
-      class="inline-flex items-center justify-center text-xs h-7 border-none rounded cursor-pointer text-gray-700 bg-transparent"
+      class="inline-flex items-center justify-center text-xs h-7 border-none rounded-sm cursor-pointer text-gray-700 bg-transparent"
       title="Wrap in condition"
       @click="wrapCondition"
     >

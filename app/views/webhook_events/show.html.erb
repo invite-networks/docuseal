@@ -7,7 +7,7 @@
         <span class="top-0 right-0 absolute">
           <%= render 'shared/clipboard_copy', icon: 'copy', text: response, class: 'btn btn-ghost text-white', icon_class: 'w-6 h-6 text-white', copy_title: t('copy'), copied_title: t('copied') %>
         </span>
-        <pre class="before:!m-0 pl-4 pb-4"><code class="overflow-hidden text-sm w-full"><%== HighlightCode.call(response, 'JSON', theme: 'base16.dark') %></code></pre>
+        <pre class="before:m-0! pl-4 pb-4"><code class="overflow-hidden text-sm w-full"><%== HighlightCode.call(response, 'JSON', theme: 'base16.dark') %></code></pre>
       </div>
     <% end %>
   </div>

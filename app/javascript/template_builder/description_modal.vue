@@ -1,6 +1,6 @@
 <template>
   <div
-    class="modal modal-open items-start !animate-none overflow-y-auto"
+    class="modal modal-open items-start animate-none! overflow-y-auto"
   >
     <div
       class="absolute top-0 bottom-0 right-0 left-0"
@@ -33,7 +33,7 @@
                 ref="textarea"
                 v-model="description"
                 dir="auto"
-                class="base-textarea !text-base w-full"
+                class="base-textarea text-base! w-full"
                 :readonly="!editable"
                 @input="resizeTextarea"
               />
@@ -51,7 +51,7 @@
                 v-model="title"
                 dir="auto"
                 :readonly="!editable"
-                class="base-input !text-base w-full"
+                class="base-input text-base! w-full"
               >
             </div>
           </div>

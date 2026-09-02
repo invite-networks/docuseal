@@ -4,14 +4,14 @@
     class="relative"
     style="container-type: inline-size;"
   >
-    <div ref="shadow" />
+    <div ref="shadow-sm" />
     <template
       v-for="style in styles"
       :key="style.innerText"
     >
       <Teleport
-        v-if="shadow"
-        :to="style.innerText.includes('@font-face {') ? 'head' : shadow"
+        v-if="shadow-sm"
+        :to="style.innerText.includes('@font-face {') ? 'head' : shadow-sm"
       >
         <component :is="'style'">
           {{ style.innerText }}
@@ -19,8 +19,8 @@
       </Teleport>
     </template>
     <Teleport
-      v-if="shadow"
-      :to="shadow"
+      v-if="shadow-sm"
+      :to="shadow-sm"
     >
       <DynamicSection
         v-for="section in sections"

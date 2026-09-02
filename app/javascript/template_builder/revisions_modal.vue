@@ -1,5 +1,5 @@
 <template>
-  <div class="modal modal-open items-start !animate-none overflow-y-auto">
+  <div class="modal modal-open items-start animate-none! overflow-y-auto">
     <div
       class="absolute top-0 bottom-0 right-0 left-0"
       @click.prevent="$emit('close')"
@@ -28,11 +28,11 @@
               <div class="flex flex-col">
                 <span>{{ formatDate(revision.created_at) }}</span>
                 <span class="-ml-0.5 flex items-center space-x-1 text-xs text-base-content/60 mt-0.5">
-                  <IconUser class="w-3.5 h-3.5 flex-shrink-0" />
+                  <IconUser class="w-3.5 h-3.5 shrink-0" />
                   <span class="truncate">{{ revision.author.full_name || revision.author.email }}</span>
                 </span>
               </div>
-              <span class="btn btn-sm btn-neutral text-white pointer-events-none flex-shrink-0">
+              <span class="btn btn-sm btn-neutral text-white pointer-events-none shrink-0">
                 <IconInnerShadowTop
                   v-if="loadingId === revision.id"
                   class="w-4 h-4 animate-spin"

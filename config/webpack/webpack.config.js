@@ -39,13 +39,14 @@ const configs = generateWebpackConfig({
   ].filter(Boolean)
 })
 
-configs.module.rules[3].exclude = /dynamic_styles\.scss$/
+// Rule 2 is shakapacker's CSS rule; the shadow-DOM stylesheet is imported as a string instead.
+configs.module.rules[2].exclude = /dynamic_styles\.css$/
 
 configs.module = merge({
   rules: [
     {
-      test: /dynamic_styles\.scss$/,
-      use: ['css-loader', 'postcss-loader', 'sass-loader']
+      test: /dynamic_styles\.css$/,
+      use: ['css-loader', 'postcss-loader']
     },
     {
       test: /\.vue$/,

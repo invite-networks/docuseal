@@ -9,7 +9,7 @@ import Gapcursor from '@tiptap/extension-gapcursor'
 import Dropcursor from '@tiptap/extension-dropcursor'
 import { createApp, reactive } from 'vue'
 import DynamicArea from './dynamic_area.vue'
-import styles from './dynamic_styles.scss'
+import styles from './dynamic_styles.css'
 
 export const dynamicStylesheet = new CSSStyleSheet()
 

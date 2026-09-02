@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative bg-white select-none mb-4 before:border before:rounded before:top-0 before:bottom-0 before:left-0 before:right-0 before:absolute"
+    class="relative bg-white select-none mb-4 before:border before:rounded-sm before:top-0 before:bottom-0 before:left-0 before:right-0 before:absolute"
     :class="{ 'cursor-crosshair': isDrawMode && editable }"
   >
     <div

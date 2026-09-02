@@ -59,7 +59,7 @@
             </label>
           <% end %>
         </div>
-        <%= f.text_field :subject, value: local_assigns[:submitter_email_message]&.subject.presence || (is_edit_viewer ? view_template_subject : nil) || submitter_preferences_index.dig(local_assigns[:submitter]&.uuid, 'request_email_subject').presence || (is_edit_viewer ? view_config.value['subject'] : default_subject), required: true, class: '!text-sm base-input w-full', dir: 'auto' %>
+        <%= f.text_field :subject, value: local_assigns[:submitter_email_message]&.subject.presence || (is_edit_viewer ? view_template_subject : nil) || submitter_preferences_index.dig(local_assigns[:submitter]&.uuid, 'request_email_subject').presence || (is_edit_viewer ? view_config.value['subject'] : default_subject), required: true, class: 'text-sm! base-input w-full', dir: 'auto' %>
       </div>
       <div class="form-control">
         <%= f.label :message, t('body'), class: 'label' %>
@@ -83,7 +83,7 @@
             <% options.each_with_index do |(label, val), index| %>
               <div class="w-full min-w-0 has-[:checked]:min-w-fit">
                 <%= f.radio_button :selected, val, checked: index.zero?, id: "#{val}_radio", data: { action: 'click:toggle-visible#trigger' }, class: 'hidden peer' %>
-                <%= f.label :selected, value: val, for: "#{val}_radio", class: 'tab w-full tab-lifted peer-checked:tab-active !bg-transparent !px-2' do %>
+                <%= f.label :selected, value: val, for: "#{val}_radio", class: 'tab w-full tab-lifted peer-checked:tab-active bg-transparent! px-2!' do %>
                   <span class="truncate" title="<%= label %>"><%= label %></span>
                 <% end %>
               </div>
@@ -98,7 +98,7 @@
                 <div class="flex justify-between">
                   <%= ff.label :subject, t('subject'), class: 'label' %>
                 </div>
-                <%= ff.text_field :subject, value: local_assigns[:submitter_email_message]&.subject.presence || (is_viewer ? view_template_subject : nil) || submitter_preferences_index.dig(submitter['uuid'], 'request_email_subject').presence || (is_viewer ? view_config.value['subject'] : default_subject), required: true, class: '!text-sm base-input w-full', dir: 'auto' %>
+                <%= ff.text_field :subject, value: local_assigns[:submitter_email_message]&.subject.presence || (is_viewer ? view_template_subject : nil) || submitter_preferences_index.dig(submitter['uuid'], 'request_email_subject').presence || (is_viewer ? view_config.value['subject'] : default_subject), required: true, class: 'text-sm! base-input w-full', dir: 'auto' %>
               </div>
               <div class="form-control">
                 <%= ff.label :message, t('body'), class: 'label' %>

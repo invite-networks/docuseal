@@ -15,7 +15,7 @@
     </label>
     <ul
       tabindex="0"
-      class="mt-1.5 dropdown-content menu menu-xs p-2 shadow bg-base-100 rounded-box w-52 z-10"
+      class="mt-1.5 dropdown-content menu menu-xs p-2 shadow-sm bg-base-100 rounded-box w-52 z-10"
       draggable="true"
       @dragstart.prevent.stop
       @click="closeDropdown"
@@ -28,7 +28,7 @@
         <select
           v-model="field.preferences.currency"
           :placeholder="t('price')"
-          class="select select-bordered select-xs font-normal w-full max-w-xs !h-7 !outline-0"
+          class="select select-bordered select-xs font-normal w-full max-w-xs h-7! outline-0!"
           @change="save"
         >
           <option
@@ -55,14 +55,14 @@
           v-if="isStripe && 'payment_link_id' in field.preferences"
           v-model="field.preferences.payment_link_id"
           placeholder="plink_XXXXX"
-          class="input input-bordered input-xs w-full max-w-xs h-7 !outline-0"
+          class="input input-bordered input-xs w-full max-w-xs h-7 outline-0!"
           @blur="save"
         >
         <input
           v-else-if="isStripe && 'price_id' in field.preferences"
           v-model="field.preferences.price_id"
           placeholder="Price ID: price_XXXXX"
-          class="input input-bordered input-xs w-full max-w-xs h-7 !outline-0"
+          class="input input-bordered input-xs w-full max-w-xs h-7 outline-0!"
           @blur="save"
         >
         <input
@@ -70,7 +70,7 @@
           type="number"
           :placeholder="t('price')"
           disabled="true"
-          class="input input-bordered input-xs w-full max-w-xs h-7 !outline-0"
+          class="input input-bordered input-xs w-full max-w-xs h-7 outline-0!"
           @blur="save"
         >
         <input
@@ -78,7 +78,7 @@
           v-model="field.preferences.price"
           type="number"
           :placeholder="t('price')"
-          class="input input-bordered input-xs w-full max-w-xs h-7 !outline-0"
+          class="input input-bordered input-xs w-full max-w-xs h-7 outline-0!"
           @blur="save"
         >
         <label

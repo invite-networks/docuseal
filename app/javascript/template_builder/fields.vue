@@ -17,7 +17,7 @@
     />
     <button
       v-if="hasDynamicDocuments"
-      class="flex-shrink-0 rounded-md border hover:border-content flex items-center justify-center self-stretch"
+      class="shrink-0 rounded-md border hover:border-content flex items-center justify-center self-stretch"
       :class="isShowVariables ? 'border-base-content bg-base-content text-base-100' : 'border-base-300'"
       style="width: 44px"
       :title="t('variables')"
@@ -91,7 +91,7 @@
       <input
         v-model="defaultFieldsSearch"
         :placeholder="t('search_field')"
-        class="input input-ghost input-xs px-0 text-base mb-1.5 !outline-0 !rounded bg-transparent w-full"
+        class="input input-ghost input-xs px-0 text-base mb-1.5 outline-0! rounded-sm! bg-transparent w-full"
       >
       <hr class="mb-2">
     </template>
@@ -124,7 +124,7 @@
         <div
           :style="{ backgroundColor }"
           draggable="true"
-          class="border border-base-300 rounded relative group mb-2 default-field fields-list-item"
+          class="border border-base-300 rounded-sm relative group mb-2 default-field fields-list-item"
           @dragstart="onDragstart($event, field)"
           @dragend="$emit('drag-end')"
         >
@@ -180,7 +180,7 @@
       <input
         v-model="customFieldsSearch"
         :placeholder="t('search_field')"
-        class="input input-ghost input-xs px-0 text-base mb-1 !outline-0 !rounded bg-transparent w-full"
+        class="input input-ghost input-xs px-0 text-base mb-1 outline-0! rounded-sm! bg-transparent w-full"
       >
       <hr class="mb-2">
     </template>
@@ -250,7 +250,7 @@
         v-if="fieldTypes.includes(type) || ((withPhone || type != 'phone') && (withPayment || type != 'payment') && (withVerification || type != 'verification') && (withKba || type != 'kba'))"
         :id="`${type}_type_field_button`"
         draggable="true"
-        class="field-type-button group flex items-center justify-center border border-dashed w-full rounded relative fields-grid-item"
+        class="field-type-button group flex items-center justify-center border border-dashed w-full rounded-sm relative fields-grid-item"
         :style="{ backgroundColor }"
         :class="drawFieldType === type ? 'border-base-content/40' : 'border-base-300 hover:border-base-content/20'"
         @dragstart="onDragstart($event, { type: type })"
@@ -275,7 +275,7 @@
         class="flex"
       >
         <div
-          class="opacity-50 flex items-center justify-center border border-dashed border-base-300 w-full rounded relative fields-grid-item"
+          class="opacity-50 flex items-center justify-center border border-dashed border-base-300 w-full rounded-sm relative fields-grid-item"
           :style="{ backgroundColor }"
         >
           <div class="w-0 absolute left-0">
@@ -298,7 +298,7 @@
         class="flex"
       >
         <div
-          class="opacity-50 flex items-center justify-center border border-dashed border-base-300 w-full rounded relative fields-grid-item"
+          class="opacity-50 flex items-center justify-center border border-dashed border-base-300 w-full rounded-sm relative fields-grid-item"
           :style="{ backgroundColor }"
         >
           <div class="w-0 absolute left-0">
@@ -320,7 +320,7 @@
   </div>
   <div
     v-if="!isShowVariables && fields.length < 4 && editable && withHelp && !showTourStartForm"
-    class="text-xs p-2 border border-base-200 rounded"
+    class="text-xs p-2 border border-base-200 rounded-sm"
   >
     <ul class="list-disc list-outside ml-3">
       <li>
@@ -373,7 +373,7 @@
   </div>
   <div
     v-show="!isShowVariables && fields.length < 4 && editable && withHelp && showTourStartForm"
-    class="rounded py-2 px-4 w-full border border-dashed border-base-300"
+    class="rounded-sm py-2 px-4 w-full border border-dashed border-base-300"
   >
     <div class="text-center text-sm">
       {{ t('start_a_quick_tour_to_learn_how_to_create_and_send_your_first_document') }}

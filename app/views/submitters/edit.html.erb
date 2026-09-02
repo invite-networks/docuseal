@@ -4,14 +4,14 @@
       <div class="mb-2">
         <submitter-item class="form-control">
           <submitters-autocomplete data-field="name">
-            <%= text_field_tag 'submitter[name]', @submitter.name, autocomplete: 'off', class: 'base-input !h-10 w-full', placeholder: "#{t('name')} (#{t('optional')})", dir: 'auto' %>
+            <%= text_field_tag 'submitter[name]', @submitter.name, autocomplete: 'off', class: 'base-input h-10! w-full', placeholder: "#{t('name')} (#{t('optional')})", dir: 'auto' %>
           </submitters-autocomplete>
           <div class="grid md:grid-cols-2 gap-1.5 mt-1.5">
             <submitters-autocomplete data-field="email">
-              <%= email_field_tag 'submitter[email]', @submitter.email, autocomplete: 'off', class: 'base-input !h-10 mt-1.5 w-full', placeholder: "#{t('email')} (#{t('optional')})" %>
+              <%= email_field_tag 'submitter[email]', @submitter.email, autocomplete: 'off', class: 'base-input h-10! mt-1.5 w-full', placeholder: "#{t('email')} (#{t('optional')})" %>
             </submitters-autocomplete>
             <submitters-autocomplete data-field="phone">
-              <%= telephone_field_tag 'submitter[phone]', @submitter.phone, autocomplete: 'off', pattern: '^\+[0-9\s\-]+$', title: t('use_international_format_1xxx_'), class: 'base-input !h-10 mt-1.5 w-full', placeholder: "#{t('phone')} (#{t('optional')})" %>
+              <%= telephone_field_tag 'submitter[phone]', @submitter.phone, autocomplete: 'off', pattern: '^\+[0-9\s\-]+$', title: t('use_international_format_1xxx_'), class: 'base-input h-10! mt-1.5 w-full', placeholder: "#{t('phone')} (#{t('optional')})" %>
             </submitters-autocomplete>
           </div>
         </submitter-item>

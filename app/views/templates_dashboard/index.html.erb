@@ -12,7 +12,7 @@
       <%= render 'templates/dashboard_dropzone', style: 'height: 114px' %>
     <% end %>
     <%= render 'templates/dashboard_folder_dropzone', style: 'height: 114px' %>
-    <div class="flex items-center flex-grow min-w-0 max-md:group-has-[search-input:focus-within]/header:hidden <%= 'max-md:hidden' if params[:q].present? %>">
+    <div class="flex items-center grow min-w-0 max-md:group-has-[search-input:focus-within]/header:hidden <%= 'max-md:hidden' if params[:q].present? %>">
       <% if has_archived || @pagy.count.nil? || @pagy.count > 0 || @template_folders.present? %>
         <div class="mr-2">
           <%= render 'dashboard/toggle_view', selected: 'templates' %>
@@ -31,7 +31,7 @@
           <%= render 'templates/upload_button' %>
         </span>
         <open-modal-mobile data-disabled="<%= !Docuseal.multitenant? %>" class="flex">
-          <%= link_to new_template_path, class: 'white-button !border gap-2', data: { turbo_frame: :modal } do %>
+          <%= link_to new_template_path, class: 'white-button border! gap-2', data: { turbo_frame: :modal } do %>
             <%= svg_icon('plus', class: 'w-6 h-6 stroke-2') %>
             <span class="hidden md:block"><%= t('create') %></span>
           <% end %>

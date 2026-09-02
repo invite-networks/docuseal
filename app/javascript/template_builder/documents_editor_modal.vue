@@ -1,6 +1,6 @@
 <template>
   <div
-    class="modal modal-open items-center !animate-none"
+    class="modal modal-open items-center animate-none!"
     @dragover.prevent="onModalDragover"
     @dragleave="onModalDragleave"
     @drop.prevent="onModalDrop"
@@ -87,7 +87,7 @@
                 >
                   <label
                     tabindex="0"
-                    class="btn border-gray-300 bg-white text-base-content btn-xs rounded hover:text-base-100 hover:bg-base-content hover:border-base-content transition-colors px-0"
+                    class="btn border-gray-300 bg-white text-base-content btn-xs rounded-sm hover:text-base-100 hover:bg-base-content hover:border-base-content transition-colors px-0"
                     style="width: 24px; height: 24px"
                     @click.stop
                   >
@@ -201,11 +201,11 @@
                   />
                   <div
                     v-if="dropTarget && dropTarget.docIndex === docIndex && dropTarget.insertIndex === pageIndex"
-                    class="absolute -left-2 top-0 bottom-6 w-0.5 bg-neutral-600 rounded pointer-events-none"
+                    class="absolute -left-2 top-0 bottom-6 w-0.5 bg-neutral-600 rounded-sm pointer-events-none"
                   />
                   <div
                     v-if="dropTarget && dropTarget.docIndex === docIndex && dropTarget.insertIndex === pageIndex + 1 && pageIndex === doc.pages.length - 1"
-                    class="absolute -right-2 top-0 bottom-6 w-0.5 bg-neutral-600 rounded pointer-events-none"
+                    class="absolute -right-2 top-0 bottom-6 w-0.5 bg-neutral-600 rounded-sm pointer-events-none"
                   />
                 </div>
               </div>
@@ -248,7 +248,7 @@
           <div class="w-56 flex-none border-l px-4 py-4 flex flex-col">
             <div class="space-y-2">
               <button
-                class="btn btn-sm w-full justify-start normal-case font-normal rounded disabled:bg-base-300"
+                class="btn btn-sm w-full justify-start normal-case font-normal rounded-sm disabled:bg-base-300"
                 :disabled="!selectedPageId"
                 @click.prevent="movePage(-1)"
               >
@@ -256,7 +256,7 @@
                 {{ t('move_backward') }}
               </button>
               <button
-                class="btn btn-sm w-full justify-start normal-case font-normal rounded disabled:bg-base-300"
+                class="btn btn-sm w-full justify-start normal-case font-normal rounded-sm disabled:bg-base-300"
                 :disabled="!selectedPageId"
                 @click.prevent="movePage(1)"
               >
@@ -264,7 +264,7 @@
                 {{ t('move_forward') }}
               </button>
               <button
-                class="btn btn-sm w-full justify-start normal-case font-normal rounded disabled:bg-base-300"
+                class="btn btn-sm w-full justify-start normal-case font-normal rounded-sm disabled:bg-base-300"
                 :disabled="!selectedPageId"
                 @click.prevent="rotatePage"
               >
@@ -272,7 +272,7 @@
                 {{ t('rotate') }}
               </button>
               <button
-                class="btn btn-sm w-full justify-start normal-case font-normal rounded disabled:bg-base-300"
+                class="btn btn-sm w-full justify-start normal-case font-normal rounded-sm disabled:bg-base-300"
                 :disabled="!selectedPageId || isReplacing"
                 @click.prevent="replaceSelected"
               >
@@ -303,7 +303,7 @@
                 @change="onReplaceDocFilesPicked"
               >
               <button
-                class="btn btn-sm w-full justify-start normal-case font-normal rounded disabled:bg-base-300"
+                class="btn btn-sm w-full justify-start normal-case font-normal rounded-sm disabled:bg-base-300"
                 :disabled="!selectedPageId"
                 @click.prevent="openRedactView"
               >
@@ -312,7 +312,7 @@
               </button>
               <button
                 v-if="isSelectedPageCroppable"
-                class="btn btn-sm w-full justify-start normal-case font-normal rounded disabled:bg-base-300"
+                class="btn btn-sm w-full justify-start normal-case font-normal rounded-sm disabled:bg-base-300"
                 @click.prevent="openCropView"
               >
                 <IconCrop
@@ -326,7 +326,7 @@
                 </span>
               </button>
               <button
-                class="btn btn-sm w-full justify-start normal-case font-normal rounded disabled:bg-base-300 text-red-600"
+                class="btn btn-sm w-full justify-start normal-case font-normal rounded-sm disabled:bg-base-300 text-red-600"
                 :disabled="!selectedPageId"
                 @click.prevent="removePage"
               >

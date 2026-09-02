@@ -160,7 +160,7 @@ export default actionable(targetable(class extends HTMLElement {
         while ((match = regex.exec(node.text)) !== null) {
           decorations.push(
             Decoration.inline(pos + match.index, pos + match.index + match[0].length, {
-              class: 'bg-amber-100 py-0.5 px-1 rounded'
+              class: 'bg-amber-100 py-0.5 px-1 rounded-sm'
             })
           )
         }
@@ -233,7 +233,7 @@ export default actionable(targetable(class extends HTMLElement {
         attributes: {
           style: 'min-height: 220px',
           dir: 'auto',
-          class: 'p-3 outline-none focus:outline-none'
+          class: 'p-3 outline-hidden focus:outline-hidden'
         }
       },
       onUpdate: ({ editor }) => {

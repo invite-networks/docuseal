@@ -18,7 +18,7 @@
     </label>
     <ul
       tabindex="0"
-      class="dropdown-content menu menu-xs p-2 shadow rounded-box w-52 z-10 mb-3 mt-1.5 bg-base-100"
+      class="dropdown-content menu menu-xs p-2 shadow-sm rounded-box w-52 z-10 mb-3 mt-1.5 bg-base-100"
       @click="closeDropdown"
     >
       <template v-if="submitterDefaultFields.length">

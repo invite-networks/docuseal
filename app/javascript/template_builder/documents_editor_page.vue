@@ -8,7 +8,7 @@
         :src="imageUrl"
         :width="metadata.width"
         :height="metadata.height"
-        class="rounded border pointer-events-none outline outline-1 -outline-offset-1 transition-[outline-color] duration-75"
+        class="rounded-sm border pointer-events-none outline outline-1 -outline-offset-1 transition-[outline-color] duration-75"
         :class="[
           page.rotate % 180 ? 'absolute inset-0 m-auto w-full' : 'w-full',
           selected ? 'outline-neutral-400' : 'outline-transparent'
@@ -24,7 +24,7 @@
         <div
           v-for="(item, areaIndex) in areas"
           :key="areaIndex"
-          class="absolute border rounded-sm opacity-70"
+          class="absolute border rounded-xs opacity-70"
           :class="[areaBorderColor(item.submitterIndex), areaBgColor(item.submitterIndex)]"
           :style="{
             left: `${item.area.x * 100}%`,
@@ -57,7 +57,7 @@
           :data-tip="t(extraAction)"
         >
           <button
-            class="btn border-gray-300 bg-white text-base-content btn-xs rounded hover:text-base-100 hover:bg-base-content hover:border-base-content transition-colors p-0"
+            class="btn border-gray-300 bg-white text-base-content btn-xs rounded-sm hover:text-base-100 hover:bg-base-content hover:border-base-content transition-colors p-0"
             style="width: 22px; height: 22px; min-height: 22px"
             @click.stop.prevent="$emit(extraAction)"
           >
@@ -80,7 +80,7 @@
           :data-tip="t('rotate')"
         >
           <button
-            class="btn border-gray-300 bg-white text-base-content btn-xs rounded hover:text-base-100 hover:bg-base-content hover:border-base-content transition-colors p-0"
+            class="btn border-gray-300 bg-white text-base-content btn-xs rounded-sm hover:text-base-100 hover:bg-base-content hover:border-base-content transition-colors p-0"
             style="width: 22px; height: 22px; min-height: 22px"
             @click.stop.prevent="$emit('rotate')"
           >
@@ -96,7 +96,7 @@
           :data-tip="t('remove')"
         >
           <button
-            class="btn border-gray-300 bg-white text-base-content btn-xs rounded hover:text-base-100 hover:bg-base-content hover:border-base-content transition-colors p-0"
+            class="btn border-gray-300 bg-white text-base-content btn-xs rounded-sm hover:text-base-100 hover:bg-base-content hover:border-base-content transition-colors p-0"
             style="width: 22px; height: 22px; min-height: 22px"
             @click.stop.prevent="$emit('remove')"
           >

@@ -16,12 +16,12 @@
         >{{ displayName }}</span>
         <span
           v-if="isArray"
-          class="text-xs bg-base-200 rounded px-1 flex-shrink-0"
+          class="text-xs bg-base-200 rounded-sm px-1 shrink-0"
         >{{ t('list') }}</span>
       </div>
       <div
         v-if="editable"
-        class="flex items-center flex-shrink-0"
+        class="flex items-center shrink-0"
       >
         <span
           class="dropdown dropdown-end"
@@ -41,7 +41,7 @@
           <ul
             v-if="renderDropdown"
             tabindex="0"
-            class="mt-1.5 dropdown-content menu menu-xs p-2 shadow rounded-box w-52 z-10"
+            class="mt-1.5 dropdown-content menu menu-xs p-2 shadow-sm rounded-box w-52 z-10"
             :style="{ backgroundColor: dropdownBgColor }"
             @click="closeDropdown"
           >
@@ -50,7 +50,7 @@
               @click.stop
             >
               <select
-                class="select select-bordered select-xs font-normal w-full max-w-xs !h-7 !outline-0 bg-transparent"
+                class="select select-bordered select-xs font-normal w-full max-w-xs h-7! outline-0! bg-transparent"
                 @change="onTypeChange($event.target.value)"
               >
                 <option
@@ -72,7 +72,7 @@
               @click.stop
             >
               <select
-                class="select select-bordered select-xs font-normal w-full max-w-xs !h-7 !outline-0 bg-transparent"
+                class="select select-bordered select-xs font-normal w-full max-w-xs h-7! outline-0! bg-transparent"
                 @change="[schema.format = $event.target.value, save()]"
               >
                 <option
@@ -98,7 +98,7 @@
                 :type="formType === 'number' ? 'number' : 'text'"
                 :placeholder="t('default_value')"
                 dir="auto"
-                class="input input-bordered input-xs w-full max-w-xs h-7 !outline-0 bg-transparent"
+                class="input input-bordered input-xs w-full max-w-xs h-7 outline-0! bg-transparent"
                 @blur="save"
               >
               <label
@@ -115,7 +115,7 @@
             >
               <select
                 :value="schema.format || 'MM/DD/YYYY'"
-                class="select select-bordered select-xs font-normal w-full max-w-xs !h-7 !outline-0 bg-transparent"
+                class="select select-bordered select-xs font-normal w-full max-w-xs h-7! outline-0! bg-transparent"
                 @change="[schema.format = $event.target.value, save()]"
               >
                 <option
@@ -151,7 +151,7 @@
             >
               <select
                 dir="auto"
-                class="select select-bordered select-xs w-full max-w-xs h-7 !outline-0 font-normal bg-transparent"
+                class="select select-bordered select-xs w-full max-w-xs h-7 outline-0! font-normal bg-transparent"
                 @change="[schema.default_value = $event.target.value || undefined, save()]"
               >
                 <option

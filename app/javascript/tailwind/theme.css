@@ -1,0 +1,326 @@
+/* Shared daisyUI 5 theme and Tailwind 3 compatibility layer.
+   Imported by application.css and form.css. */
+
+@plugin "daisyui" {
+  themes: false;
+  logs: false;
+}
+
+@plugin "daisyui/theme" {
+  name: "docuseal";
+  default: true;
+  color-scheme: light;
+
+  /* Colours from the daisyUI 3 theme. daisyUI 3 derived the *-content
+     colours automatically (80% toward black or white); daisyUI 5 requires
+     them explicitly, and the semantic colours fall back to nothing. */
+  --color-primary: #e4e0e1;
+  --color-primary-content: #2e2d2d;
+  --color-secondary: #ef9fbc;
+  --color-secondary-content: #302026;
+  --color-accent: #eeaf3a;
+  --color-accent-content: #30230c;
+  --color-neutral: #291334;
+  --color-neutral-content: #d4d0d6;
+  --color-base-100: #faf7f5;
+  --color-base-200: #efeae6;
+  --color-base-300: #e7e2df;
+  --color-base-content: #291334;
+  --color-info: #3abff8;
+  --color-info-content: #0c2632;
+  --color-success: #36d399;
+  --color-success-content: #0b2a1f;
+  --color-warning: #fbbd23;
+  --color-warning-content: #322607;
+  --color-error: #f87272;
+  --color-error-content: #321717;
+
+  /* daisyUI 3 shapes: 1.9rem pill radius on fields and badges, 1rem boxes.
+     Base size units stay at daisyUI 5 defaults so xs/sm variants keep their
+     daisyUI 3 heights; md and lg are corrected below. */
+  --radius-field: 1.9rem;
+  --radius-selector: 1.9rem;
+  --radius-box: 1rem;
+  --size-field: 0.25rem;
+  --size-selector: 0.25rem;
+  --border: 1px;
+  --depth: 0;
+  --noise: 0;
+}
+
+/* Tailwind 4 only applies hover variants on devices that report hover
+   capability. The app already handles touch separately (tooltip-no-touch),
+   so keep the Tailwind 3 behaviour of applying :hover everywhere. */
+@custom-variant hover (&:hover);
+@custom-variant group-hover (&:is(:where(.group):hover *));
+@custom-variant peer-hover (&:is(:where(.peer):hover ~ *));
+
+/* Tailwind 4.3 changed the default sans-serif stack to -apple-system,
+   BlinkMacSystemFont, Segoe UI, Roboto and friends. Keep Tailwind 3's stack so
+   text renders with the same system font as before. */
+@theme {
+  --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+/* Tailwind 4 changed these defaults; keep the v3 look. */
+@layer base {
+  *,
+  ::after,
+  ::before,
+  ::backdrop,
+  ::file-selector-button {
+    border-color: var(--color-gray-200, currentcolor);
+  }
+
+  input::placeholder,
+  textarea::placeholder {
+    color: var(--color-gray-400);
+  }
+
+  button:not(:disabled),
+  [role="button"]:not(:disabled) {
+    cursor: pointer;
+  }
+}
+
+/* daisyUI 5 removed these classes. Recreate the daisyUI 3 rules so the
+   templates keep their layout without a rewrite. */
+@utility form-control {
+  display: flex;
+  flex-direction: column;
+}
+
+@utility label-text {
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+@utility label-text-alt {
+  font-size: 0.75rem;
+  line-height: 1rem;
+}
+
+@utility input-bordered {
+  border-color: color-mix(in oklab, var(--color-base-content) 20%, transparent);
+}
+
+@utility select-bordered {
+  border-color: color-mix(in oklab, var(--color-base-content) 20%, transparent);
+}
+
+@utility textarea-bordered {
+  border-color: color-mix(in oklab, var(--color-base-content) 20%, transparent);
+}
+
+@utility file-input-bordered {
+  border-color: color-mix(in oklab, var(--color-base-content) 20%, transparent);
+}
+
+/* Tailwind 4 has no bg-opacity utilities. Status badges used bg-opacity-50
+   over their daisyUI colour; reproduce that against the badge colour variable. */
+@utility badge-translucent {
+  --badge-bg: color-mix(in oklab, var(--badge-color, var(--color-base-200)) 50%, transparent);
+}
+
+/* Component overrides live in the utilities layer with zero specificity:
+   they beat daisyUI's sub-layered component rules but lose to any Tailwind
+   utility placed on the element, exactly like daisyUI 3 behaved. */
+@layer utilities {
+  /* daisyUI 5 turned .label into an inline prefix/suffix for inputs. The
+     templates use the daisyUI 3 block label with space-between alignment. */
+  :where(.label) {
+    display: flex;
+    user-select: none;
+    align-items: center;
+    justify-content: space-between;
+    gap: 0;
+    padding: 0.5rem 0.25rem;
+    white-space: normal;
+    color: inherit;
+  }
+
+  /* daisyUI 3 buttons were uppercase by default. */
+  :where(.btn) {
+    text-transform: uppercase;
+  }
+
+  /* daisyUI 3 ghost buttons inherited the text colour even when combined
+     with a colour variant; daisyUI 5 paints them in the variant colour. */
+  :where(.btn-ghost) {
+    color: currentColor;
+  }
+
+  /* Buttons never animated in this app (daisyUI 3 no-animation). */
+  :where(.btn):active {
+    scale: 1;
+    translate: 0;
+  }
+
+  :where(.btn, .checkbox, .radio, .toggle, .input, .select, .textarea) {
+    transition: none;
+  }
+
+  /* daisyUI 5 gives fields a fixed 20rem width; daisyUI 3 let them size
+     naturally and stretch inside flex containers such as form-control. */
+  :where(.input, .select, .textarea, .file-input) {
+    width: auto;
+  }
+
+  /* daisyUI 3 text inputs: 1rem text and 1rem padding by default, with
+     smaller text and padding on the xs/sm variants and larger on lg. */
+  :where(.input:not(.input-xs, .input-sm, .input-lg, .input-xl)) {
+    font-size: 1rem;
+    padding-inline: 1rem;
+  }
+
+  :where(.input-xs) {
+    font-size: 0.75rem;
+    padding-inline: 0.5rem;
+  }
+
+  :where(.input-sm) {
+    font-size: 0.875rem;
+    padding-inline: 0.75rem;
+  }
+
+  :where(.input-lg) {
+    font-size: 1.125rem;
+    padding-inline: 1.5rem;
+  }
+
+  /* daisyUI 5 menus shrink to fit-content with tighter items. */
+  :where(.menu) {
+    width: auto;
+  }
+
+  :where(.menu li:not(.menu-title) > *:not(ul, details, .menu-title)) {
+    padding: 0.5rem 1rem;
+  }
+
+  :where(.menu-title) {
+    padding: 0.5rem 1rem;
+    font-size: 0.875rem;
+    font-weight: 700;
+    color: color-mix(in oklab, var(--color-base-content) 40%, transparent);
+  }
+
+  /* daisyUI 3 checked toggles: dark track with a light handle. daisyUI 5
+     inverts this to a light track with a dark handle. */
+  :where(.toggle:checked, .toggle[aria-checked="true"]) {
+    background-color: var(--color-base-content);
+    color: var(--color-base-100);
+    border-color: var(--color-base-content);
+  }
+
+  /* daisyUI 5 shrinks card text to 0.875rem; daisyUI 3 inherited 1rem. */
+  :where(.card-body) {
+    font-size: 1rem;
+    padding: 2rem;
+    gap: 0.5rem;
+  }
+
+  /* daisyUI 3 tables: 1.25rem line height, 0.75rem/1rem cell padding, and
+     size variants that scale body rows and cell padding. */
+  :where(.table) {
+    line-height: 1.25rem;
+  }
+
+  :where(.table-xs :not(thead, tfoot) tr) {
+    font-size: 0.75rem;
+    line-height: 1rem;
+  }
+
+  :where(.table-xs :where(th, td)) {
+    padding: 0.25rem 0.5rem;
+  }
+
+  :where(.table-sm :not(thead, tfoot) tr) {
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+  }
+
+  :where(.table-sm :where(th, td)) {
+    padding: 0.5rem 0.75rem;
+  }
+
+  :where(.table-lg :not(thead, tfoot) tr) {
+    font-size: 1rem;
+    line-height: 1.5rem;
+  }
+
+  :where(.table-lg :where(th, td)) {
+    padding: 1rem 1.5rem;
+  }
+
+  /* daisyUI 3 table headers: small bold muted text. */
+  :where(.table :where(thead, tfoot)) {
+    white-space: nowrap;
+    font-size: 0.75rem;
+    line-height: 1rem;
+    font-weight: 700;
+    color: color-mix(in oklab, var(--color-base-content) 60%, transparent);
+  }
+
+  /* daisyUI 3 code mockups inherited the surrounding text size. */
+  :where(.mockup-code) {
+    font-size: inherit;
+    min-width: 18rem;
+  }
+
+  /* daisyUI 3 file inputs: 3rem tall with a dark uppercase browse button. */
+  :where(.file-input) {
+    --size: 3rem;
+    font-size: 1rem;
+  }
+
+  :where(.file-input)::file-selector-button {
+    background-color: var(--color-neutral);
+    color: var(--color-neutral-content);
+    border-color: var(--color-neutral);
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 0.875rem;
+  }
+
+  /* daisyUI 3 tabs were 2rem tall. */
+  :where(.tabs) {
+    --tab-height: 2rem;
+  }
+
+  /* daisyUI 3 heights: fields and buttons 3rem (md) and 4rem (lg); badges
+     1.25rem (md), 1.5rem (lg), 1rem (sm), 0.75rem (xs). */
+  :where(.btn:not(.btn-xs, .btn-sm, .btn-lg, .btn-xl),
+         .input:not(.input-xs, .input-sm, .input-lg, .input-xl),
+         .select:not(.select-xs, .select-sm, .select-lg, .select-xl)) {
+    --size: 3rem;
+  }
+
+  :where(.btn-lg, .input-lg, .select-lg) {
+    --size: 4rem;
+  }
+
+  /* daisyUI 3 small buttons kept 0.875rem text; xs used 0.75rem. */
+  :where(.btn-sm) {
+    --fontsize: 0.875rem;
+  }
+
+  :where(.btn-xs) {
+    --fontsize: 0.75rem;
+  }
+
+  :where(.badge:not(.badge-xs, .badge-sm, .badge-lg, .badge-xl)) {
+    --size: 1.25rem;
+  }
+
+  :where(.badge-lg) {
+    --size: 1.5rem;
+  }
+
+  :where(.badge-sm) {
+    --size: 1rem;
+  }
+
+  :where(.badge-xs) {
+    --size: 0.75rem;
+  }
+}

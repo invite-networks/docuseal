@@ -12,7 +12,7 @@
     <ul
       tabindex="0"
       :style="{ backgroundColor }"
-      class="dropdown-content z-[1] shadow menu rounded-box"
+      class="dropdown-content z-[1] shadow-sm menu rounded-box"
     >
       <li>
         <a
@@ -21,7 +21,7 @@
           target="_blank"
           class="flex items-center"
         >
-          <IconExternalLink class="w-4 h-4 flex-shrink-0" />
+          <IconExternalLink class="w-4 h-4 shrink-0" />
           <span>{{ t('view') }}</span>
         </a>
       </li>
@@ -32,7 +32,7 @@
           :disabled="isLoading"
         >
           <IconRefresh
-            class="w-4 h-4 flex-shrink-0"
+            class="w-4 h-4 shrink-0"
             :class="{ 'animate-spin': isLoading }"
           />
           <span>{{ message }}</span>

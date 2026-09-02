@@ -98,7 +98,7 @@
           @update:model-value="updateName"
         />
       </div>
-      <div class="space-x-3 flex items-center flex-shrink-0">
+      <div class="space-x-3 flex items-center shrink-0">
         <slot
           v-if="$slots.buttons"
           name="buttons"
@@ -159,7 +159,7 @@
             id="send_button"
             :href="`/templates/${template.id}/submissions/new?with_link=true`"
             :data-turbo-frame="isMobile && isBreakpointLg ? '_top' : 'modal'"
-            class="white-button md:!px-6"
+            class="white-button md:px-6!"
             @click="maybeShowErrorTemplateAlert"
           >
             <IconUsersPlus
@@ -176,7 +176,7 @@
             class="flex"
           >
             <button
-              class="base-button !rounded-r-none !pr-2"
+              class="base-button rounded-r-none! pr-2!"
               :class="{ disabled: isSaving }"
               v-bind="isSaving ? { disabled: true } : {}"
               @click.prevent="onSaveClick"
@@ -200,15 +200,15 @@
             >
               <label
                 tabindex="0"
-                class="base-button !rounded-l-none !pl-1 !pr-2 !border-l-neutral-500"
+                class="base-button rounded-l-none! pl-1! pr-2! border-l-neutral-500!"
               >
                 <span class="text-sm align-text-top">
-                  <IconChevronDown class="w-5 h-5 flex-shrink-0" />
+                  <IconChevronDown class="w-5 h-5 shrink-0" />
                 </span>
               </label>
               <ul
                 tabindex="0"
-                class="dropdown-content p-2 mt-2 shadow menu text-base bg-base-100 rounded-box text-right"
+                class="dropdown-content p-2 mt-2 shadow-sm menu text-base bg-base-100 rounded-box text-right"
               >
                 <li>
                   <a
@@ -219,11 +219,11 @@
                   >
                     <IconInnerShadowTop
                       v-if="isPreviewLoading"
-                      class="animate-spin w-6 h-6 flex-shrink-0"
+                      class="animate-spin w-6 h-6 shrink-0"
                     />
                     <IconEye
                       v-else
-                      class="w-6 h-6 flex-shrink-0"
+                      class="w-6 h-6 shrink-0"
                     />
                     <span class="whitespace-nowrap">{{ t('save_and_preview') }}</span>
                   </a>
@@ -235,7 +235,7 @@
                     class="flex space-x-2"
                     @click="closeDropdown"
                   >
-                    <IconAdjustments class="w-6 h-6 flex-shrink-0" />
+                    <IconAdjustments class="w-6 h-6 shrink-0" />
                     <span class="whitespace-nowrap">{{ t('preferences') }}</span>
                   </a>
                 </li>
@@ -245,7 +245,7 @@
                     @click.prevent="openRevisionsModal"
                     @mouseenter="preloadRevisions"
                   >
-                    <span class="w-6 h-6 flex-shrink-0 flex items-center justify-center">
+                    <span class="w-6 h-6 shrink-0 flex items-center justify-center">
                       <IconHistory class="w-5 h-5" />
                     </span>
                     <span class="whitespace-nowrap">{{ t('revisions') }}</span>
@@ -259,11 +259,11 @@
                   >
                     <IconInnerShadowTop
                       v-if="isDownloading"
-                      class="animate-spin w-6 h-6 flex-shrink-0"
+                      class="animate-spin w-6 h-6 shrink-0"
                     />
                     <IconDownload
                       v-else
-                      class="w-6 h-6 flex-shrink-0"
+                      class="w-6 h-6 shrink-0"
                     />
                     <span
                       v-if="isDownloading"
@@ -663,7 +663,7 @@
         class="sticky bottom-0 z-40 pointer-events-none"
       >
         <div class="absolute left-0 right-0 bottom-4 flex justify-center">
-          <div class="join shadow pointer-events-auto">
+          <div class="join shadow-sm pointer-events-auto">
             <span class="join-item bg-base-content text-white pl-2 pr-2.5 h-9 items-center text-sm font-medium cursor-default w-16 flex justify-end">
               <span>
                 {{ Math.round(zoomLevel * 100) }}%

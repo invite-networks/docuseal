@@ -1,11 +1,11 @@
 <markdown-editor>
   <template data-target="markdown-editor.linkTooltipTemplate">
-    <div class="hidden absolute flex bg-white border border-base-300 rounded-xl shadow p-1 gap-1 items-center z-50" contenteditable="false">
-      <input type="text" placeholder="<%= t('enter_a_url_or_variable_name') %>" class="rounded-lg border border-base-300 px-2 py-1 text-sm outline-none" style="field-sizing: content; min-width: 205px; max-width: 320px;" autocomplete="off">
-      <button type="button" data-role="link-save" class="flex items-center px-1 w-6 h-6 rounded hover:bg-success/10 cursor-pointer">
+    <div class="hidden absolute flex bg-white border border-base-300 rounded-xl shadow-sm p-1 gap-1 items-center z-50" contenteditable="false">
+      <input type="text" placeholder="<%= t('enter_a_url_or_variable_name') %>" class="rounded-lg border border-base-300 px-2 py-1 text-sm outline-hidden" style="field-sizing: content; min-width: 205px; max-width: 320px;" autocomplete="off">
+      <button type="button" data-role="link-save" class="flex items-center px-1 w-6 h-6 rounded-sm hover:bg-success/10 cursor-pointer">
         <%= svg_icon('check', class: 'w-4 h-4 text-success') %>
       </button>
-      <button type="button" data-role="link-remove" class="flex items-center px-1 w-6 h-6 rounded hover:bg-error/10 cursor-pointer">
+      <button type="button" data-role="link-remove" class="flex items-center px-1 w-6 h-6 rounded-sm hover:bg-error/10 cursor-pointer">
         <%= svg_icon('x', class: 'w-4 h-4 text-error') %>
       </button>
     </div>

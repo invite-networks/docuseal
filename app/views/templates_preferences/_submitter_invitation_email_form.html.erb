@@ -48,7 +48,7 @@
             <% options.each_with_index do |(label, val), index| %>
               <div class="w-full min-w-0 has-[:checked]:min-w-fit">
                 <%= f.radio_button :selected, val, checked: index.zero?, id: "#{val}_radio", data: { action: 'click:toggle-visible#trigger' }, class: 'hidden peer' %>
-                <%= f.label :selected, value: val, for: "#{val}_radio", class: 'tab w-full tab-lifted peer-checked:tab-active !px-2' do %>
+                <%= f.label :selected, value: val, for: "#{val}_radio", class: 'tab w-full tab-lifted peer-checked:tab-active px-2!' do %>
                   <span class="truncate" title="<%= label %>"><%= label %></span>
                 <% end %>
               </div>

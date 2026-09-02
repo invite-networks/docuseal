@@ -63,7 +63,7 @@
             :name="`values[${field.uuid}][]`"
             :value="optionValue(option, index)"
             :aria-describedby="field.description ? field.uuid + '-desc' : undefined"
-            class="base-checkbox !h-7 !w-7"
+            class="base-checkbox h-7! w-7!"
             :checked="(modelValue || []).includes(optionValue(option, index))"
             @change="onChange"
           >

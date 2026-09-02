@@ -24,7 +24,7 @@
     </div>
     <% if Docuseal.multitenant? || Accounts.can_send_emails?(@submission.account) %>
       <%= form_for '', url: send_submission_email_index_path, method: :post, html: { class: 'space-y-4' } do |f| %>
-        <div dir="auto" class="form-control !mt-0">
+        <div dir="auto" class="form-control mt-0!">
           <%= f.hidden_field :submission_slug, value: @submission.slug %>
           <%= f.label :email, t('email'), class: 'label' %>
           <%= f.email_field :email, value: current_user&.email || params[:email], required: true, class: 'base-input', placeholder: t('send_copy_to_email') %>

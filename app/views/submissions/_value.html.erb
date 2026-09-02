@@ -9,7 +9,7 @@
   <% if field['type'] == 'signature' %>
     <% is_narrow = area['h'].to_f.positive? && ((area['w'].to_f * local_assigns[:page_width]) / (area['h'].to_f * local_assigns[:page_height])) > 4.5 %>
     <div class="flex justify-between w-full h-full gap-1 <%= is_narrow && (local_assigns[:with_signature_id] || field.dig('preferences', 'reason_field_uuid').present?) ? 'flex-row' : 'flex-col' %>">
-      <div class="flex overflow-hidden <%= is_narrow && (local_assigns[:with_signature_id] || field.dig('preferences', 'reason_field_uuid').present?) ? 'w-1/2' : 'flex-grow' %>" style="min-height: 50%">
+      <div class="flex overflow-hidden <%= is_narrow && (local_assigns[:with_signature_id] || field.dig('preferences', 'reason_field_uuid').present?) ? 'w-1/2' : 'grow' %>" style="min-height: 50%">
         <img class="object-contain mx-auto" src="<%= attachments_index[value].url(time: ActiveStorage::Attachment.service_url_time) %>" alt="<%= field['name'].presence || field['title'].presence || field['type'] %>">
       </div>
       <% if (local_assigns[:with_signature_id] || field.dig('preferences', 'reason_field_uuid').present?) && attachment = attachments_index[value] %>
@@ -50,7 +50,7 @@
   <% elsif field['type'] == 'checkbox' %>
     <div class="w-full flex items-center justify-center">
       <span class="sr-only">☑</span>
-      <%= svg_icon('check', class: "aspect-square #{area['w'] > area['h'] ? '!w-auto !h-full' : '!w-full !h-auto'}") %>
+      <%= svg_icon('check', class: "aspect-square #{area['w'] > area['h'] ? 'w-auto! h-full!' : 'w-full! h-auto!'}") %>
     </div>
   <% elsif field['type'].in?(%w[multiple radio]) && area['option_uuid'] %>
     <% if (option = field['options']&.find { |o| o['uuid'] == area['option_uuid'] }) %>
@@ -58,7 +58,7 @@
       <% if Array.wrap(value).include?(option_name) %>
         <div class="w-full flex items-center justify-center">
           <span class="sr-only">☑</span>
-          <%= svg_icon('check', class: "aspect-square #{area['w'] > area['h'] ? '!w-auto !h-full' : '!w-full !h-auto'}") %>
+          <%= svg_icon('check', class: "aspect-square #{area['w'] > area['h'] ? 'w-auto! h-full!' : 'w-full! h-auto!'}") %>
         </div>
       <% end %>
     <% end %>

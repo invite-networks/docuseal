@@ -142,7 +142,7 @@
       v-if="modelValue || computedPreviousValue"
       :src="attachmentsIndex[modelValue || computedPreviousValue].url"
       :alt="field.name || t('initials')"
-      class="mx-auto bg-white border border-base-300 rounded max-h-44"
+      class="mx-auto bg-white border border-base-300 rounded-sm max-h-44"
     >
     <div class="relative">
       <div
@@ -166,7 +166,7 @@
       v-if="!isDrawInitials && !modelValue && !computedPreviousValue"
       id="initials_text_input"
       ref="textInput"
-      class="base-input !text-2xl w-full mt-6 text-center"
+      class="base-input text-2xl! w-full mt-6 text-center"
       :required="field.required && !isInitialsStarted"
       :aria-label="field.name || t('initials')"
       :placeholder="`${t('type_initial_here')}${field.required ? '...' : ' (' + t('optional') + ')'}`"

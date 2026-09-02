@@ -41,19 +41,19 @@
             tabindex="0"
             class="flex items-center h-full cursor-pointer"
           >
-            <IconChevronDown class="w-5 h-5 flex-shrink-0" />
+            <IconChevronDown class="w-5 h-5 shrink-0" />
           </label>
           <ul
             tabindex="0"
             :style="{ backgroundColor }"
-            class="dropdown-content p-2 mt-2 shadow menu text-base mb-1 rounded-box text-right !text-base-content"
+            class="dropdown-content p-2 mt-2 shadow-sm menu text-base mb-1 rounded-box text-right text-base-content!"
           >
             <li>
               <button
                 type="button"
                 @click="openGoogleDriveModal"
               >
-                <IconBrandGoogleDrive class="w-5 h-5 flex-shrink-0" />
+                <IconBrandGoogleDrive class="w-5 h-5 shrink-0" />
                 <span class="whitespace-nowrap text-sm normal-case font-medium">Google Drive</span>
               </button>
             </li>

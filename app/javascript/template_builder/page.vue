@@ -1,6 +1,6 @@
 <template>
   <div
-    class="relative select-none mb-4 before:border before:rounded before:top-0 before:bottom-0 before:left-0 before:right-0 before:absolute"
+    class="relative select-none mb-4 before:border before:rounded-sm before:top-0 before:bottom-0 before:left-0 before:right-0 before:absolute"
     :class="{ 'cursor-crosshair': allowDraw && editable && !isSelectMode, 'touch-none': !!drawField }"
     style="container-type: size"
     :style="{ aspectRatio: `${width} / ${height}`}"
@@ -11,7 +11,7 @@
       :src="image.url"
       :width="width"
       :height="height"
-      class="w-full h-full rounded"
+      class="w-full h-full rounded-sm"
       @load="onImageLoad"
     >
     <div

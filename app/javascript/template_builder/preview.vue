@@ -5,11 +5,11 @@
         :src="previewImage.url"
         :width="previewImage.metadata.width"
         :height="previewImage.metadata.height"
-        class="rounded border"
+        class="rounded-sm border"
         loading="lazy"
       >
       <div
-        class="group flex justify-end cursor-pointer top-0 bottom-0 left-0 right-0 absolute p-1 hover:bg-black/10 transition-colors rounded"
+        class="group flex justify-end cursor-pointer top-0 bottom-0 left-0 right-0 absolute p-1 hover:bg-black/10 transition-colors rounded-sm"
         @click="$emit('scroll-to', item)"
       >
         <div
@@ -22,7 +22,7 @@
           >
             <button
               v-if="item.conditions?.length"
-              class="btn border-gray-300 bg-white text-base-content btn-xs rounded hover:text-base-100 hover:bg-base-content hover:border-base-content w-full transition-colors p-0 document-control-button"
+              class="btn border-gray-300 bg-white text-base-content btn-xs rounded-sm hover:text-base-100 hover:bg-base-content hover:border-base-content w-full transition-colors p-0 document-control-button"
               @click.stop="isShowConditionsModal = true"
             >
               <IconRouteAltLeft
@@ -55,7 +55,7 @@
             >
               <label
                 tabindex="0"
-                class="btn border-gray-300 bg-white text-base-content btn-xs rounded hover:text-base-100 hover:bg-base-content hover:border-base-content w-full transition-colors document-control-button px-0"
+                class="btn border-gray-300 bg-white text-base-content btn-xs rounded-sm hover:text-base-100 hover:bg-base-content hover:border-base-content w-full transition-colors document-control-button px-0"
                 style="width: 24px; height: 24px"
                 @click.stop
               >
@@ -92,7 +92,7 @@
                     </span>
                     <span
                       v-if="item.conditions?.length"
-                      class="bg-neutral-200 rounded px-1 leading-3"
+                      class="bg-neutral-200 rounded-sm px-1 leading-3"
                       style="font-size: 9px;"
                     >{{ item.conditions.length }}</span>
                   </button>
@@ -140,14 +140,14 @@
               class="flex flex-col space-y-1 opacity-0 group-hover:opacity-100"
             >
               <button
-                class="btn border-gray-300 bg-white text-base-content btn-xs rounded hover:text-base-100 hover:bg-base-content hover:border-base-content w-full transition-colors document-control-button"
+                class="btn border-gray-300 bg-white text-base-content btn-xs rounded-sm hover:text-base-100 hover:bg-base-content hover:border-base-content w-full transition-colors document-control-button"
                 style="width: 24px; height: 24px"
                 @click.stop="$emit('up', item)"
               >
                 &uarr;
               </button>
               <button
-                class="btn border-gray-300 bg-white text-base-content btn-xs rounded hover:text-base-100 hover:bg-base-content hover:border-base-content w-full transition-colors document-control-button"
+                class="btn border-gray-300 bg-white text-base-content btn-xs rounded-sm hover:text-base-100 hover:bg-base-content hover:border-base-content w-full transition-colors document-control-button"
                 style="width: 24px; height: 24px"
                 @click.stop="$emit('down', item)"
               >

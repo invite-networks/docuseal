@@ -3,7 +3,7 @@
     class="flex absolute lg:text-base -outline-offset-1 focus-visible:outline-blue-500 focus-visible:outline-2 focus-visible:outline field-area"
     dir="auto"
     :style="[computedStyle, fontStyle]"
-    :class="{ 'cursor-default': !submittable, 'border border-red-100 bg-red-100 cursor-pointer': submittable, 'border border-red-100': !isActive && submittable, 'bg-opacity-80': !isActive && !isValueSet && submittable, 'outline-red-500 outline-dashed outline-2 z-10 field-area-active': isActive && submittable, 'bg-opacity-40': (isActive || isValueSet) && submittable }"
+    :class="{ 'cursor-default': !submittable, 'border border-red-100 cursor-pointer': submittable, 'border border-red-100': !isActive && submittable, 'bg-red-100/80': !isActive && !isValueSet && submittable, 'outline-red-500 outline-dashed outline-2 z-10 field-area-active': isActive && submittable, 'bg-red-100/40': (isActive || isValueSet) && submittable }"
     :role="submittable && !isNativeInputField ? 'button' : undefined"
     :tabindex="submittable && !isNativeInputField ? 0 : undefined"
     :aria-label="submittable && !isNativeInputField ? fieldAreaLabel : undefined"
@@ -29,7 +29,7 @@
     </div>
     <div
       v-if="isActive && withLabel && (!area.option_uuid || !option.value)"
-      class="absolute -top-7 rounded bg-base-content text-base-100 px-2 text-sm whitespace-nowrap pointer-events-none field-area-active-label"
+      class="absolute -top-7 rounded-sm bg-base-content text-base-100 px-2 text-sm whitespace-nowrap pointer-events-none field-area-active-label"
     >
       <template v-if="area.option_uuid && !option.value">
         {{ optionValue(option) }}
@@ -78,7 +78,7 @@
     >
       <div
         class="flex overflow-hidden"
-        :class="isNarrow && (isShowSignatureId || field.preferences?.reason_field_uuid) ? 'w-1/2' : 'flex-grow'"
+        :class="isNarrow && (isShowSignatureId || field.preferences?.reason_field_uuid) ? 'w-1/2' : 'grow'"
         style="min-height: 50%"
       >
         <img
@@ -137,14 +137,14 @@
         :value="false"
         :aria-label="field.name || fieldNames[field.type]"
         class="aspect-square base-checkbox"
-        :class="{ '!w-auto !h-full': area.w > area.h, '!w-full !h-auto': area.w <= area.h }"
+        :class="{ 'w-auto! h-full!': area.w > area.h, 'w-full! h-auto!': area.w <= area.h }"
         :checked="!!modelValue"
         @click="$emit('update:model-value', !modelValue)"
       >
       <IconCheck
         v-else-if="modelValue"
         class="aspect-square"
-        :class="{ '!w-auto !h-full': area.w > area.h, '!w-full !h-auto': area.w <= area.h }"
+        :class="{ 'w-auto! h-full!': area.w > area.h, 'w-full! h-auto!': area.w <= area.h }"
       />
     </div>
     <div
@@ -159,14 +159,14 @@
         :name="`radio-area-${field.uuid}`"
         :aria-label="optionValue(option)"
         class="aspect-square checked:checkbox checked:checkbox-xs"
-        :class="{ 'base-radio': !modelValue || modelValue !== optionValue(option), '!w-auto !h-full': area.w > area.h, '!w-full !h-auto': area.w <= area.h }"
+        :class="{ 'base-radio': !modelValue || modelValue !== optionValue(option), 'w-auto! h-full!': area.w > area.h, 'w-full! h-auto!': area.w <= area.h }"
         :checked="!!modelValue && modelValue === optionValue(option)"
         @click="$emit('update:model-value', optionValue(option))"
       >
       <IconCheck
         v-else-if="!!modelValue && modelValue === optionValue(option)"
         class="aspect-square"
-        :class="{ '!w-auto !h-full': area.w > area.h, '!w-full !h-auto': area.w <= area.h }"
+        :class="{ 'w-auto! h-full!': area.w > area.h, 'w-full! h-auto!': area.w <= area.h }"
       />
     </div>
     <div
@@ -180,14 +180,14 @@
         :value="false"
         :aria-label="optionValue(option)"
         class="aspect-square base-checkbox"
-        :class="{ '!w-auto !h-full': area.w > area.h, '!w-full !h-auto': area.w <= area.h }"
+        :class="{ 'w-auto! h-full!': area.w > area.h, 'w-full! h-auto!': area.w <= area.h }"
         :checked="!!modelValue && modelValue.includes(optionValue(option))"
         @change="updateMultipleSelectValue(optionValue(option))"
       >
       <IconCheck
         v-else-if="!!modelValue && modelValue.includes(optionValue(option))"
         class="aspect-square"
-        :class="{ '!w-auto !h-full': area.w > area.h, '!w-full !h-auto': area.w <= area.h }"
+        :class="{ 'w-auto! h-full!': area.w > area.h, 'w-full! h-auto!': area.w <= area.h }"
       />
     </div>
     <div

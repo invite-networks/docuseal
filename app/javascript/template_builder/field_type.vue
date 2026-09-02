@@ -21,7 +21,7 @@
     <ul
       v-if="editable && renderDropdown"
       tabindex="0"
-      class="dropdown-content menu menu-xs p-2 shadow rounded-box w-52 z-10 mb-3"
+      class="dropdown-content menu menu-xs p-2 shadow-sm rounded-box w-52 z-10 mb-3"
       :style="menuStyle"
       :class="menuClasses"
       @click="closeDropdown"

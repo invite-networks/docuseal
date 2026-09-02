@@ -89,7 +89,7 @@
       <span><%= t(current_status) %></span>
       <%= svg_icon('chevron_down', class: 'w-4 h-4 shrink-0') %>
     </label>
-    <ul tabindex="0" class="z-10 dropdown-content p-2 mt-2 shadow menu text-base bg-base-100 rounded-box" style="min-width: 180px;">
+    <ul tabindex="0" class="z-10 dropdown-content p-2 mt-2 shadow-sm menu text-base bg-base-100 rounded-box" style="min-width: 180px;">
       <li>
         <%= link_to url_for(params: request.query_parameters.except('status')), class: ('bg-base-200' if current_status == 'all') do %>
           <%= svg_icon('list', class: 'w-5 h-5 shrink-0') %>

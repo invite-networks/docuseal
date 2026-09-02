@@ -1,6 +1,6 @@
 <div class="flex flex-wrap space-y-4 md:flex-nowrap md:space-y-0">
   <%= render 'shared/settings_nav' %>
-  <div class="flex-grow max-w-xl mx-auto">
+  <div class="grow max-w-xl mx-auto">
     <h1 class="text-3xl md:text-4xl font-bold mb-4">
       <%= t('profile') %>
     </h1>
@@ -19,8 +19,10 @@
         <div class="form-control">
           <%= f.label :email, t('email'), class: 'label' %>
           <%= f.email_field :email, autocomplete: 'off', class: 'base-input', disabled: true %>
+          <span class="label pb-0">
+            <span class="label-text-alt">Managed by Microsoft Entra ID</span>
+          </span>
         </div>
-        <span class="label-text-alt">Managed by Microsoft Entra ID</span>
       </div>
     <% end %>
     <div class="mt-8 rounded-2xl bg-base-200 p-5">

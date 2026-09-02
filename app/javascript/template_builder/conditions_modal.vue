@@ -1,6 +1,6 @@
 <template>
   <div
-    class="modal modal-open items-start !animate-none overflow-y-auto"
+    class="modal modal-open items-start animate-none! overflow-y-auto"
   >
     <div
       class="absolute top-0 bottom-0 right-0 left-0"

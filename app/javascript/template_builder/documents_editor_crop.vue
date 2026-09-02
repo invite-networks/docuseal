@@ -13,7 +13,7 @@
           :src="imageUrl"
           :width="metadata.width"
           :height="metadata.height"
-          class="absolute border rounded pointer-events-none"
+          class="absolute border rounded-sm pointer-events-none"
           style="left: 50%; top: 50%; width: 100%; height: auto"
           :style="imageStyle"
         >
@@ -39,7 +39,7 @@
         <div
           v-for="(corner, cornerIndex) in displayCorners"
           :key="cornerIndex"
-          class="absolute w-5 h-5 -ml-2.5 -mt-2.5 rounded-full bg-white border-2 border-neutral-600 cursor-move shadow"
+          class="absolute w-5 h-5 -ml-2.5 -mt-2.5 rounded-full bg-white border-2 border-neutral-600 cursor-move shadow-sm"
           :style="{ left: `${corner.x * 100}%`, top: `${corner.y * 100}%` }"
           @mousedown.prevent="onCornerMousedown(cornerIndex)"
           @touchstart.prevent="onCornerTouchstart(cornerIndex)"
@@ -48,7 +48,7 @@
     </div>
     <div class="w-56 flex-none border-l px-4 py-4 space-y-2 flex flex-col">
       <button
-        class="btn btn-sm w-full justify-start normal-case font-normal rounded disabled:bg-base-300"
+        class="btn btn-sm w-full justify-start normal-case font-normal rounded-sm disabled:bg-base-300"
         :disabled="!!isProcessing"
         @click.prevent="submit(true)"
       >
@@ -63,7 +63,7 @@
         {{ t('crop_and_scan') }}
       </button>
       <button
-        class="btn btn-sm w-full justify-start normal-case font-normal rounded disabled:bg-base-300"
+        class="btn btn-sm w-full justify-start normal-case font-normal rounded-sm disabled:bg-base-300"
         :disabled="!!isProcessing"
         @click.prevent="submit(false)"
       >
@@ -83,22 +83,22 @@
         </span>
       </button>
       <button
-        class="btn btn-sm w-full justify-start normal-case font-normal rounded"
+        class="btn btn-sm w-full justify-start normal-case font-normal rounded-sm"
         @click.prevent="$emit('cancel')"
       >
         <IconX class="w-4 h-4" />
         {{ t('cancel') }}
       </button>
-      <div class="border-t !mt-3 !mb-1" />
+      <div class="border-t mt-3! mb-1!" />
       <button
-        class="btn btn-sm w-full justify-start normal-case font-normal rounded"
+        class="btn btn-sm w-full justify-start normal-case font-normal rounded-sm"
         @click.prevent="rotateCw"
       >
         <IconRotateClockwise class="w-4 h-4" />
         {{ t('rotate') }}
       </button>
       <button
-        class="btn btn-sm w-full justify-start normal-case font-normal rounded"
+        class="btn btn-sm w-full justify-start normal-case font-normal rounded-sm"
         :class="{ 'btn-active': flipH }"
         @click.prevent="toggleFlip('flipH')"
       >
@@ -106,7 +106,7 @@
         {{ t('flip_horizontal') }}
       </button>
       <button
-        class="btn btn-sm w-full justify-start normal-case font-normal rounded"
+        class="btn btn-sm w-full justify-start normal-case font-normal rounded-sm"
         :class="{ 'btn-active': flipV }"
         @click.prevent="toggleFlip('flipV')"
       >

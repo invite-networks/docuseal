@@ -56,7 +56,7 @@
       ref="touchValueTarget"
       class="flex h-full w-full field-area"
       dir="auto"
-      :class="[isValueInput ? 'cursor-text' : '', isValueInput || isCheckboxInput || isSelectInput ? 'bg-opacity-50' : 'bg-opacity-80', bgClasses, isDefaultValuePresent || isValueInput || (withFieldPlaceholder && field.areas) ? fontClasses : 'justify-center items-center']"
+      :class="[isValueInput ? 'cursor-text' : '', bgClasses, isDefaultValuePresent || isValueInput || (withFieldPlaceholder && field.areas) ? fontClasses : 'justify-center items-center']"
       @click="focusValueInput"
     >
       <span
@@ -120,7 +120,7 @@
             <IconCheck
               v-if="field.type == 'checkbox'"
               class="aspect-square mx-auto"
-              :class="{ '!w-auto !h-full': area.w > area.h, '!w-full !h-auto': area.w <= area.h }"
+              :class="{ 'w-auto! h-full!': area.w > area.h, 'w-full! h-auto!': area.w <= area.h }"
             />
             <template
               v-else-if="(field.type === 'radio' || field.type === 'multiple') && field?.areas?.length > 1"
@@ -128,7 +128,7 @@
               <IconCheck
                 v-if="field.type === 'multiple' ? field.default_value.includes(buildAreaOptionValue(area)) : buildAreaOptionValue(area) === field.default_value"
                 class="aspect-square mx-auto"
-                :class="{ '!w-auto !h-full': area.w > area.h, '!w-full !h-auto': area.w <= area.h }"
+                :class="{ 'w-auto! h-full!': area.w > area.h, 'w-full! h-auto!': area.w <= area.h }"
               />
             </template>
             <span
@@ -157,7 +157,7 @@
             <select
               v-else-if="isSelectInput"
               ref="defaultValueSelect"
-              class="bg-transparent outline-none focus:outline-none w-full"
+              class="bg-transparent outline-hidden focus:outline-hidden w-full"
               @change="[field.default_value = $event.target.value, field.readonly = !!field.default_value?.length, save()]"
               @focus="selectedAreasRef.value = [area]"
               @keydown.enter="onDefaultValueEnter"
@@ -182,7 +182,7 @@
               v-else
               ref="defaultValue"
               :contenteditable="isValueInput"
-              class="whitespace-pre-wrap outline-none empty:before:content-[attr(placeholder)] before:text-base-content/30"
+              class="whitespace-pre-wrap outline-hidden empty:before:content-[attr(placeholder)] before:text-base-content/30"
               :class="{ 'cursor-text': isValueInput }"
               :placeholder="withFieldPlaceholder && !isValueInput ? defaultField?.title || field.title || field.name || defaultName : (isConditionMatch ? (field.type === 'date' ? field.preferences?.format || t('type_value') : t('type_value')) : '')"
               @blur="onDefaultValueBlur"
@@ -350,14 +350,17 @@ export default {
       return this.field.default_value
     },
     bgClasses () {
+      // Tailwind 4 dropped bg-opacity-*; the opacity is a modifier on the colour.
+      const opacity = this.isValueInput || this.isCheckboxInput || this.isSelectInput ? 50 : 80
+
       if (this.field.type === 'heading') {
-        return 'bg-gray-50'
+        return `bg-gray-50/${opacity}`
       } else if (this.field.type === 'strikethrough') {
         return 'bg-transparent'
       } else if (!this.isConditionMatch) {
-        return 'bg-gray-100'
+        return `bg-gray-100/${opacity}`
       } else {
-        return this.bgColors[this.submitterIndex % this.bgColors.length]
+        return `${this.bgColors[this.submitterIndex % this.bgColors.length]}/${opacity}`
       }
     },
     activeBorderClasses () {

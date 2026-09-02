@@ -12,7 +12,7 @@
           :src="imageUrl"
           :width="metadata.width"
           :height="metadata.height"
-          class="absolute border rounded pointer-events-none"
+          class="absolute border rounded-sm pointer-events-none"
           style="left: 50%; top: 50%; width: 100%; height: auto"
           :style="imageStyle"
         >
@@ -42,7 +42,7 @@
           v-if="!imagePage && textNodes && !textNodes.length && !imageNodes.length"
           class="absolute inset-x-0 top-0 flex justify-center pt-4 pointer-events-none"
         >
-          <span class="bg-base-100/90 border border-neutral-200 rounded-lg shadow px-4 py-2 text-sm">
+          <span class="bg-base-100/90 border border-neutral-200 rounded-lg shadow-sm px-4 py-2 text-sm">
             {{ t('there_is_no_text_to_redact_on_this_page') }}
           </span>
         </div>
@@ -52,14 +52,14 @@
       <div class="flex items-center justify-between mb-1">
         <span class="text-sm pl-1">{{ t('color') }}</span>
         <div
-          class="join rounded"
+          class="join rounded-sm"
           style="height: 28px"
         >
           <button
             v-for="option in colors"
             :key="option"
-            class="btn btn-sm join-item !h-7 !min-h-0 bg-white input-bordered hover:border-base-content/20 hover:bg-base-100/50 px-2"
-            :class="{ '!bg-base-200': color === option }"
+            class="btn btn-sm join-item h-7! min-h-0! bg-white input-bordered hover:border-base-content/20 hover:bg-base-100/50 px-2"
+            :class="{ 'bg-base-200!': color === option }"
             @click.prevent="color = option"
           >
             <span
@@ -70,16 +70,16 @@
         </div>
       </div>
       <button
-        class="btn btn-sm w-full justify-start normal-case font-normal rounded disabled:bg-base-300"
+        class="btn btn-sm w-full justify-start normal-case font-normal rounded-sm disabled:bg-base-300"
         :disabled="!hasRedactions && !wasReset"
         @click.prevent="apply"
       >
         <IconCheck class="w-4 h-4" />
         {{ t('apply') }}
       </button>
-      <div class="border-t !mt-3 !mb-1" />
+      <div class="border-t mt-3! mb-1!" />
       <button
-        class="btn btn-sm w-full justify-start normal-case font-normal rounded disabled:bg-base-300"
+        class="btn btn-sm w-full justify-start normal-case font-normal rounded-sm disabled:bg-base-300"
         :disabled="!hasRedactions"
         @click.prevent="reset"
       >
@@ -87,7 +87,7 @@
         {{ t('reset') }}
       </button>
       <button
-        class="btn btn-sm w-full justify-start normal-case font-normal rounded"
+        class="btn btn-sm w-full justify-start normal-case font-normal rounded-sm"
         @click.prevent="$emit('cancel')"
       >
         <IconX class="w-4 h-4" />

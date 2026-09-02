@@ -1,0 +1,29 @@
+/* Utilities-only stylesheet injected into the dynamic editor's shadow root. */
+@import "tailwindcss/utilities" layer(utilities) source(none);
+@source "./dynamic_area.vue";
+@source "./dynamic_section.vue";
+
+@theme {
+  --color-base-100: #faf7f5;
+  --color-base-200: #efeae6;
+  --color-base-300: #e7e2df;
+  --color-base-content: #291334;
+}
+
+*,
+::before,
+::after {
+  box-sizing: border-box;
+  border-width: 0;
+  border-style: solid;
+  border-color: #e5e7eb;
+}
+
+::before,
+::after {
+  --tw-content: '';
+}
+
+:host {
+  all: initial;
+}

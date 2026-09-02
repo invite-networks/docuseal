@@ -38,7 +38,7 @@
       </a>
       <button
         v-if="canSendEmail && !isDemo && withSendCopyButton"
-        class="white-button !h-auto flex items-center space-x-1 w-full completed-form-send-copy-button"
+        class="white-button h-auto! flex items-center space-x-1 w-full completed-form-send-copy-button"
         :disabled="isSendingCopy"
         @click.prevent="sendCopyToEmail"
       >

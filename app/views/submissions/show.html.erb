@@ -44,7 +44,7 @@
         <% show_download_dropdown = show_combined_download || show_unarchive %>
         <% if @submission.completed_at? || !is_combined_enabled %>
           <div class="join relative">
-            <download-button role="button" tabindex="0" aria-label="<%= t('download') %>" data-src="<%= local_assigns[:is_preview] ? (@sig_submitter ? submit_form_documents_path(@sig_submitter.slug, { sig: params[:sig], combined: is_combined_enabled }.compact_blank) : submissions_preview_download_index_path(@submission.slug, combined: is_combined_enabled.presence)) : submission_download_index_path(@submission, combined: is_combined_enabled.presence) %>" class="base-button <%= '!rounded-r-none !pr-2' if show_download_dropdown %>">
+            <download-button role="button" tabindex="0" aria-label="<%= t('download') %>" data-src="<%= local_assigns[:is_preview] ? (@sig_submitter ? submit_form_documents_path(@sig_submitter.slug, { sig: params[:sig], combined: is_combined_enabled }.compact_blank) : submissions_preview_download_index_path(@submission.slug, combined: is_combined_enabled.presence)) : submission_download_index_path(@submission, combined: is_combined_enabled.presence) %>" class="base-button <%= 'rounded-r-none! pr-2!' if show_download_dropdown %>">
               <span class="flex items-center justify-center space-x-2" data-target="download-button.defaultButton">
                 <%= svg_icon('download', class: 'w-6 h-6') %>
                 <span class="hidden md:inline"><%= t('download') %></span>
@@ -56,17 +56,17 @@
             </download-button>
             <% if show_download_dropdown %>
               <div class="dropdown dropdown-end has-[button:disabled]:dropdown-open">
-                <label tabindex="0" aria-label="<%= t('download') %>" class="base-button !rounded-l-none !pl-1 !pr-2 !border-l-neutral-500">
+                <label tabindex="0" aria-label="<%= t('download') %>" class="base-button rounded-l-none! pl-1! pr-2! border-l-neutral-500!">
                   <span class="text-sm align-text-top">
-                    <%= svg_icon('chevron_down', class: 'w-6 h-6 flex-shrink-0 stroke-2') %>
+                    <%= svg_icon('chevron_down', class: 'w-6 h-6 shrink-0 stroke-2') %>
                   </span>
                 </label>
-                <ul class="z-10 dropdown-content p-2 mt-2 shadow menu text-base bg-base-100 rounded-box text-right">
+                <ul class="z-10 dropdown-content p-2 mt-2 shadow-sm menu text-base bg-base-100 rounded-box text-right">
                   <% if show_combined_download %>
                     <li>
                       <download-button role="button" tabindex="0" data-src="<%= local_assigns[:is_preview] ? (@sig_submitter ? submit_form_documents_path(@sig_submitter.slug, { sig: params[:sig], combined: true }.compact) : submissions_preview_download_index_path(@submission.slug, combined: true)) : submission_download_index_path(@submission, combined: true) %>" class="flex items-center">
                         <span class="flex items-center justify-center space-x-2" data-target="download-button.defaultButton">
-                          <%= svg_icon('download', class: 'w-6 h-6 flex-shrink-0') %>
+                          <%= svg_icon('download', class: 'w-6 h-6 shrink-0') %>
                           <span class="whitespace-nowrap"><%= t('download_combined_pdf') %></span>
                         </span>
                         <span class="flex items-center justify-center space-x-2 hidden" data-target="download-button.loadingButton">
@@ -79,7 +79,7 @@
                   <% if show_unarchive %>
                     <li>
                       <button form="submission_unarchive_form">
-                        <%= button_title(title: t('unarchive'), disabled_with: t('unarchive'), icon: svg_icon('rotate', class: 'w-6 h-6 flex-shrink-0')) %>
+                        <%= button_title(title: t('unarchive'), disabled_with: t('unarchive'), icon: svg_icon('rotate', class: 'w-6 h-6 shrink-0')) %>
                       </button>
                       <%= button_to '', submission_unarchive_index_path(@submission), form: { id: 'submission_unarchive_form' }, form_class: 'hidden' %>
                     </li>
@@ -103,7 +103,7 @@
         <% document = @submission.schema_documents.find { |a| item['attachment_uuid'] == a.uuid } %>
         <% if document.preview_images.first %>
           <scroll-to data-selector-id="page-<%= document.uuid %>-0" class="block cursor-pointer">
-            <img src="<%= (document.preview_images.find { |e| e.filename.base.to_i.zero? } || document.preview_images.first).url(time: service_url_time) %>" width="<%= document.preview_images.first.metadata['width'] %>" height="<%= document.preview_images.first.metadata['height'] %>" class="rounded border" loading="lazy" alt="<%= item['name'].presence || document.filename.base %>">
+            <img src="<%= (document.preview_images.find { |e| e.filename.base.to_i.zero? } || document.preview_images.first).url(time: service_url_time) %>" width="<%= document.preview_images.first.metadata['width'] %>" height="<%= document.preview_images.first.metadata['height'] %>" class="rounded-sm border" loading="lazy" alt="<%= item['name'].presence || document.filename.base %>">
             <div class="pb-2 pt-1.5 text-center" dir="auto">
               <%= item['name'].presence || document.filename.base %>
             </div>
@@ -118,7 +118,7 @@
         <% submitters_order_index = nil %>
         <% attachments_index = ActiveStorage::Attachment.where(record: @submission.submitters, name: :attachments).preload(:blob).index_by(&:uuid) %>
         <% page_blob_struct = Struct.new(:url, :metadata) %>
-        <% bg_classes = %w[bg-red-100 bg-sky-100 bg-emerald-100 bg-yellow-100 bg-purple-100 bg-pink-100 bg-cyan-100 bg-orange-100 bg-lime-100 bg-indigo-100] %>
+        <% bg_classes = %w[bg-red-100/80 bg-sky-100/80 bg-emerald-100/80 bg-yellow-100/80 bg-purple-100/80 bg-pink-100/80 bg-cyan-100/80 bg-orange-100/80 bg-lime-100/80 bg-indigo-100/80] %>
         <% schema.each do |item| %>
           <% document = @submission.schema_documents.find { |e| e.uuid == item['attachment_uuid'] } %>
           <% document_annots_index = document.metadata.dig('pdf', 'annotations')&.group_by { |e| e['page'] } || {} %>
@@ -126,8 +126,8 @@
           <% lazyload_metadata = document.preview_images.first&.metadata || Templates::ProcessDocument::US_LETTER_SIZE %>
           <% (document.metadata.dig('pdf', 'number_of_pages') || (document.preview_images.loaded? ? preview_images_index.size : document.preview_images.size)).times do |index| %>
             <% page = preview_images_index[index] || page_blob_struct.new(metadata: lazyload_metadata, url: preview_document_page_path(document.signed_key, "#{index}#{Templates::ProcessDocument::PREVIEW_FORMAT}")) %>
-            <page-container id="<%= "page-#{document.uuid}-#{index}" %>" class="block before:border before:absolute before:top-0 before:bottom-0 before:left-0 before:right-0 before:rounded relative mb-4" style="container-type: size; aspect-ratio: <%= width = page.metadata['width'] %> / <%= height = page.metadata['height'] %>">
-              <img loading="lazy" src="<%= page.is_a?(ActiveStorage::Attachment) ? page.url(time: service_url_time) : page.url %>" width="<%= width %>" class="rounded" height="<%= height %>" alt="<%= "#{item['name']} - #{t('page')} #{index + 1}" %>">
+            <page-container id="<%= "page-#{document.uuid}-#{index}" %>" class="block before:border before:absolute before:top-0 before:bottom-0 before:left-0 before:right-0 before:rounded-sm relative mb-4" style="container-type: size; aspect-ratio: <%= width = page.metadata['width'] %> / <%= height = page.metadata['height'] %>">
+              <img loading="lazy" src="<%= page.is_a?(ActiveStorage::Attachment) ? page.url(time: service_url_time) : page.url %>" width="<%= width %>" class="rounded-sm" height="<%= height %>" alt="<%= "#{item['name']} - #{t('page')} #{index + 1}" %>">
               <div class="top-0 bottom-0 left-0 right-0 absolute">
                 <% document_annots_index[index]&.each do |annot| %>
                   <%= render 'submissions/annotation', annot: %>
@@ -154,7 +154,7 @@
                     <% submitter_index = submitters_order_index[submitter.uuid] %>
                     <% bg_class = bg_classes[submitter_index % bg_classes.size] %>
                     <div class="absolute overflow-visible" style="width: <%= area['w'].to_f * 100 %>%; height: <%= area['h'].to_f * 100 %>%; left: <%= area['x'].to_f * 100 %>%; top: <%= area['y'].to_f * 100 %>%;">
-                      <div class="flex h-full w-full bg-opacity-80 justify-center items-center <%= bg_class %>">
+                      <div class="flex h-full w-full justify-center items-center <%= bg_class %>">
                         <%= svg_icon(SubmissionsController::FIELD_ICONS.fetch(field['type'], 'text_size'), class: 'max-h-10 w-full h-full stroke-2 opacity-50') %>
                       </div>
                     </div>

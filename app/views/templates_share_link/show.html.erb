@@ -23,10 +23,10 @@
         </label>
       <% end %>
       <div class="flex gap-2 mt-3">
-        <div class="relative flex-grow">
+        <div class="relative grow">
           <input id="embedding_url" type="text" value="<%= start_form_url(slug: @template.slug, host: form_link_host) %>" class="base-input w-full pr-10" autocomplete="off" readonly>
           <% if @template.variables_schema.blank? && !@template.preferences&.dig('require_email_2fa') && !@template.preferences&.dig('require_phone_2fa') %>
-            <a href="<%= template_share_link_qr_path(@template) %>" target="_blank" rel="noopener" class="absolute top-1/2 -translate-y-1/2 right-2 flex items-center justify-center tooltip tooltip-no-touch text-base-content/70 hover:text-base-content bg-white rounded px-1 py-0.5" data-tip="<%= t('qr_code') %>" aria-label="<%= t('qr_code') %>">
+            <a href="<%= template_share_link_qr_path(@template) %>" target="_blank" rel="noopener" class="absolute top-1/2 -translate-y-1/2 right-2 flex items-center justify-center tooltip tooltip-no-touch text-base-content/70 hover:text-base-content bg-white rounded-sm px-1 py-0.5" data-tip="<%= t('qr_code') %>" aria-label="<%= t('qr_code') %>">
               <%= svg_icon('qrcode', class: 'w-6 h-6') %>
             </a>
           <% end %>
@@ -46,7 +46,7 @@
         <div class="collapse-title py-4 min-h-0">
           <%= t('default_parties') %>
         </div>
-        <div class="collapse-content !pb-0">
+        <div class="collapse-content pb-0!">
           <%= render 'templates_preferences/recipients', template: @template, close_on_submit: false, with_toggles: false, with_submission_requester: false %>
         </div>
       </div>
@@ -54,17 +54,17 @@
     <% if @template.preferences&.dig('require_email_2fa') != true && @template.preferences&.dig('require_phone_2fa') != true %>
       <div class="collapse collapse-arrow join-item mt-4">
         <input id="accordion_checkbox" type="checkbox" name="accordion" class="min-h-0">
-        <div class="collapse-title min-h-0 after:!right-3 p-1">
+        <div class="collapse-title min-h-0 after:right-3! p-1">
           <%= t('advanced_settings') %>
         </div>
-        <div class="collapse-content !p-0">
+        <div class="collapse-content p-0!">
           <%= form_for @template, url: template_preferences_path(@template), method: :post, html: { autocomplete: 'off', class: 'mt-4 pt-4 border-t border-base-300' }, data: { close_on_submit: false } do |f| %>
             <% link_form_fields = @template.preferences.fetch('link_form_fields', ['email']) %>
             <label class="pl-1"><%= t('link_form_fields') %></label>
             <required-checkbox-group class="flex flex-col md:flex-row items-center gap-2 w-full mt-2">
               <% %w[name email phone].each do |field| %>
                 <%= label_tag "link_form_fields_#{field}", t(field), class: 'relative flex w-full md:w-1/3 items-center h-14 border-base-300 py-3.5 border rounded-xl' do %>
-                  <%= check_box_tag 'template[preferences][link_form_fields][]', field, link_form_fields.include?(field), class: 'absolute !animate-none checkbox left-3', id: "link_form_fields_#{field}" %>
+                  <%= check_box_tag 'template[preferences][link_form_fields][]', field, link_form_fields.include?(field), class: 'absolute animate-none! checkbox left-3', id: "link_form_fields_#{field}" %>
                   <span class="font-medium w-full text-center"><%= t(field) %></span>
                 <% end %>
               <% end %>
@@ -76,7 +76,7 @@
               <div class="collapse-title py-4 min-h-0">
                 <%= t('default_parties') %>
               </div>
-              <div class="collapse-content !pb-0">
+              <div class="collapse-content pb-0!">
                 <%= render 'templates_preferences/recipients', template: @template, close_on_submit: false, with_toggles: false, with_submission_requester: false %>
               </div>
             </div>

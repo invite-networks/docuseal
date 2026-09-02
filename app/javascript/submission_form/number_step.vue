@@ -43,7 +43,7 @@
       :step="field.validation?.step || 'any'"
       :min="field.validation?.min"
       :max="field.validation?.max"
-      class="base-input !text-2xl w-full"
+      class="base-input text-2xl! w-full"
       :required="field.required"
       :aria-describedby="field.description ? field.uuid + '-desc' : undefined"
       :placeholder="`${t('type_here_')}${field.required ? '' : ` (${t('optional')})`}`"

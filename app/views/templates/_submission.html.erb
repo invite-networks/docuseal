@@ -2,24 +2,24 @@
 <div class="bg-base-200 rounded-2xl flex flex-col sm:flex-row">
   <% if local_assigns[:with_template] %>
     <% template = submission.template %>
-    <a href="<%= template ? template_path(template) : submission_path(submission) %>" class="px-5 sm:pr-3 py-3 group sm:rounded-l-2xl sm:rounded-tr-none rounded-t-2xl flex sm:flex-col justify-between sm:w-52 w-full flex-shrink-0 bg-base-300/60 space-x-2 sm:space-x-0">
+    <a href="<%= template ? template_path(template) : submission_path(submission) %>" class="px-5 sm:pr-3 py-3 group sm:rounded-l-2xl sm:rounded-tr-none rounded-t-2xl flex sm:flex-col justify-between sm:w-52 w-full shrink-0 bg-base-300/60 space-x-2 sm:space-x-0">
       <div>
         <div class="font-medium items-start w-full group-hover:link text-sm flex space-x-1">
-          <%= svg_icon('file_text', class: 'w-4 h-4 mt-0.5 flex-shrink-0') %>
+          <%= svg_icon('file_text', class: 'w-4 h-4 mt-0.5 shrink-0') %>
           <span style="overflow: hidden; display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2;">
             <% (submission.name || template&.name).to_s.split(/(_)/).each do |item| %><%= item %><wbr><% end %>
             <%= svg_icon('arrow_right', class: 'w-4 h-4 sm:inline group-hover:visible invisible hidden') %>
           </span>
         </div>
       </div>
-      <div class="flex-shrink-0 sm:mt-2 max-w-[50%] md:max-w-full">
+      <div class="shrink-0 sm:mt-2 max-w-[50%] md:max-w-full">
         <div class="flex text-xs flex-col text-base-content/60  space-y-0.5">
           <span class="flex items-center space-x-1">
-            <%= svg_icon('user', class: 'w-4 h-4 flex-shrink-0') %>
+            <%= svg_icon('user', class: 'w-4 h-4 shrink-0') %>
             <span><%= (submission.created_by_user || template.author).full_name.presence || (submission.created_by_user || template.author).email.to_s.sub(/\+\w+@/, '@') %></span>
           </span>
           <span class="flex items-center space-x-1">
-            <%= svg_icon('calendar', class: 'w-4 h-4 flex-shrink-0') %>
+            <%= svg_icon('calendar', class: 'w-4 h-4 shrink-0') %>
             <span><%= l(submission.created_at.in_time_zone(current_account.timezone), format: :short, locale: current_account.locale) %></span>
           </span>
         </div>
@@ -39,13 +39,13 @@
           <span class="flex flex-col md:flex-row md:items-center gap-3">
             <% if submission.expired? && !submitter.completed_at? && !submitter.declined_at? %>
               <div class="tooltip flex" data-tip="<%= l(submission.expire_at.in_time_zone(current_account.timezone), format: :short, locale: current_account.locale) %>">
-                <span class="badge badge-error md:w-32 bg-opacity-50 badge-lg uppercase text-sm font-semibold">
+                <span class="badge badge-error md:w-32 badge-translucent badge-lg uppercase text-sm font-semibold">
                   <%= t('expired') %>
                 </span>
               </div>
             <% else %>
               <a href="<%= submission_path(submission) %>" class="flex z-[1]">
-                <span class="badge <%= status_badges[submitter.status] %> md:w-32 badge-lg bg-opacity-50 uppercase text-sm font-semibold tooltip" data-tip="<%= l(submitter.status_event_at.in_time_zone(current_account.timezone), format: :short, locale: current_account.locale) %>">
+                <span class="badge <%= status_badges[submitter.status] %> md:w-32 badge-lg badge-translucent uppercase text-sm font-semibold tooltip" data-tip="<%= l(submitter.status_event_at.in_time_zone(current_account.timezone), format: :short, locale: current_account.locale) %>">
                   <%= t(submitter.status) %>
                 </span>
               </a>
@@ -126,13 +126,13 @@
           <% if is_submission_completed %>
             <% latest_submitter = submitters.select(&:completed_at?).max_by(&:completed_at) %>
             <a href="<%= submission_path(submission) %>" class="z-[1] tooltip tooltip-no-touch flex" data-tip="<%= l(latest_submitter.status_event_at.in_time_zone(current_account.timezone), format: :short, locale: current_account.locale) %>">
-              <span class="badge <%= status_badges[latest_submitter.status] %> md:w-32 bg-opacity-50 badge-lg uppercase text-sm font-semibold">
+              <span class="badge <%= status_badges[latest_submitter.status] %> md:w-32 badge-translucent badge-lg uppercase text-sm font-semibold">
                 <%= t(latest_submitter.status) %>
               </span>
             </a>
           <% elsif submission.expired? %>
             <div class="tooltip flex" data-tip="<%= l(submission.expire_at.in_time_zone(current_account.timezone), format: :short, locale: current_account.locale) %>">
-              <span class="badge badge-error md:w-32 bg-opacity-50 badge-lg uppercase text-sm font-semibold">
+              <span class="badge badge-error md:w-32 badge-translucent badge-lg uppercase text-sm font-semibold">
                 <%= t('expired') %>
               </span>
             </div>
@@ -143,7 +143,7 @@
                 <span class="flex flex-col md:flex-row md:items-center gap-2">
                   <% if !is_submission_completed && !submission.expired? %>
                     <a href="<%= submission_path(submission) %>" class="z-[1] tooltip tooltip-no-touch flex" data-tip="<%= l(submitter.status_event_at.in_time_zone(current_account.timezone), format: :short, locale: current_account.locale) %>">
-                      <span class="badge md:w-24 <%= status_badges[submitter.status] %> bg-opacity-50 uppercase text-xs font-semibold">
+                      <span class="badge md:w-24 <%= status_badges[submitter.status] %> badge-translucent uppercase text-xs font-semibold">
                         <%= t(submitter.status) %>
                       </span>
                     </a>

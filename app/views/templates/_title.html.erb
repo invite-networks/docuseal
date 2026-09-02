@@ -14,7 +14,7 @@
         <div class="flex items-center justify-between">
           <div class="flex items-center">
             <a href="<%= folder_path(@template.folder) %>" class="flex items-center space-x-1 mt-1 peer">
-              <%= svg_icon('folder', class: 'w-5 h-5 flex-shrink-0') %>
+              <%= svg_icon('folder', class: 'w-5 h-5 shrink-0') %>
               <span class="text-sm">
                 <%= @template.folder.full_name %>
               </span>
@@ -32,7 +32,7 @@
         <div class="flex items-center justify-between">
           <div class="flex items-center">
             <a href="<%= templates_shared_index_path %>" class="flex items-center space-x-1 mt-1">
-              <%= svg_icon('folder', class: 'w-5 h-5 flex-shrink-0') %>
+              <%= svg_icon('folder', class: 'w-5 h-5 shrink-0') %>
               <span class="text-sm capitalize">
                 <%= t('shared') %>
               </span>

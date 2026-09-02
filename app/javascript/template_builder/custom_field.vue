@@ -3,7 +3,7 @@
     class="list-field group"
   >
     <div
-      class="border border-dashed border-base-300 hover:border-base-content/20 rounded relative group fields-list-item transition-colors"
+      class="border border-dashed border-base-300 hover:border-base-content/20 rounded-sm relative group fields-list-item transition-colors"
       :style="{ backgroundColor: backgroundColor }"
     >
       <div class="flex items-center justify-between relative group/contenteditable-container">
@@ -71,7 +71,7 @@
             <ul
               v-if="renderDropdown"
               tabindex="0"
-              class="mt-1.5 dropdown-content menu menu-xs p-2 shadow rounded-box w-52 z-10"
+              class="mt-1.5 dropdown-content menu menu-xs p-2 shadow-sm rounded-box w-52 z-10"
               :style="{ backgroundColor: dropdownBgColor }"
               draggable="true"
               @dragstart.prevent.stop

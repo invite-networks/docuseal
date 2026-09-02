@@ -1,0 +1,193 @@
+@import "tailwindcss" source(none);
+@source "../views/**/*.erb";
+@source "./**/*.{js,vue}";
+/* Field colours are combined with an opacity modifier at runtime in
+   template_builder/area.vue, so the scanner cannot see the final class names. */
+@source inline("{bg-red-100,bg-sky-100,bg-emerald-100,bg-yellow-100,bg-purple-100,bg-pink-100,bg-cyan-100,bg-orange-100,bg-lime-100,bg-indigo-100,bg-gray-50,bg-gray-100}/{50,80}");
+@import "./tailwind/theme.css";
+
+.typed-signature-preview {
+  font-style: italic;
+}
+
+.typed-initials-preview {
+  font-style: italic;
+}
+
+a[href],
+input[type='checkbox'],
+input[type='submit'],
+input[type='image'],
+input[type='radio'],
+label[for],
+select,
+button {
+  cursor: pointer;
+}
+
+button .disabled {
+  display: none;
+}
+
+button[disabled] .disabled, button.btn-disabled .disabled {
+  display: initial;
+}
+
+button .enabled {
+  display: initial;
+}
+
+button[disabled] .enabled, button.btn-disabled .enabled {
+  display: none;
+}
+
+/* Custom components. Living in the components layer lets Tailwind utilities
+   and daisyUI state rules (:hover, :disabled) override them, as in Tailwind 3. */
+@layer components {
+  .base-input {
+    @apply input input-bordered bg-white;
+    /* daisyUI 3 input: natural width, 3rem tall, 1rem text and padding. */
+    --size: 3rem;
+    width: auto;
+    font-size: 1rem;
+    padding-inline: 1rem;
+  }
+
+  .base-input:disabled,
+  .base-input:disabled:is(input) {
+    @apply cursor-not-allowed border-base-200 bg-base-200;
+    /* daisyUI 3 kept disabled values fully legible; daisyUI 5 fades them. */
+    color: var(--color-base-content);
+  }
+
+  .base-textarea {
+    @apply textarea textarea-bordered bg-white rounded-3xl;
+  }
+
+  .base-button {
+    @apply btn btn-neutral text-white text-base uppercase;
+    --size: 3rem;
+  }
+
+  .base-button:active {
+    scale: 1;
+    translate: 0;
+  }
+
+  .white-button {
+    @apply btn btn-outline text-base bg-white border-2 uppercase;
+    --size: 3rem;
+  }
+
+  .white-button:active {
+    scale: 1;
+    translate: 0;
+  }
+
+  .base-checkbox {
+    @apply checkbox rounded-sm bg-white checkbox-sm;
+  }
+
+  .base-radio {
+    @apply radio bg-white radio-sm;
+  }
+
+  .base-select {
+    @apply select input input-bordered bg-white w-full font-normal;
+    --size: 3rem;
+    font-size: 1rem;
+    padding-inline: 1rem 2.5rem;
+  }
+}
+
+.tooltip-bottom-end:before {
+  transform: translateX(-95%);
+  top: var(--tt-off);
+  left: 100%;
+  right: auto;
+  bottom: auto;
+}
+
+.tooltip-pre:before {
+  white-space: pre;
+  text-align: left;
+}
+
+.tooltip-bottom-end:after {
+  transform: translateX(-25%);
+  border-color: transparent transparent var(--tt-bg) transparent;
+  top: var(--tt-tail);
+  left: 50%;
+  right: auto;
+  bottom: auto;
+}
+
+.tooltip-bottom-start:before {
+  transform: translateX(-31%);
+  top: var(--tt-off);
+  left: 100%;
+  right: auto;
+  bottom: auto;
+}
+
+.tooltip-bottom-start:after {
+  transform: translateX(-25%);
+  border-color: transparent transparent var(--tt-bg) transparent;
+  top: var(--tt-tail);
+  left: 50%;
+  right: auto;
+  bottom: auto;
+}
+
+@media (hover: none), (pointer: coarse) {
+  .tooltip-no-touch:before,
+  .tooltip-no-touch:after {
+    display: none;
+  }
+}
+
+.autocomplete {
+  background: white;
+  z-index: 1000;
+  font: 16px/25px "-apple-system", BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  overflow: auto;
+  box-sizing: border-box;
+  @apply border border-base-300 mt-1 rounded-md;
+}
+
+.autocomplete * {
+  font: inherit;
+}
+
+.autocomplete > div {
+  @apply px-2 py-1.5 font-normal;
+}
+
+.autocomplete .group {
+  background: #eee;
+}
+
+.autocomplete > div:hover:not(.group),
+.autocomplete > div.selected {
+  @apply bg-base-300;
+  cursor: pointer;
+}
+
+.input-outlined {
+  outline-style: solid;
+  outline-width: 1px;
+  outline-offset: 3px;
+  outline-color: color-mix(in oklab, var(--color-base-content) 20%, transparent);
+}
+
+.font-times {
+  font-family: "Times New Roman", Times, ui-serif, serif, Cambria, Georgia;
+}
+
+.font-courier {
+  font-family: "Courier New", Consolas, "Liberation Mono", monospace, ui-monospace, SFMono-Regular, Menlo, Monaco;
+}
+
+markdown-editor [contenteditable] p {
+  margin-bottom: 18px;
+}

@@ -4,7 +4,7 @@
     :class="`list-field-${field.type}`"
   >
     <div
-      class="border border-base-300 rounded relative group fields-list-item"
+      class="border border-base-300 rounded-sm relative group fields-list-item"
       :style="{ backgroundColor: backgroundColor }"
     >
       <div class="flex items-center justify-between relative group/contenteditable-container">
@@ -42,7 +42,7 @@
               :id="`required-checkbox-${field.uuid}`"
               v-model="field.required"
               type="checkbox"
-              class="checkbox checkbox-xs no-animation rounded"
+              class="checkbox checkbox-xs no-animation rounded-sm"
               @mousedown.prevent
             >
             <label
@@ -119,7 +119,7 @@
             <ul
               v-if="renderDropdown"
               tabindex="0"
-              class="mt-1.5 dropdown-content menu menu-xs p-2 shadow rounded-box w-52 z-10"
+              class="mt-1.5 dropdown-content menu menu-xs p-2 shadow-sm rounded-box w-52 z-10"
               :style="{ backgroundColor: dropdownBgColor }"
               draggable="true"
               @dragstart.prevent.stop
@@ -187,7 +187,7 @@
           >
             <input
               v-model="option.value"
-              class="w-full input input-primary input-xs text-sm bg-transparent !pr-7 -mr-6"
+              class="w-full input input-primary input-xs text-sm bg-transparent pr-7! -mr-6"
               type="text"
               dir="auto"
               required

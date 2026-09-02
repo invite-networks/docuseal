@@ -195,7 +195,7 @@
         </span>
         <span
           v-if="field.conditions?.length"
-          class="bg-neutral-200 rounded px-1 leading-3"
+          class="bg-neutral-200 rounded-sm px-1 leading-3"
           style="font-size: 9px;"
         >{{ field.conditions.length }}</span>
       </button>
@@ -332,7 +332,7 @@
             v-model="customValidationPattern"
             dir="auto"
             type="text"
-            class="base-input !text-base w-full"
+            class="base-input text-base! w-full"
             :placeholder="t('regexp_validation')"
           >
         </div>
@@ -349,7 +349,7 @@
             v-model="customValidationMessage"
             dir="auto"
             :placeholder="t('error_message')"
-            class="base-input !text-base w-full"
+            class="base-input text-base! w-full"
           >
         </div>
       </div>
@@ -376,7 +376,7 @@
             dir="auto"
             type="number"
             min="0"
-            class="base-input !text-base w-full"
+            class="base-input text-base! w-full"
             :placeholder="t('min')"
           >
         </div>
@@ -394,7 +394,7 @@
             dir="auto"
             type="number"
             min="1"
-            class="base-input !text-base w-full"
+            class="base-input text-base! w-full"
             :placeholder="t('max')"
           >
         </div>
@@ -421,7 +421,7 @@
             v-model="numberRangeMin"
             dir="auto"
             type="number"
-            class="base-input !text-base w-full"
+            class="base-input text-base! w-full"
             :placeholder="t('min')"
           >
         </div>
@@ -438,7 +438,7 @@
             v-model="numberRangeMax"
             dir="auto"
             type="number"
-            class="base-input !text-base w-full"
+            class="base-input text-base! w-full"
             :placeholder="t('max')"
           >
         </div>
@@ -457,7 +457,7 @@
           v-model="priceValue"
           dir="auto"
           type="number"
-          class="base-input !text-base w-full"
+          class="base-input text-base! w-full"
           :placeholder="t('price')"
         >
       </div>
@@ -475,7 +475,7 @@
           v-model="paymentLinkValue"
           dir="auto"
           type="text"
-          class="base-input !text-base w-full"
+          class="base-input text-base! w-full"
           placeholder="plink_XXXXX"
         >
       </div>

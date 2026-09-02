@@ -28,7 +28,7 @@
       <button
         v-if="withToday"
         type="button"
-        class="btn btn-outline btn-sm !normal-case font-normal set-current-date-button"
+        class="btn btn-outline btn-sm normal-case! font-normal set-current-date-button"
         @click.prevent="[setCurrentDate(), $emit('focus')]"
       >
         <IconCalendarCheck
@@ -54,7 +54,7 @@
         v-model="value"
         :min="validationMin"
         :max="validationMax"
-        class="base-input !text-2xl text-center w-full"
+        class="base-input text-2xl! text-center w-full"
         :required="field.required"
         :aria-describedby="field.description ? field.uuid + '-desc' : undefined"
         :type="inputType"

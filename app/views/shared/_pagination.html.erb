@@ -17,7 +17,7 @@
         <% if pagy.previous %>
           <%= link_to '«', url_for(params: request.query_parameters.merge('page' => pagy.previous)), class: 'join-item btn min-h-full h-10' %>
         <% else %>
-          <span class="join-item btn btn-disabled !bg-base-200 min-h-full h-10">«</span>
+          <span class="join-item btn btn-disabled bg-base-200! min-h-full h-10">«</span>
         <% end %>
         <span class="join-item btn font-medium uppercase min-h-full h-10">
           <%= t('page_number', number: pagy.page) %>
@@ -27,7 +27,7 @@
         <% elsif pagy.next %>
           <%= link_to '»', url_for(params: request.query_parameters.merge('page' => pagy.next)), class: 'join-item btn min-h-full h-10' %>
         <% else %>
-          <span class="join-item btn btn-disabled !bg-base-200 min-h-full h-10">»</span>
+          <span class="join-item btn btn-disabled bg-base-200! min-h-full h-10">»</span>
         <% end %>
       </div>
     </div>

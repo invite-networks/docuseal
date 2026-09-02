@@ -164,7 +164,7 @@
       v-if="modelValue || computedPreviousValue"
       :src="attachmentsIndex[modelValue || computedPreviousValue].url"
       :alt="field.name || t('signature')"
-      class="mx-auto bg-white border border-base-300 rounded max-h-44"
+      class="mx-auto bg-white border border-base-300 rounded-sm max-h-44"
     >
     <FileDropzone
       v-if="format === 'upload' && !modelValue && !computedPreviousValue"
@@ -244,7 +244,7 @@
       v-if="isTextSignature && !modelValue && !computedPreviousValue"
       id="signature_text_input"
       ref="textInput"
-      class="base-input !text-2xl w-full mt-6"
+      class="base-input text-2xl! w-full mt-6"
       :required="field.required && !isSignatureStarted"
       :aria-label="field.name || t('signature')"
       :placeholder="`${t('type_signature_here')}${field.required ? '...' : ' (' + t('optional') + ')'}`"
@@ -253,7 +253,7 @@
     >
     <select
       v-if="withSigningReason && !isOtherReason"
-      class="select base-input !text-2xl w-full mt-6 text-center"
+      class="select base-input text-2xl! w-full mt-6 text-center"
       :class="{ 'text-gray-300': !reason }"
       required
       :aria-label="t('select_a_reason')"
@@ -299,7 +299,7 @@
     </select>
     <input
       v-if="withSigningReason && isOtherReason"
-      class="base-input !text-2xl w-full mt-6"
+      class="base-input text-2xl! w-full mt-6"
       required
       :name="`values[${field.preferences.reason_field_uuid}]`"
       :aria-label="t('select_a_reason')"

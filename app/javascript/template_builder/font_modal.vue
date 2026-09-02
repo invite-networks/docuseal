@@ -1,6 +1,6 @@
 <template>
   <div
-    class="modal modal-open items-start !animate-none overflow-y-auto"
+    class="modal modal-open items-start animate-none! overflow-y-auto"
   >
     <div
       class="absolute top-0 bottom-0 right-0 left-0"
@@ -39,7 +39,7 @@
                 </label>
                 <div
                   tabindex="0"
-                  class="dropdown-content p-0 mt-1 block z-10 menu shadow bg-white border border-base-300 rounded-md w-52"
+                  class="dropdown-content p-0 mt-1 block z-10 menu shadow-sm bg-white border border-base-300 rounded-md w-52"
                 >
                   <div
                     v-for="(font, index) in fonts"
@@ -91,7 +91,7 @@
                   v-for="(type, index) in types"
                   :key="index"
                   class="btn btn-sm join-item bg-white input-bordered hover:border-base-content/20 hover:bg-base-200/50 px-2"
-                  :class="{ '!bg-base-300': preferences.font_type?.includes(type.value) }"
+                  :class="{ 'bg-base-300!': preferences.font_type?.includes(type.value) }"
                   @click="setFontType(type.value)"
                 >
                   <component :is="type.icon" />
@@ -107,7 +107,7 @@
                   v-for="(align, index) in aligns"
                   :key="index"
                   class="btn btn-sm join-item bg-white input-bordered hover:border-base-content/20 hover:bg-base-200/50 px-2"
-                  :class="{ '!bg-base-300': preferences.align === align.value }"
+                  :class="{ 'bg-base-300!': preferences.align === align.value }"
                   @click="align.value && preferences.align != align.value ? preferences.align = align.value : delete preferences.align"
                 >
                   <component :is="align.icon" />
@@ -125,7 +125,7 @@
                 </label>
                 <div
                   tabindex="0"
-                  class="dropdown-content p-0 mt-1 block z-10 menu shadow bg-white border border-base-300 rounded-md"
+                  class="dropdown-content p-0 mt-1 block z-10 menu shadow-sm bg-white border border-base-300 rounded-md"
                 >
                   <div
                     v-for="(valign, index) in valigns"
@@ -169,7 +169,7 @@
           >
             <span
               contenteditable="true"
-              class="outline-none whitespace-nowrap truncate"
+              class="outline-hidden whitespace-nowrap truncate"
             >
               {{ field.default_value || field.name || buildDefaultName(field) }}
             </span>

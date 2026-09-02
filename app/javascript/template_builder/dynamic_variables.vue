@@ -42,7 +42,7 @@
             <span class="ml-1">{{ key }}</span>
             <span
               v-if="node.type === 'array'"
-              class="text-xs bg-base-200 rounded px-1 ml-1"
+              class="text-xs bg-base-200 rounded-sm px-1 ml-1"
             >{{ t('list') }}</span>
           </label>
           <div class="hidden peer-has-[:checked]:block pl-5">

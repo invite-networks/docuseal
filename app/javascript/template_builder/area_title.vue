@@ -13,7 +13,7 @@
       :compact="true"
       :editable="editable && (!defaultField || defaultField.role !== submitter?.name)"
       :allow-add-new="!defaultSubmitters.length"
-      :menu-classes="'dropdown-content bg-white menu menu-xs p-2 shadow rounded-box w-52 rounded-t-none -left-[1px] mt-[1px]'"
+      :menu-classes="'dropdown-content bg-white menu menu-xs p-2 shadow-sm rounded-box w-52 rounded-t-none -left-[1px] mt-[1px]'"
       :submitters="template.submitters"
       @update:model-value="$emit('change')"
       @click="selectedAreasRef.value = [area]"
@@ -32,7 +32,7 @@
       ref="name"
       :contenteditable="editable && !defaultField && field.type !== 'heading'"
       dir="auto"
-      class="pr-1 cursor-text outline-none block"
+      class="pr-1 cursor-text outline-hidden block"
       style="min-width: 2px"
       @paste.prevent="onPaste"
       @keydown.enter.prevent="onNameEnter"
@@ -48,7 +48,7 @@
         :id="`required-checkbox-${field.uuid}`"
         v-model="field.required"
         type="checkbox"
-        class="checkbox checkbox-xs no-animation rounded"
+        class="checkbox checkbox-xs no-animation rounded-sm"
         @mousedown.prevent
       >
       <label
@@ -62,7 +62,7 @@
         v-if="isValueInput || isSelectInput"
         :id="`readonly-checkbox-${field.uuid}`"
         type="checkbox"
-        class="checkbox checkbox-xs no-animation rounded"
+        class="checkbox checkbox-xs no-animation rounded-sm"
         :checked="!(field.readonly ?? true)"
         @change="field.readonly = !(field.readonly ?? true)"
         @mousedown.prevent
@@ -95,7 +95,7 @@
           v-if="renderDropdown"
           ref="settingsDropdown"
           tabindex="0"
-          class="dropdown-content menu menu-xs px-2 pb-2 pt-1 shadow rounded-box w-52 z-10 rounded-t-none"
+          class="dropdown-content menu menu-xs px-2 pb-2 pt-1 shadow-sm rounded-box w-52 z-10 rounded-t-none"
           :style="{ backgroundColor: 'white' }"
           @dragstart.prevent.stop
           @click="closeDropdown"

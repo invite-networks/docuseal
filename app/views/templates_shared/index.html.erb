@@ -5,8 +5,8 @@
   <% end %>
 </div>
 <div class="group/header relative flex justify-between items-center w-full mb-4">
-  <h1 class="text-2xl truncate md:text-3xl font-bold flex items-center flex-grow min-w-0 space-x-2 md:flex max-md:group-has-[search-input:focus-within]/header:hidden <%= 'hidden' if params[:q].present? %>">
-    <%= svg_icon('folder', class: 'w-9 h-9 flex-shrink-0') %>
+  <h1 class="text-2xl truncate md:text-3xl font-bold flex items-center grow min-w-0 space-x-2 md:flex max-md:group-has-[search-input:focus-within]/header:hidden <%= 'hidden' if params[:q].present? %>">
+    <%= svg_icon('folder', class: 'w-9 h-9 shrink-0') %>
     <span class="truncate capitalize"><%= t('shared') %></span>
     <% if @is_archived %>
       <span class="badge badge-outline badge-lg align-middle"><%= t('archived') %></span>

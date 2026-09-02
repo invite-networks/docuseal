@@ -31,7 +31,7 @@
       <input
         :id="submitter.uuid"
         dir="auto"
-        class="base-input !text-2xl w-full"
+        class="base-input text-2xl! w-full"
         :placeholder="t('email')"
         type="email"
         :required="submitters.includes(submitter)"

@@ -4,7 +4,7 @@
     to="#sr_only_content"
   >
     <button
-      class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:px-4 focus:py-2 focus:bg-base-100 focus:text-base-content focus:rounded focus:shadow-lg"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:px-4 focus:py-2 focus:bg-base-100 focus:text-base-content focus:rounded-sm focus:shadow-lg"
       @click="isAccessibilityMode = true"
     >
       {{ t('enter_screen_reader_mode') }}
@@ -17,7 +17,7 @@
   >
     <button
       v-if="!isAccessibilityMode"
-      class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:px-4 focus:py-2 focus:bg-base-100 focus:text-base-content focus:rounded focus:shadow-lg"
+      class="sr-only focus:not-sr-only focus:absolute focus:top-2 focus:left-2 focus:z-[100] focus:px-4 focus:py-2 focus:bg-base-100 focus:text-base-content focus:rounded-sm focus:shadow-lg"
       @click="isAccessibilityMode = true"
     >
       {{ t('enter_screen_reader_mode') }}
@@ -177,7 +177,7 @@
     v-if="currentField"
     v-show="isFormVisible"
     id="form_container"
-    class="shadow-md bg-base-100 absolute bottom-0 w-full border-base-200 border p-4 rounded form-container overflow-hidden"
+    class="shadow-md bg-base-100 absolute bottom-0 w-full border-base-200 border p-4 rounded-sm form-container overflow-hidden"
     :class="{ 'md:bottom-4': isBreakpointMd }"
     :style="{ backgroundColor: backgroundColor }"
   >
@@ -292,7 +292,7 @@
               :required="currentField.required"
               :aria-label="showFieldNames && (currentField.name || currentField.title) ? undefined : (currentField.name || currentField.title || t('select_your_option'))"
               :aria-describedby="currentField.description ? currentField.uuid + '-desc' : undefined"
-              class="select base-input !text-2xl w-full text-center font-normal"
+              class="select base-input text-2xl! w-full text-center font-normal"
               :class="{ 'text-gray-300': !values[currentField.uuid] }"
               :name="`values[${currentField.uuid}]`"
               @change="values[currentField.uuid] = $event.target.value"
@@ -374,7 +374,7 @@
                       :id="option.uuid"
                       v-model="values[currentField.uuid]"
                       type="radio"
-                      class="base-radio !h-7 !w-7"
+                      class="base-radio h-7! w-7!"
                       :name="`values[${currentField.uuid}]`"
                       :value="option.value || `${t('option')} ${index + 1}`"
                       :required="currentField.required"
@@ -447,7 +447,7 @@
                       <input
                         :id="field.uuid"
                         type="checkbox"
-                        class="base-checkbox !h-7 !w-7"
+                        class="base-checkbox h-7! w-7!"
                         :required="field.required"
                         :checked="!!values[field.uuid]"
                         @click="[scrollIntoField(field), values[field.uuid] = !values[field.uuid]]"

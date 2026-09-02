@@ -8,7 +8,7 @@
       <div class="group/contenteditable-container bg-base-100 rounded-md p-2 border border-base-300 w-full flex justify-between items-end roles-dropdown-label-mobile">
         <div class="flex items-center space-x-2">
           <span
-            class="w-3 h-3 flex-shrink-0 rounded-full"
+            class="w-3 h-3 shrink-0 rounded-full"
             :class="colors[submitters.indexOf(selectedSubmitter) % colors.length]"
           />
           <Contenteditable
@@ -52,7 +52,7 @@
             >
               <span class="py-1 flex items-center">
                 <span
-                  class="rounded-full w-3 h-3 ml-1 mr-3 flex-shrink-0"
+                  class="rounded-full w-3 h-3 ml-1 mr-3 shrink-0"
                   :class="colors[index % colors.length]"
                 />
                 <span>
@@ -100,7 +100,7 @@
       class="cursor-pointer text-base-100 flex h-full items-center justify-center"
     >
       <button
-        class="mx-1 w-3 h-3 rounded-full flex-shrink-0"
+        class="mx-1 w-3 h-3 rounded-full shrink-0"
         :class="colors[submitters.indexOf(selectedSubmitter) % colors.length]"
       />
     </label>
@@ -112,7 +112,7 @@
     >
       <div class="flex items-center space-x-2">
         <span
-          class="w-3 h-3 rounded-full flex-shrink-0"
+          class="w-3 h-3 rounded-full shrink-0"
           :class="colors[submitters.indexOf(selectedSubmitter) % colors.length]"
         />
         <Contenteditable
@@ -125,7 +125,7 @@
           @update:model-value="$emit('name-change', selectedSubmitter)"
         />
       </div>
-      <span class="flex items-center transition-all duration-75 group-hover:border border-base-content/20 border-dashed w-6 h-6 justify-center rounded flex-shrink-0">
+      <span class="flex items-center transition-all duration-75 group-hover:border border-base-content/20 border-dashed w-6 h-6 justify-center rounded-sm shrink-0">
         <component
           :is="editable ? 'IconPlus' : 'IconChevronDown'"
           width="18"
@@ -153,7 +153,7 @@
         >
           <span class="py-1 flex items-center">
             <span
-              class="rounded-full w-3 h-3 ml-1 mr-3 flex-shrink-0"
+              class="rounded-full w-3 h-3 ml-1 mr-3 shrink-0"
               :class="colors[index % colors.length]"
             />
             <span>
@@ -275,7 +275,7 @@ export default {
     menuClasses: {
       type: String,
       required: false,
-      default: 'dropdown-content menu p-2 shadow rounded-box w-full z-10'
+      default: 'dropdown-content menu p-2 shadow-sm rounded-box w-full z-10'
     }
   },
   emits: ['update:model-value', 'remove', 'new-submitter', 'name-change'],

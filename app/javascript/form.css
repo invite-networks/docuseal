@@ -1,0 +1,97 @@
+@import "tailwindcss" source(none);
+@source "./submission_form/**/*.vue";
+@source "../views/submit_form/**/*.erb";
+@source "../views/start_form/**/*.erb";
+@source "../views/shared/_html_modal.html.erb";
+@source "../views/shared/_button_title.html.erb";
+@source "../views/shared/_attribution.html.erb";
+@source "../views/scripts/_autosize_field.html.erb";
+@source "../views/send_submission_email/**/*.erb";
+@import "./tailwind/theme.css";
+
+a[href],
+input[type='checkbox'],
+input[type='submit'],
+input[type='image'],
+input[type='radio'],
+label[for],
+select,
+button {
+  cursor: pointer;
+}
+
+button .disabled {
+  display: none;
+}
+
+button[disabled] .disabled, button.btn-disabled .disabled {
+  display: initial;
+}
+
+button .enabled {
+  display: initial;
+}
+
+button[disabled] .enabled, button.btn-disabled .enabled {
+  display: none;
+}
+
+/* Custom components. Living in the components layer lets Tailwind utilities
+   and daisyUI state rules (:hover, :disabled) override them, as in Tailwind 3. */
+@layer components {
+  .base-input {
+    @apply input input-bordered bg-white;
+    /* daisyUI 3 input: natural width, 3rem tall, 1rem text and padding. */
+    --size: 3rem;
+    width: auto;
+    font-size: 1rem;
+    padding-inline: 1rem;
+  }
+
+  .base-input:disabled,
+  .base-input:disabled:is(input) {
+    @apply cursor-not-allowed border-base-200 bg-base-200;
+    /* daisyUI 3 kept disabled values fully legible; daisyUI 5 fades them. */
+    color: var(--color-base-content);
+  }
+
+  .base-textarea {
+    @apply textarea textarea-bordered bg-white rounded-3xl;
+  }
+
+  .base-button {
+    @apply btn btn-neutral text-white text-base uppercase;
+    --size: 3rem;
+  }
+
+  .base-button:active {
+    scale: 1;
+    translate: 0;
+  }
+
+  .white-button {
+    @apply btn btn-outline text-base bg-white border-2 uppercase;
+    --size: 3rem;
+  }
+
+  .white-button:active {
+    scale: 1;
+    translate: 0;
+  }
+
+  .base-checkbox {
+    @apply checkbox rounded-sm bg-white checkbox-sm;
+  }
+
+  .base-radio {
+    @apply radio bg-white radio-sm;
+  }
+}
+
+.font-times {
+  font-family: "Times New Roman", Times, ui-serif, serif, Cambria, Georgia;
+}
+
+.font-courier {
+  font-family: "Courier New", Consolas, "Liberation Mono", monospace, ui-monospace, SFMono-Regular, Menlo, Monaco;
+}
