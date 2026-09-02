@@ -1,4 +1,4 @@
-import Rollbar from 'rollbar/dist/rollbar.umd'
+import Rollbar from 'rollbar'
 
 const token = document.querySelector('meta[name="rollbar-token"]')?.getAttribute('content')
 
