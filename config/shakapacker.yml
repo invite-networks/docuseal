@@ -11,7 +11,7 @@ default: &default
   javascript_transpiler: 'babel'
   compiler_strategy: digest
   cache_manifest: false
-  ensure_consistent_versioning: false
+  ensure_consistent_versioning: true
 
 development:
   <<: *default

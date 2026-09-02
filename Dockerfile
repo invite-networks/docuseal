@@ -35,7 +35,7 @@ WORKDIR /app
 
 # Keep the build-stage gem in lockstep with Gemfile and package.json.
 RUN apk add --no-cache nodejs yarn git build-base && \
-    gem install shakapacker -v 9.7.0
+    gem install shakapacker -v 10.3.2
 
 COPY ./package.json ./yarn.lock ./
 
@@ -52,7 +52,7 @@ COPY ./tailwind.application.config.js ./tailwind.application.config.js
 COPY ./app/javascript ./app/javascript
 COPY ./app/views ./app/views
 
-RUN echo "gem 'shakapacker', '9.7.0'" > Gemfile && ./bin/shakapacker
+RUN echo "gem 'shakapacker', '10.3.2'" > Gemfile && ./bin/shakapacker
 
 FROM ruby:4.0.5-alpine AS app
 

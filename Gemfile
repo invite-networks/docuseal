@@ -40,7 +40,7 @@ gem 'rouge', '~> 4.7', require: false
 gem 'rqrcode', require: false
 gem 'ruby-vips'
 gem 'rubyXL', require: false
-gem 'shakapacker', '~> 9.7.0'
+gem 'shakapacker', '~> 10.3'
 gem 'sidekiq'
 gem 'sqlite3', '>= 2.9.6', require: false
 gem 'strip_attributes'
