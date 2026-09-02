@@ -36,7 +36,7 @@ gem 'rails'
 gem 'rails-i18n'
 gem 'resolv', '>= 0.7.2'
 gem 'rotp'
-gem 'rouge', '~> 4.7', require: false
+gem 'rouge', '~> 5.1', require: false
 gem 'rqrcode', require: false
 gem 'ruby-vips'
 gem 'rubyXL', require: false
