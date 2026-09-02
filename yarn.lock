@@ -2307,10 +2307,10 @@ async@~3.2.3:
   resolved "https://registry.yarnpkg.com/async/-/async-3.2.6.tgz#1b0728e14929d51b85b449b7f06e27c1145e38ce"
   integrity sha512-htCUDlxyyCLMgaM3xXg0C0LW2xqfuQ6p05pCEIsXuyQ+a1koYKTuBMzRNwmybfLgvJDMd0r1LTn4+E0Ti6C2AA==
 
-autocompleter@^9.1.0:
-  version "9.3.2"
-  resolved "https://registry.yarnpkg.com/autocompleter/-/autocompleter-9.3.2.tgz#b66d4a2d19a6b6c378c6a897bf3c000eccef5fb9"
-  integrity sha512-rLbf2TLGOD7y+gOS36ksrZdIsvoHa2KXc2A7503w+NBRPrcF73zzFeYBxEcV/iMPjaBH3jFhNIYObZ7zt1fkCQ==
+autocompleter@^10.0.0:
+  version "10.0.0"
+  resolved "https://registry.yarnpkg.com/autocompleter/-/autocompleter-10.0.0.tgz#6cfa80ad354766438201a4f5a9e76ef0256da5dd"
+  integrity sha512-ZKUvEIU8XpqqkMrZoy+QmAh7Ga8YE3qB8EFJzC05K69S8+dQ3xrN066vJImiIjkwYVG1Oc8eRP4YVDQOquUF9A==
 
 autoprefixer@^10.4.14:
   version "10.5.4"

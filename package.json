@@ -28,7 +28,7 @@
     "@tiptap/extensions": "^3.19.0",
     "@tiptap/markdown": "^3.19.0",
     "@tiptap/pm": "^3.19.0",
-    "autocompleter": "^9.1.0",
+    "autocompleter": "^10.0.0",
     "autoprefixer": "^10.4.14",
     "babel-loader": "10.1.1",
     "babel-plugin-dynamic-import-node": "^2.3.3",
