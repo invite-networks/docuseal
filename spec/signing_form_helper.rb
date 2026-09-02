@@ -16,6 +16,8 @@ module SigningFormHelper
       const length = 300;
 
       function dispatchPointerEvent(type, x, y) {
+        // Real pointers report the primary button as pressed while drawing;
+        // signature_pad 5 ignores move events that do not.
         const event = new PointerEvent(type, {
           pointerId: 1,
           pointerType: 'pen',
@@ -23,7 +25,8 @@ module SigningFormHelper
           clientX: x,
           clientY: y,
           bubbles: true,
-          pressure: 0.5
+          pressure: 0.5,
+          buttons: type === 'pointerup' ? 0 : 1
         });
 
         canvas.dispatchEvent(event);
