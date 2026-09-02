@@ -92,7 +92,6 @@ export default {
     },
     isLastStep: {
       type: Boolean,
-      required: true,
       default: false
     },
     showFieldNames: {

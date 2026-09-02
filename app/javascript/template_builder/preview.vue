@@ -242,7 +242,6 @@ export default {
     },
     withReplaceButton: {
       type: Boolean,
-      required: true,
       default: true
     },
     withGoogleDrive: {

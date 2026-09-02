@@ -66,8 +66,7 @@ export default {
   props: {
     contextMenu: {
       type: Object,
-      default: null,
-      required: true
+      default: null
     },
     editable: {
       type: Boolean,

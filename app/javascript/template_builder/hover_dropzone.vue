@@ -63,7 +63,6 @@ export default {
   props: {
     isDragging: {
       type: Boolean,
-      required: true,
       default: false
     },
     templateId: {

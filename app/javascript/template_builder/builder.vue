@@ -3124,7 +3124,6 @@ export default {
     onDocumentReplace (data) {
       const { replaceSchemaItem, schema, documents } = data
       const isReplacingDynamicDocument = !!replaceSchemaItem.dynamic
-      // eslint-disable-next-line camelcase
       const { google_drive_file_id, dynamic, ...cleanedReplaceSchemaItem } = replaceSchemaItem
 
       this.template.schema.splice(this.template.schema.indexOf(replaceSchemaItem), 1, { ...cleanedReplaceSchemaItem, ...schema[0] })
