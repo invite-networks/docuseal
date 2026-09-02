@@ -8,8 +8,6 @@ module Api
     DEFAULT_LIMIT = 10
     MAX_LIMIT = 100
 
-    impersonates :user, with: ->(uuid) { User.find_by(uuid:) }
-
     wrap_parameters false
 
     before_action :authenticate_user!
@@ -85,13 +83,18 @@ module Api
       render json: { error: 'Not authenticated' }, status: :unauthorized unless current_user
     end
 
+    # The JSON API authenticates with the X-Auth-Token header only. It never
+    # falls back to the browser session cookie: ActionController::API carries no
+    # CSRF protection, so a cookie-authenticated API would be forgeable cross-site.
     def current_user
-      super || @current_user ||=
-                 if request.headers['X-Auth-Token'].present?
-                   sha256 = Digest::SHA256.hexdigest(request.headers['X-Auth-Token'])
+      return @current_user if defined?(@current_user)
 
-                   User.joins(:access_token).active.find_by(access_token: { sha256: })
-                 end
+      @current_user =
+        if request.headers['X-Auth-Token'].present?
+          sha256 = Digest::SHA256.hexdigest(request.headers['X-Auth-Token'])
+
+          User.joins(:access_token).active.find_by(access_token: { sha256: })
+        end
     end
 
     def current_account
@@ -111,7 +114,6 @@ module Api
       headers['Access-Control-Allow-Methods'] = 'POST, GET, PUT, PATCH, DELETE, OPTIONS'
       headers['Access-Control-Allow-Headers'] = '*'
       headers['Access-Control-Max-Age'] = '1728000'
-      headers['Access-Control-Allow-Credentials'] = true
     end
   end
 end

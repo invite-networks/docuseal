@@ -38,6 +38,13 @@ RSpec.describe Ability do
       expect(ability.can?(:read, external_template)).to be(false)
       expect(ability.can?(:read, external_completed)).to be(false)
     end
+
+    it 'creates templates only inside the admin account' do
+      expect(ability.can?(:create, Template.new(account_id: account.id))).to be(true)
+      expect(ability.can?(:create, Template.new(account_id: other_account.id))).to be(false)
+      expect(ability.can?(:create, Template.new)).to be(false)
+      expect(ability.attributes_for(:create, Template)).to include(account_id: account.id)
+    end
   end
 
   describe 'user access' do

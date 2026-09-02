@@ -49,7 +49,7 @@ class PreviewDocumentPageController < ActionController::API
 
     file_path = File.join(Dir.tmpdir, file_name)
 
-    File.open(file_path, File::RDWR | File::CREAT, 0o644) do |file|
+    File.open(file_path, File::RDWR | File::CREAT, 0o600) do |file|
       file.flock(File::LOCK_EX)
 
       # rubocop:disable Style/ZeroLengthPredicate

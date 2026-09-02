@@ -4,7 +4,8 @@ require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
 ENV['TZ'] ||= 'UTC'
 require_relative '../config/environment'
-abort('The Rails environment is running in production mode!') if Rails.env.production?
+raise 'The Rails environment is running in production mode!' if Rails.env.production?
+
 require 'rspec/rails'
 require 'capybara/cuprite'
 require 'capybara/rspec'
@@ -42,7 +43,7 @@ Rails.root.glob('spec/support/**/*.rb').each { |f| require f }
 begin
   ActiveRecord::Migration.maintain_test_schema!
 rescue ActiveRecord::PendingMigrationError => e
-  abort e.to_s.strip
+  raise e.to_s.strip
 end
 
 RSpec.configure do |config|
@@ -78,6 +79,21 @@ RSpec.configure do |config|
 
   config.before(multitenant: true) do
     allow(Docuseal).to receive(:multitenant?).and_return(true)
+  end
+
+  # Outbound URL validation resolves hostnames. Specs must not depend on DNS,
+  # so hostnames resolve to a public address unless a spec stubs them itself.
+  config.before do
+    allow(DownloadUtils).to receive(:resolve_addresses).and_wrap_original do |_, host|
+      literal =
+        begin
+          IPAddr.new(host)
+        rescue IPAddr::Error
+          nil
+        end
+
+      literal ? [literal] : [IPAddr.new('93.184.216.34')]
+    end
   end
 end
 

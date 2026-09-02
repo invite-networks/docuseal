@@ -14,15 +14,17 @@ gem 'cancancan'
 gem 'csv', require: false
 gem 'csv-safe', require: false
 gem 'devise'
-gem 'devise-two-factor'
 gem 'dotenv', require: false
 gem 'email_typo'
 gem 'faraday'
 gem 'faraday-follow_redirects'
 gem 'google-cloud-storage', require: false
 gem 'hexapdf'
+# Ruby default gems pinned above the interpreter-bundled versions with known CVEs.
+gem 'json', '>= 2.19.9'
 gem 'jwt', require: false
 gem 'lograge'
+gem 'net-imap', '>= 0.6.4.1', require: false
 gem 'numo-narray-alt', require: false
 gem 'onnxruntime', require: false
 gem 'pagy'
@@ -32,14 +34,15 @@ gem 'puma', require: false
 gem 'rack'
 gem 'rails'
 gem 'rails-i18n'
+gem 'resolv', '>= 0.7.2'
 gem 'rotp'
-gem 'rouge', require: false
+gem 'rouge', '~> 4.7', require: false
 gem 'rqrcode', require: false
 gem 'ruby-vips'
 gem 'rubyXL', require: false
-gem 'shakapacker'
+gem 'shakapacker', '~> 9.7.0'
 gem 'sidekiq'
-gem 'sqlite3', require: false
+gem 'sqlite3', '>= 2.9.6', require: false
 gem 'strip_attributes'
 gem 'trilogy', require: false
 gem 'turbo-rails'

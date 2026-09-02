@@ -7,7 +7,9 @@ module RateLimit
 
   module_function
 
-  def call(key, limit:, ttl:, enabled: Docuseal.multitenant?)
+  # Rate limiting is on by default. Callers must opt out explicitly with
+  # `enabled: false`; the previous default only enabled limits in multitenant mode.
+  def call(key, limit:, ttl:, enabled: true)
     return true unless enabled
 
     value = STORE.increment(key, 1, expires_in: ttl)

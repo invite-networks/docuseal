@@ -22,7 +22,7 @@ class EsignSettingsController < ApplicationController
     default_pkcs = GenerateCertificate.load_pkcs(cert_data) if cert_data['cert'].present?
 
     custom_pkcs_list = (cert_data['custom'] || []).map do |e|
-      pkcs = e['data'].present? ? OpenSSL::PKCS12.new(Base64.urlsafe_decode64(e['data']), e['password'].to_s) : nil
+      pkcs = e['data'].present? ? LoadPkcs12.call(Base64.urlsafe_decode64(e['data']), e['password']) : nil
 
       { 'pkcs' => pkcs, 'name' => e['name'], 'status' => e['status'] }
     end
@@ -99,7 +99,7 @@ class EsignSettingsController < ApplicationController
   end
 
   def save_new_cert!(cert_configs, cert_record)
-    pkcs = OpenSSL::PKCS12.new(cert_record.file.read, cert_record.password)
+    pkcs = LoadPkcs12.call(cert_record.file.read, cert_record.password)
 
     cert_configs.value ||= {}
     cert_configs.value['custom'] ||= []

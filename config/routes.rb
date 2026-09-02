@@ -14,7 +14,13 @@ Rails.application.routes.draw do
   get 'up' => 'rails/health#show'
   get 'manifest' => 'pwa#manifest'
 
-  devise_for :users, path: '/', only: :sessions, controllers: { sessions: 'sessions' }
+  devise_for :users, skip: :all
+
+  devise_scope :user do
+    get '/sign_in', to: 'sessions#new', as: :new_user_session
+    post '/sign_in', to: 'sessions#create', as: :user_session
+    delete '/sign_out', to: 'sessions#destroy', as: :destroy_user_session
+  end
 
   get '/auth/microsoft', to: 'microsoft_auth#new', as: :microsoft_auth
   get '/auth/microsoft/callback', to: 'microsoft_auth#callback', as: :microsoft_auth_callback

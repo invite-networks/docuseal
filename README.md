@@ -66,7 +66,7 @@ Docker Compose is the supported deployment approach. The included [`docker-compo
 
 ### Required `.env` Variables
 
-Create a `.env` file in the repository root before starting the Compose stack:
+Copy [`.env.example`](./.env.example) to `.env` in the repository root and fill in every value before starting the Compose stack:
 
 ```dotenv
 # Public hostname only. Do not include https:// or a trailing slash.
@@ -76,6 +76,11 @@ HOST=sign.example.com
 MICROSOFT_TENANT_ID=00000000-0000-0000-0000-000000000000
 MICROSOFT_CLIENT_ID=00000000-0000-0000-0000-000000000000
 MICROSOFT_CLIENT_SECRET=replace-with-client-secret-value
+
+# PostgreSQL credentials shared by the database and application containers.
+POSTGRES_USER=docuseal
+POSTGRES_PASSWORD=replace-with-a-long-random-password
+POSTGRES_DB=docuseal
 ```
 
 | Variable | Required | Description |
@@ -84,8 +89,23 @@ MICROSOFT_CLIENT_SECRET=replace-with-client-secret-value
 | `MICROSOFT_TENANT_ID` | Yes | Directory tenant ID from Microsoft Entra ID. This application uses single-tenant authentication. |
 | `MICROSOFT_CLIENT_ID` | Yes | Application (client) ID from the Microsoft Entra App registration. |
 | `MICROSOFT_CLIENT_SECRET` | Yes | Client secret **value** from the App registration, not the secret ID. Rotate it before its configured expiration date. |
+| `POSTGRES_USER` | No | Database role. Defaults to `docuseal`. |
+| `POSTGRES_PASSWORD` | Yes | Database password. Compose refuses to start without it. |
+| `POSTGRES_DB` | No | Database name. Defaults to `docuseal`. |
 
-The `.env` file is excluded from Git and must not be committed. Restrict access to the file because the Microsoft client secret allows the application to participate in the OAuth authorization flow. The included Compose configuration supplies PostgreSQL and derives `FORCE_SSL` from `HOST`, so those values do not need to be added to `.env` for the standard deployment.
+The `.env` file is excluded from Git and must not be committed. Restrict access to the file because the Microsoft client secret allows the application to participate in the OAuth authorization flow. The Compose configuration derives `FORCE_SSL` from `HOST`, so HTTPS enforcement, HSTS, secure cookies, and Host header validation are always on for the standard deployment. The application refuses to boot in production if `FORCE_SSL` or `ENCRYPTION_SECRET` is missing rather than silently running without them.
+
+### Application Secrets and Data Directory
+
+On first boot the application writes `docuseal.env` into the bind-mounted data directory (`./docuseal`) containing a generated `SECRET_KEY_BASE` and an independent `ENCRYPTION_SECRET`. The session signing key and the encryption-at-rest key are never derived from each other. To supply your own values, set both variables in the container environment instead.
+
+The container runs as the unprivileged user `1001:1001`. On Linux hosts, give that user ownership of the data directory before the first start:
+
+```sh
+mkdir -p docuseal && sudo chown -R 1001:1001 docuseal
+```
+
+Docker Desktop on macOS and Windows maps bind-mount ownership automatically and needs no extra step.
 
 Start or update the complete stack with:
 
@@ -141,7 +161,9 @@ The role values are application identifiers and must be entered exactly as lower
 
 The application synchronizes each user's first name, last name, email address, title, and company from Microsoft 365 at every sign-in. Title and company remain blank when those values are not set in Entra ID.
 
-The first successful Microsoft login links an existing user by normalized email. Subsequent logins use the immutable Entra tenant and object IDs. Assigned users without an existing local record are provisioned automatically.
+Users are identified by the immutable Entra tenant and object IDs only. Email addresses are never used to attach a Microsoft login to an existing local record, so a reassigned mailbox cannot inherit another person's DocuSeal history. Anyone who can sign in through the Enterprise Application is provisioned automatically on first login; control who has access with **Assignment required** and role assignments in Entra ID. Removing or disabling a person is also done in Entra ID.
+
+Local passwords do not exist. The Devise password, lockable, recoverable, and TOTP columns were removed from the `users` table.
 
 Signing invitations contain secure signing links. Completion notices contain secure links for reviewing and downloading completed documents. Email attachments and SMTP fallback are not supported.
 
@@ -150,6 +172,17 @@ Signing invitations contain secure signing links. Completion notices contain sec
 Bug reports, feature proposals, documentation improvements, and code contributions are welcome. Please [open an issue](../../issues) before beginning a substantial change so the proposed work can be aligned with the roadmap.
 
 Contributions should clearly distinguish between upstream fixes and fork-specific behavior. Changes that may also benefit the original project should be considered for submission upstream.
+
+### Running the Tests
+
+The test suite runs inside a standalone Compose stack so no local Ruby toolchain is required:
+
+```sh
+docker compose -f docker-compose.test.yml build test
+docker compose -f docker-compose.test.yml run --rm test bundle exec rake db:create db:migrate
+docker compose -f docker-compose.test.yml run --rm test bundle exec rspec
+docker compose -f docker-compose.test.yml run --rm test bundle exec rubocop
+```
 
 DocuSeal is a trademark of its respective owner. This fork preserves the attribution required by the upstream license and additional terms.
 

@@ -578,20 +578,6 @@
             :values="values"
             @submit="!isSubmitting && submitStep()"
           />
-          <VerificationStep
-            v-else-if="currentField.type === 'verification'"
-            ref="currentStep"
-            :key="currentField.uuid"
-            :locale="language?.toLowerCase() || browserLanguage"
-            :submitter="submitter"
-            :empty-value-required-step="emptyValueRequiredStep"
-            :field="currentField"
-            :submitter-slug="submitterSlug"
-            :fetch-options="fetchOptions"
-            :values="values"
-            @focus="scrollIntoField(currentField)"
-            @submit="!isSubmitting && submitStep()"
-          />
         </div>
         <div
           v-if="(currentField.type !== 'payment' && currentField.type !== 'verification' && currentField.type !== 'kba') || submittedValues[currentField.uuid]"
@@ -694,7 +680,6 @@ import AttachmentStep from './attachment_step'
 import MultiSelectStep from './multi_select_step'
 import PhoneStep from './phone_step'
 import PaymentStep from './payment_step'
-import VerificationStep from './verification_step'
 import KbaStep from './kba_step'
 import TextStep from './text_step'
 import NumberStep from './number_step'
@@ -752,7 +737,6 @@ export default {
     IconWritingSign,
     AttachmentStep,
     InitialsStep,
-    VerificationStep,
     KbaStep,
     InviteForm,
     MultiSelectStep,

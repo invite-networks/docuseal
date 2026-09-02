@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   before_action :maybe_redirect_to_setup, unless: :signed_in?
   before_action :authenticate_user!, unless: :devise_controller?
 
-  before_action :set_csp, if: -> { request.get? && !request.headers['HTTP_X_TURBO'] }
+  before_action :set_csp
 
   helper_method :button_title,
                 :branding_account,

@@ -83,8 +83,8 @@ GEM
     arabic-letter-connector (0.1.1)
     ast (2.4.3)
     aws-eventstream (1.4.0)
-    aws-partitions (1.1233.0)
-    aws-sdk-core (3.244.0)
+    aws-partitions (1.1283.0)
+    aws-sdk-core (3.254.1)
       aws-eventstream (~> 1, >= 1.3.0)
       aws-partitions (~> 1, >= 1.992.0)
       aws-sigv4 (~> 1.9)
@@ -92,15 +92,15 @@ GEM
       bigdecimal
       jmespath (~> 1, >= 1.6.1)
       logger
-    aws-sdk-kms (1.123.0)
-      aws-sdk-core (~> 3, >= 3.244.0)
+    aws-sdk-kms (1.130.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
       aws-sigv4 (~> 1.5)
-    aws-sdk-s3 (1.218.0)
-      aws-sdk-core (~> 3, >= 3.244.0)
+    aws-sdk-s3 (1.229.0)
+      aws-sdk-core (~> 3, >= 3.254.1)
       aws-sdk-kms (~> 1)
       aws-sigv4 (~> 1.5)
-    aws-sdk-secretsmanager (1.129.0)
-      aws-sdk-core (~> 3, >= 3.244.0)
+    aws-sdk-secretsmanager (1.134.0)
+      aws-sdk-core (~> 3, >= 3.254.0)
       aws-sigv4 (~> 1.5)
     aws-sigv4 (1.12.1)
       aws-eventstream (~> 1, >= 1.0.2)
@@ -167,11 +167,6 @@ GEM
       railties (>= 7.0)
       responders
       warden (~> 1.2.3)
-    devise-two-factor (6.4.0)
-      activesupport (>= 7.2, < 8.2)
-      devise (>= 4.0, < 6.0)
-      railties (>= 7.2, < 8.2)
-      rotp (~> 6.0)
     diff-lcs (1.6.2)
     digest-crc (0.7.0)
       rake (>= 12.0.0, < 14.0.0)
@@ -179,7 +174,7 @@ GEM
     dotenv (3.2.0)
     drb (2.2.3)
     email_typo (0.2.3)
-    erb (6.0.6)
+    erb (6.0.7)
     erb_lint (0.9.0)
       activesupport
       better_html (>= 2.0.1)
@@ -219,26 +214,27 @@ GEM
     geom2d (0.4.1)
     globalid (1.4.0)
       activesupport (>= 6.1)
-    google-apis-core (1.0.2)
-      addressable (~> 2.8, >= 2.8.7)
+    google-apis-core (1.2.5)
+      addressable (~> 2.9)
       faraday (~> 2.13)
       faraday-follow_redirects (~> 0.3)
       googleauth (~> 1.14)
       mini_mime (~> 1.1)
+      multi_json (~> 1.11)
       representable (~> 3.0)
-      retriable (~> 3.1)
-    google-apis-iamcredentials_v1 (0.26.0)
+      retriable (>= 3.1, < 5.0)
+    google-apis-iamcredentials_v1 (0.28.0)
       google-apis-core (>= 0.15.0, < 2.a)
-    google-apis-storage_v1 (0.61.0)
+    google-apis-storage_v1 (0.66.0)
       google-apis-core (>= 0.15.0, < 2.a)
-    google-cloud-core (1.8.0)
+    google-cloud-core (1.9.0)
       google-cloud-env (>= 1.0, < 3.a)
       google-cloud-errors (~> 1.0)
-    google-cloud-env (2.3.1)
+    google-cloud-env (2.4.0)
       base64 (~> 0.2)
       faraday (>= 1.0, < 3.a)
-    google-cloud-errors (1.6.0)
-    google-cloud-storage (1.59.0)
+    google-cloud-errors (1.7.0)
+    google-cloud-storage (1.62.0)
       addressable (~> 2.8)
       digest-crc (~> 0.4)
       google-apis-core (>= 0.18, < 2)
@@ -248,23 +244,23 @@ GEM
       googleauth (~> 1.9)
       mini_mime (~> 1.0)
     google-logging-utils (0.2.0)
-    googleauth (1.16.2)
+    googleauth (1.17.4)
       faraday (>= 1.0, < 3.a)
       google-cloud-env (~> 2.2)
       google-logging-utils (~> 0.1)
       jwt (>= 1.4, < 4.0)
-      multi_json (~> 1.11)
       os (>= 0.9, < 2.0)
+      pstore (~> 0.1)
       signet (>= 0.16, < 2.a)
     hashdiff (1.2.1)
-    hexapdf (1.7.0)
+    hexapdf (1.10.0)
       cmdparse (~> 3.0, >= 3.0.3)
       geom2d (~> 0.4, >= 0.4.1)
       openssl (>= 2.2.1)
       strscan (>= 3.1.2)
     i18n (1.15.2)
       concurrent-ruby (~> 1.0)
-    io-console (0.8.2)
+    io-console (0.9.2)
     irb (1.18.0)
       pp (>= 0.6.0)
       prism (>= 1.3.0)
@@ -310,7 +306,7 @@ GEM
       drb (~> 2.0)
       prism (~> 1.5)
     msgpack (1.8.4)
-    multi_json (1.19.1)
+    multi_json (1.21.1)
     net-http (0.9.1)
       uri (>= 0.11.1)
     net-imap (0.6.6)
@@ -333,14 +329,14 @@ GEM
       racc (~> 1.4)
     nokogiri (1.19.4-x86_64-linux-musl)
       racc (~> 1.4)
-    numo-narray-alt (0.10.3)
-    onnxruntime (0.10.1-aarch64-linux)
+    numo-narray-alt (0.11.2)
+    onnxruntime (0.11.6-aarch64-linux)
       ffi
-    onnxruntime (0.10.1-arm64-darwin)
+    onnxruntime (0.11.6-arm64-darwin)
       ffi
-    onnxruntime (0.10.1-x86_64-linux)
+    onnxruntime (0.11.6-x86_64-linux)
       ffi
-    openssl (4.0.1)
+    openssl (4.0.2)
     orm_adapter (0.5.0)
     os (1.1.4)
     package_json (0.2.0)
@@ -369,13 +365,14 @@ GEM
       reline (>= 0.6.0)
     pry-rails (0.3.11)
       pry (>= 0.13.0)
+    pstore (0.2.1)
     public_suffix (7.0.5)
     puma (8.0.2)
       nio4r (~> 2.0)
     racc (1.8.1)
-    rack (3.2.6)
-    rack-proxy (0.7.7)
-      rack
+    rack (3.2.7)
+    rack-proxy (1.0.2)
+      rack (>= 2.0, < 4)
     rack-session (2.1.2)
       base64 (>= 0.1.0)
       rack (>= 3.0.0)
@@ -418,7 +415,7 @@ GEM
       zeitwerk (~> 2.6)
     rainbow (3.1.1)
     rake (13.4.2)
-    rbs (4.1.0)
+    rbs (4.2.0)
       logger
       prism (>= 1.6.0)
       tsort
@@ -430,7 +427,7 @@ GEM
     redis-client (0.29.0)
       connection_pool
     regexp_parser (2.11.3)
-    reline (0.6.3)
+    reline (0.7.0)
       io-console (~> 0.5)
     representable (3.2.0)
       declarative (< 0.1.0)
@@ -438,10 +435,11 @@ GEM
       uber (< 0.2.0)
     request_store (1.7.0)
       rack (>= 1.4)
+    resolv (0.7.2)
     responders (3.2.0)
       actionpack (>= 7.0)
       railties (>= 7.0)
-    retriable (3.4.1)
+    retriable (4.2.0)
     rexml (3.4.4)
     rotp (6.3.0)
     rouge (4.7.0)
@@ -515,11 +513,10 @@ GEM
       logger (>= 1.7.0)
       rack (>= 3.2.0)
       redis-client (>= 0.29.0)
-    signet (0.21.0)
+    signet (0.22.0)
       addressable (~> 2.8)
       faraday (>= 0.17.5, < 3.a)
       jwt (>= 1.5, < 4.0)
-      multi_json (~> 1.10)
     simplecov (0.22.0)
       docile (~> 1.1)
       simplecov-html (~> 0.11)
@@ -527,18 +524,18 @@ GEM
     simplecov-html (0.13.2)
     simplecov_json_formatter (0.1.4)
     smart_properties (1.17.0)
-    sqlite3 (2.9.5-aarch64-linux-gnu)
-    sqlite3 (2.9.5-aarch64-linux-musl)
-    sqlite3 (2.9.5-arm64-darwin)
-    sqlite3 (2.9.5-x86_64-linux-gnu)
-    sqlite3 (2.9.5-x86_64-linux-musl)
+    sqlite3 (2.9.6-aarch64-linux-gnu)
+    sqlite3 (2.9.6-aarch64-linux-musl)
+    sqlite3 (2.9.6-arm64-darwin)
+    sqlite3 (2.9.6-x86_64-linux-gnu)
+    sqlite3 (2.9.6-x86_64-linux-musl)
     strip_attributes (2.0.1)
       activemodel (>= 3.0, < 9.0)
     strscan (3.1.8)
     thor (1.5.0)
     timeout (0.6.1)
     trailblazer-option (0.1.2)
-    trilogy (2.12.2)
+    trilogy (2.13.0)
       bigdecimal
     tsort (0.2.0)
     turbo-rails (2.0.23)
@@ -551,7 +548,7 @@ GEM
       tzinfo
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
-    tzinfo-data (1.2026.1)
+    tzinfo-data (1.2026.3)
       tzinfo (>= 1.0.0)
     uber (0.1.0)
     unicode-display_width (3.2.0)
@@ -578,7 +575,7 @@ GEM
     xpath (3.2.0)
       nokogiri (~> 1.8)
     yaml (0.4.0)
-    zeitwerk (2.8.2)
+    zeitwerk (2.8.3)
 
 PLATFORMS
   aarch64-linux
@@ -605,7 +602,6 @@ DEPENDENCIES
   cuprite
   debug
   devise
-  devise-two-factor
   dotenv
   email_typo
   erb_lint
@@ -616,9 +612,11 @@ DEPENDENCIES
   foreman
   google-cloud-storage
   hexapdf
+  json (>= 2.19.9)
   jwt
   letter_opener_web
   lograge
+  net-imap (>= 0.6.4.1)
   numo-narray-alt
   onnxruntime
   pagy
@@ -629,8 +627,9 @@ DEPENDENCIES
   rack
   rails
   rails-i18n
+  resolv (>= 0.7.2)
   rotp
-  rouge
+  rouge (~> 4.7)
   rqrcode
   rspec-rails
   rubocop
@@ -639,10 +638,10 @@ DEPENDENCIES
   rubocop-rspec
   ruby-vips
   rubyXL
-  shakapacker
+  shakapacker (~> 9.7.0)
   sidekiq
   simplecov
-  sqlite3
+  sqlite3 (>= 2.9.6)
   strip_attributes
   trilogy
   turbo-rails
@@ -655,4 +654,4 @@ RUBY VERSION
   ruby 4.0.5
 
 BUNDLED WITH
-  4.0.3
+  4.0.10

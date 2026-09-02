@@ -22,19 +22,26 @@ RSpec.describe Microsoft365::UserLinker do
     }
   end
 
-  it 'links an existing user by normalized email once' do
-    user = create(:user, account:, email: 'User@Example.com')
+  it 'never attaches a login to an existing local user by email match' do
+    create(:user, account:, email: 'User@Example.com')
 
-    result = described_class.call(claims)
+    expect { described_class.call(claims) }
+      .to raise_error(Microsoft365::AuthenticationError, /already linked to a different Microsoft account/)
+    expect(User.count).to eq(1)
+  end
 
-    expect(result).to eq(user)
-    expect(result.reload).to have_attributes(
-      microsoft_tenant_id: 'tenant-id',
-      microsoft_object_id: 'object-id',
-      first_name: 'Example',
-      last_name: 'User',
-      role: User::USER_ROLE
-    )
+  it 'refuses to provision when more than one primary account exists' do
+    create(:account)
+
+    expect { described_class.call(claims) }
+      .to raise_error(Microsoft365::AuthenticationError, /More than one active account/)
+  end
+
+  it 'refuses to provision before setup has created an account' do
+    Account.update_all(archived_at: Time.current)
+
+    expect { described_class.call(claims) }
+      .to raise_error(Microsoft365::AuthenticationError, /initial application setup/)
   end
 
   it 'provisions an assigned tenant user on first login' do
@@ -52,7 +59,8 @@ RSpec.describe Microsoft365::UserLinker do
   end
 
   it 'synchronizes a recognized Entra App role at every login' do
-    user = create(:user, account:, email: 'user@example.com', role: User::USER_ROLE)
+    user = create(:user, account:, email: 'user@example.com', role: User::USER_ROLE,
+                         microsoft_tenant_id: 'tenant-id', microsoft_object_id: 'object-id')
 
     result = described_class.call(claims.merge('roles' => ['Auditor']))
 
@@ -120,5 +128,13 @@ RSpec.describe Microsoft365::UserLinker do
 
     expect { described_class.call(claims) }
       .to raise_error(Microsoft365::AuthenticationError, /already linked/)
+  end
+
+  it 'does not clear a suspended (archived) account on login' do
+    # Deprovisioning is handled in Entra ID; DocuSeal only mirrors the identity.
+    user = create(:user, account:, email: 'user@example.com', archived_at: 1.day.ago,
+                         microsoft_tenant_id: 'tenant-id', microsoft_object_id: 'object-id')
+
+    expect(described_class.call(claims)).to eq(user)
   end
 end

@@ -1,14 +1,7 @@
 # Reporting a Vulnerability
 
-If you come across any security concern or vulnarability, please report the information via email to security@docuseal.com instead of opening a GitHub issue. We will promptly respond and will collaborate with you to validate the issue, and resolve it ASAP.
+This repository is an internally maintained fork of DocuSeal operated by INVITE Networks.
 
-**We have a bug bounty program to reward security researchers.**
+If you find a security issue, email info@invitenetworks.com instead of opening a GitHub issue. Include the affected component, steps to reproduce, and the impact you observed. We will confirm receipt, validate the report, and coordinate a fix.
 
-Out of scope vulnerabilities:
-
-- CSRF
-- DNSSEC, CAA, CSP headers
-- DNS or email security related
-- Rate Limiting
-
-Note: We reserve the right to classify any reported vulnerability as out of scope for the bug bounty program.
+Do not test against production systems without prior written authorization.

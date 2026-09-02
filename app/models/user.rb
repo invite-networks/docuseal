@@ -10,29 +10,20 @@
 #  confirmation_sent_at   :datetime
 #  confirmation_token     :string
 #  confirmed_at           :datetime
-#  consumed_timestep      :integer
 #  current_sign_in_at     :datetime
 #  current_sign_in_ip     :string
 #  email                  :string           not null
-#  encrypted_password     :string           not null
-#  failed_attempts        :integer          default(0), not null
 #  first_name             :string
 #  last_name              :string
 #  last_sign_in_at        :datetime
 #  last_sign_in_ip        :string
-#  locked_at              :datetime
 #  microsoft_object_id    :string
 #  microsoft_tenant_id    :string
-#  otp_required_for_login :boolean          default(FALSE), not null
-#  otp_secret             :string
 #  remember_created_at    :datetime
-#  reset_password_sent_at :datetime
-#  reset_password_token   :string
 #  role                   :string           not null
 #  sign_in_count          :integer          default(0), not null
 #  title                  :string
 #  unconfirmed_email      :string
-#  unlock_token           :string
 #  uuid                   :string           not null
 #  created_at             :datetime         not null
 #  updated_at             :datetime         not null
@@ -43,8 +34,6 @@
 #  index_users_on_account_id            (account_id)
 #  index_users_on_email                 (email) UNIQUE
 #  index_users_on_microsoft_identity    (microsoft_tenant_id,microsoft_object_id) UNIQUE WHERE ((microsoft_tenant_id IS NOT NULL) AND (microsoft_object_id IS NOT NULL))
-#  index_users_on_reset_password_token  (reset_password_token) UNIQUE
-#  index_users_on_unlock_token          (unlock_token) UNIQUE
 #  index_users_on_uuid                  (uuid) UNIQUE
 #
 # Foreign Keys
@@ -76,7 +65,8 @@ class User < ApplicationRecord
   has_many :encrypted_configs, dependent: :destroy, class_name: 'EncryptedUserConfig'
   has_many :email_messages, dependent: :destroy, foreign_key: :author_id, inverse_of: :author
 
-  devise :database_authenticatable, :rememberable, :trackable
+  # Authentication is delegated to Microsoft Entra ID; there is no local password.
+  devise :rememberable, :trackable
 
   attribute :role, :string, default: USER_ROLE
   attribute :uuid, :string, default: -> { SecureRandom.uuid }
@@ -106,6 +96,13 @@ class User < ApplicationRecord
 
   def remember_me
     true
+  end
+
+  # Devise's rememberable module derives the remember cookie salt from the
+  # password hash by default. There is no password, so derive a stable
+  # per-user value from the immutable uuid instead.
+  def authenticatable_salt
+    Digest::SHA256.hexdigest("remember:#{uuid}").first(29)
   end
 
   def sidekiq?

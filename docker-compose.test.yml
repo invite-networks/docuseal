@@ -1,3 +1,8 @@
+# Standalone test stack. Run the suite with:
+#   docker compose -f docker-compose.test.yml run --rm test bundle exec rspec
+# The Postgres credentials below are for the throwaway test database only.
+name: docuseal-test
+
 services:
   test:
     build:
@@ -23,3 +28,15 @@ services:
       PGHOST: postgres
       PGUSER: postgres
       PGPASSWORD: postgres
+
+  postgres:
+    image: postgres:18
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: docuseal_test
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d docuseal_test"]
+      interval: 5s
+      timeout: 5s
+      retries: 5

@@ -56,11 +56,26 @@ Rails.application.configure do
   # config.action_cable.url = "wss://example.com/cable"
   # config.action_cable.allowed_request_origins = [ "http://example.com", /http:\/\/example.*/ ]
 
+  # Transport security never fails open. FORCE_SSL must be set explicitly: a
+  # hostname or "true" enables HTTPS enforcement, HSTS, and secure cookies;
+  # "false" is an explicit opt out for deployments that terminate TLS elsewhere
+  # and still need plain HTTP between the proxy and the app.
+  if ENV['FORCE_SSL'].blank?
+    raise 'FORCE_SSL must be set in production (a hostname or "true" to enforce HTTPS, "false" to opt out)'
+  end
+
   # Assume all access to the app is happening through a SSL-terminating reverse proxy.
-  config.assume_ssl = ENV['FORCE_SSL'].present? && ENV['FORCE_SSL'] != 'false'
+  config.assume_ssl = ENV['FORCE_SSL'] != 'false'
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
-  config.force_ssl = ENV['FORCE_SSL'].present? && ENV['FORCE_SSL'] != 'false'
+  config.force_ssl = ENV['FORCE_SSL'] != 'false'
+
+  # Only answer requests addressed to the configured public hostname so a
+  # misconfigured proxy cannot forward arbitrary Host headers into Rails.
+  if ENV['HOST'].present?
+    config.hosts = [ENV['HOST']]
+    config.host_authorization = { exclude: ->(request) { request.path == '/up' } }
+  end
 
   # Include generic and useful information about system operation, but avoid logging too much
   # information to avoid inadvertent exposure of personally identifiable information (PII).
@@ -94,12 +109,29 @@ Rails.application.configure do
   logger.formatter = config.log_formatter
   config.logger    = ActiveSupport::TaggedLogging.new(logger)
 
-  encryption_secret = ENV['ENCRYPTION_SECRET'].presence || Digest::SHA256.hexdigest(ENV['SECRET_KEY_BASE'].to_s)
+  # Encryption at rest uses its own root secret. It is never derived from
+  # SECRET_KEY_BASE, so a leaked session key does not expose encrypted columns
+  # (Microsoft Graph tokens, signing certificates). The three key parameters are
+  # derived with HKDF using distinct info strings so they are independent of
+  # each other as well.
+  encryption_secret = ENV['ENCRYPTION_SECRET'].to_s
+
+  if encryption_secret.blank?
+    raise 'ENCRYPTION_SECRET must be set in production. Generate one with ' \
+          '`ruby -rsecurerandom -e "puts SecureRandom.hex(64)"` and add it to docuseal.env or the environment.'
+  end
+
+  raise 'ENCRYPTION_SECRET must be different from SECRET_KEY_BASE' if encryption_secret == ENV['SECRET_KEY_BASE'].to_s
+
+  derive_key = lambda do |info|
+    OpenSSL::KDF.hkdf(encryption_secret, salt: 'docuseal-active-record-encryption', info:, length: 32,
+                                         hash: 'SHA256').unpack1('H*')
+  end
 
   config.active_record.encryption = {
-    primary_key: encryption_secret.first(32),
-    deterministic_key: encryption_secret.last(32),
-    key_derivation_salt: Digest::SHA256.hexdigest(encryption_secret)
+    primary_key: derive_key.call('primary_key'),
+    deterministic_key: derive_key.call('deterministic_key'),
+    key_derivation_salt: derive_key.call('key_derivation_salt')
   }
 
   ActiveRecord::Encryption.configure(**config.active_record.encryption)

@@ -12,7 +12,6 @@ module Accounts
 
     new_user.uuid = SecureRandom.uuid
     new_user.account = new_account
-    new_user.encrypted_password = SecureRandom.hex
     new_user.email = "#{SecureRandom.hex}@docuseal.com"
 
     account.templates.each do |template|
@@ -62,7 +61,6 @@ module Accounts
         email: test_email,
         first_name: 'Testing',
         last_name: 'Environment',
-        password: SecureRandom.hex,
         role: :admin
       )
     end
@@ -124,7 +122,7 @@ module Accounts
       if default_cert['name'] == Docuseal::AATL_CERT_NAME
         Docuseal.default_pkcs
       else
-        OpenSSL::PKCS12.new(Base64.urlsafe_decode64(default_cert['data']), default_cert['password'].to_s)
+        LoadPkcs12.call(Base64.urlsafe_decode64(default_cert['data']), default_cert['password'])
       end
     else
       GenerateCertificate.load_pkcs(cert_data)
@@ -163,7 +161,7 @@ module Accounts
     custom_certs = cert_data.fetch('custom', []).filter_map do |e|
       next if e['data'].blank?
 
-      OpenSSL::PKCS12.new(Base64.urlsafe_decode64(e['data']), e['password'].to_s)
+      LoadPkcs12.call(Base64.urlsafe_decode64(e['data']), e['password'])
     end
 
     [default_pkcs.certificate,

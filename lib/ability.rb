@@ -29,6 +29,10 @@ class Ability
       Abilities::TemplateConditions.entity(template, user:, ability: 'manage')
     end
 
+    # Hash conditions let CanCan assign account_id when it builds a new Template,
+    # so a record is scoped to the admin's account before it is authorized.
+    can :create, Template, account_id: user.account_id
+
     can :destroy, Template, account_id: user.account_id
     can :manage, TemplateFolder, account_id: user.account_id
     can :manage, TemplateSharing, template: { account_id: user.account_id }

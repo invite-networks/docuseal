@@ -27,7 +27,7 @@ module GenerateCertificate
     key = OpenSSL::PKey::RSA.new(SIZE)
 
     cert = OpenSSL::X509::Certificate.new
-    cert.subject = OpenSSL::X509::Name.parse("/C=AT/O=#{name}/CN=#{name} Root CA")
+    cert.subject = build_name(name, "#{name} Root CA")
     cert.issuer = cert.subject
     cert.not_before = Time.current
     cert.not_after = 100.years.from_now
@@ -49,7 +49,7 @@ module GenerateCertificate
     key = OpenSSL::PKey::RSA.new(SIZE)
 
     cert = OpenSSL::X509::Certificate.new
-    cert.subject = OpenSSL::X509::Name.parse("/C=AT/O=#{name}/CN=#{name} Sub-CA")
+    cert.subject = build_name(name, "#{name} Sub-CA")
     cert.issuer = root_ca_cert.subject
     cert.not_before = Time.current
     cert.not_after = 100.years.from_now
@@ -71,7 +71,7 @@ module GenerateCertificate
     key = OpenSSL::PKey::RSA.new(SIZE)
 
     cert = OpenSSL::X509::Certificate.new
-    cert.subject = OpenSSL::X509::Name.parse("/C=AT/O=#{name}/CN=#{name}")
+    cert.subject = build_name(name, name)
     cert.issuer = ca_cert.subject
     cert.not_before = Time.current
     cert.not_after = 100.years.from_now
@@ -89,6 +89,16 @@ module GenerateCertificate
     [cert, key]
   end
 
+  # Attribute values are passed as structured RDN pairs so a name containing
+  # "/" or "=" cannot inject additional components into the distinguished name.
+  def build_name(organization, common_name)
+    OpenSSL::X509::Name.new([%w[C AT], ['O', organization.to_s], ['CN', common_name.to_s]])
+  end
+
+  # The PKCS12 bundle is assembled in memory from PEM material stored in an
+  # encrypted database column and is consumed in-process by the PDF signer. It
+  # is never persisted or exported, so it carries no passphrase of its own; the
+  # encrypted column (ENCRYPTION_SECRET) is the protection layer for the key.
   def load_pkcs(cert_data)
     cert = OpenSSL::X509::Certificate.new(cert_data['cert'])
     key = OpenSSL::PKey::RSA.new(cert_data['key']) if cert_data['key'].present?

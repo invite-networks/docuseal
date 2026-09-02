@@ -9,14 +9,11 @@ module Microsoft365
         email = extract_email(claims, profile)
 
         User.transaction do
+          # Identity is matched on the immutable Entra object id only. Email
+          # addresses can be reassigned to a different person, so they are never
+          # used to attach a login to an existing local account.
           user = User.lock.find_by(microsoft_tenant_id: tenant_id, microsoft_object_id: object_id)
-          user ||= find_existing_user(email)
           user ||= build_user(email, claims, profile)
-
-          if user.microsoft_object_id.present? &&
-             [user.microsoft_tenant_id, user.microsoft_object_id] != [tenant_id, object_id]
-            raise AuthenticationError, 'This DocuSeal user is already linked to another Microsoft account.'
-          end
 
           user.assign_attributes(
             microsoft_tenant_id: tenant_id,
@@ -33,6 +30,10 @@ module Microsoft365
           user
         end
       rescue ActiveRecord::RecordNotUnique
+        ensure_email_available!(email, tenant_id, object_id)
+
+        raise if (retries = (retries || 0) + 1) > 1
+
         retry
       end
 
@@ -50,26 +51,48 @@ module Microsoft365
         email
       end
 
-      def find_existing_user(email)
-        User.lock.find_by('LOWER(email) = ?', email)
+      def ensure_email_available!(email, tenant_id, object_id)
+        # COALESCE keeps unlinked users (NULL identity columns) in the match.
+        other = User.where('LOWER(email) = ?', email)
+                    .where("COALESCE(microsoft_tenant_id, '') <> ? OR COALESCE(microsoft_object_id, '') <> ?",
+                           tenant_id, object_id)
+
+        return unless other.exists?
+
+        raise AuthenticationError,
+              'A DocuSeal user with this email address is already linked to a different Microsoft account.'
       end
 
       def build_user(email, claims, profile)
-        account = Account.active.order(:id).first
-        unless account
-          raise AuthenticationError, 'Complete the initial application setup before signing in with Microsoft.'
-        end
+        ensure_email_available!(email, claims.fetch('tid'), claims.fetch('oid'))
 
-        account.users.new(
+        target_account.users.new(
           email:,
           first_name: profile['givenName'].presence || claims['given_name'].presence || claims['name'].to_s.split.first,
           last_name: profile['surname'].presence || claims['family_name'].presence ||
                      claims['name'].to_s.split.drop(1).join(' ').presence,
           title: profile['jobTitle'].presence,
           company: profile['companyName'].presence,
-          password: SecureRandom.base64(48),
           role: role_from_claims(claims)
         )
+      end
+
+      # This deployment is single-tenant: exactly one primary account may exist.
+      # Linked testing accounts are excluded. Anything else is a misconfiguration
+      # and provisioning stops instead of guessing by row order.
+      def target_account
+        accounts = Account.active.where.missing(:linked_account_account).limit(2).to_a
+
+        if accounts.empty?
+          raise AuthenticationError, 'Complete the initial application setup before signing in with Microsoft.'
+        end
+
+        if accounts.size > 1
+          raise AuthenticationError,
+                'More than one active account exists. Contact an administrator to complete sign-in.'
+        end
+
+        accounts.first
       end
 
       def role_from_claims(claims)
