@@ -58,7 +58,7 @@ module Api
     private
 
     def authorization_check!(attachment, record, exp)
-      return if attachment.name == 'logo'
+      return if attachment.name.in?(%w[logo favicon]) && record.is_a?(Account)
       return if exp.to_i >= Time.current.to_i
       return if current_user && current_ability.can?(:read, record)
 

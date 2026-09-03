@@ -1,0 +1,24 @@
+<div class="card bg-base-200">
+  <div class="card-body p-5">
+    <% if current_account.favicon.attached? %>
+      <div class="h-20 rounded-lg border border-base-300 bg-white flex items-center justify-center p-4">
+        <%= image_tag ActiveStorage::Blob.proxy_path(current_account.favicon.blob), alt: t('favicon'), class: 'object-contain max-h-full', height: 32, width: 32 %>
+      </div>
+      <p class="text-sm text-base-content/60 break-all"><%= current_account.favicon.filename %></p>
+    <% end %>
+
+    <%= form_with url: settings_personalization_favicon_path, method: :post, multipart: true, class: 'space-y-3' do %>
+      <div class="form-control">
+        <%= label_tag :favicon, t('your_favicon'), class: 'label pt-0' %>
+        <%= file_field_tag :favicon, accept: 'image/png,image/x-icon,image/vnd.microsoft.icon,image/svg+xml,.ico', required: true, class: 'file-input file-input-bordered w-full' %>
+        <p class="text-xs text-base-content/60 mt-1">PNG, ICO, or SVG. Maximum 1 MB.</p>
+      </div>
+      <div class="flex flex-col sm:flex-row gap-2">
+        <%= button_tag button_title(title: t('upload_favicon'), disabled_with: t('uploading')), class: 'base-button grow' %>
+        <% if current_account.favicon.attached? %>
+          <%= link_to t('remove'), settings_personalization_favicon_path, class: 'btn btn-outline btn-error', data: { turbo_method: :delete, turbo_confirm: t('are_you_sure_') } %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>

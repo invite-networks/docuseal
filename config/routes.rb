@@ -204,6 +204,7 @@ Rails.application.routes.draw do
                                   defaults: { status: :integration }
     resource :personalization, only: %i[show create], controller: 'personalization_settings'
     resource :personalization_logo, only: %i[create destroy], controller: 'personalization_logos'
+    resource :personalization_favicon, only: %i[create destroy], controller: 'personalization_favicons'
     resources :webhooks, only: %i[index show new create update destroy], controller: 'webhook_settings' do
       post :resend
 

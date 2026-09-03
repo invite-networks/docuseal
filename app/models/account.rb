@@ -54,6 +54,7 @@ class Account < ApplicationRecord
                                          inverse_of: :account, class_name: 'User'
 
   has_one_attached :logo
+  has_one_attached :favicon
 
   attribute :timezone, :string, default: 'UTC'
   attribute :locale, :string, default: 'en-US'

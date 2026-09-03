@@ -26,9 +26,9 @@ module Api
       end
 
       is_permitted = blob.attachments.any? do |a|
-        (current_user && a.record.account.id == current_user.account_id) ||
-          a.record.account.account_configs.any? { |e| e.key == 'legacy_blob_proxy' } ||
-          a.name == 'logo'
+        (a.name.in?(%w[logo favicon]) && a.record.is_a?(Account)) ||
+          (current_user && a.record.account.id == current_user.account_id) ||
+          a.record.account.account_configs.any? { |e| e.key == 'legacy_blob_proxy' }
       end
 
       unless is_permitted

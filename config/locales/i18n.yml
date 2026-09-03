@@ -344,6 +344,12 @@ en: &en
   verification_code_sms: Verification Code SMS
   completed_notification_email: Completed notification email
   company_logo: Company Logo
+  favicon: Favicon
+  upload_favicon: Upload Favicon
+  your_favicon: Your browser tab icon
+  favicon_has_been_uploaded: Favicon has been uploaded.
+  favicon_has_been_removed: Favicon has been removed.
+  invalid_favicon: Favicon must be a PNG, ICO, or SVG image up to 1 MB.
   submission_form: Submission Form
   completed_form_message: Completed Form Message
   completed_form_redirect_button: Completed Form Redirect Button
