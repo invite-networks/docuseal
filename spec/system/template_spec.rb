@@ -25,8 +25,9 @@ RSpec.describe 'Template' do
       click_link 'Send to Recipients'
 
       within '#modal' do
-        find('textarea[name="emails"]').fill_in with: 'contact@customer.example'
-        find('input[name="description"]').fill_in with: 'NDA for Customer X'
+        find('input[name="submission[1][submitters][][name]"]').fill_in with: 'Customer Contact'
+        find('input[name="submission[1][submitters][][email]"]').fill_in with: 'contact@customer.example'
+        find('input[name="submission[1][description]"]').fill_in with: 'NDA for Customer X'
         click_button 'Add Recipients'
       end
 
