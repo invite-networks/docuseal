@@ -2,6 +2,7 @@
 
 class SubmitterMailer < ApplicationMailer
   SIGN_TTL = 1.hour + 20.minutes
+  MAX_ATTACHMENTS_SIZE = 10.megabytes
 
   NO_REPLY_REGEXP = /no-?reply@/i
 
@@ -99,6 +100,14 @@ class SubmitterMailer < ApplicationMailer
     @body = template_preferences['completed_notification_email_body'].presence
     @body ||= fetch_config_email_body(@email_config, @submitter)
 
+    add_completed_email_attachments!(
+      submitter,
+      with_documents: @email_config&.value&.dig('attach_documents') != false &&
+                      template_preferences['completed_notification_email_attach_documents'] != false,
+      with_audit_log: @email_config&.value&.dig('attach_audit_log') != false &&
+                      template_preferences['completed_notification_email_attach_audit'] != false
+    )
+
     assign_message_metadata('submitter_completed', @submitter)
 
     I18n.with_locale(@current_account.locale) do
@@ -145,6 +154,14 @@ class SubmitterMailer < ApplicationMailer
     @body = template_preferences['documents_copy_email_body'].presence
     @body ||= fetch_config_email_body(@email_config, @submitter)
 
+    add_completed_email_attachments!(
+      submitter,
+      with_documents: template_preferences['documents_copy_email_attach_documents'] != false &&
+                      (@email_config.nil? || @email_config.value['attach_documents'] != false),
+      with_audit_log: template_preferences['documents_copy_email_attach_audit'] != false &&
+                      (@email_config.nil? || @email_config.value['attach_audit_log'] != false)
+    )
+
     assign_message_metadata('submitter_documents_copy', @submitter)
     reply_to = build_submitter_reply_to(submitter, email_config: @email_config, documents_copy_email: true)
 
@@ -175,6 +192,67 @@ class SubmitterMailer < ApplicationMailer
   end
 
   private
+
+  def add_completed_email_attachments!(submitter, with_audit_log: true, with_documents: true)
+    documents = with_documents ? select_completed_documents(submitter) : []
+
+    filename_format = AccountConfig.find_or_initialize_by(account_id: submitter.account_id,
+                                                          key: AccountConfig::DOCUMENT_FILENAME_FORMAT_KEY)&.value
+
+    total_size = 0
+    audit_trail_data = nil
+
+    if with_audit_log && submitter.submission.audit_trail.present? && documents.first&.name != 'combined_document'
+      audit_trail_data = submitter.submission.audit_trail.download
+
+      total_size = audit_trail_data.size
+    end
+
+    total_size = add_attachments_with_size_limit(submitter, documents, total_size, filename_format)
+
+    if audit_trail_data
+      audit_trail_filename =
+        Submitters.build_document_filename(submitter, submitter.submission.audit_trail.blob, filename_format)
+
+      attachments[audit_trail_filename.tr('"', "'")] = audit_trail_data
+    end
+
+    if with_documents
+      file_fields = submitter.submission.template_fields.select { |e| e['type'].in?(%w[file payment]) }
+
+      if file_fields.pluck('submitter_uuid').uniq.size == 1
+        storage_attachments =
+          submitter.attachments.where(uuid: submitter.values.values_at(*file_fields.pluck('uuid')).flatten)
+
+        add_attachments_with_size_limit(submitter, storage_attachments, total_size)
+      end
+    end
+
+    documents
+  end
+
+  def select_completed_documents(submitter)
+    last_submitter = Submitter.where(submission_id: submitter.submission_id).completed.order(:completed_at).last
+
+    Submissions::EnsureResultGenerated.call(last_submitter)
+
+    Submitters.select_attachments_for_download(last_submitter)
+  end
+
+  def add_attachments_with_size_limit(submitter, storage_attachments, current_size, filename_format = nil)
+    total_size = current_size
+
+    storage_attachments.each do |attachment|
+      total_size += attachment.byte_size
+
+      break if total_size >= MAX_ATTACHMENTS_SIZE
+
+      filename = Submitters.build_document_filename(submitter, attachment.blob, filename_format)
+      attachments[filename.to_s.tr('"', "'")] = attachment.download
+    end
+
+    total_size
+  end
 
   def build_submitter_reply_to(submitter, email_config: nil, documents_copy_email: nil)
     reply_to = submitter.preferences['reply_to'].presence
