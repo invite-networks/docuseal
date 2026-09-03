@@ -30,7 +30,7 @@
                   <div class="grid <%= 'md:grid-cols-2 gap-1' if submitters.size == 1 %>">
                     <submitters-autocomplete data-field="email">
                       <linked-input data-target-id="<%= "detailed_email_#{item['linked_to_uuid']}" if item['linked_to_uuid'].present? %>">
-                        <%= tag.input type: 'email', multiple: true, name: 'submission[1][submitters][][email]', autocomplete: 'off', class: 'base-input h-10! mt-1.5 w-full', placeholder: (local_assigns[:require_email_2fa] == true || local_assigns[:prefillable_fields].present? ? t(:email) : "#{t('email')} (#{t('optional')})"), value: item['email'].presence || ((params[:selfsign] && index.zero?) || item['is_requester'] ? current_user.email : ''), id: "detailed_email_#{item['uuid']}", required: local_assigns[:require_email_2fa] == true && index.zero? %>
+                        <%= tag.input type: 'email', multiple: true, name: 'submission[1][submitters][][email]', autocomplete: 'off', class: 'base-input h-10! mt-1.5 w-full', placeholder: t(:email), value: item['email'].presence || ((params[:selfsign] && index.zero?) || item['is_requester'] ? current_user.email : ''), id: "detailed_email_#{item['uuid']}", required: true %>
                       </linked-input>
                     </submitters-autocomplete>
                     <% has_phone_field = true %>
