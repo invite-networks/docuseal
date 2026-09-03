@@ -44,9 +44,9 @@ RSpec.describe Microsoft365::UserLinker do
       .to raise_error(Microsoft365::AuthenticationError, /initial application setup/)
   end
 
-  it 'provisions an assigned tenant user on first login' do
+  it 'provisions an assigned tenant admin on first login' do
     expect do
-      described_class.call(claims)
+      described_class.call(claims.merge('roles' => ['Admin']))
     end.to change(User, :count).by(1)
 
     expect(User.last).to have_attributes(
@@ -54,8 +54,15 @@ RSpec.describe Microsoft365::UserLinker do
       email: 'user@example.com',
       microsoft_tenant_id: 'tenant-id',
       microsoft_object_id: 'object-id',
-      role: User::USER_ROLE
+      role: User::ADMIN_ROLE
     )
+  end
+
+  it 'requires the DocuSeal Admin App Role for the first login' do
+    expect { described_class.call(claims) }
+      .to raise_error(Microsoft365::AuthenticationError, /first Microsoft user.*Admin App Role/)
+
+    expect(User.count).to eq(0)
   end
 
   it 'synchronizes a recognized Entra App role at every login' do
@@ -114,6 +121,14 @@ RSpec.describe Microsoft365::UserLinker do
   end
 
   it 'defaults unknown App roles to user' do
+    create(
+      :user,
+      account:,
+      email: 'admin@example.com',
+      microsoft_tenant_id: 'tenant-id',
+      microsoft_object_id: 'admin-object-id'
+    )
+
     result = described_class.call(claims.merge('roles' => ['DocumentApprover']))
 
     expect(result.role).to eq(User::USER_ROLE)

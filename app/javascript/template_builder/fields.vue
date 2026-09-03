@@ -8,7 +8,7 @@
       :model-value="selectedSubmitter.uuid"
       class="roles-dropdown w-full rounded-lg roles-dropdown"
       :submitters="submitters"
-      :menu-style="{ overflow: 'auto', display: 'flex', flexDirection: 'row', maxHeight: 'calc(100vh - 120px)', backgroundColor: ['', null, 'transparent'].includes(backgroundColor) ? 'white' : backgroundColor }"
+      :menu-style="{ overflow: 'auto', flexDirection: 'row', maxHeight: 'calc(100vh - 120px)', backgroundColor: ['', null, 'transparent'].includes(backgroundColor) ? 'white' : backgroundColor }"
       :editable="editable && !defaultSubmitters.length"
       @new-submitter="save"
       @remove="removeSubmitter"

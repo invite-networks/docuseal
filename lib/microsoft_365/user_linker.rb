@@ -13,7 +13,7 @@ module Microsoft365
           # addresses can be reassigned to a different person, so they are never
           # used to attach a login to an existing local account.
           user = User.lock.find_by(microsoft_tenant_id: tenant_id, microsoft_object_id: object_id)
-          user ||= build_user(email, claims, profile)
+          user ||= build_user(email, claims, profile, role: role_from_claims(claims))
 
           user.assign_attributes(
             microsoft_tenant_id: tenant_id,
@@ -63,17 +63,25 @@ module Microsoft365
               'A DocuSeal user with this email address is already linked to a different Microsoft account.'
       end
 
-      def build_user(email, claims, profile)
+      def build_user(email, claims, profile, role:)
         ensure_email_available!(email, claims.fetch('tid'), claims.fetch('oid'))
 
-        target_account.users.new(
+        account = target_account
+        account.lock!
+
+        if !User.exists? && role != User::ADMIN_ROLE
+          raise AuthenticationError,
+                'The first Microsoft user must have the DocuSeal Admin App Role assigned in Entra ID.'
+        end
+
+        account.users.new(
           email:,
           first_name: profile['givenName'].presence || claims['given_name'].presence || claims['name'].to_s.split.first,
           last_name: profile['surname'].presence || claims['family_name'].presence ||
                      claims['name'].to_s.split.drop(1).join(' ').presence,
           title: profile['jobTitle'].presence,
           company: profile['companyName'].presence,
-          role: role_from_claims(claims)
+          role:
         )
       end
 

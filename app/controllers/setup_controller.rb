@@ -6,18 +6,16 @@ class SetupController < ApplicationController
   skip_authorization_check
 
   before_action :redirect_to_root_if_signed, if: :signed_in?
-  before_action :ensure_first_user_not_created!
+  before_action :ensure_account_not_created!
 
   def index
     @account = Account.new(account_params)
-    @user = @account.users.new(user_params)
     @encrypted_config = EncryptedConfig.new(account: @account, key: EncryptedConfig::APP_URL_KEY)
   end
 
   def create
     @account = Account.new(account_params)
     @account.timezone = Accounts.normalize_timezone(@account.timezone)
-    @user = @account.users.new(user_params)
     @encrypted_config = EncryptedConfig.new(encrypted_config_params)
 
     unless URI.parse(encrypted_config_params[:value].to_s).class.in?([URI::HTTP, URI::HTTPS])
@@ -28,29 +26,23 @@ class SetupController < ApplicationController
 
     return render :index, status: :unprocessable_content unless @account.valid?
 
-    if @user.save
-      encrypted_configs = [
-        { key: EncryptedConfig::APP_URL_KEY, value: encrypted_config_params[:value] },
-        { key: EncryptedConfig::ESIGN_CERTS_KEY, value: GenerateCertificate.call.transform_values(&:to_pem) }
-      ]
+    encrypted_configs = [
+      { key: EncryptedConfig::APP_URL_KEY, value: encrypted_config_params[:value] },
+      { key: EncryptedConfig::ESIGN_CERTS_KEY, value: GenerateCertificate.call.transform_values(&:to_pem) }
+    ]
+
+    Account.transaction do
+      @account.save!
       @account.encrypted_configs.create!(encrypted_configs)
       @account.account_configs.create!(key: :fulltext_search, value: true) if SearchEntry.table_exists?
-
-      Docuseal.refresh_default_url_options!
-
-      redirect_to microsoft_auth_path, notice: 'Setup complete. Sign in with Microsoft to continue.'
-    else
-      render :index, status: :unprocessable_content
     end
+
+    Docuseal.refresh_default_url_options!
+
+    redirect_to microsoft_auth_path, notice: 'Setup complete. Sign in with Microsoft to continue.'
   end
 
   private
-
-  def user_params
-    return {} unless params[:user]
-
-    params.require(:user).permit(:first_name, :last_name, :email)
-  end
 
   def account_params
     return {} unless params[:account]
@@ -68,7 +60,7 @@ class SetupController < ApplicationController
     redirect_to root_path, notice: I18n.t('you_are_already_signed_in')
   end
 
-  def ensure_first_user_not_created!
-    redirect_to new_user_session_path, notice: I18n.t('please_sign_in') if User.exists?
+  def ensure_account_not_created!
+    redirect_to new_user_session_path, notice: I18n.t('please_sign_in') if Account.exists?
   end
 end

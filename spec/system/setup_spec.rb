@@ -3,9 +3,6 @@
 RSpec.describe 'App Setup' do
   let(:form_data) do
     {
-      first_name: 'John',
-      last_name: 'Doe',
-      email: 'john.doe@example.com',
       company_name: 'Example Company',
       app_url: 'https://example.com'
     }
@@ -18,9 +15,13 @@ RSpec.describe 'App Setup' do
   it 'shows the setup page' do
     expect(page).to have_content('Initial Setup')
 
-    ['First name', 'Last name', 'Email', 'Company name', 'App URL'].each do |field|
+    ['Company name', 'App URL'].each do |field|
       expect(page).to have_field(field)
     end
+
+    expect(page).to have_no_field('First name')
+    expect(page).to have_no_field('Last name')
+    expect(page).to have_no_field('Email')
   end
 
   context 'when valid information' do
@@ -30,34 +31,33 @@ RSpec.describe 'App Setup' do
       expect do
         click_button 'Submit'
         page.driver.wait_for_network_idle
-      end.to change(Account, :count).by(1).and change(User, :count).by(1).and change(EncryptedConfig, :count).by(2)
+      end.to change(Account, :count).by(1).and change(EncryptedConfig, :count).by(2)
 
-      user = User.last
-      encrypted_config_app_url = EncryptedConfig.find_by(account: user.account,
+      expect(User.count).to eq(0)
+
+      account = Account.last
+      encrypted_config_app_url = EncryptedConfig.find_by(account:,
                                                          key: EncryptedConfig::APP_URL_KEY)
-      encrypted_config_esign_certs = EncryptedConfig.find_by(account: user.account,
+      encrypted_config_esign_certs = EncryptedConfig.find_by(account:,
                                                              key: EncryptedConfig::ESIGN_CERTS_KEY)
 
-      expect(user.first_name).to eq(form_data[:first_name])
-      expect(user.last_name).to eq(form_data[:last_name])
-      expect(user.email).to eq(form_data[:email])
-      expect(user.account.timezone).to eq('UTC')
-      expect(user.account.locale).to eq('en-US')
-      expect(user.account.name).to eq(form_data[:company_name])
+      expect(account.timezone).to eq('UTC')
+      expect(account.locale).to eq('en-US')
+      expect(account.name).to eq(form_data[:company_name])
       expect(encrypted_config_app_url.value).to eq(form_data[:app_url])
       expect(encrypted_config_esign_certs.value).to be_present
     end
   end
 
   context 'when invalid information' do
-    it 'does not setup the app if the email is invalid' do
-      fill_setup_form(form_data.merge(email: 'bob@example-com'))
+    it 'does not setup the app if the URL is invalid' do
+      fill_setup_form(form_data.merge(app_url: 'not-a-url'))
 
       expect do
         click_button 'Submit'
-      end.not_to(change(User, :count))
+      end.not_to(change(Account, :count))
 
-      expect(page).to have_content('Email is invalid')
+      expect(page).to have_content('should be a valid URL')
     end
   end
 
@@ -72,12 +72,21 @@ RSpec.describe 'App Setup' do
     end
   end
 
+  context 'when the account exists but no user has signed in' do
+    let(:account) { create(:account) }
+
+    it 'redirects setup to Microsoft sign-in' do
+      account
+      visit setup_index_path
+
+      expect(page).to have_current_path(new_user_session_path)
+      expect(page).to have_link('Sign in with Microsoft', href: microsoft_auth_path)
+    end
+  end
+
   private
 
   def fill_setup_form(form_data)
-    fill_in 'First name', with: form_data[:first_name]
-    fill_in 'Last name', with: form_data[:last_name]
-    fill_in 'Email', with: form_data[:email]
     fill_in 'Company name', with: form_data[:company_name]
     fill_in 'App URL', with: form_data[:app_url]
   end

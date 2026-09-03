@@ -3,6 +3,8 @@
     v-if="mobileView"
     @mouseenter="renderDropdown = true"
     @touchstart="renderDropdown = true"
+    @focusin="openDropdown"
+    @focusout="onFocusout"
   >
     <div class="flex space-x-2 items-end">
       <div class="group/contenteditable-container bg-base-100 rounded-md p-2 border border-base-300 w-full flex justify-between items-end roles-dropdown-label-mobile">
@@ -26,6 +28,7 @@
         <label
           tabindex="0"
           class="bg-base-100 cursor-pointer rounded-md p-2 border border-base-300 w-full flex justify-center"
+          @click="openDropdown"
         >
           <IconChevronUp
             width="24"
@@ -33,7 +36,7 @@
           />
         </label>
         <ul
-          v-if="editable && renderDropdown"
+          v-if="editable && renderDropdown && dropdownOpen"
           tabindex="0"
           class="rounded-md min-w-max mb-2"
           :class="menuClasses"
@@ -92,12 +95,15 @@
     class="dropdown"
     @mouseenter="renderDropdown = true"
     @touchstart="renderDropdown = true"
+    @focusin="openDropdown"
+    @focusout="onFocusout"
   >
     <label
       v-if="compact"
       tabindex="0"
       :title="selectedSubmitter?.name"
       class="cursor-pointer text-base-100 flex h-full items-center justify-center"
+      @click="openDropdown"
     >
       <button
         class="mx-1 w-3 h-3 rounded-full shrink-0"
@@ -109,6 +115,7 @@
       ref="label"
       tabindex="0"
       class="group cursor-pointer group/contenteditable-container rounded-md p-2 border border-base-300 hover:border-content w-full flex justify-between items-center"
+      @click="openDropdown"
     >
       <div class="flex items-center space-x-2">
         <span
@@ -134,7 +141,7 @@
       </span>
     </label>
     <ul
-      v-if="(editable || !compact) && renderDropdown"
+      v-if="(editable || !compact) && renderDropdown && dropdownOpen"
       tabindex="0"
       :class="menuClasses"
       :style="menuStyle"
@@ -281,7 +288,8 @@ export default {
   emits: ['update:model-value', 'remove', 'new-submitter', 'name-change'],
   data () {
     return {
-      renderDropdown: false
+      renderDropdown: false,
+      dropdownOpen: false
     }
   },
   computed: {
@@ -382,7 +390,18 @@ export default {
       this.$emit('update:model-value', newSubmitter.uuid)
       this.$emit('new-submitter', newSubmitter)
     },
+    openDropdown () {
+      this.renderDropdown = true
+      this.dropdownOpen = true
+    },
+    onFocusout (event) {
+      if (!this.$el.contains(event.relatedTarget)) {
+        this.dropdownOpen = false
+      }
+    },
     closeDropdown () {
+      this.dropdownOpen = false
+      this.renderDropdown = false
       this.$el.getRootNode().activeElement.blur()
     }
   }

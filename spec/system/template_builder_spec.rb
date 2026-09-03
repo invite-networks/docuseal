@@ -37,5 +37,16 @@ RSpec.describe 'Template Builder' do
         expect(page).to have_button('Company')
       end
     end
+
+    it 'does not let the closed signer menu cover the field buttons' do
+      find('.roles-dropdown > label').click
+      find('.roles-dropdown .dropdown-content a', text: 'First Party').click
+
+      expect(page).to have_no_css('.roles-dropdown .dropdown-content', visible: :all)
+
+      find('#text_type_field_button').click
+
+      expect(page).to have_button('Cancel')
+    end
   end
 end
