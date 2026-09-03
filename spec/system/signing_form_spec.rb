@@ -1434,4 +1434,48 @@ RSpec.describe 'Signing Form' do
       expect(page).to have_no_css('#form_container')
     end
   end
+
+  context 'when the submission has multiple parties' do
+    let(:template) { create(:template, account:, author:, submitter_count: 2, only_field_types: %w[text]) }
+    let(:submission) { create(:submission, template:) }
+    let(:first_submitter) do
+      create(:submitter, submission:, uuid: template.submitters.first['uuid'], account:, email: 'robin@example.com')
+    end
+    let!(:second_submitter) do
+      create(:submitter, submission:, uuid: template.submitters.second['uuid'], account:, email: 'sam@example.com')
+    end
+
+    it 'hides download and send copy on the signed screen while another party is pending' do
+      visit submit_form_path(slug: first_submitter.slug)
+
+      expect(page).to have_css('submission-form[data-with-download-button="false"]', visible: :all)
+      expect(page).to have_css('submission-form[data-with-send-copy-button="false"]', visible: :all)
+
+      fill_in 'First Name', with: 'John'
+      find('#submit_form_button').click
+
+      expect(page).to have_content('Form has been completed!')
+      expect(page).to have_no_button('Download')
+      expect(page).to have_no_button('Send copy via email')
+    end
+
+    it 'hides download and send copy on the completed page while another party is pending' do
+      first_submitter.update!(completed_at: Time.current)
+
+      visit submit_form_path(slug: first_submitter.slug)
+
+      expect(page).to have_content('Completed on')
+      expect(page).to have_no_css('download-button')
+      expect(page).to have_no_button('Send copy to Email')
+    end
+
+    it 'shows download on the completed page once every party has signed' do
+      first_submitter.update!(completed_at: Time.current)
+      second_submitter.update!(completed_at: Time.current)
+
+      visit submit_form_path(slug: first_submitter.slug)
+
+      expect(page).to have_css('download-button[aria-label="Download documents"]')
+    end
+  end
 end

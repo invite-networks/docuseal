@@ -10,6 +10,16 @@ module Submissions
 
   module_function
 
+  # True when every signing party (viewers excluded) has completed. Pass
+  # `except:` to ask whether the submission becomes fully executed once that
+  # submitter completes.
+  def all_signers_completed?(submission, except: nil)
+    submitters = submission.submitters.reject(&:viewer?)
+    submitters = submitters.reject { |s| s.id == except.id } if except
+
+    submitters.all?(&:completed_at?)
+  end
+
   def maybe_update_completed_at(submission)
     viewer_uuids = submission.template_submitters.to_a.filter_map { |s| s['uuid'] if s['is_viewer'] }
 

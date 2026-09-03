@@ -49,6 +49,8 @@ safeRegisterElement('submission-form', class extends HTMLElement {
       values: reactive(JSON.parse(this.dataset.values)),
       completedButton: JSON.parse(this.dataset.completedButton || '{}'),
       withQrButton: true,
+      withSendCopyButton: this.dataset.withSendCopyButton !== 'false',
+      withDownloadButton: this.dataset.withDownloadButton !== 'false',
       completedMessage: JSON.parse(this.dataset.completedMessage || '{}'),
       completedRedirectUrl: this.dataset.completedRedirectUrl,
       attachments: reactive(JSON.parse(this.dataset.attachments)),
